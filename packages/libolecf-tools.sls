@@ -1,0 +1,2 @@
+libolecf-tools:
+  pkg.installed

@@ -1,0 +1,2 @@
+libjavassist-java:
+  pkg.installed

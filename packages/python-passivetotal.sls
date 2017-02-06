@@ -1,0 +1,2 @@
+python-passivetotal:
+  pkg.installed

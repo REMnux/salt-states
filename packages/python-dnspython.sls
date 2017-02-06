@@ -1,0 +1,2 @@
+python-dnspython:
+  pkg.installed

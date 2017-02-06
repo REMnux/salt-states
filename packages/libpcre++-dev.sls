@@ -1,0 +1,2 @@
+libpcre++-dev:
+  pkg.installed

@@ -1,0 +1,2 @@
+unicode:
+  pkg.installed

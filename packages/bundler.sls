@@ -1,0 +1,2 @@
+bundler:
+  pkg.installed

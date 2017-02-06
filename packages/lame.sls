@@ -1,0 +1,2 @@
+lame:
+  pkg.installed

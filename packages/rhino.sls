@@ -1,0 +1,2 @@
+rhino:
+  pkg.installed

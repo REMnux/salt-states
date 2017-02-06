@@ -1,0 +1,2 @@
+flare-floss:
+  pkg.installed

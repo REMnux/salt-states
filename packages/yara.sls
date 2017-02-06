@@ -1,0 +1,2 @@
+yara:
+  pkg.installed

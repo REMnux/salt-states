@@ -1,0 +1,2 @@
+unhide:
+  pkg.installed

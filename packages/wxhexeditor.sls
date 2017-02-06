@@ -1,0 +1,2 @@
+wxhexeditor:
+  pkg.installed

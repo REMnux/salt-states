@@ -1,0 +1,2 @@
+xterm:
+  pkg.installed

@@ -1,0 +1,2 @@
+qpdf:
+  pkg.installed

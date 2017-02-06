@@ -1,0 +1,2 @@
+ibus:
+  pkg.installed

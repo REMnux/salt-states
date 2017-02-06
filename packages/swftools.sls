@@ -1,0 +1,2 @@
+swftools:
+  pkg.installed

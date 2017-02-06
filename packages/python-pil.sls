@@ -1,0 +1,2 @@
+python-pil:
+  pkg.installed

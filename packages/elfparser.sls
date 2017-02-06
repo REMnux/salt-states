@@ -1,0 +1,2 @@
+elfparser:
+  pkg.installed

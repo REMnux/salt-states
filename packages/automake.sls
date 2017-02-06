@@ -1,0 +1,2 @@
+automake:
+  pkg.installed

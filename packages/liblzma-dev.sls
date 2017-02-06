@@ -1,0 +1,2 @@
+liblzma-dev:
+  pkg.installed

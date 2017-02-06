@@ -1,0 +1,2 @@
+ruby-dev:
+  pkg.installed

@@ -1,0 +1,2 @@
+python-setuptools:
+  pkg.installed

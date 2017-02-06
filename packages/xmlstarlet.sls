@@ -1,0 +1,2 @@
+xmlstarlet:
+  pkg.installed

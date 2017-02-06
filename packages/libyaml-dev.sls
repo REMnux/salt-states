@@ -1,0 +1,2 @@
+libyaml-dev:
+  pkg.installed

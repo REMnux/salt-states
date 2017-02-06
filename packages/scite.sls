@@ -1,0 +1,2 @@
+scite:
+  pkg.installed

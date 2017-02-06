@@ -1,0 +1,2 @@
+pdfresurrect:
+  pkg.installed

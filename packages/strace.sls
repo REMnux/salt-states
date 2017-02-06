@@ -1,0 +1,2 @@
+strace:
+  pkg.installed
