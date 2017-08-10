@@ -1,219 +1,442 @@
 include:
-  - .absent.cups-client
-  - .absent.remnux-python-pdns
-  - .absent.xscreensaver
-  - .aeskeyfind
-  - .automake
-  - .binutils
-  - .bison
-  - .build-essential
-  - .bulk-extractor
-  - .bundler
-  - .clamav-daemon
-  - .curl
-  - .default-jre
-  - .docker-engine
-  - .dos2unix
-  - .elfparser
-  - .epic5
-  - .exfat-utils
-  - .feh
-  - .firefox
-  - .flare-floss
-  - .flex
-  - .foremost
-  - .gdb-minimal
-  - .geany
-  - .git
-  - .graphviz
-  - .gtk2-engines-aurora
-  - .gtk2-engines-blueheart
-  - .gtk2-engines-cleanice
-  - .gtk2-engines-equinox
-  - .gtk2-engines-magicchicken
-  - .gtk2-engines-moblin
-  - .gtk2-engines-murrine
-  - .gtk2-engines-nodoka
-  - .gtk2-engines-oxygen
-  - .gtk2-engines-pixbuf
-  - .gtk2-engines-qtcurve
-  - .gtk2-engines-wonderland
-  - .gtk2-engines-xfce
-  - .gtk2-engines
-  - .ibus
-  - .imagemagick
-  - .inetsim
-  - .inspircd
-  - .lame
-  - .lib32stdcplusplus6
-  - .libboost-all-dev
-  - .libc6-dev-i386
-  - .libcanberra-gtk-module
-  - .libemail-outlook-message-perl
-  - .libemu2
-  - .libffi-dev
-  - .libfuzzy-dev
-  - .libgif-dev
-  - .libgif4
-  - .libgtk
-  - .libgtkmm
-  - .libimage-exiftool-perl
-  - .libjavassist-java
-  - .libjpeg-turbo8-dev
-  - .libjpeg-turbo8
-  - .liblzma-dev
-  - .libmagic-dev
-  - .libmozjs-24-bin
-  - .libncurses5-dev
-  - .libncurses5
-  - .libolecf-tools
-  - .libpcre++-dev
-  - .libpcre3-dev
-  - .libpcre3
-  - .libsm6
-  - .libsqlite3-dev
-  - .libtool
-  - .libwebkitgtk
-  - .libxml2-dev
-  - .libxslt1-dev
-  - .libxxf86vm1
-  - .libyaml-dev
-  - .libyara3
-  - .libzmq3-dev
-  - .ltrace
-  - .lxde
-  - .mercurial
-  - .nginx
-  - .ngrep
-  - .openssh-client
-  - .openssh-server
-  - .openssl
-  - .p7zip-full
-  - .pdfresurrect
-  - .pdftk
-  - .pyew
-  - .python-capstone
-  - .python-crypto
-  - .python-dev
-  - .python-dnspython
-  - .python-gtk2
-  - .python-gtksourceview2
-  - .python-hachoir-core
-  - .python-hachoir-metadata
-  - .python-hachoir-parser
-  - .python-hachoir-regex
-  - .python-hachoir-subfile
-  - .python-hachoir-urwid
-  - .python-hachoir-wx
-  - .python-levenshtein
-  - .python-magic
-  - .python-numpy
-  - .python-passivetotal
-  - .python-pefile
-  - .python-pil
-  - .python-pip
-  - .python-pyasn1
-  - .python-pydot
-  - .python-qt4
-  - .python-scipy
-  - .python-setuptools
-  - .python-utidylib
-  - .python-virtualenv
-  - .python-volatility
-  - .python-yara
-  - .python
-  - .qpdf
-  - .radare2
-  - .remnux-androguard
-  - .remnux-androwarn
-  - .remnux-automater
-  - .remnux-balbuzard
-  - .remnux-bashacks
-  - .remnux-bokken
-  - .remnux-burpsuite-free
-  - .remnux-bytehist
-  - .remnux-captipper
-  - .remnux-cfr
-  - .remnux-config
-  - .remnux-dc3-mwcp
-  - .remnux-densityscout
-  - .remnux-detect-it-easy
-  - .remnux-didier
-  - .remnux-dshell
-  - .remnux-edb-debugger
-  - .remnux-findaes
-  - .remnux-flare
-  - .remnux-ioc-parser
-  - .remnux-ioc-writer
-  - .remnux-jad
-  - .remnux-jd-gui
-  - .remnux-js-didier
-  - .remnux-just-metadata
-  - .remnux-libdasm
-  - .remnux-mastiff
-  - .remnux-network-miner
-  - .remnux-nsrllookup
-  - .remnux-officedissector
-  - .remnux-oletools
-  - .remnux-pdfxray-lite
-  - .remnux-peepdf
-  - .remnux-peframe
-  - .remnux-pev
-  - .remnux-portex
-  - .remnux-procdot
-  - .remnux-pycdc
-  - .remnux-pylibemu
-  - .remnux-pype32
-  - .remnux-python-chilkat
-  - .remnux-python-ssdeep
-  - .remnux-pyv8
-  - .remnux-rabcdasm
-  - .remnux-ragpicker
-  - .remnux-ratdecoders
-  - .remnux-rule-editor
-  - .remnux-rules
-  - .remnux-scripts
-  - .remnux-signsrch
-  - .remnux-thug
-  - .remnux-trid
-  - .remnux-udis86
-  - .remnux-v8
-  - .remnux-viper
-  - .remnux-virustotalapi
-  - .remnux-vivisect
-  - .remnux-volatility-plugins
-  - .remnux-vttool
-  - .remnux-xorsearch
-  - .remnux-xorstrings
-  - .rhino
-  - .rsakeyfind
-  - .ruby-dev
-  - .ruby-gtk2
-  - .ruby
-  - .scalpel
-  - .scite
-  - .ssdeep
-  - .strace
-  - .stunnel4
-  - .subversion
-  - .swftools
-  - .sysdig
-  - .tcpdump
-  - .tcpflow
-  - .tcpick
-  - .tcpxtract
-  - .tor
-  - .torsocks
-  - .unhide
-  - .unicode 
-  - .unrar
-  - .upx-ucl
-  - .usbmount
-  - .vbindiff
-  - .wireshark
-  - .wxhexeditor
-  - .xmlstarlet
-  - .xpdf
-  - .xterm
-  - .yara
-  - .zlib1g-dev
+  - remnux.packages.absent.cups-client
+  - remnux.packages.absent.remnux-python-pdns
+  - remnux.packages.absent.xscreensaver
+  - remnux.packages.aeskeyfind
+  - remnux.packages.automake
+  - remnux.packages.binutils
+  - remnux.packages.bison
+  - remnux.packages.build-essential
+  - remnux.packages.bulk-extractor
+  - remnux.packages.bundler
+  - remnux.packages.clamav-daemon
+  - remnux.packages.curl
+  - remnux.packages.default-jre
+  - remnux.packages.docker-engine
+  - remnux.packages.dos2unix
+  - remnux.packages.elfparser
+  - remnux.packages.epic5
+  - remnux.packages.exfat-utils
+  - remnux.packages.feh
+  - remnux.packages.firefox
+  - remnux.packages.flare-floss
+  - remnux.packages.flex
+  - remnux.packages.foremost
+  - remnux.packages.gdb-minimal
+  - remnux.packages.geany
+  - remnux.packages.git
+  - remnux.packages.graphviz
+  - remnux.packages.gtk2-engines-aurora
+  - remnux.packages.gtk2-engines-blueheart
+  - remnux.packages.gtk2-engines-cleanice
+  - remnux.packages.gtk2-engines-equinox
+  - remnux.packages.gtk2-engines-magicchicken
+  - remnux.packages.gtk2-engines-moblin
+  - remnux.packages.gtk2-engines-murrine
+  - remnux.packages.gtk2-engines-nodoka
+  - remnux.packages.gtk2-engines-oxygen
+  - remnux.packages.gtk2-engines-pixbuf
+  - remnux.packages.gtk2-engines-qtcurve
+  - remnux.packages.gtk2-engines-wonderland
+  - remnux.packages.gtk2-engines-xfce
+  - remnux.packages.gtk2-engines
+  - remnux.packages.ibus
+  - remnux.packages.imagemagick
+  - remnux.packages.inetsim
+  - remnux.packages.inspircd
+  - remnux.packages.lame
+  - remnux.packages.lib32stdcplusplus6
+  - remnux.packages.libboost-all-dev
+  - remnux.packages.libc6-dev-i386
+  - remnux.packages.libcanberra-gtk-module
+  - remnux.packages.libemail-outlook-message-perl
+  - remnux.packages.libemu2
+  - remnux.packages.libffi-dev
+  - remnux.packages.libfuzzy-dev
+  - remnux.packages.libgif-dev
+  - remnux.packages.libgif4
+  - remnux.packages.libgtk
+  - remnux.packages.libgtkmm
+  - remnux.packages.libimage-exiftool-perl
+  - remnux.packages.libjavassist-java
+  - remnux.packages.libjpeg-turbo8-dev
+  - remnux.packages.libjpeg-turbo8
+  - remnux.packages.liblzma-dev
+  - remnux.packages.libmagic-dev
+  - remnux.packages.libmozjs-24-bin
+  - remnux.packages.libncurses5-dev
+  - remnux.packages.libncurses5
+  - remnux.packages.libolecf-tools
+  - remnux.packages.libpcre++-dev
+  - remnux.packages.libpcre3-dev
+  - remnux.packages.libpcre3
+  - remnux.packages.libsm6
+  - remnux.packages.libsqlite3-dev
+  - remnux.packages.libtool
+  - remnux.packages.libwebkitgtk
+  - remnux.packages.libxml2-dev
+  - remnux.packages.libxslt1-dev
+  - remnux.packages.libxxf86vm1
+  - remnux.packages.libyaml-dev
+  - remnux.packages.libyara3
+  - remnux.packages.libzmq3-dev
+  - remnux.packages.ltrace
+  - remnux.packages.lxde
+  - remnux.packages.mercurial
+  - remnux.packages.nginx
+  - remnux.packages.ngrep
+  - remnux.packages.openssh-client
+  - remnux.packages.openssh-server
+  - remnux.packages.openssl
+  - remnux.packages.p7zip-full
+  - remnux.packages.pdfresurrect
+  - remnux.packages.pdftk
+  - remnux.packages.pyew
+  - remnux.packages.python-capstone
+  - remnux.packages.python-crypto
+  - remnux.packages.python-dev
+  - remnux.packages.python-dnspython
+  - remnux.packages.python-gtk2
+  - remnux.packages.python-gtksourceview2
+  - remnux.packages.python-hachoir-core
+  - remnux.packages.python-hachoir-metadata
+  - remnux.packages.python-hachoir-parser
+  - remnux.packages.python-hachoir-regex
+  - remnux.packages.python-hachoir-subfile
+  - remnux.packages.python-hachoir-urwid
+  - remnux.packages.python-hachoir-wx
+  - remnux.packages.python-levenshtein
+  - remnux.packages.python-magic
+  - remnux.packages.python-numpy
+  - remnux.packages.python-passivetotal
+  - remnux.packages.python-pefile
+  - remnux.packages.python-pil
+  - remnux.packages.python-pip
+  - remnux.packages.python-pyasn1
+  - remnux.packages.python-pydot
+  - remnux.packages.python-qt4
+  - remnux.packages.python-scipy
+  - remnux.packages.python-setuptools
+  - remnux.packages.python-utidylib
+  - remnux.packages.python-virtualenv
+  - remnux.packages.python-volatility
+  - remnux.packages.python-yara
+  - remnux.packages.python
+  - remnux.packages.qpdf
+  - remnux.packages.radare2
+  - remnux.packages.remnux-androguard
+  - remnux.packages.remnux-androwarn
+  - remnux.packages.remnux-automater
+  - remnux.packages.remnux-balbuzard
+  - remnux.packages.remnux-bashacks
+  - remnux.packages.remnux-bokken
+  - remnux.packages.remnux-burpsuite-free
+  - remnux.packages.remnux-bytehist
+  - remnux.packages.remnux-captipper
+  - remnux.packages.remnux-cfr
+  - remnux.packages.remnux-config
+  - remnux.packages.remnux-dc3-mwcp
+  - remnux.packages.remnux-densityscout
+  - remnux.packages.remnux-detect-it-easy
+  - remnux.packages.remnux-didier
+  - remnux.packages.remnux-dshell
+  - remnux.packages.remnux-edb-debugger
+  - remnux.packages.remnux-findaes
+  - remnux.packages.remnux-flare
+  - remnux.packages.remnux-ioc-parser
+  - remnux.packages.remnux-ioc-writer
+  - remnux.packages.remnux-jad
+  - remnux.packages.remnux-jd-gui
+  - remnux.packages.remnux-js-didier
+  - remnux.packages.remnux-just-metadata
+  - remnux.packages.remnux-libdasm
+  - remnux.packages.remnux-mastiff
+  - remnux.packages.remnux-network-miner
+  - remnux.packages.remnux-nsrllookup
+  - remnux.packages.remnux-officedissector
+  - remnux.packages.remnux-oletools
+  - remnux.packages.remnux-pdfxray-lite
+  - remnux.packages.remnux-peepdf
+  - remnux.packages.remnux-peframe
+  - remnux.packages.remnux-pev
+  - remnux.packages.remnux-portex
+  - remnux.packages.remnux-procdot
+  - remnux.packages.remnux-pycdc
+  - remnux.packages.remnux-pylibemu
+  - remnux.packages.remnux-pype32
+  - remnux.packages.remnux-python-chilkat
+  - remnux.packages.remnux-python-ssdeep
+  - remnux.packages.remnux-pyv8
+  - remnux.packages.remnux-rabcdasm
+  - remnux.packages.remnux-ragpicker
+  - remnux.packages.remnux-ratdecoders
+  - remnux.packages.remnux-rule-editor
+  - remnux.packages.remnux-rules
+  - remnux.packages.remnux-scripts
+  - remnux.packages.remnux-signsrch
+  - remnux.packages.remnux-thug
+  - remnux.packages.remnux-trid
+  - remnux.packages.remnux-udis86
+  - remnux.packages.remnux-v8
+  - remnux.packages.remnux-viper
+  - remnux.packages.remnux-virustotalapi
+  - remnux.packages.remnux-vivisect
+  - remnux.packages.remnux-volatility-plugins
+  - remnux.packages.remnux-vttool
+  - remnux.packages.remnux-xorsearch
+  - remnux.packages.remnux-xorstrings
+  - remnux.packages.rhino
+  - remnux.packages.rsakeyfind
+  - remnux.packages.ruby-dev
+  - remnux.packages.ruby-gtk2
+  - remnux.packages.ruby
+  - remnux.packages.scalpel
+  - remnux.packages.scite
+  - remnux.packages.ssdeep
+  - remnux.packages.strace
+  - remnux.packages.stunnel4
+  - remnux.packages.subversion
+  - remnux.packages.swftools
+  - remnux.packages.sysdig
+  - remnux.packages.tcpdump
+  - remnux.packages.tcpflow
+  - remnux.packages.tcpick
+  - remnux.packages.tcpxtract
+  - remnux.packages.tor
+  - remnux.packages.torsocks
+  - remnux.packages.unhide
+  - remnux.packages.unicode 
+  - remnux.packages.unrar
+  - remnux.packages.upx-ucl
+  - remnux.packages.usbmount
+  - remnux.packages.vbindiff
+  - remnux.packages.wireshark
+  - remnux.packages.wxhexeditor
+  - remnux.packages.xmlstarlet
+  - remnux.packages.xpdf
+  - remnux.packages.xterm
+  - remnux.packages.yara
+  - remnux.packages.zlib1g-dev
+
+remnux-packages:
+  test.nop:
+    - require:
+      - sls: remnux.packages.absent.cups-client
+      - sls: remnux.packages.absent.remnux-python-pdns
+      - sls: remnux.packages.absent.xscreensaver
+      - sls: remnux.packages.aeskeyfind
+      - sls: remnux.packages.automake
+      - sls: remnux.packages.binutils
+      - sls: remnux.packages.bison
+      - sls: remnux.packages.build-essential
+      - sls: remnux.packages.bulk-extractor
+      - sls: remnux.packages.bundler
+      - sls: remnux.packages.clamav-daemon
+      - sls: remnux.packages.curl
+      - sls: remnux.packages.default-jre
+      - sls: remnux.packages.docker-engine
+      - sls: remnux.packages.dos2unix
+      - sls: remnux.packages.elfparser
+      - sls: remnux.packages.epic5
+      - sls: remnux.packages.exfat-utils
+      - sls: remnux.packages.feh
+      - sls: remnux.packages.firefox
+      - sls: remnux.packages.flare-floss
+      - sls: remnux.packages.flex
+      - sls: remnux.packages.foremost
+      - sls: remnux.packages.gdb-minimal
+      - sls: remnux.packages.geany
+      - sls: remnux.packages.git
+      - sls: remnux.packages.graphviz
+      - sls: remnux.packages.gtk2-engines-aurora
+      - sls: remnux.packages.gtk2-engines-blueheart
+      - sls: remnux.packages.gtk2-engines-cleanice
+      - sls: remnux.packages.gtk2-engines-equinox
+      - sls: remnux.packages.gtk2-engines-magicchicken
+      - sls: remnux.packages.gtk2-engines-moblin
+      - sls: remnux.packages.gtk2-engines-murrine
+      - sls: remnux.packages.gtk2-engines-nodoka
+      - sls: remnux.packages.gtk2-engines-oxygen
+      - sls: remnux.packages.gtk2-engines-pixbuf
+      - sls: remnux.packages.gtk2-engines-qtcurve
+      - sls: remnux.packages.gtk2-engines-wonderland
+      - sls: remnux.packages.gtk2-engines-xfce
+      - sls: remnux.packages.gtk2-engines
+      - sls: remnux.packages.ibus
+      - sls: remnux.packages.imagemagick
+      - sls: remnux.packages.inetsim
+      - sls: remnux.packages.inspircd
+      - sls: remnux.packages.lame
+      - sls: remnux.packages.lib32stdcplusplus6
+      - sls: remnux.packages.libboost-all-dev
+      - sls: remnux.packages.libc6-dev-i386
+      - sls: remnux.packages.libcanberra-gtk-module
+      - sls: remnux.packages.libemail-outlook-message-perl
+      - sls: remnux.packages.libemu2
+      - sls: remnux.packages.libffi-dev
+      - sls: remnux.packages.libfuzzy-dev
+      - sls: remnux.packages.libgif-dev
+      - sls: remnux.packages.libgif4
+      - sls: remnux.packages.libgtk
+      - sls: remnux.packages.libgtkmm
+      - sls: remnux.packages.libimage-exiftool-perl
+      - sls: remnux.packages.libjavassist-java
+      - sls: remnux.packages.libjpeg-turbo8-dev
+      - sls: remnux.packages.libjpeg-turbo8
+      - sls: remnux.packages.liblzma-dev
+      - sls: remnux.packages.libmagic-dev
+      - sls: remnux.packages.libmozjs-24-bin
+      - sls: remnux.packages.libncurses5-dev
+      - sls: remnux.packages.libncurses5
+      - sls: remnux.packages.libolecf-tools
+      - sls: remnux.packages.libpcre++-dev
+      - sls: remnux.packages.libpcre3-dev
+      - sls: remnux.packages.libpcre3
+      - sls: remnux.packages.libsm6
+      - sls: remnux.packages.libsqlite3-dev
+      - sls: remnux.packages.libtool
+      - sls: remnux.packages.libwebkitgtk
+      - sls: remnux.packages.libxml2-dev
+      - sls: remnux.packages.libxslt1-dev
+      - sls: remnux.packages.libxxf86vm1
+      - sls: remnux.packages.libyaml-dev
+      - sls: remnux.packages.libyara3
+      - sls: remnux.packages.libzmq3-dev
+      - sls: remnux.packages.ltrace
+      - sls: remnux.packages.lxde
+      - sls: remnux.packages.mercurial
+      - sls: remnux.packages.nginx
+      - sls: remnux.packages.ngrep
+      - sls: remnux.packages.openssh-client
+      - sls: remnux.packages.openssh-server
+      - sls: remnux.packages.openssl
+      - sls: remnux.packages.p7zip-full
+      - sls: remnux.packages.pdfresurrect
+      - sls: remnux.packages.pdftk
+      - sls: remnux.packages.pyew
+      - sls: remnux.packages.python-capstone
+      - sls: remnux.packages.python-crypto
+      - sls: remnux.packages.python-dev
+      - sls: remnux.packages.python-dnspython
+      - sls: remnux.packages.python-gtk2
+      - sls: remnux.packages.python-gtksourceview2
+      - sls: remnux.packages.python-hachoir-core
+      - sls: remnux.packages.python-hachoir-metadata
+      - sls: remnux.packages.python-hachoir-parser
+      - sls: remnux.packages.python-hachoir-regex
+      - sls: remnux.packages.python-hachoir-subfile
+      - sls: remnux.packages.python-hachoir-urwid
+      - sls: remnux.packages.python-hachoir-wx
+      - sls: remnux.packages.python-levenshtein
+      - sls: remnux.packages.python-magic
+      - sls: remnux.packages.python-numpy
+      - sls: remnux.packages.python-passivetotal
+      - sls: remnux.packages.python-pefile
+      - sls: remnux.packages.python-pil
+      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python-pyasn1
+      - sls: remnux.packages.python-pydot
+      - sls: remnux.packages.python-qt4
+      - sls: remnux.packages.python-scipy
+      - sls: remnux.packages.python-setuptools
+      - sls: remnux.packages.python-utidylib
+      - sls: remnux.packages.python-virtualenv
+      - sls: remnux.packages.python-volatility
+      - sls: remnux.packages.python-yara
+      - sls: remnux.packages.python
+      - sls: remnux.packages.qpdf
+      - sls: remnux.packages.radare2
+      - sls: remnux.packages.remnux-androguard
+      - sls: remnux.packages.remnux-androwarn
+      - sls: remnux.packages.remnux-automater
+      - sls: remnux.packages.remnux-balbuzard
+      - sls: remnux.packages.remnux-bashacks
+      - sls: remnux.packages.remnux-bokken
+      - sls: remnux.packages.remnux-burpsuite-free
+      - sls: remnux.packages.remnux-bytehist
+      - sls: remnux.packages.remnux-captipper
+      - sls: remnux.packages.remnux-cfr
+      - sls: remnux.packages.remnux-config
+      - sls: remnux.packages.remnux-dc3-mwcp
+      - sls: remnux.packages.remnux-densityscout
+      - sls: remnux.packages.remnux-detect-it-easy
+      - sls: remnux.packages.remnux-didier
+      - sls: remnux.packages.remnux-dshell
+      - sls: remnux.packages.remnux-edb-debugger
+      - sls: remnux.packages.remnux-findaes
+      - sls: remnux.packages.remnux-flare
+      - sls: remnux.packages.remnux-ioc-parser
+      - sls: remnux.packages.remnux-ioc-writer
+      - sls: remnux.packages.remnux-jad
+      - sls: remnux.packages.remnux-jd-gui
+      - sls: remnux.packages.remnux-js-didier
+      - sls: remnux.packages.remnux-just-metadata
+      - sls: remnux.packages.remnux-libdasm
+      - sls: remnux.packages.remnux-mastiff
+      - sls: remnux.packages.remnux-network-miner
+      - sls: remnux.packages.remnux-nsrllookup
+      - sls: remnux.packages.remnux-officedissector
+      - sls: remnux.packages.remnux-oletools
+      - sls: remnux.packages.remnux-pdfxray-lite
+      - sls: remnux.packages.remnux-peepdf
+      - sls: remnux.packages.remnux-peframe
+      - sls: remnux.packages.remnux-pev
+      - sls: remnux.packages.remnux-portex
+      - sls: remnux.packages.remnux-procdot
+      - sls: remnux.packages.remnux-pycdc
+      - sls: remnux.packages.remnux-pylibemu
+      - sls: remnux.packages.remnux-pype32
+      - sls: remnux.packages.remnux-python-chilkat
+      - sls: remnux.packages.remnux-python-ssdeep
+      - sls: remnux.packages.remnux-pyv8
+      - sls: remnux.packages.remnux-rabcdasm
+      - sls: remnux.packages.remnux-ragpicker
+      - sls: remnux.packages.remnux-ratdecoders
+      - sls: remnux.packages.remnux-rule-editor
+      - sls: remnux.packages.remnux-rules
+      - sls: remnux.packages.remnux-scripts
+      - sls: remnux.packages.remnux-signsrch
+      - sls: remnux.packages.remnux-thug
+      - sls: remnux.packages.remnux-trid
+      - sls: remnux.packages.remnux-udis86
+      - sls: remnux.packages.remnux-v8
+      - sls: remnux.packages.remnux-viper
+      - sls: remnux.packages.remnux-virustotalapi
+      - sls: remnux.packages.remnux-vivisect
+      - sls: remnux.packages.remnux-volatility-plugins
+      - sls: remnux.packages.remnux-vttool
+      - sls: remnux.packages.remnux-xorsearch
+      - sls: remnux.packages.remnux-xorstrings
+      - sls: remnux.packages.rhino
+      - sls: remnux.packages.rsakeyfind
+      - sls: remnux.packages.ruby-dev
+      - sls: remnux.packages.ruby-gtk2
+      - sls: remnux.packages.ruby
+      - sls: remnux.packages.scalpel
+      - sls: remnux.packages.scite
+      - sls: remnux.packages.ssdeep
+      - sls: remnux.packages.strace
+      - sls: remnux.packages.stunnel4
+      - sls: remnux.packages.subversion
+      - sls: remnux.packages.swftools
+      - sls: remnux.packages.sysdig
+      - sls: remnux.packages.tcpdump
+      - sls: remnux.packages.tcpflow
+      - sls: remnux.packages.tcpick
+      - sls: remnux.packages.tcpxtract
+      - sls: remnux.packages.tor
+      - sls: remnux.packages.torsocks
+      - sls: remnux.packages.unhide
+      - sls: remnux.packages.unicode 
+      - sls: remnux.packages.unrar
+      - sls: remnux.packages.upx-ucl
+      - sls: remnux.packages.usbmount
+      - sls: remnux.packages.vbindiff
+      - sls: remnux.packages.wireshark
+      - sls: remnux.packages.wxhexeditor
+      - sls: remnux.packages.xmlstarlet
+      - sls: remnux.packages.xpdf
+      - sls: remnux.packages.xterm
+      - sls: remnux.packages.yara
+      - sls: remnux.packages.zlib1g-dev
+      

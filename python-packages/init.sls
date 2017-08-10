@@ -1,28 +1,60 @@
 include:
-  - .bitstring
-  - .bottle
-  - .cryptography
-  - .cybox
-  - .distorm3
-  - .docker-compose
-  - .fuzzywuzzy
-  - .ipwhois
-  - .jsbeautifier
-  - .mitmproxy
-  - .ndg-httpsclient
-  - .olefile
-  - .pydeep
-  - .pyelftools
-  - .pygeoip
-  - .pylzma
-  - .pypdns
-  - .pypssl
-  - .r2pipe
-  - .rarfile
-  - .rekall
-  - .requesocks
-  - .setuptools
-  - .shodan
-  - .six
-  - .wheel
-  - .xortool
+  - remnux.python-packages.bitstring
+  - remnux.python-packages.bottle
+  - remnux.python-packages.cryptography
+  - remnux.python-packages.cybox
+  - remnux.python-packages.distorm3
+  - remnux.python-packages.docker-compose
+  - remnux.python-packages.fuzzywuzzy
+  - remnux.python-packages.ipwhois
+  - remnux.python-packages.jsbeautifier
+  - remnux.python-packages.mitmproxy
+  - remnux.python-packages.ndg-httpsclient
+  - remnux.python-packages.olefile
+  - remnux.python-packages.pydeep
+  - remnux.python-packages.pyelftools
+  - remnux.python-packages.pygeoip
+  - remnux.python-packages.pylzma
+  - remnux.python-packages.pypdns
+  - remnux.python-packages.pypssl
+  - remnux.python-packages.r2pipe
+  - remnux.python-packages.rarfile
+  - remnux.python-packages.rekall
+  - remnux.python-packages.requesocks
+  - remnux.python-packages.setuptools
+  - remnux.python-packages.shodan
+  - remnux.python-packages.six
+  - remnux.python-packages.wheel
+  - remnux.python-packages.xortool
+
+remnux-python-packages:
+  test.nop:
+    - require:
+      - sls: remnux.python-packages.bitstring
+      - sls: remnux.python-packages.bottle
+      - sls: remnux.python-packages.cryptography
+      - sls: remnux.python-packages.cybox
+      - sls: remnux.python-packages.distorm3
+      - sls: remnux.python-packages.docker-compose
+      - sls: remnux.python-packages.fuzzywuzzy
+      - sls: remnux.python-packages.ipwhois
+      - sls: remnux.python-packages.jsbeautifier
+      - sls: remnux.python-packages.mitmproxy
+      - sls: remnux.python-packages.ndg-httpsclient
+      - sls: remnux.python-packages.olefile
+      - sls: remnux.python-packages.pydeep
+      - sls: remnux.python-packages.pyelftools
+      - sls: remnux.python-packages.pygeoip
+      - sls: remnux.python-packages.pylzma
+      - sls: remnux.python-packages.pypdns
+      - sls: remnux.python-packages.pypssl
+      - sls: remnux.python-packages.r2pipe
+      - sls: remnux.python-packages.rarfile
+      - sls: remnux.python-packages.rekall
+      - sls: remnux.python-packages.requesocks
+      - sls: remnux.python-packages.setuptools
+      - sls: remnux.python-packages.shodan
+      - sls: remnux.python-packages.six
+      - sls: remnux.python-packages.wheel
+      - sls: remnux.python-packages.xortool
+      
