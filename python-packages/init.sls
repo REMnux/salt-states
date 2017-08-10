@@ -24,6 +24,7 @@ include:
   - remnux.python-packages.setuptools
   - remnux.python-packages.shodan
   - remnux.python-packages.six
+  - remnux.python-packages.virustotal-api
   - remnux.python-packages.wheel
   - remnux.python-packages.xortool
 
@@ -55,6 +56,7 @@ remnux-python-packages:
       - sls: remnux.python-packages.setuptools
       - sls: remnux.python-packages.shodan
       - sls: remnux.python-packages.six
+      - sls: remnux.python-packages.virustotal-api
       - sls: remnux.python-packages.wheel
       - sls: remnux.python-packages.xortool
       
