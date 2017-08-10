@@ -6,6 +6,7 @@ include:
   - remnux.python-packages.distorm3
   - remnux.python-packages.docker-compose
   - remnux.python-packages.fuzzywuzzy
+  - remnux.python-packages.ioc-parser
   - remnux.python-packages.ipwhois
   - remnux.python-packages.jsbeautifier
   - remnux.python-packages.mitmproxy
@@ -38,6 +39,7 @@ remnux-python-packages:
       - sls: remnux.python-packages.distorm3
       - sls: remnux.python-packages.docker-compose
       - sls: remnux.python-packages.fuzzywuzzy
+      - sls: remnux.python-packages.ioc-parser
       - sls: remnux.python-packages.ipwhois
       - sls: remnux.python-packages.jsbeautifier
       - sls: remnux.python-packages.mitmproxy
