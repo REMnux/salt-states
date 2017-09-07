@@ -92,6 +92,8 @@ include:
   - remnux.packages.pdfresurrect
   - remnux.packages.pdftk
   - remnux.packages.pyew
+  - remnux.packages.python-androguard
+  - remnux.packages.python-balbuzard
   - remnux.packages.python-capstone
   - remnux.packages.python-crypto
   - remnux.packages.python-dev
@@ -108,6 +110,7 @@ include:
   - remnux.packages.python-levenshtein
   - remnux.packages.python-magic
   - remnux.packages.python-numpy
+  - remnux.packages.python-oletools
   - remnux.packages.python-passivetotal
   - remnux.packages.python-pefile
   - remnux.packages.python-pil
@@ -127,7 +130,6 @@ include:
   - remnux.packages.remnux-androguard
   - remnux.packages.remnux-androwarn
   - remnux.packages.remnux-automater
-  - remnux.packages.remnux-balbuzard
   - remnux.packages.remnux-bashacks
   - remnux.packages.remnux-bokken
   - remnux.packages.remnux-burpsuite-free
@@ -314,6 +316,8 @@ remnux-packages:
       - sls: remnux.packages.pdfresurrect
       - sls: remnux.packages.pdftk
       - sls: remnux.packages.pyew
+      - sls: remnux.pacakges.python-androguard
+      - sls: remnux.packages.python-balbuzard
       - sls: remnux.packages.python-capstone
       - sls: remnux.packages.python-crypto
       - sls: remnux.packages.python-dev
@@ -330,6 +334,7 @@ remnux-packages:
       - sls: remnux.packages.python-levenshtein
       - sls: remnux.packages.python-magic
       - sls: remnux.packages.python-numpy
+      - sls: remnux.packages.python-oletools
       - sls: remnux.packages.python-passivetotal
       - sls: remnux.packages.python-pefile
       - sls: remnux.packages.python-pil
@@ -346,10 +351,8 @@ remnux-packages:
       - sls: remnux.packages.python
       - sls: remnux.packages.qpdf
       - sls: remnux.packages.radare2
-      - sls: remnux.packages.remnux-androguard
       - sls: remnux.packages.remnux-androwarn
       - sls: remnux.packages.remnux-automater
-      - sls: remnux.packages.remnux-balbuzard
       - sls: remnux.packages.remnux-bashacks
       - sls: remnux.packages.remnux-bokken
       - sls: remnux.packages.remnux-burpsuite-free

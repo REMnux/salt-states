@@ -1,7 +1,8 @@
 include:
   - remnux.packages.python-pip
 
-pip:
+remnux-pip-pip:
   pip.installed:
+    - name: pip
     - require:
-      - pkg: python-pip
+      - sls: remnux.packages.python-pip
