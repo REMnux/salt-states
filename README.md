@@ -76,6 +76,13 @@ The states are designed to make use of require and watch statements against the 
 * States should be added to the `init.sls` file in it's directory, unless it's purely a dependency for another package. There are two places in the `init.sls` to add, first under the `include:` directive (this ensures that the state is included in the execution) and then under the `test.nop require` directive. **Note:** the `test.nop` is used as a rollup state function to ensure all child states execute properly. As long as all require functions pass, it'll pass.
 * All dependencies should be defined as state files. If a python packages requires something to be installed from APT, that package should get an entry in the `remnux/packages` folder, and then it should be included and required by the python package state. 
 
+### How to Test a State Interactively
+If you are working on a new state and want to be in a shell where you can just continue to test running the state without loosing history, you can launch into a docker container (so long as you are on linux or using Docker for Mac) and all the states will be mounted into a volume. A script called `./ci/dev-state.sh` is there to set this up for you.
+
+From there you can add your state file using your favorite text editor, make the changes necessary and when you are ready to test it, just run the following command `salt-call -l debug --local --retcode-passthrough --state-output=mixed state.sls <state_dot_path>`.
+
+The `<state_dot_path>` will be something like `remnux.packages.state-filename` or `remnux.python-packages.state-filename`
+
 ### Example States
 
 #### Python Package Not in PIP
