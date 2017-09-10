@@ -29,6 +29,7 @@ include:
   - remnux.python-packages.virustotal-api
   - remnux.python-packages.wheel
   - remnux.python-packages.xortool
+  - remnux.python-pacakges.xxxswf
 
 remnux-python-packages:
   test.nop:
@@ -63,4 +64,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.virustotal-api
       - sls: remnux.python-packages.wheel
       - sls: remnux.python-packages.xortool
-      
+      - sls: remnux.python-pacakges.xxxswf
