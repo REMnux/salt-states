@@ -3,6 +3,7 @@ include:
   - remnux.packages
   - remnux.python-packages
   - remnux.rubygems
+  - remnux.scripts
   - remnux.config
 
 remnux:
@@ -12,5 +13,6 @@ remnux:
       - sls: remnux.packages
       - sls: remnux.python-packages
       - sls: remnux.rubygems
+      - sls: remnux.scripts
       - sls: remnux.config
       
