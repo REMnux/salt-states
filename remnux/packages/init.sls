@@ -12,7 +12,7 @@ include:
   - remnux.packages.clamav-daemon
   - remnux.packages.curl
   - remnux.packages.default-jre
-  - remnux.packages.docker-engine
+  - remnux.packages.docker
   - remnux.packages.dos2unix
   - remnux.packages.elfparser
   - remnux.packages.epic5
@@ -236,7 +236,7 @@ remnux-packages:
       - sls: remnux.packages.clamav-daemon
       - sls: remnux.packages.curl
       - sls: remnux.packages.default-jre
-      - sls: remnux.packages.docker-engine
+      - sls: remnux.packages.docker
       - sls: remnux.packages.dos2unix
       - sls: remnux.packages.elfparser
       - sls: remnux.packages.epic5
