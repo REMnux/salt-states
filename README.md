@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/REMnux/salt-states.svg?branch=16.04)](https://travis-ci.org/REMnux/salt-states)
+[![Build Status](https://travis-ci.org/REMnux/salt-states.svg?branch=master)](https://travis-ci.org/REMnux/salt-states)
 
 # REMnux Salt States
 
