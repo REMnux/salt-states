@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/REMnux/salt-states.svg?branch=16.04)](https://travis-ci.org/REMnux/salt-states)
+
 # REMnux Salt States
 
 WIP: Working on 16.04 support.
