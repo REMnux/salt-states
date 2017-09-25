@@ -13,7 +13,7 @@ fi
 if [ "$TRAVIS_EVENT_TYPE" != "cron" ]; then
   echo "Detected Event: Push or PR"
   echo ""
-  ./scripts/changed-files.sh || exit 1
+  ./scripts/test-changed.sh || exit 1
   exit 0
 fi
 
