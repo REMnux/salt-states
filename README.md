@@ -6,8 +6,6 @@ WIP: Working on 16.04 support.
 
 ## Known Issues
 
-* General Python Dependency Conflicts (believe it has to do with pip and setuptools version)
-* Python Package: cybox - will not install properly
 * Not all REMnux specific configuration files have been converted over yet
 
 ## Goals
