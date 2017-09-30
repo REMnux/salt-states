@@ -20,15 +20,15 @@ WIP: Working on 16.04 support.
 
 1. Have a Ubuntu Desktop VM available
 2. [Install SaltStack](#install-saltstack)
-3. `git clone https://github.com:REMnux/states.git /srv/salt/remnux`
-4. `sudo salt-call state.apply`
+3. `git clone https://github.com:REMnux/states.git /srv/salt`
+4. `sudo salt-call state.sls remnux`
 5. Sit back and enjoy
 
 ### Install SaltStack
 
 ```bash
-wget -O - https://repo.saltstack.com/apt/ubuntu/14.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
-echo "deb http://repo.saltstack.com/apt/ubuntu/14.04/amd64/latest trusty main" | tee /etc/apt/sources.list.d/saltstack.list
+wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+echo "deb http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main" | tee /etc/apt/sources.list.d/saltstack.list
 
 apt-get install salt-minion
 
