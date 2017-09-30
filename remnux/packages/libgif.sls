@@ -1,2 +1,2 @@
-libxxf86vm1:
+libgif7:
   pkg.installed

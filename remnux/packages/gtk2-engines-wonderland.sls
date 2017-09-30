@@ -1,2 +1,2 @@
-gtk2-engines-wonderland:i386:
+gtk2-engines-wonderland:
   pkg.installed

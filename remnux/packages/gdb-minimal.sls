@@ -1,2 +1,0 @@
-gdb-minimal:
-  pkg.installed

@@ -1,2 +1,2 @@
-gtk2-engines-moblin:i386:
+gtk2-engines-moblin:
   pkg.installed

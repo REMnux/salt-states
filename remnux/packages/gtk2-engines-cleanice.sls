@@ -1,2 +1,2 @@
-gtk2-engines-cleanice:i386:
+gtk2-engines-cleanice:
   pkg.installed

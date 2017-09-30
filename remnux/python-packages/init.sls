@@ -1,4 +1,5 @@
 include:
+  - remnux.python-packages.androguard
   - remnux.python-packages.bitstring
   - remnux.python-packages.bottle
   - remnux.python-packages.cryptography
@@ -12,6 +13,7 @@ include:
   - remnux.python-packages.mitmproxy
   - remnux.python-packages.ndg-httpsclient
   - remnux.python-packages.olefile
+  - remnux.python-packages.passivetotal
   - remnux.python-packages.peframe
   - remnux.python-packages.pydeep
   - remnux.python-packages.pyelftools
@@ -29,11 +31,12 @@ include:
   - remnux.python-packages.virustotal-api
   - remnux.python-packages.wheel
   - remnux.python-packages.xortool
-  - remnux.python-pacakges.xxxswf
+  - remnux.python-packages.xxxswf
 
 remnux-python-packages:
   test.nop:
     - require:
+      - sls: remnux.python-packages.androguard
       - sls: remnux.python-packages.bitstring
       - sls: remnux.python-packages.bottle
       - sls: remnux.python-packages.cryptography
@@ -47,6 +50,7 @@ remnux-python-packages:
       - sls: remnux.python-packages.mitmproxy
       - sls: remnux.python-packages.ndg-httpsclient
       - sls: remnux.python-packages.olefile
+      - sls: remnux.python-packages.passivetotal
       - sls: remnux.python-packages.peframe
       - sls: remnux.python-packages.pydeep
       - sls: remnux.python-packages.pyelftools
@@ -64,4 +68,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.virustotal-api
       - sls: remnux.python-packages.wheel
       - sls: remnux.python-packages.xortool
-      - sls: remnux.python-pacakges.xxxswf
+      - sls: remnux.python-packages.xxxswf

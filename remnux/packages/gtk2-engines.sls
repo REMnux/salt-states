@@ -1,2 +1,2 @@
-gtk2-engines:i386:
+gtk2-engines:
   pkg.installed

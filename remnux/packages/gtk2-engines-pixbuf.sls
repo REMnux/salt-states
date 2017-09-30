@@ -1,2 +1,2 @@
-gtk2-engines-pixbuf:i386:
+gtk2-engines-pixbuf:
   pkg.installed

@@ -4,4 +4,4 @@ include:
 python-volatility:
   pkg.installed:
     - require:
-      - pkgrepo: sift
+      - pkgrepo: sift-repo

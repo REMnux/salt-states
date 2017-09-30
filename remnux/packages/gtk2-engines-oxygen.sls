@@ -1,2 +1,2 @@
-gtk2-engines-oxygen:i386:
+gtk2-engines-oxygen:
   pkg.installed

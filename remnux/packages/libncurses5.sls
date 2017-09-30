@@ -1,2 +1,2 @@
-libncurses5:i386:
+libncurses5:
   pkg.installed

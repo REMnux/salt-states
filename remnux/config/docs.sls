@@ -1,7 +1,10 @@
+include:
+  - remnux.packages.git
+
 remnux-docs-directory:
   file.directory:
     - name: /usr/share/remnux/docs
-    - mkdirs: True
+    - makedirs: True
 
 remnux-docs-git:
   git.latest:
@@ -9,3 +12,4 @@ remnux-docs-git:
     - target: /usr/share/remnux/docs
     - require:
       - file: remnux-docs-directory
+      - pkg: git

@@ -1,2 +1,2 @@
-libcanberra-gtk-module:i386:
+libcanberra-gtk-module:
   pkg.installed

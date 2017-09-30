@@ -1,2 +1,2 @@
-gtk2-engines-aurora:i386:
+gtk2-engines-aurora:
   pkg.installed

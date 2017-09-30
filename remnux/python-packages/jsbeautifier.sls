@@ -1,7 +1,8 @@
 include:
   - remnux.python-packages.pip
 
-jsbeautifier:
-  pkg.installed:
+remnux-jsbeautifier:
+  pip.installed:
+    - name: jsbeautifier
     - require:
       - pip: pip

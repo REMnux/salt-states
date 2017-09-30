@@ -1,2 +1,2 @@
-gtk2-engines-murrine:i386:
+gtk2-engines-murrine:
   pkg.installed

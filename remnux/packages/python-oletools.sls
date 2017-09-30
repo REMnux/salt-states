@@ -5,7 +5,7 @@ include:
   - remnux.packages.git
   - remnux.packages.python-pip
 
-remnux-python-balbuzard:
+remnux-python-oletools:
   pip.installed:
     - name: git+https://github.com/decalage2/oletools.git@3681c31
     - require:

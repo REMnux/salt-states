@@ -1,2 +1,2 @@
-libxxf86vm1:
+gdb:
   pkg.installed

@@ -1,2 +1,2 @@
-libgtk2.0-0:i386:
+libgtk2.0-0:
   pkg.installed

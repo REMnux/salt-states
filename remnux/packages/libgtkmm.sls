@@ -1,2 +1,2 @@
-libgtkmm-2.4-1c2a:i386:
+libgtkmm-2.4-1v5:
   pkg.installed

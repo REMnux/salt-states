@@ -1,18 +1,18 @@
 include:
-  - remnux.repos.ubuntu-universal
-  - remunx.repos.docker
-  - remunx.repos.draios
-  - remunx.repos.inetsim
-  - remunx.repos.sift
-  - remunx.repos.remnux
+  - remnux.repos.docker
+  - remnux.repos.draios
+  - remnux.repos.inetsim
+  - remnux.repos.openjdk
+  - remnux.repos.gift
+  - remnux.repos.sift
 
 remnux-repos:
   test.nop:
     - require:
-      - sls: remnux.repos.ubuntu-universal
-      - sls: remunx.repos.docker
-      - sls: remunx.repos.draios
-      - sls: remunx.repos.inetsim
-      - sls: remunx.repos.sift
-      - sls: remunx.repos.remnux
+      - sls: remnux.repos.docker
+      - sls: remnux.repos.draios
+      - sls: remnux.repos.inetsim
+      - sls: remnux.repos.openjdk
+      - sls: remnux.repos.gift
+      - sls: remnux.repos.sift
       

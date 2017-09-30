@@ -1,2 +1,2 @@
-gtk2-engines-magicchicken:i386:
+gtk2-engines-magicchicken:
   pkg.installed

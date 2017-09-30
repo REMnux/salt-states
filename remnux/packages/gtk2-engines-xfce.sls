@@ -1,2 +1,2 @@
-gtk2-engines-xfce:i386:
+gtk2-engines-xfce:
   pkg.installed

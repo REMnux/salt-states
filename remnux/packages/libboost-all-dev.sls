@@ -1,2 +1,2 @@
-libboost1.54-all-dev:
+libboost1.58-all-dev:
   pkg.installed

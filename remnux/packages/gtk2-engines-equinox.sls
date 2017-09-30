@@ -1,2 +1,2 @@
-gtk2-engines-equinox:i386:
+gtk2-engines-equinox:
   pkg.installed

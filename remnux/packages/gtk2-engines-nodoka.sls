@@ -1,2 +1,2 @@
-gtk2-engines-nodoka:i386:
+gtk2-engines-nodoka:
   pkg.installed

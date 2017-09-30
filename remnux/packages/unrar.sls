@@ -1,2 +1,3 @@
-unrar:
-  pkg.installed
+remnux-unrar:
+  pkg.installed:
+    - name: unrar-free

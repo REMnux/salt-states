@@ -1,2 +1,2 @@
-libsm6:i386:
+libsm6:
   pkg.installed

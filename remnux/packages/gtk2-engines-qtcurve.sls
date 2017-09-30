@@ -1,2 +1,2 @@
-gtk2-engines-qtcurve:i386:
+gtk2-engines-qtcurve:
   pkg.installed
