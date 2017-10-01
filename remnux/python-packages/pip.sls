@@ -3,6 +3,6 @@ include:
 
 remnux-pip-pip:
   pip.installed:
-    - name: pip
+    - name: pip >= 9.0
     - require:
       - sls: remnux.packages.python-pip
