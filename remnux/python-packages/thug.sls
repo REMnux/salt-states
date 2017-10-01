@@ -19,7 +19,7 @@ include:
   - remnux.packages.autoconf
   - remnux.packages.libemu-dev
   - remnux.python-packages.pyv8
-  - remnux.pythong-packages.pygraphviz
+  - remnux.python-packages.pygraphviz
 
 remnux-pip-thug:
   pip.installed:
@@ -45,4 +45,4 @@ remnux-pip-thug:
       - sls: remnux.packages.autoconf
       - sls: remnux.packages.libemu-dev
       - sls: remnux.python-packages.pyv8
-      - sls: remnux.pythong-packages.pygraphviz
+      - sls: remnux.python-packages.pygraphviz
