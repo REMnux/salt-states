@@ -23,7 +23,7 @@ include:
 
 remnux-pip-thug:
   pip.installed:
-    - name: thug
+    - name: git+https://github.com/buffer/thug.git@master
     - require:
       - sls: remnux.python-packages.pip
       - sls: remnux.packages.build-essential
