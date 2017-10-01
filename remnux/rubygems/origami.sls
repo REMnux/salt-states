@@ -1,8 +1,12 @@
+# Source: https://github.com/gdelugre/origami
+# Author: Guillaume Delugré
+
 include:
   - remnux.packages.ruby
+  - remnux.rubygems.therubyracer
 
 origami:
   gem.installed:
-    - version: 1.2.7 # Note: need version less than 2 for ruby less than 2
     - require:
       - pkg: ruby
+      - sls: remnux.rubygems.therubyracer

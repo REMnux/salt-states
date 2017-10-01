@@ -1,3 +1,6 @@
+# Source: https://github.com/chrislee35/passivedns-client
+# Author: Chris Lee
+
 include:
   - remnux.packages.ruby
   - remnux.packages.ruby-dev

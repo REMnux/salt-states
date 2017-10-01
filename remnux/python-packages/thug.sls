@@ -1,3 +1,6 @@
+# Source: https://github.com/buffer/thug
+# Author: Angelo Dell'Aera
+
 include:
   - remnux.python-packages.pip
   - remnux.packages.build-essential

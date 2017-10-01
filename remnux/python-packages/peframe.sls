@@ -1,6 +1,6 @@
 # Source:  https://github.com/guelfoweb/peframe
-# Commit:  e482def
-# Version: 5.0.1
+# Author: Gianni 'guelfoweb' Amato
+
 include:
   - remnux.packages.git
   - remnux.packages.python-pip
@@ -8,7 +8,7 @@ include:
 
 remnux-pip-peframe:
   pip.installed:
-    - name: git+https://github.com/guelfoweb/peframe.git@e482def
+    - name: git+https://github.com/guelfoweb/peframe.git@master
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
