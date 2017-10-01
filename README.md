@@ -77,7 +77,7 @@ The states are designed to make use of require and watch statements against the 
 * All dependencies should be defined as state files. If a python packages requires something to be installed from APT, that package should get an entry in the `remnux/packages` folder, and then it should be included and required by the python package state. 
 
 ### How to Test a State Interactively
-If you are working on a new state and want to be in a shell where you can just continue to test running the state without loosing history, you can launch into a docker container (so long as you are on linux or using Docker for Mac) and all the states will be mounted into a volume. A script called `./ci/dev-state.sh` is there to set this up for you.
+If you are working on a new state and want to be in a shell where you can just continue to test running the state without loosing history, you can launch into a docker container (so long as you are on linux or using Docker for Mac) and all the states will be mounted into a volume. A script called `./.ci/dev-state.sh` is there to set this up for you.
 
 From there you can add your state file using your favorite text editor, make the changes necessary and when you are ready to test it, just run the following command `salt-call -l debug --local --retcode-passthrough --state-output=mixed state.sls <state_dot_path>`.
 
