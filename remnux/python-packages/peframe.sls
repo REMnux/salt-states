@@ -4,6 +4,7 @@
 include:
   - remnux.packages.git
   - remnux.packages.python-pip
+  - remnux.python-packages.simplejson
 
 remnux-pip-peframe:
   pip.installed:
@@ -11,4 +12,4 @@ remnux-pip-peframe:
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
-
+      - sls: remnux.python-packages.simplejson

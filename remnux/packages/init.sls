@@ -48,7 +48,7 @@ include:
   - remnux.packages.libc6-dev-i386
   - remnux.packages.libcanberra-gtk-module
   - remnux.packages.libemail-outlook-message-perl
-  - remnux.packages.libemu2
+  - remnux.packages.libemu-dev
   - remnux.packages.libffi-dev
   - remnux.packages.libfuzzy-dev
   - remnux.packages.libgif-dev
@@ -209,7 +209,7 @@ remnux-packages:
       - sls: remnux.packages.libc6-dev-i386
       - sls: remnux.packages.libcanberra-gtk-module
       - sls: remnux.packages.libemail-outlook-message-perl
-      - sls: remnux.packages.libemu2
+      - sls: remnux.packages.libemu-dev
       - sls: remnux.packages.libffi-dev
       - sls: remnux.packages.libfuzzy-dev
       - sls: remnux.packages.libgif-dev

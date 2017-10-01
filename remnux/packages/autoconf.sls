@@ -1,0 +1,2 @@
+autoconf:
+  pkg.installed
