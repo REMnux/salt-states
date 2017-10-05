@@ -1,2 +1,0 @@
-libmagic-dev:
-  pkg.installed

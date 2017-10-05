@@ -1,2 +1,0 @@
-python-levenshtein:
-  pkg.installed

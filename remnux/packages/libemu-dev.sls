@@ -1,2 +1,0 @@
-libemu-dev:
-  pkg.installed

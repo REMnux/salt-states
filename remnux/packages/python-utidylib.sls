@@ -1,2 +1,0 @@
-python-utidylib:
-  pkg.installed

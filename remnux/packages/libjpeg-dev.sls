@@ -1,2 +1,0 @@
-libjpeg-dev:
-  pkg.installed

@@ -1,2 +1,0 @@
-foremost:
-  pkg.installed

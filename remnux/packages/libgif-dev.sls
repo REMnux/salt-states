@@ -1,2 +1,0 @@
-libgif-dev:
-  pkg.installed

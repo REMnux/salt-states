@@ -1,2 +1,0 @@
-libfuzzy-dev:
-  pkg.installed
