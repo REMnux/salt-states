@@ -52,7 +52,6 @@ include:
   - remnux.packages.python-magic
   - remnux.packages.python-numpy
   - remnux.packages.python-oletools
-  - remnux.packages.python-pefile
   - remnux.packages.python-pil
   - remnux.packages.python-pip
   - remnux.packages.python-pyasn1
@@ -154,7 +153,6 @@ remnux-packages:
       - sls: remnux.packages.python-magic
       - sls: remnux.packages.python-numpy
       - sls: remnux.packages.python-oletools
-      - sls: remnux.packages.python-pefile
       - sls: remnux.packages.python-pil
       - sls: remnux.packages.python-pip
       - sls: remnux.packages.python-pyasn1
