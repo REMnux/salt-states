@@ -1,3 +1,6 @@
+# Source: https://github.com/radare/radare2
+# Authors: https://github.com/radare/radare2/blob/master/AUTHORS.md
+
 include:
   - remnux.packages.git
 
@@ -15,3 +18,15 @@ remnux-radare2:
       - file: remnux-radare2-source
     - require:
       - pkg: git
+
+remnux-radare2-init:
+  cmd.wait:
+    - name: r2pm init
+    - watch:
+      - pkg: remnux-radare2
+
+remnux-radare2-update:
+  cmd.wait:
+    - name: r2pm update
+    - watch:
+      - cmd: remnux-radare2-init

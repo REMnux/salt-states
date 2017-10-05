@@ -1,3 +1,6 @@
+include:
+  - remnux.packages.python-yara
+
 remnux-scripts-pdf-parser-source:
   file.managed:
     - name: /usr/local/src/remnux/files/pdf-parser_V0_6_7.zip
@@ -17,5 +20,8 @@ remnux-scripts-pdf-parser-binary:
   file.managed:
     - name: /usr/local/bin/pdf-parser.py
     - source: /usr/local/src/remnux/pdf-parser-0.6.7/pdf-parser.py
+    - mode: 755
+    - require:
+      - sls: remnux.packages.python-yara
     - watch:
       - archive: remnux-scripts-pdf-parser-archive
