@@ -2,6 +2,7 @@ include:
   - remnux.scripts.pdf-parser
   - remnux.scripts.pdfobjflow
   - remnux.scripts.pdfid
+  - remnux.scripts.oledump
 
 remnux-scripts:
   test.nop:
@@ -9,3 +10,4 @@ remnux-scripts:
       - sls: remnux.scripts.pdf-parser
       - sls: remnux.scripts.pdfobjflow
       - sls: remnux.scripts.pdfid
+      - sls: remnux.scripts.oledump

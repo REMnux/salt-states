@@ -40,7 +40,6 @@ include:
   - remnux.packages.python-balbuzard
   - remnux.packages.python-capstone
   - remnux.packages.python-crypto
-  - remnux.packages.python-dev
   - remnux.packages.python-dnspython
   - remnux.packages.python-hachoir-core
   - remnux.packages.python-hachoir-metadata
@@ -62,8 +61,6 @@ include:
   - remnux.packages.python-setuptools
   - remnux.packages.python-virtualenv
   - remnux.packages.python-volatility
-  - remnux.packages.python-yara
-  - remnux.packages.python
   - remnux.packages.qpdf
   - remnux.packages.radare2
   - remnux.packages.rhino
@@ -91,8 +88,8 @@ include:
   - remnux.packages.wxhexeditor
   - remnux.packages.xmlstarlet
   - remnux.packages.xpdf
-  - remnux.packages.xterm
   - remnux.packages.yara
+  - remnux.packages.libolecf-utils
 
 remnux-packages:
   test.nop:
@@ -138,7 +135,6 @@ remnux-packages:
       - sls: remnux.packages.python-balbuzard
       - sls: remnux.packages.python-capstone
       - sls: remnux.packages.python-crypto
-      - sls: remnux.packages.python-dev
       - sls: remnux.packages.python-dnspython
       - sls: remnux.packages.python-gtk2
       - sls: remnux.packages.python-gtksourceview2
@@ -163,8 +159,6 @@ remnux-packages:
       - sls: remnux.packages.python-setuptools
       - sls: remnux.packages.python-virtualenv
       - sls: remnux.packages.python-volatility
-      - sls: remnux.packages.python-yara
-      - sls: remnux.packages.python
       - sls: remnux.packages.qpdf
       - sls: remnux.packages.radare2
       - sls: remnux.packages.rhino
@@ -192,6 +186,6 @@ remnux-packages:
       - sls: remnux.packages.wxhexeditor
       - sls: remnux.packages.xmlstarlet
       - sls: remnux.packages.xpdf
-      - sls: remnux.packages.xterm
       - sls: remnux.packages.yara
+      - sls: remnux.packages.libolecf-utils
       

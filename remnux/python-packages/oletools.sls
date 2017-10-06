@@ -1,7 +1,7 @@
 include:
   - remnux.python-packages.pip
 
-olefile:
+oletools:
   pip.installed:
     - require:
       - sls: remnux.packages.python-pip
