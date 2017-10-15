@@ -22,3 +22,31 @@ remnux-scripts-pdfid-binary:
     - mode: 755
     - watch:
       - archive: remnux-scripts-pdfid-archive
+
+remnux-scripts-pdfid-plugin-embeddedfile:
+  file.managed:
+    - name: /usr/local/share/pdfid/plugin_embeddedfile.py
+    - source: /usr/local/src/remnux/pdfid-0.2.1/plugin_embeddedfile.py
+    - user:
+    - root:
+    - mode: 644
+    - makedirs: True
+
+remnux-scripts-pdfid-plugin-nameobfuscation:
+  file.managed:
+    - name: /usr/local/share/pdfid/plugin_nameobfuscation.py
+    - source: /usr/local/src/remnux/pdfid-0.2.1/plugin_nameobfuscation.py
+    - user:
+    - root:
+    - mode: 644
+    - makedirs: True
+
+remnux-scripts-pdfid-plugin-triage:
+  file.managed:
+    - name: /usr/local/share/pdfid/plugin_triage.py
+    - source: /usr/local/src/remnux/pdfid-0.2.1/plugin_triage.py
+    - user:
+    - root:
+    - mode: 644
+    - makedirs: True
+
