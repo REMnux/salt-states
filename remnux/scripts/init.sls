@@ -3,6 +3,9 @@ include:
   - remnux.scripts.pdfobjflow
   - remnux.scripts.pdfid
   - remnux.scripts.oledump
+  - remnux.scripts.emldump
+  - remnux.scripts.officeparser
+  - remnux.scripts.extractscripts
 
 remnux-scripts:
   test.nop:
@@ -11,3 +14,6 @@ remnux-scripts:
       - sls: remnux.scripts.pdfobjflow
       - sls: remnux.scripts.pdfid
       - sls: remnux.scripts.oledump
+      - sls: remnux.scripts.emldump
+      - sls: remnux.scripts.officeparser
+      - sls: remnux.scripts.extractscripts

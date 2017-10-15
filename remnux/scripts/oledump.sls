@@ -1,3 +1,5 @@
+# Author: Didier Stevens
+
 include:
   - remnux.packages.python-yara
   - remnux.python-packages.olefile

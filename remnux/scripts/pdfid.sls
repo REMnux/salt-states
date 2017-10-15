@@ -1,3 +1,5 @@
+# Author: Didier Stevens
+
 remnux-scripts-pdfid-source:
   file.managed:
     - name: /usr/local/src/remnux/files/pdfid_v0_2_1.zip
