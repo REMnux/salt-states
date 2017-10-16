@@ -5,6 +5,7 @@ include:
   - remnux.rubygems
   - remnux.scripts
   - remnux.config
+  - remnux.tools
 
 remnux:
   test.nop:
@@ -15,4 +16,4 @@ remnux:
       - sls: remnux.rubygems
       - sls: remnux.scripts
       - sls: remnux.config
-      
+      - sls: remnux.tools
