@@ -24,7 +24,7 @@ include:
   - remnux.python-packages.pyv8
   - remnux.python-packages.pygraphviz
 
-remnux-pip-thug:
+remnux-thug:
   pip.installed:
     - name: git+https://github.com/buffer/thug.git@master
     - require:

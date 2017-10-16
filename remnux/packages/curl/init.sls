@@ -1,8 +1,9 @@
-curl:
-  pkg.installed
+remnux-package-curl:
+  pkg.installed:
+    - name: curl
 
 {% set home = salt['environ.get']('HOME') %}
-{% set sudo_user = salt['environ.get']('SUDO_USER') %}
+{% set user = salt['environ.get']('SUDO_USER') %}
 
 {% if home %}
 remnux-packages-curl-config:
@@ -16,8 +17,8 @@ remnux-packages-curl-config:
 remnux-packages-curl-ownership:
   file.managed:
     - name: {{ home }}/.curlrc
-    - user: {{ sudo_user }}
-    - group: {{ sudo_user }}
+    - user: {{ user }}
+    - group: {{ user }}
     - watch:
         - file: remnux-packages-curl-config
 

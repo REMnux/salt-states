@@ -1,8 +1,9 @@
-wget:
-  pkg.installed
+remnux-package-wget:
+  pkg.installed:
+    - name: wget
 
 {% set home = salt['environ.get']('HOME') %}
-{% set sudo_user = salt['environ.get']('SUDO_USER') %}
+{% set user = salt['environ.get']('SUDO_USER') %}
 
 {% if home %}
 remnux-packages-wget-config:
@@ -16,8 +17,8 @@ remnux-packages-wget-config:
 remnux-packages-wget-ownership:
   file.managed:
     - name: {{ home }}/.wgetrc
-    - user: {{ sudo_user }}
-    - group: {{ sudo_user }}
+    - user: {{ user }}
+    - group: {{ user }}
     - watch:
         - file: remnux-packages-wget-config
 

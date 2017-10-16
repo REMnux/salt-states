@@ -18,7 +18,6 @@ remnux-tools-automater:
 remnux-tools-automater-binary:
   file.managed:
     - name: /usr/local/automater/Automater.py
-#    - source: /usr/local/src/remnux/emldump-0.0.10/emldump.py
     - mode: 755
     - watch:
       - git: remnux-tools-automater

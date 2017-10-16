@@ -7,13 +7,15 @@ include:
   - remnux.packages.libxslt1-dev
   - remnux.packages.libxml2-dev
   - remnux.packages.python-dev
-  - remnux.python-packages.pip
+  - remnux.packages.python-pip
+  - remnux.packages.python3-pip
 
-remnux-package-mitmproxy:
+remnux-mitmproxy:
   pip.installed:
     - name: mitmproxy
+    - bin_env: '/usr/bin/pip3'
     - require:
-      - pip: pip
+      - pkg: python-pip
       - pkg: python-dev
       - pkg: libffi-dev
       - pkg: libssl-dev
