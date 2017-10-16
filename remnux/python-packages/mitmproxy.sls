@@ -1,3 +1,6 @@
+# Source: https://mitmproxy.org/
+# Authors: https://mitmproxy.org/about.html
+
 include:
   - remnux.packages.libffi-dev
   - remnux.packages.libssl-dev
