@@ -77,7 +77,6 @@ include:
   - remnux.packages.tcpick
   - remnux.packages.tcpxtract
   - remnux.packages.tor
-  - remnux.packages.torsocks
   - remnux.packages.unhide
   - remnux.packages.unicode 
   - remnux.packages.unrar
@@ -176,7 +175,6 @@ remnux-packages:
       - sls: remnux.packages.tcpick
       - sls: remnux.packages.tcpxtract
       - sls: remnux.packages.tor
-      - sls: remnux.packages.torsocks
       - sls: remnux.packages.unhide
       - sls: remnux.packages.unicode 
       - sls: remnux.packages.unrar

@@ -1,2 +1,0 @@
-torsocks:
-  pkg.installed
