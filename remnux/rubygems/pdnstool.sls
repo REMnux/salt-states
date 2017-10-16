@@ -14,5 +14,3 @@ passivedns-client:
       - pkg: ruby-dev
       - pkg: build-essential
       - pkg: libsqlite3-dev
-  
-# TODO - touch $HOME/.passivedns-client
