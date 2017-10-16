@@ -8,7 +8,7 @@ inetsim:
   pkg.installed:
     - pkgrepo: inetsim-repo
 
-remnux-config-inetsim-config:
+remnux-packages-inetsim-config:
   file.managed:
     - name: /etc/inetsim/inetsim.conf
     - source: salt://remnux/packages/inetsim/inetsim.conf

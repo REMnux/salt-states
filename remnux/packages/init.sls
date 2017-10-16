@@ -90,6 +90,7 @@ include:
   - remnux.packages.xpdf
   - remnux.packages.yara
   - remnux.packages.libolecf-utils
+  - remnux.packages.wget
 
 remnux-packages:
   test.nop:
@@ -188,4 +189,4 @@ remnux-packages:
       - sls: remnux.packages.xpdf
       - sls: remnux.packages.yara
       - sls: remnux.packages.libolecf-utils
-      
+      - sls: remnux.packages.wget 
