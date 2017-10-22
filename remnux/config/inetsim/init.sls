@@ -8,4 +8,6 @@ remnux-config-inetsim:
     - user: root
     - group: root
     - makedirs: True
+    - require:
+      - sls: remnux.packages.inetsim
 
