@@ -33,6 +33,7 @@ include:
   - remnux.python-packages.wheel
   - remnux.python-packages.xortool
   - remnux.python-packages.xxxswf
+  - remnux.python-packages.peepdf
 
 remnux-python-packages:
   test.nop:
@@ -71,3 +72,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.wheel
       - sls: remnux.python-packages.xortool
       - sls: remnux.python-packages.xxxswf
+      - sls: remnux.python-packages.peepdf
