@@ -1,6 +1,8 @@
 include:
   - remnux.packages.git
   - remnux.packages.python-pip
+  - remnux.packages.libboost-python-dev
+  - remnux.packages.libboost-thread-dev
 
 remnux-pip-pyv8:
   pip.installed:
@@ -8,3 +10,5 @@ remnux-pip-pyv8:
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
+      - sls: remnux.packages.libboost-python-dev
+      - sls: remnux.packages.libboost-thread-dev
