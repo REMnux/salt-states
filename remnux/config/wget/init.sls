@@ -1,24 +1,16 @@
-{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%} 
+{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}           
 
 include:
+  - remnux.config.user
   - remnux.packages.wget
 
 remnux-config-wget:
   file.managed:
-    - name: /home/{{ user }}/.wgetrc
+    - name: {{ salt['user.info'](user).home }}/.wgetrc
     - source: salt://remnux/config/wget/wgetrc
-    - makedirs: False
-    - watch:
-        - pkg: wget
-
-remnux-config-wget-ownership:
-  file.managed:
-    - name: /home/{{ user }}/.wgetrc
     - user: {{ user }}
     - group: {{ user }}
-    - watch:
-        - file: remnux-config-wget
     - require:
-      - sls: remnux.packages.wget
-
-
+      - user: remnux-user-{{ user }}
+    - watch:
+      - pkg: remnux-package-wget
