@@ -90,6 +90,7 @@ include:
   - remnux.packages.yara
   - remnux.packages.libolecf-utils
   - remnux.packages.wget
+  - remnux.packages.libmozjs-24-bin
 
 remnux-packages:
   test.nop:
@@ -187,4 +188,5 @@ remnux-packages:
       - sls: remnux.packages.xpdf
       - sls: remnux.packages.yara
       - sls: remnux.packages.libolecf-utils
-      - sls: remnux.packages.wget 
+      - sls: remnux.packages.wget
+      - sls: remnux.packages.libmozjs-24-bin

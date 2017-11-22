@@ -4,6 +4,7 @@ include:
   - remnux.config.wget
   - remnux.config.curl
   - remnux.config.user
+  - remnux.config.spidermonkey
 
 remnux-config:
   test.nop:
@@ -13,3 +14,4 @@ remnux-config:
       - sls: remnux.config.wget
       - sls: remnux.config.curl
       - sls: remnux.config.user
+      - sls: remnux.config.spidermonkey
