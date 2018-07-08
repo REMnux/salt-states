@@ -83,7 +83,6 @@ include:
   - remnux.packages.python-networkx
   - remnux.packages.python-numpy
   - remnux.packages.python-oletools
-  - remnux.packages.python-passivetotal
   - remnux.packages.python-pil
   - remnux.packages.python-pip
   - remnux.packages.python-pyasn1
