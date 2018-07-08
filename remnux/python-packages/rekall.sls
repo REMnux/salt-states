@@ -25,5 +25,5 @@ rekall:
       - pip: wheel
       - pip: pip
       - pip: setuptools
-      - sls: remnux.packages.libncurses5
+      - sls: remnux.packages.libncurses
       - virtualenv: rekall-virtualenv

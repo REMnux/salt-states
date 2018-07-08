@@ -74,4 +74,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.xortool
       - sls: remnux.python-packages.xxxswf
       - sls: remnux.python-packages.peepdf
-      - sls: remnux.pythin-packages.pype32
+      - sls: remnux.python-packages.pype32
