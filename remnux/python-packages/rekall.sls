@@ -1,7 +1,9 @@
 include:
-  - remnux.packages.libncurses
-  - remnux.packages.python-virtualenv
-  - .pip
+  - ..packages.build-essential
+  - ..packages.python-dev
+  - ..packages.python-pip
+  - ..packages.libncurses
+  - ..packages.python-virtualenv
   - .setuptools
   - .wheel
 
@@ -9,21 +11,29 @@ rekall-virtualenv:
   virtualenv.managed:
     - name: /opt/rekall
     - pip_pkgs:
-      - pip
+      - pip==9.0.3
       - setuptools
       - wheel
       - rekall
     - require:
-      - sls: remnux.packages.python-virtualenv
+      - pkg: python-virtualenv
 
 rekall:
   pip.installed:
     - name: rekall
     - bin_env: /opt/rekall
     - require:
-      - pip: pip
-      - pip: wheel
-      - pip: pip
+      - pkg: python-dev
+      - pkg: python-pip
+      - pkg: libncurses
+      - pkg: build-essential
       - pip: setuptools
-      - sls: remnux.packages.libncurses
+      - pip: wheel
       - virtualenv: rekall-virtualenv
+
+rekall-symlink:
+  file.symlink:
+    - name: /usr/local/bin/rekall
+    - target: /opt/rekall/bin/rekall
+    - require:
+      - pip: rekall
