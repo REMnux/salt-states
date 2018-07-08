@@ -13,3 +13,4 @@ sift-repo:
   pkgrepo.managed:
     - ppa: sift/{{ version }}
     - refresh_db: true
+    - keyid_ppa: true
