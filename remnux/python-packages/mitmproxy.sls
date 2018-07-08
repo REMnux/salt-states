@@ -15,9 +15,9 @@ remnux-mitmproxy:
     - name: mitmproxy
     - bin_env: '/usr/bin/pip3'
     - require:
-      - pkg: python-pip
-      - pkg: python-dev
-      - pkg: libffi-dev
-      - pkg: libssl-dev
-      - pkg: libxslt1-dev
-      - pkg: libxml2-dev
+      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python-dev
+      - sls: remnux.packages.libffi-dev
+      - sls: remnux.packages.libssl-dev
+      - sls: remnux.packages.libxslt1-dev
+      - sls: remnux.packages.libxml2-dev

@@ -1,5 +1,5 @@
 include:
-  - remnux.packages.libncurses5
+  - remnux.packages.libncurses
   - remnux.packages.python-virtualenv
   - .pip
   - .setuptools
@@ -14,7 +14,7 @@ rekall-virtualenv:
       - wheel
       - rekall
     - require:
-      - pkg: python-virtualenv
+      - sls: remnux.packages.python-virtualenv
 
 rekall:
   pip.installed:
@@ -25,5 +25,5 @@ rekall:
       - pip: wheel
       - pip: pip
       - pip: setuptools
-      - pkg: libncurses5
+      - sls: remnux.packages.libncurses5
       - virtualenv: rekall-virtualenv
