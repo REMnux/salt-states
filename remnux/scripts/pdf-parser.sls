@@ -5,15 +5,15 @@ include:
 
 remnux-scripts-pdf-parser-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/pdf-parser_V0_6_7.zip
-    - source: http://didierstevens.com/files/software/pdf-parser_V0_6_7.zip
-    - source_hash: sha256=ed863de952a5096ff4be0825110d2726ba1be75a7a6717af0e6a153b843e3b78
+    - name: /usr/local/src/remnux/files/pdf-parser_V0_7_1.zip
+    - source: https://didierstevens.com/files/software/pdf-parser_V0_7_1.zip
+    - source_hash: sha256=D2C8E0599A84127C36656AA2600F9668A3CB12EF306D28752D6D8AC436A89D1A
     - makedirs: True
 
 remnux-scripts-pdf-parser-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/pdf-parser-0.6.7
-    - source: /usr/local/src/remnux/files/pdf-parser_V0_6_7.zip
+    - name: /usr/local/src/remnux/pdf-parser_V0_7_1
+    - source: /usr/local/src/remnux/files/pdf-parser_V0_7_1.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-pdf-parser-source
@@ -21,7 +21,7 @@ remnux-scripts-pdf-parser-archive:
 remnux-scripts-pdf-parser-binary:
   file.managed:
     - name: /usr/local/bin/pdf-parser.py
-    - source: /usr/local/src/remnux/pdf-parser-0.6.7/pdf-parser.py
+    - source: /usr/local/src/remnux/pdf-parser_V0_7_1/pdf-parser.py
     - mode: 755
     - require:
       - sls: remnux.packages.python-yara

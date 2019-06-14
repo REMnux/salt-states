@@ -6,6 +6,8 @@ include:
   - remnux.scripts.emldump
   - remnux.scripts.officeparser
   - remnux.scripts.extractscripts
+  - remnux.scripts.virustotal-search
+  - remnux.scripts.base64dump
 
 remnux-scripts:
   test.nop:
@@ -17,3 +19,5 @@ remnux-scripts:
       - sls: remnux.scripts.emldump
       - sls: remnux.scripts.officeparser
       - sls: remnux.scripts.extractscripts
+      - sls: remnux.scripts.virustotal-search
+      - sls: remnux.scripts.base64dump
