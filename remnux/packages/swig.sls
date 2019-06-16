@@ -1,2 +1,2 @@
-python:
+swig:
   pkg.installed

@@ -8,7 +8,7 @@ include:
 
 remnux-pip-balbuzard:
   pip.installed:
-    - name: git+https://github.com/decalage2/balbuzard.git@master
+    - name: balbuzard
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
