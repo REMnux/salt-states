@@ -6,6 +6,7 @@ include:
   - remnux.packages.libssl-dev
   - remnux.packages.swig
   - remnux.packages.python3-pip
+  - remnux.packages.python-pip
 
 remnux-pip-peframe:
   pip.installed:
@@ -16,3 +17,4 @@ remnux-pip-peframe:
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.swig
       - sls: remnux.packages.python3-pip
+      - sls: remnux.packages.python-pip
