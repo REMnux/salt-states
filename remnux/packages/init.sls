@@ -93,7 +93,7 @@ include:
   - remnux.packages.python-qt4
   - remnux.packages.python-scipy
   - remnux.packages.python-setuptools
-  - remnux.packages.python-software-properties
+  - remnux.packages.software-properties-common
   - remnux.packages.python-virtualenv
   - remnux.packages.python-volatility
   - remnux.packages.python-yara
@@ -230,7 +230,7 @@ remnux-packages:
       - sls: remnux.packages.python-qt4
       - sls: remnux.packages.python-scipy
       - sls: remnux.packages.python-setuptools
-      - sls: remnux.packages.python-software-properties
+      - sls: remnux.packages.software-properties-common
       - sls: remnux.packages.python-virtualenv
       - sls: remnux.packages.python-volatility
       - sls: remnux.packages.python-yara
