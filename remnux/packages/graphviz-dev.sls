@@ -1,2 +1,0 @@
-graphviz-dev:
-  pkg.installed

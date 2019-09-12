@@ -23,7 +23,7 @@ include:
   - remnux.packages.gdb
   - remnux.packages.geany
   - remnux.packages.git
-  - remnux.packages.graphviz-dev
+  - remnux.packages.graphviz
   - remnux.packages.graphviz
   - remnux.packages.ibus
   - remnux.packages.imagemagick
@@ -160,7 +160,7 @@ remnux-packages:
       - sls: remnux.packages.gdb
       - sls: remnux.packages.geany
       - sls: remnux.packages.git
-      - sls: remnux.packages.graphviz-dev
+      - sls: remnux.packages.libgraphviz-dev
       - sls: remnux.packages.graphviz
       - sls: remnux.packages.ibus
       - sls: remnux.packages.imagemagick
