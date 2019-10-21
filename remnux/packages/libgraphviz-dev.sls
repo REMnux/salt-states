@@ -1,0 +1,2 @@
+libgraphviz-dev:
+  pkg.installed

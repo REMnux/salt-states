@@ -23,7 +23,7 @@ include:
   - remnux.packages.gdb
   - remnux.packages.geany
   - remnux.packages.git
-  - remnux.packages.graphviz-dev
+  - remnux.packages.graphviz
   - remnux.packages.graphviz
   - remnux.packages.ibus
   - remnux.packages.imagemagick
@@ -40,7 +40,7 @@ include:
   - remnux.packages.libfuzzy-dev
   - remnux.packages.libjpeg-dev
   - remnux.packages.libjpeg8-dev
-  - remnux.packages.libmozjs-24-bin
+  - remnux.packages.libmozjs-52-0
   - remnux.packages.libncurses
   # - remnux.packages.libolecf-utils
   - remnux.packages.libsqlite3-dev
@@ -93,7 +93,7 @@ include:
   - remnux.packages.python-qt4
   - remnux.packages.python-scipy
   - remnux.packages.python-setuptools
-  - remnux.packages.python-software-properties
+  - remnux.packages.software-properties-common
   - remnux.packages.python-virtualenv
   - remnux.packages.python-volatility
   - remnux.packages.python-yara
@@ -160,7 +160,7 @@ remnux-packages:
       - sls: remnux.packages.gdb
       - sls: remnux.packages.geany
       - sls: remnux.packages.git
-      - sls: remnux.packages.graphviz-dev
+      - sls: remnux.packages.libgraphviz-dev
       - sls: remnux.packages.graphviz
       - sls: remnux.packages.ibus
       - sls: remnux.packages.imagemagick
@@ -177,7 +177,6 @@ remnux-packages:
       - sls: remnux.packages.libfuzzy-dev
       - sls: remnux.packages.libjpeg-dev
       - sls: remnux.packages.libjpeg8-dev
-      - sls: remnux.packages.libmozjs-24-bin
       - sls: remnux.packages.libncurses
       # - sls: remnux.packages.libolecf-utils
       - sls: remnux.packages.libsqlite3-dev
@@ -230,7 +229,7 @@ remnux-packages:
       - sls: remnux.packages.python-qt4
       - sls: remnux.packages.python-scipy
       - sls: remnux.packages.python-setuptools
-      - sls: remnux.packages.python-software-properties
+      - sls: remnux.packages.software-properties-common
       - sls: remnux.packages.python-virtualenv
       - sls: remnux.packages.python-volatility
       - sls: remnux.packages.python-yara
