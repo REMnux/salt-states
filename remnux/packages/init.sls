@@ -47,7 +47,6 @@ include:
   - remnux.packages.libssl-dev
   - remnux.packages.libtool
   - remnux.packages.libxml2-dev
-  - remnux.packages.libxslt-dev
   - remnux.packages.libxslt1-dev
   - remnux.packages.linux-headers
   - remnux.packages.ltrace
@@ -183,7 +182,6 @@ remnux-packages:
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.libtool
       - sls: remnux.packages.libxml2-dev
-      - sls: remnux.packages.libxslt-dev
       - sls: remnux.packages.libxslt1-dev
       - sls: remnux.packages.linux-headers
       - sls: remnux.packages.ltrace
