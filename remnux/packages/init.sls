@@ -59,7 +59,6 @@ include:
   - remnux.packages.openssl
   - remnux.packages.p7zip-full
   - remnux.packages.pdfresurrect
-  - remnux.packages.pdftk
   - remnux.packages.pkg-config
   - remnux.packages.pyew
   - remnux.packages.python-balbuzard
@@ -148,6 +147,8 @@ remnux-packages:
       - sls: remnux.packages.bundler
       - sls: remnux.packages.clamav-daemon
       - sls: remnux.packages.curl
+      - sls: remnux.packages.snapd
+      - sls: remnux.packages.snap	  
       - sls: remnux.packages.default-jre
       - sls: remnux.packages.docker
       - sls: remnux.packages.dos2unix
@@ -194,7 +195,6 @@ remnux-packages:
       - sls: remnux.packages.openssl
       - sls: remnux.packages.p7zip-full
       - sls: remnux.packages.pdfresurrect
-      - sls: remnux.packages.pdftk
       - sls: remnux.packages.pkg-config
       - sls: remnux.packages.pyew
       - sls: remnux.packages.python-balbuzard
