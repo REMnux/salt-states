@@ -6,6 +6,7 @@ include:
   - remnux.scripts
   - remnux.config
   - remnux.tools
+  - remnux.snap
 
 remnux:
   test.nop:
@@ -17,3 +18,4 @@ remnux:
       - sls: remnux.scripts
       - sls: remnux.config
       - sls: remnux.tools
+      - sls: remnux.snap

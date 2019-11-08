@@ -47,7 +47,6 @@ include:
   - remnux.packages.libssl-dev
   - remnux.packages.libtool
   - remnux.packages.libxml2-dev
-  - remnux.packages.libxslt-dev
   - remnux.packages.libxslt1-dev
   - remnux.packages.linux-headers
   - remnux.packages.ltrace
@@ -60,7 +59,6 @@ include:
   - remnux.packages.openssl
   - remnux.packages.p7zip-full
   - remnux.packages.pdfresurrect
-  - remnux.packages.pdftk
   - remnux.packages.pkg-config
   - remnux.packages.pyew
   - remnux.packages.python-balbuzard
@@ -95,7 +93,7 @@ include:
   - remnux.packages.python-setuptools
   - remnux.packages.software-properties-common
   - remnux.packages.python-virtualenv
-  - remnux.packages.python-volatility
+  - remnux.packages.volatility
   - remnux.packages.python-yara
   - remnux.packages.python
   - remnux.packages.python3-pip
@@ -149,6 +147,8 @@ remnux-packages:
       - sls: remnux.packages.bundler
       - sls: remnux.packages.clamav-daemon
       - sls: remnux.packages.curl
+      - sls: remnux.packages.snapd
+      - sls: remnux.packages.snap	  
       - sls: remnux.packages.default-jre
       - sls: remnux.packages.docker
       - sls: remnux.packages.dos2unix
@@ -183,7 +183,6 @@ remnux-packages:
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.libtool
       - sls: remnux.packages.libxml2-dev
-      - sls: remnux.packages.libxslt-dev
       - sls: remnux.packages.libxslt1-dev
       - sls: remnux.packages.linux-headers
       - sls: remnux.packages.ltrace
@@ -196,7 +195,6 @@ remnux-packages:
       - sls: remnux.packages.openssl
       - sls: remnux.packages.p7zip-full
       - sls: remnux.packages.pdfresurrect
-      - sls: remnux.packages.pdftk
       - sls: remnux.packages.pkg-config
       - sls: remnux.packages.pyew
       - sls: remnux.packages.python-balbuzard
@@ -231,7 +229,7 @@ remnux-packages:
       - sls: remnux.packages.python-setuptools
       - sls: remnux.packages.software-properties-common
       - sls: remnux.packages.python-virtualenv
-      - sls: remnux.packages.python-volatility
+      - sls: remnux.packages.volatility
       - sls: remnux.packages.python-yara
       - sls: remnux.packages.python
       - sls: remnux.packages.python3-pip

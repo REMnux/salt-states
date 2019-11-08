@@ -4,7 +4,7 @@ include:
   - remnux.python-packages.pefile
   - remnux.python-packages.yara-python
 
-python-volatility:
+volatility:
   pkg.installed:
     - require:
       - pkgrepo: sift-repo

@@ -11,7 +11,8 @@ rekall-virtualenv:
   virtualenv.managed:
     - name: /opt/rekall
     - pip_pkgs:
-      - pip==9.0.3
+      - pip
+      - future==0.16.0
       - setuptools
       - wheel
       - rekall
