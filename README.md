@@ -18,7 +18,7 @@ WIP: Working on 16.04 support.
 
 1. Have a Ubuntu Desktop VM available
 2. [Install SaltStack](#install-saltstack)
-3. `git clone https://github.com:REMnux/states.git /srv/salt`
+3. `git clone https://github.com/REMnux/salt-states.git /srv/salt`
 4. `sudo salt-call state.sls remnux`
 5. Sit back and enjoy
 
