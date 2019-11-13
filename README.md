@@ -2,7 +2,7 @@
 
 # REMnux Salt States
 
-WIP: Working on 16.04 support.
+Work in Progress: Working on creating configuration files.
 
 ## Known Issues
 
@@ -12,7 +12,7 @@ WIP: Working on 16.04 support.
 
 * Be 100% compatible with SIFT
 * Easy to update and make changes
-* Support 16.04 and forward
+* Support 18.04 and forward, with possible support 16.04
 
 ## How to Use this Repository
 
