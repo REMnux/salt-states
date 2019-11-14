@@ -148,7 +148,7 @@ remnux-packages:
       - sls: remnux.packages.clamav-daemon
       - sls: remnux.packages.curl
       - sls: remnux.packages.snapd
-      - sls: remnux.packages.snap	  
+      - sls: remnux.packages.snap  
       - sls: remnux.packages.default-jre
       - sls: remnux.packages.docker
       - sls: remnux.packages.dos2unix
