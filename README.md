@@ -19,7 +19,7 @@ Work in Progress: Working on creating configuration files.
 1. Have a Ubuntu Desktop VM available
 2. [Install SaltStack](#install-saltstack)
 3. `git clone https://github.com/REMnux/salt-states.git /srv/salt`
-4. `sudo salt-call state.sls remnux`
+4. `sudo salt-call --local state.sls remnux`
 5. Sit back and enjoy
 
 ### Install SaltStack
