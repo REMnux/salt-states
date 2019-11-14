@@ -23,7 +23,9 @@ include:
   - remnux.packages.gdb
   - remnux.packages.geany
   - remnux.packages.git
-  - remnux.packages.graphviz
+  - remnux.packages.snapd
+  - remnux.packages.snap
+  - remnux.packages.libgraphviz-dev
   - remnux.packages.graphviz
   - remnux.packages.ibus
   - remnux.packages.imagemagick
