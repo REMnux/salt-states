@@ -30,6 +30,10 @@ echo "deb http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main" |
 
 apt-get install salt-minion
 
+sudo systemctl disable salt-minion
+
+sudo systemctl stop salt-minion
+
 echo "file_client: local" > /etc/salt/minion
 ```
 
