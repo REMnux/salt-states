@@ -15,7 +15,7 @@ rekall-virtualenv:
       - future==0.16.0
       - pyaff4==0.26.post6 
       - sortedcontainers==1.5.7
-      - pyparsing==2.1.5	  
+      - pyparsing==2.1.5  
       - setuptools
       - wheel
       - rekall
