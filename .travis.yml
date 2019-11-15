@@ -4,7 +4,7 @@ services:
 - docker
 
 before_install:
-- docker pull teamdfir/sift-salt-tester
+- docker pull teamdfir/sift-saltstack-tester:xenial
 
 script:
 - ./.ci/test.sh
