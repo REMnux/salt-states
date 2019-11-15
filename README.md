@@ -19,7 +19,7 @@ Work in Progress: Working on creating configuration files.
 1. Have a Ubuntu Desktop VM available
 2. [Install SaltStack](#install-saltstack)
 3. `git clone https://github.com/REMnux/salt-states.git /srv/salt`
-4. `sudo salt-call state.sls remnux`
+4. `sudo salt-call --local state.sls remnux`
 5. Sit back and enjoy
 
 ### Install SaltStack
@@ -29,6 +29,10 @@ wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG
 echo "deb http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main" | tee /etc/apt/sources.list.d/saltstack.list
 
 apt-get install salt-minion
+
+sudo systemctl disable salt-minion
+
+sudo systemctl stop salt-minion
 
 echo "file_client: local" > /etc/salt/minion
 ```

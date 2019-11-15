@@ -23,7 +23,9 @@ include:
   - remnux.packages.gdb
   - remnux.packages.geany
   - remnux.packages.git
-  - remnux.packages.graphviz
+  - remnux.packages.snapd
+  - remnux.packages.snap
+  - remnux.packages.libgraphviz-dev
   - remnux.packages.graphviz
   - remnux.packages.ibus
   - remnux.packages.imagemagick
@@ -148,7 +150,7 @@ remnux-packages:
       - sls: remnux.packages.clamav-daemon
       - sls: remnux.packages.curl
       - sls: remnux.packages.snapd
-      - sls: remnux.packages.snap	  
+      - sls: remnux.packages.snap  
       - sls: remnux.packages.default-jre
       - sls: remnux.packages.docker
       - sls: remnux.packages.dos2unix
