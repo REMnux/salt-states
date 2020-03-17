@@ -1,5 +1,10 @@
-# Source:  https://github.com/guelfoweb/peframe
-# Author: Gianni 'guelfoweb' Amato
+# Name: PEframe
+# Website: https://github.com/guelfoweb/peframe
+# Description: Statically analyze PE and Microsoft Office files.
+# Category: Static Analysis
+# Author: Gianni Amato: https://twitter.com/guelfoweb
+# License: 
+# Notes: 
 
 include:
   - remnux.packages.git
