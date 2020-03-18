@@ -1,19 +1,24 @@
-# Source: https://github.com/radare/radare2
-# Authors: https://github.com/radare/radare2/blob/master/AUTHORS.md
+# Name: radare2
+# Website: https://www.radare.org/n/radare2.html
+# Description: Examine binary files, including disassembling and debugging.
+# Category: Investigating Linux Malware: Investigate, Investigating Linux Malware: Disassemble
+# Author: https://github.com/radareorg/radare2/blob/master/AUTHORS.md
+# License: https://github.com/radareorg/radare2/blob/master/COPYING
+# Notes: r2, rasm2, rabin2, rahash2, rafind2
 
 include:
   - remnux.packages.git
 
 remnux-radare2-source:
   file.managed:
-    - name: /usr/local/src/radare2-1.6.0.deb
-    - source: http://radare.mikelloc.com/get/1.6.0/radare2_1.6.0_amd64.deb
-    - source_hash: sha256=3d6319a7f4e8b60deacf6e367bd2421e283c225d0cbaa8c3633114654a142c4f
+    - name: /usr/local/src/radare2_4.3.1_amd64.deb
+    - source: http://radare.mikelloc.com/get/4.3.1/radare2_4.3.1_amd64.deb
+    - source_hash: sha256=d72170c5dcfdc10eed604f9e33b2868107aee6db564152eb63cab78b1d066aa7
 
 remnux-radare2:
   pkg.installed:
     - sources:
-      - radare2: /usr/local/src/radare2-1.6.0.deb
+      - radare2: /usr/local/src/radare2_4.3.1_amd64.deb
     - watch:
       - file: remnux-radare2-source
     - require:

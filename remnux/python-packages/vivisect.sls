@@ -1,6 +1,10 @@
-# Source: https://github.com/vivisect/vivisect
-# Author: invisig0th
-# Comments: Installable vivisect module by Willi Ballenthin
+# Name: Vivisect
+# Website: https://github.com/vivisect/vivisect
+# Description: Statically examine and emulate binary files.
+# Category: Investigating Linux Malware
+# Author: invisigoth: invisigoth@kenshoto.com; installable vivisect module by Willi Ballenthin
+# License: https://github.com/vivisect/vivisect/blob/master/LICENSE.txt
+# Notes: vivbin, vdbbin
 
 include:
   - remnux.packages.git
