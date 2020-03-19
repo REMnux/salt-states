@@ -12,3 +12,5 @@ docker:
     - refresh_db: true
     - require:
       - sls: remnux.packages.apt-transport-https
+  # Key retrieval has been very unreliable, so have to disable key checking for now :-(
+    - gpgcheck: 0

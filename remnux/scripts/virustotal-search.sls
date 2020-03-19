@@ -1,4 +1,10 @@
-# Author: Didier Stevens
+# Name: virustotal-search.py
+# Website: https://blog.didierstevens.com/programs/virustotal-tools/
+# Description: Search VirusTotal for file hashes.
+# Category: File Properties and Contents: Scan
+# Author: Didier Stevens: https://twitter.com/DidierStevens
+# License: Public Domain
+# Notes: 
 
 remnux-scripts-virustotal-search-source:
   file.managed:

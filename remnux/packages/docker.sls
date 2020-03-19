@@ -1,3 +1,11 @@
+# Name: Docker
+# Website: https://www.docker.com
+# Description: Run and manage containers.
+# Category: Other Tasks
+# Author: Docker Inc.
+# License: https://github.com/moby/moby/blob/master/LICENSE
+# Notes: 
+
 include:
   - remnux.repos.docker
 

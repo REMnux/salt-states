@@ -1,7 +1,7 @@
 # Name: radare2
 # Website: https://www.radare.org/n/radare2.html
 # Description: Examine binary files, including disassembling and debugging.
-# Category: Investigating Linux Malware: Investigate, Investigating Linux Malware: Disassemble
+# Category: Linux Investigations: Disassemble
 # Author: https://github.com/radareorg/radare2/blob/master/AUTHORS.md
 # License: https://github.com/radareorg/radare2/blob/master/COPYING
 # Notes: r2, rasm2, rabin2, rahash2, rafind2
