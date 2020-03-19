@@ -1,6 +1,6 @@
 # Name: bulk_extractor
 # Website: https://github.com/simsong/bulk_extractor/
-# Description: Extract useful contents from binary files.
+# Description: Extract interesting strings from binary files.
 # Category: Artifact Extraction and Decoding
 # Author: https://github.com/simsong/bulk_extractor/blob/master/AUTHORS
 # License: https://github.com/simsong/bulk_extractor/blob/master/COPYING

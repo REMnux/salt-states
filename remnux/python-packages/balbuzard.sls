@@ -1,5 +1,10 @@
-# Source: https://bitbucket.org/decalage/balbuzard
-# Author: Philippe Lagadec
+# Name: Balbuzard
+# Website: https://bitbucket.org/decalage/balbuzard/wiki/Home
+# Description: Extract and deobfuscate patterns from suspicious files.
+# Category: Artifact Extraction and Decoding
+# Author: Philippe Lagadec: https://twitter.com/decalage2
+# License: https://creativecommons.org/licenses/by-nc-sa/3.0/
+# Notes: balbuzard, bbcrack, bbharvest, bbtrans
 
 include:
   - remnux.packages.git
