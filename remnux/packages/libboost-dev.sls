@@ -1,0 +1,2 @@
+libboost-dev:
+  pkg.installed

@@ -1,0 +1,2 @@
+sudo:
+  pkg.installed

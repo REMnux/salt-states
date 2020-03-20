@@ -47,5 +47,5 @@ remnux-thug:
       - sls: remnux.packages.pkg-config
       - sls: remnux.packages.autoconf
       - sls: remnux.packages.libemu-dev
-      - sls: remnux.python-packages.stpyv8
+      - sls: remnux.python-packages.pyv8
       - sls: remnux.python-packages.pygraphviz

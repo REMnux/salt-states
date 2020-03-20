@@ -132,6 +132,7 @@ include:
   - remnux.packages.xterm
   - remnux.packages.yara
   - remnux.packages.zlib1g-dev
+  - remnux.packages.sudo
 
 remnux-packages:
   test.nop:
@@ -268,3 +269,4 @@ remnux-packages:
       - sls: remnux.packages.xterm
       - sls: remnux.packages.yara
       - sls: remnux.packages.zlib1g-dev
+      - sls: remnux.packages.sudo
