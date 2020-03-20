@@ -21,7 +21,7 @@ include:
   - remnux.packages.pkg-config
   - remnux.packages.autoconf
   - remnux.packages.libemu-dev
-  - remnux.python-packages.pyv8
+  - remnux.python-packages.stpyv8
   - remnux.python-packages.pygraphviz
 
 remnux-thug:
@@ -47,5 +47,5 @@ remnux-thug:
       - sls: remnux.packages.pkg-config
       - sls: remnux.packages.autoconf
       - sls: remnux.packages.libemu-dev
-      - sls: remnux.python-packages.pyv8
+      - sls: remnux.python-packages.stpyv8
       - sls: remnux.python-packages.pygraphviz
