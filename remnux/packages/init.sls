@@ -42,7 +42,7 @@ include:
   - remnux.packages.libfuzzy-dev
   - remnux.packages.libjpeg-dev
   - remnux.packages.libjpeg8-dev
-  - remnux.packages.libmozjs-52-0
+  - remnux.packages.libmozjs-52-dev
   - remnux.packages.libncurses
   # - remnux.packages.libolecf-utils
   - remnux.packages.libsqlite3-dev
@@ -180,6 +180,7 @@ remnux-packages:
       - sls: remnux.packages.libfuzzy-dev
       - sls: remnux.packages.libjpeg-dev
       - sls: remnux.packages.libjpeg8-dev
+      - sls: remnux.packages.libmozjs-52-dev
       - sls: remnux.packages.libncurses
       # - sls: remnux.packages.libolecf-utils
       - sls: remnux.packages.libsqlite3-dev
