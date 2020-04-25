@@ -12,7 +12,7 @@ Work in Progress: Working on creating configuration files.
 
 * Be 100% compatible with SIFT
 * Easy to update and make changes
-* Support 18.04 and forward, with possible support 16.04
+* Support 18.04 and forward
 
 ## How to Use this Repository
 
