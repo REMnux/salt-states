@@ -1,5 +1,10 @@
-# Source: https://portswigger.net/burp/communitydownload
-# License: https://portswigger.net/burp/eula/community
+# Name: Burp Suite Community Edition
+# Website: https://portswigger.net
+# Description: Investigate website interactions using a web proxy
+# Category: Script Analysis and Deobfuscation
+# Author: PortSwigger
+# License: https://portswigger.net/burp/tc-community
+# Notes: burpsuite
 
 include:
   - remnux.packages.default-jre
@@ -7,8 +12,8 @@ include:
 remnux-tools-burpsuite-community:
   file.managed:
     - name: /usr/local/burpsuite-community/burpsuite_community.jar
-    - source: https://portswigger.net/burp/releases/download?product=community&version=1.7.36&type=jar
-    - source_hash: sha256=2a9437a29f3e0429571ae21a1856d20bec729131cd934abac909354f8075a48a
+    - source: https://portswigger.net/burp/releases/download?product=community&version=2020.2.1&type=jar
+    - source_hash: sha256=d60aae76f65bbea92775fff73a35ee395841ee817d7f7eff281970d79270d622
     - makedirs: True
     - require:
       - sls: remnux.packages.default-jre

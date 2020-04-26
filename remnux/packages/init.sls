@@ -133,6 +133,7 @@ include:
   - remnux.packages.yara
   - remnux.packages.zlib1g-dev
   - remnux.packages.sudo
+  - remnux.packages.i386-architecture
 
 remnux-packages:
   test.nop:
@@ -271,3 +272,4 @@ remnux-packages:
       - sls: remnux.packages.yara
       - sls: remnux.packages.zlib1g-dev
       - sls: remnux.packages.sudo
+      - sls: remnux.packages.i386-architecture
