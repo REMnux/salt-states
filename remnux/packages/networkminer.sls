@@ -1,3 +1,11 @@
+# Name: Network Miner Free Edition
+# Website: https://www.netresec.com/?download=NetworkMiner
+# Description: Network Forensic Analysis Tool, packet sniffer
+# Category: Examine browser malware: Websites
+# Author: NETRESEC AB
+# License: https://www.netresec.com/?page=NetworkMinerSourceCode
+# Notes: 
+
 remnux-wget-networkminer:
  cmd.run:
     - name: wget https://www.netresec.com/?download=NetworkMiner -O /tmp/nm.zip
