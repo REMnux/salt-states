@@ -274,4 +274,4 @@ remnux-packages:
       - sls: remnux.packages.zlib1g-dev
       - sls: remnux.packages.sudo
       - sls: remnux.packages.i386-architecture
-      - sls: - remnux.packages.pev
+      - sls: remnux.packages.pev
