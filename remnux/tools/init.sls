@@ -5,6 +5,7 @@ include:
   - remnux.tools.js-patched
   - remnux.tools.flare
   - remnux.tools.flasm
+  - remnux.tools.xorsearch
 
 remnux-tools:
   test.nop:
@@ -15,3 +16,4 @@ remnux-tools:
       - sls: remnux.tools.js-patched
       - sls: remnux.tools.flare
       - sls: remnux.tools.flasm
+      - sls: remnux.tools.xorsearch
