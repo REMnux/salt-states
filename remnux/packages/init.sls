@@ -134,6 +134,7 @@ include:
   - remnux.packages.zlib1g-dev
   - remnux.packages.sudo
   - remnux.packages.i386-architecture
+  - remnux.packages.pev
 
 remnux-packages:
   test.nop:
@@ -273,3 +274,4 @@ remnux-packages:
       - sls: remnux.packages.zlib1g-dev
       - sls: remnux.packages.sudo
       - sls: remnux.packages.i386-architecture
+      - sls: - remnux.packages.pev
