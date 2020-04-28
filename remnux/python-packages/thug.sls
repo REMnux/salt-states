@@ -1,51 +1,38 @@
-# Source: https://github.com/buffer/thug
+# Name: thug
+# Website: https://github.com/buffer/thug
+# Description: Python-based low-interaction honeyclient
+# Category: Examine browser malware: Websites
 # Author: Angelo Dell'Aera
+# License: https://github.com/buffer/thug/blob/master/LICENSE.txt
+# Notes: Based on Google's V8 engine, using STPyV8
 
 include:
-  - remnux.python-packages.pip
-  - remnux.packages.build-essential
-  - remnux.packages.python-dev
-  - remnux.packages.python-setuptools
-  - remnux.packages.libboost-python-dev
-  - remnux.packages.libboost-all-dev
-  - remnux.packages.python-pip
-  - remnux.packages.libxml2-dev
-  - remnux.packages.libxslt-dev
-  - remnux.packages.libtool
-  - remnux.packages.graphviz-dev
-  - remnux.packages.automake
-  - remnux.packages.libffi-dev
-  - remnux.packages.graphviz
-  - remnux.packages.libfuzzy-dev
-  - remnux.packages.libjpeg-dev
-  - remnux.packages.pkg-config
-  - remnux.packages.autoconf
+  - remnux.packages.git
+  - remnux.packages.python3
+  - remnux.packages.python3-setuptools
   - remnux.packages.libemu-dev
+  - remnux.packages.libgraphviz-dev
   - remnux.python-packages.stpyv8
-  - remnux.python-packages.pygraphviz
 
-remnux-thug:
-  pip.installed:
-    - name: git+https://github.com/buffer/thug.git@master
+remnux-git-thug:
+  git.cloned:
+    - name: https://github.com/buffer/thug
+    - target: /tmp/thug
+
+remnux-python3-build-thug:
+  cmd.run:
+    - name: /usr/bin/python3 setup.py build
+    - cwd: /tmp/thug/
     - require:
-      - sls: remnux.python-packages.pip
-      - sls: remnux.packages.build-essential
-      - sls: remnux.packages.python-dev
-      - sls: remnux.packages.python-setuptools
-      - sls: remnux.packages.libboost-python-dev
-      - sls: remnux.packages.libboost-all-dev
-      - sls: remnux.packages.python-pip
-      - sls: remnux.packages.libxml2-dev
-      - sls: remnux.packages.libxslt-dev
-      - sls: remnux.packages.libtool
-      - sls: remnux.packages.graphviz-dev
-      - sls: remnux.packages.automake
-      - sls: remnux.packages.libffi-dev
-      - sls: remnux.packages.graphviz
-      - sls: remnux.packages.libfuzzy-dev
-      - sls: remnux.packages.libjpeg-dev
-      - sls: remnux.packages.pkg-config
-      - sls: remnux.packages.autoconf
+      - sls: remnux.packages.python3
+      - sls: remnux.packages.python3-setuptools
+      - sls: remnux.python-packages.stpyv8
+
+remnux-python3-install-thug:
+  cmd.run:
+    - name: /usr/bin/python3 setup.py install
+    - cwd: /tmp/thug/
+    - require:
       - sls: remnux.packages.libemu-dev
-      - sls: remnux.python-packages.pyv8
-      - sls: remnux.python-packages.pygraphviz
+      - sls: remnux.packages.libgraphviz-dev
+      - sls: remnux.python-packages.stpyv8
