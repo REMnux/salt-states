@@ -1,4 +1,10 @@
-{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}           
+{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}         
+
+{%- if user == "root" -%}
+  {%- set home = "/root" -%}
+{%- else -%}
+  {%- set home = salt['user.info'](user).home -%}
+{%- endif -%}
 
 include:
   - remnux.config.user
@@ -6,7 +12,7 @@ include:
 
 remnux-config-wget:
   file.managed:
-    - name: {{ salt['user.info'](user).home }}/.wgetrc
+    - name: {{ home }}/.wgetrc
     - source: salt://remnux/config/wget/wgetrc
     - user: {{ user }}
     - group: {{ user }}

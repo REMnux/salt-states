@@ -4,7 +4,7 @@
 # Category: Examine browser malware: Websites
 # Author: Angelo Dell'Aera
 # License: https://github.com/buffer/thug/blob/master/LICENSE.txt
-# Notes: Based on Google's V8 engine, using STPyV8
+# Notes: thug -F
 
 include:
   - remnux.packages.git
