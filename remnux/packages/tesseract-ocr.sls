@@ -1,0 +1,2 @@
+tesseract-ocr:
+  pkg.installed
