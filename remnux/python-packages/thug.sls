@@ -10,32 +10,77 @@ include:
   - remnux.packages.git
   - remnux.packages.python3
   - remnux.packages.python3-setuptools
-  - remnux.packages.libemu-dev
+  - remnux.packages.python3-pip
+  - remnux.packages.libemu
   - remnux.packages.libgraphviz-dev
+  - remnux.packages.libxml2-dev
+  - remnux.packages.libxslt1-dev
+  - remnux.packages.libffi-dev
+  - remnux.packages.libfuzzy-dev
+  - remnux.packages.libfuzzy2
+  - remnux.packages.libjpeg-dev
+  - remnux.packages.tesseract-ocr
   - remnux.python-packages.stpyv8
+  - remnux.python-packages.pytesseract
 
 remnux-git-thug:
   git.cloned:
     - name: https://github.com/buffer/thug
     - target: /usr/local/src/thug
 
-remnux-python-build-thug:
+remnux-pip3-install-thug:
   cmd.run:
-    - name: /usr/bin/python3 setup.py build
-    - cwd: /usr/local/src/thug/
+    - name: /usr/bin/pip3 install thug
     - require:
-      - sls: remnux.packages.python3
-      - sls: remnux.packages.python3-setuptools
-      - sls: remnux.python-packages.stpyv8
+      - sls: remnux.packages.python3-pip
     - watch:
       - git: remnux-git-thug
 
-remnux-python-thug:
-  cmd.run:
-    - name: /usr/bin/python3 setup.py install
-    - cwd: /usr/local/src/thug/
-    - require:
-      - sls: remnux.packages.libemu-dev
-      - sls: remnux.packages.libgraphviz-dev
+remnux-makedirs-thug:
+  file.directory:
+    - user: root
+    - group: root
+    - mode: 755
+    - makedirs: True
+    - names:
+      - /etc/thug
+      - /etc/thug/rules
+      - /etc/thug/personalities
+      - /etc/thug/scripts
+      - /etc/thug/plugins
+      - /etc/thug/hooks
     - watch:
-      - cmd: remnux-python-build-thug
+      - cmd: remnux-pip3-install-thug
+
+remnux-copy-rules-thug:
+  cmd.run:
+    - name: cp -R /usr/local/src/thug/thug/Classifier/rules/* /etc/thug/rules
+    - watch:
+      - file: remnux-makedirs-thug
+
+remnux-copy-personalities-thug:
+  cmd.run:
+    - name: cp -R /usr/local/src/thug/thug/DOM/personalities/* /etc/thug/personalities
+    - watch:
+      - cmd: remnux-copy-rules-thug
+
+remnux-copy-files-thug:
+  file.managed:
+    - user: root
+    - group: root
+    - mode: 755
+    - names:
+      - /etc/thug/scripts/thug.js:
+        - source: /usr/local/src/thug/thug/DOM/thug.js
+      - /etc/thug/scripts/storage.js:
+        - source: /usr/local/src/thug/thug/DOM/storage.js
+      - /etc/thug/scripts/date.js:
+        - source: /usr/local/src/thug/thug/DOM/date.js
+      - /etc/thug/scripts/eval.js:
+        - source: /usr/local/src/thug/thug/DOM/eval.js
+      - /etc/thug/scripts/write.js:
+        - source: /usr/local/src/thug/thug/DOM/write.js
+      - /etc/thug/thug.conf:
+        - source: /usr/local/src/thug/conf/thug.conf
+    - watch:
+      - cmd: remnux-copy-personalities-thug

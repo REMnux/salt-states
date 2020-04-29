@@ -17,39 +17,23 @@ include:
   - remnux.packages.python3-setuptools
   - remnux.packages.python-setuptools
   - remnux.packages.build-essential
+  - remnux.packages.python3-pip
 
 remnux-git-stpyv8:
   git.cloned:
     - name: https://github.com/area1/stpyv8
     - target: /usr/local/src/stpyv8
 
-remnux-python-v8:
-  cmd.run:    
-    - name: /usr/bin/python setup.py v8
+remnux-pip3-stpyv8:
+  cmd.run:
     - cwd: /usr/local/src/stpyv8/
+    - name: /usr/bin/pip3 install wheels/ubuntu-18.04/stpyv8-7.9.317.33-cp36-cp36m-linux_x86_64.whl
     - require:
-      - sls: remnux.packages.python
+      - sls: remnux.packages.python3
+      - sls: remnux.packages.python3-pip
+      - sls: remnux.packages.sudo
+      - sls: remnux.packages.libboost-python-dev
+      - sls: remnux.packages.libboost-system-dev
+      - sls: remnux.packages.libboost-dev
     - watch:
       - git: remnux-git-stpyv8
-
-remnux-python-build-stpyv8:
-  cmd.run:
-   - name: /usr/bin/python3 setup.py stpyv8
-   - cwd: /usr/local/src/stpyv8/
-   - require:
-     - sls: remnux.packages.python3
-     - sls: remnux.packages.sudo
-     - sls: remnux.packages.libboost-python-dev
-     - sls: remnux.packages.libboost-system-dev
-     - sls: remnux.packages.libboost-dev
-   - watch:
-      - cmd: remnux-python-v8
-
-remnux-python-stpyv8:
-  cmd.run:
-   - name: /usr/bin/python3 setup.py install
-   - cwd: /usr/local/src/stpyv8/
-   - require:
-     - sls: remnux.packages.python3
-   - watch:
-      - cmd: remnux-python-build-stpyv8
