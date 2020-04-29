@@ -22,6 +22,7 @@ include:
   - remnux.packages.tesseract-ocr
   - remnux.python-packages.stpyv8
   - remnux.python-packages.pytesseract
+  - remnux.packages.python-pip
 
 remnux-git-thug:
   git.cloned:
@@ -29,12 +30,22 @@ remnux-git-thug:
     - target: /usr/local/src/thug
 
 remnux-pip3-install-thug:
-  cmd.run:
-    - name: /usr/bin/pip3 install thug
+  pip.installed:
+    - name: thug
+    - bin_env: /usr/bin/pip3
     - require:
       - sls: remnux.packages.python3-pip
+      - sls: remnux.packages.python-pip
     - watch:
       - git: remnux-git-thug
+
+#remnux-pip3-install-thug:
+#  cmd.run:
+#    - name: /usr/bin/pip3 install thug
+#    - require:
+#      - sls: remnux.packages.python3-pip
+#    - watch:
+#      - git: remnux-git-thug
 
 remnux-makedirs-thug:
   file.directory:
@@ -50,7 +61,7 @@ remnux-makedirs-thug:
       - /etc/thug/plugins
       - /etc/thug/hooks
     - watch:
-      - cmd: remnux-pip3-install-thug
+      - pip: remnux-pip3-install-thug
 
 remnux-copy-rules-thug:
   cmd.run:

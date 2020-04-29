@@ -15,11 +15,11 @@ include:
 remnux-git-libemu:
   git.cloned:
     - name: https://github.com/buffer/libemu.git
-    - target: /tmp/libemu
+    - target: /usr/local/src/libemu
 
 remnux-autoreconf-libemu:
   cmd.run:
-    - cwd: /tmp/libemu
+    - cwd: /usr/local/src/libemu
     - name: autoreconf -v -i
     - require:
       - sls: remnux.packages.autoconf
@@ -29,7 +29,7 @@ remnux-autoreconf-libemu:
 
 remnux-config-make-libemu:
   cmd.run:
-    - cwd: /tmp/libemu
+    - cwd: /usr/local/src/libemu
     - name: ./configure && make install
     - watch:
       - cmd: remnux-autoreconf-libemu
