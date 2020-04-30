@@ -39,14 +39,6 @@ remnux-pip3-install-thug:
     - watch:
       - git: remnux-git-thug
 
-#remnux-pip3-install-thug:
-#  cmd.run:
-#    - name: /usr/bin/pip3 install thug
-#    - require:
-#      - sls: remnux.packages.python3-pip
-#    - watch:
-#      - git: remnux-git-thug
-
 remnux-makedirs-thug:
   file.directory:
     - user: root
