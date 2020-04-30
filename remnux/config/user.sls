@@ -1,10 +1,13 @@
 {% set user = salt['pillar.get']('remnux_user', 'remnux') %}
+
 {% if user == "root" %}
   {% set home = "/root" %}
 {% else %}
   {% set home = "/home/" + user %}
 {% endif %}
+
 {% set all_users = salt['user.list_users']() %}
+
 {% if user in all_users %}
 
 remnux-user-{{ user }}:
@@ -12,6 +15,7 @@ remnux-user-{{ user }}:
     - name: {{ user }}
     - home: {{ home }}
 {% else %}
+
 remnux-user-{{ user }}:
   group.present:
     - name: {{ user }}

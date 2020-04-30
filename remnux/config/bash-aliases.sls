@@ -1,4 +1,5 @@
 {% set user = salt['pillar.get']('remnux_user', 'remnux') %}
+
 {% if user == "root" %}
   {% set home = "/root" %}
 {% else %}
