@@ -1,14 +1,14 @@
-{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}
-
-{%- if user == "root" -%}
-  {%- set home = "/root" -%}
-{%- else -%}
-  {%- set home = salt['user.info'](user).home -%}
-{%- endif -%}
+{% set user = salt['pillar.get']('remnux_user', 'remnux') %}
+{% if user == "root" %}
+  {% set home = "/root" %}
+{% else %}
+  {% set home = "/home/" + user %}
+{% endif %}
 
 include:
   - remnux.config.user
   - remnux.config.bash-rc
+  - remnux.config.bash-aliases
   - remnux.python-packages.thug
 
 remnux-config-thug:
@@ -21,6 +21,7 @@ remnux-config-thug:
     - makedirs: True
     - require:
       - user: remnux-user-{{ user }}
+      - sls: remnux.config.user
     - require:
       - sls: remnux.python-packages.thug
 
@@ -29,9 +30,9 @@ remnux-config-thug-bash-rc:
     - name: {{ home }}/.bashrc
     - text: 'THUG_LOGBASE=/var/log/thug'
     - require:
-      - sls: remnux.config.user
-      - sls: remnux.config.bash-rc
       - user: remnux-user-{{ user }}
+      - sls: remnux.config.user
     - watch:
-      - file: remnux-config-bash-rc
-      - file: remnux-config-thug
+       - file: remnux-config-bash-rc
+       - file: remnux-config-thug
+       - file: remnux-config-bash-aliases

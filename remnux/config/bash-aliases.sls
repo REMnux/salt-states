@@ -1,10 +1,9 @@
-{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}           
-
-{%- if user == "root" -%}
-  {%- set home = "/root" -%}
-{%- else -%}
-  {%- set home = salt['user.info'](user).home -%}
-{%- endif -%}
+{% set user = salt['pillar.get']('remnux_user', 'remnux') %}
+{% if user == "root" %}
+  {% set home = "/root" %}
+{% else %}
+  {% set home = "/home/" + user  %}
+{% endif %}
 
 include:
   - remnux.config.user
