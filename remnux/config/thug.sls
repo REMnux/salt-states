@@ -22,7 +22,6 @@ remnux-config-thug:
     - makedirs: True
     - require:
       - user: remnux-user-{{ user }}
-#      - sls: remnux.config.user
     - require:
       - sls: remnux.python-packages.thug
 
@@ -32,7 +31,6 @@ remnux-config-thug-bash-rc:
     - text: 'THUG_LOGBASE=/var/log/thug'
     - require:
       - user: remnux-user-{{ user }}
- #     - sls: remnux.config.user
     - watch:
        - file: remnux-config-bash-rc
        - file: remnux-config-thug
