@@ -6,6 +6,7 @@
 remnux-user-{{ user }}:
   user.present:
     - name: {{ user }}
+    - home: /home/{{ user }}
 
 {%- else %}
 

@@ -15,6 +15,7 @@ remnux-config-bash-rc:
     - user: {{ user }}
     - group: {{ user }}
     - require:
+      - sls: remnux.config.user
       - user: remnux-user-{{ user }}
 
 remnux-config-bash-rc-noclobber:
@@ -22,6 +23,7 @@ remnux-config-bash-rc-noclobber:
     - name: {{ home }}/.bashrc
     - text: 'set -o noclobber'
     - require:
+      - sls: remnux.config.user
       - user: remnux-user-{{ user }}
     - watch:
       - file: remnux-config-bash-rc
