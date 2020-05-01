@@ -5,6 +5,7 @@ include:
   - remnux.repos.openjdk
   - remnux.repos.gift
   - remnux.repos.sift
+  - remnux.repos.mono
 
 remnux-repos:
   test.nop:
@@ -15,4 +16,4 @@ remnux-repos:
       - sls: remnux.repos.openjdk
       - sls: remnux.repos.gift
       - sls: remnux.repos.sift
-      
+      - sls: remnux.repos.mono

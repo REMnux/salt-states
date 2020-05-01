@@ -6,4 +6,4 @@ inetsim-repo:
     # Source - http://www.inetsim.org/inetsim-archive-signing-key.asc
     - key_url: salt://remnux/repos/files/INETSIM-GPG-KEY.asc
     - gpgcheck: 1
-    - refresh_db: true
+    - refresh: true

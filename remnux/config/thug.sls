@@ -19,7 +19,6 @@ remnux-config-thug:
     - user: {{ user }}
     - group: {{ user }}
     - mode: 755
-    - makedirs: True
     - require:
       - user: remnux-user-{{ user }}
     - require:

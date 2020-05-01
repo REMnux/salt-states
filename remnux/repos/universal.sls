@@ -1,4 +1,4 @@
 ubuntu-universal-repo:
   pkgrepo.managed:
     - name: deb http://archive.ubuntu.com/ubuntu {{ grains['lsb_distrib_codename'] }} universe
-    - refresh_db: true
+    - refresh: true

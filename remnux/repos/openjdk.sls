@@ -4,6 +4,6 @@ include:
 openjdk-repo:
   pkgrepo.managed:
     - ppa: openjdk-r/ppa
-    - refresh_db: true
+    - refresh: true
     - require:
       - sls: remnux.packages.software-properties-common
