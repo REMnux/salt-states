@@ -1,2 +1,2 @@
-libewf2:
+libewf:
   pkg.installed

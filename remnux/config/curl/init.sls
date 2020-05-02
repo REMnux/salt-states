@@ -1,4 +1,10 @@
-{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}           
+{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}       
+
+{% if user == "root" %}
+  {% set home = "/root" %}
+{% else %}
+  {% set home = "/home/" + user %}
+{% endif %}
 
 include:
   - remnux.config.user
@@ -6,7 +12,7 @@ include:
 
 remnux-config-curl:
   file.managed:
-    - name: {{ salt['user.info'](user).home }}/.curlrc
+    - name: {{ home }}/.curlrc
     - source: salt://remnux/config/curl/curlrc
     - user: {{ user }}
     - group: {{ user }}

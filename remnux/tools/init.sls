@@ -6,6 +6,7 @@ include:
   - remnux.tools.flare
   - remnux.tools.flasm
   - remnux.tools.xorsearch
+  - remnux.tools.networkminer
 
 remnux-tools:
   test.nop:
@@ -17,3 +18,4 @@ remnux-tools:
       - sls: remnux.tools.flare
       - sls: remnux.tools.flasm
       - sls: remnux.tools.xorsearch
+      - sls: remnux.tools.networkminer

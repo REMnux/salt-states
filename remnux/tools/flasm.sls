@@ -26,7 +26,7 @@ remnux-tools-flasm-archive:
     - watch:
       - file: remnux-tools-flasm-source
 
-remnux-tools-flare-binary:
+remnux-tools-flasm-binary:
   file.managed:
     - name: /usr/local/bin/flasm
     - source: /usr/local/src/remnux/flasm16linux/flasm
