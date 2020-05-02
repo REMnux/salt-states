@@ -8,6 +8,7 @@ include:
   - remnux.config.bash-aliases
   - remnux.config.bash-rc
   - remnux.config.thug
+  - remnux.config.networkminer
 
 remnux-config:
   test.nop:
@@ -21,3 +22,4 @@ remnux-config:
       - sls: remnux.config.bash-aliases
       - sls: remnux.config.bash-rc
       - sls: remnux.config.thug
+      - sls: remnux.config.networkminer
