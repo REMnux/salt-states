@@ -18,7 +18,6 @@ remnux-tools-burpsuite-community:
     - require:
       - sls: remnux.packages.default-jre
 
-
 remnux-tools-burpsuite-community-wrapper:
   file.managed:
     - name: /usr/local/bin/burpsuite
