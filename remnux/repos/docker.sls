@@ -1,6 +1,3 @@
-include:
-  - remnux.packages.apt-transport-https
-
 docker:
   pkgrepo.managed:
     - humanname: Docker
@@ -8,9 +5,6 @@ docker:
     - dist: {{ grains['lsb_distrib_codename'] }}
     - file: /etc/apt/sources.list.d/docker.list
     - keyid: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
-    - keyserver: hkp://p80.pool.sks-keyservers.net:80
+    - keyserver: hkp://ipv4.pool.sks-keyservers.net:80
     - refresh: true
-    - require:
-      - sls: remnux.packages.apt-transport-https
-  # Key retrieval has been very unreliable, so have to disable key checking for now :-(
-    - gpgcheck: 0
+    - gpgcheck: 1
