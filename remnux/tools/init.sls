@@ -8,6 +8,7 @@ include:
   - remnux.tools.xorsearch
   - remnux.tools.networkminer
   - remnux.tools.jad
+  - remnux.tools.jd-gui
 
 remnux-tools:
   test.nop:
@@ -21,3 +22,4 @@ remnux-tools:
       - sls: remnux.tools.xorsearch
       - sls: remnux.tools.networkminer
       - sls: remnux.tools.jad
+      - sls: remnux.tools.jd-gui
