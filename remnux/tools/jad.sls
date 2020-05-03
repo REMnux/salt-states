@@ -4,7 +4,7 @@
 # Category: Examine browser malware: Java
 # Author: Pavel Kouznetsov
 # License: http://www.kpdus.com/jad.html#disclaimer
-# Notes: jad 1.5.8e
+# Notes: jad
 
 remnux-tools-jad-source:
   file.managed:
