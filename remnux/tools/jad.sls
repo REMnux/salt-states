@@ -1,9 +1,9 @@
 # Name: JAD Java Decompiler
-# Website: http://www.kpdus.com/jad.html
+# Website: 
 # Description: Java decompiler and analysis tool
 # Category: Examine browser malware: Java
 # Author: Pavel Kouznetsov
-# License: http://www.kpdus.com/jad.html#disclaimer
+# License: Free, unknown license
 # Notes: jad
 
 remnux-tools-jad-source:

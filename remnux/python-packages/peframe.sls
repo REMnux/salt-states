@@ -3,7 +3,7 @@
 # Description: Statically analyze PE and Microsoft Office files.
 # Category: Static Analysis
 # Author: Gianni Amato: https://twitter.com/guelfoweb
-# License: 
+# License: Free, unknown license
 # Notes: 
 
 include:

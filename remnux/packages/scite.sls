@@ -3,7 +3,7 @@
 # Description: Edit text files.
 # Category: File Editing and Viewing: Text
 # Author: 
-# License: 
+# License: http://www.kpdus.com/jad.html
 # Notes: 
 
 scite:
