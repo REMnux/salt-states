@@ -1,5 +1,5 @@
 # Name: ltrace
-# Website: http://ltrace.org
+# Website: https://ltrace.org
 # Description: Trace library calls and signals.
 # Category: Linux Investigations: Trace
 # Author: Juan Cespedes
