@@ -2,17 +2,17 @@
 
 # REMnux Salt States
 
-Work in Progress: Working on creating configuration files.
+Work in Progress: Working on creating state files.
 
 ## Known Issues
 
-* Not all configuration files have been set up yet.
+* Not all state files have been created yet.
 
 ## Goals
 
-* Be compatible with SIFT
-* Easy to update and make changes
-* Support 18.04 and forward
+* Be compatible with SIFT.
+* Easy to update and make changes.
+* Support Ubuntu 18.04 LTE as the base OS.
 
 ## How to Use this Repository
 
