@@ -11,6 +11,7 @@ include:
 
 remnux-config-bash-rc:
   file.managed:
+    - replace: False
     - name: {{ home }}/.bashrc
     - user: {{ user }}
     - group: {{ user }}

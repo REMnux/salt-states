@@ -11,6 +11,7 @@ include:
 
 remnux-config-bash-aliases:
   file.managed:
+    - replace: False
     - name: {{ home }}/.bash_aliases
     - user: {{ user }}
     - group: {{ user }}

@@ -17,6 +17,7 @@ remnux-tools-automater:
 
 remnux-tools-automater-binary:
   file.managed:
+    - replace: False
     - name: /usr/local/automater/Automater.py
     - mode: 755
     - watch:
