@@ -125,4 +125,4 @@ Note: for those not familar with saltstack, `.sls` files are just YAML files, an
 2. The includes have been added as a require statement using `sls` for the state. -- This is important because it continues to help with the proper execution order and ensures that those state files are executed first and _onl if_ they both pass successful will the `pip.installed` run.
 3. In this case peframe isn't in PIP, but it has a setup.py file, so it can be installed using the `pip.installed` state function from SaltStack.
 
-In the end this state when run by itself will ensure that git and python pip are both installed before installing peframe. Git is required to clone the code from github and pip is installed because it uses the setup.py that is in the repo to actually install the module.
+In the end this state when run by itself will ensure that git and python pip are both installed before installing peframe. Git is required to clone the code from Github and PIP is installed because it uses the setup.py that is in the repo to actually install the module.
