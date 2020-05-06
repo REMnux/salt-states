@@ -6,7 +6,7 @@ Work in Progress: Working on creating state files.
 
 ## Known Issues
 
-* Not all state files have been created yet.
+Not all state files have been created yet.
 
 ## Goals
 
