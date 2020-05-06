@@ -9,6 +9,7 @@ include:
   - remnux.tools.networkminer
   - remnux.tools.jad
   - remnux.tools.jd-gui
+  - remnux.tools.ghidra
 
 remnux-tools:
   test.nop:
@@ -22,4 +23,5 @@ remnux-tools:
       - sls: remnux.tools.xorsearch
       - sls: remnux.tools.networkminer
       - sls: remnux.tools.jad
+      - sls: remnux.tools.jd-gui
       - sls: remnux.tools.jd-gui
