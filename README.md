@@ -24,13 +24,15 @@ Not all state files have been created yet.
 
 ### Install SaltStack
 
+As root run the following commands:
+
 ```bash
 wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
 apt-get update -y
 apt-get upgrade -y
 apt-get install -y salt-minion git 
-sudo systemctl disable salt-minion
-sudo systemctl stop salt-minion
+systemctl disable salt-minion
+systemctl stop salt-minion
 echo "file_client: local" > /etc/salt/minion
 ```
 
