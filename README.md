@@ -18,7 +18,7 @@ Not all state files have been created yet.
 
 1. Have a [Ubuntu 18.04 Desktop](https://releases.ubuntu.com/18.04/) VM available
 2. [Install SaltStack in the VM](#install-saltstack)
-3. `git clone https://github.com/REMnux/salt-states.git /srv/salt`
+3. `sudo git clone https://github.com/REMnux/salt-states.git /srv/salt`
 4. `sudo salt-call --local state.sls remnux`
 5. Sit back and enjoy
 
