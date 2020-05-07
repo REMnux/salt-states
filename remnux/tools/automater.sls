@@ -10,10 +10,6 @@ remnux-tools-automater:
     - target: /usr/local/automater
     - user: root
     - branch: master
-    - force_fetch: True
-    - force_checkout: True
-    - force_clone: True
-    - force_reset: True
 
 remnux-tools-automater-binary:
   file.managed:
