@@ -13,7 +13,7 @@ include:
   - remnux.packages.build-essential
 
 remnux-git-libemu:
-  git.latest:
+  git.cloned:
     - name: https://github.com/buffer/libemu.git
     - target: /usr/local/src/libemu
 

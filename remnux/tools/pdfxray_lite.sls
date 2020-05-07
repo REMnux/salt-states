@@ -6,7 +6,7 @@ include:
   - remnux.python-packages.simplejson
 
 remnux-tools-pdfxray-lite:
-  git.latest:
+  git.cloned:
     - name: https://github.com/9b/pdfxray_lite.git
     - target: /usr/local/pdfxray_lite
     - user: root

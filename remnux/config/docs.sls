@@ -7,7 +7,7 @@ remnux-config-docs:
     - makedirs: True
 
 remnux-config-docs-git:
-  git.latest:
+  git.cloned:
     - name: https://github.com/REMnux/docs.git
     - target: /usr/share/remnux/docs
     - require:

@@ -5,7 +5,7 @@ include:
   - remnux.packages.git
 
 remnux-tools-automater:
-  git.latest:
+  git.cloned:
     - name: https://github.com/1aN0rmus/TekDefense-Automater
     - target: /usr/local/automater
     - user: root
