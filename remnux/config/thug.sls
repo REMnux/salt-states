@@ -27,7 +27,7 @@ remnux-config-thug:
 remnux-config-thug-bash-rc:
   file.append:
     - name: {{ home }}/.bashrc
-    - text: 'THUG_LOGBASE=/var/log/thug'
+    - text: 'export THUG_LOGBASE=/var/log/thug'
     - require:
       - user: remnux-user-{{ user }}
     - watch:
