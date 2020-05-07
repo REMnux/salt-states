@@ -38,6 +38,7 @@ remnux-networkminer-wrapper:
   file.managed:
     - name: /usr/local/bin/networkminer
     - mode: 755
+    - replace: False
     - watch:
         - file: /usr/local/NetworkMiner_2-5/NetworkMiner.exe
     - contents:
