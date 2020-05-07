@@ -20,7 +20,7 @@ include:
   - remnux.packages.python3-pip
 
 remnux-git-stpyv8:
-  git.cloned:
+  git.latest:
     - name: https://github.com/area1/stpyv8
     - target: /usr/local/src/stpyv8
 

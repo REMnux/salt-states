@@ -1,5 +1,5 @@
 include:
-  - remnux.python-packages.pip
+  - remnux.packages.pip
 
 oletools:
   pip.installed:

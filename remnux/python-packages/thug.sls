@@ -25,7 +25,7 @@ include:
   - remnux.packages.python-pip
 
 remnux-git-thug:
-  git.cloned:
+  git.latest:
     - name: https://github.com/buffer/thug
     - target: /usr/local/src/thug
 
