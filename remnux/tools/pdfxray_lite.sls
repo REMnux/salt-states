@@ -11,10 +11,6 @@ remnux-tools-pdfxray-lite:
     - target: /usr/local/pdfxray_lite
     - user: root
     - branch: master
-    - force_fetch: True
-    - force_checkout: True
-    - force_clone: True
-    - force_reset: True
     - require:
       - sls: remnux.python-packages.simplejson
 
