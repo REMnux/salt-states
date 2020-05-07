@@ -16,15 +16,9 @@ Not all state files have been created yet.
 
 ## How to Use this Repository
 
-1. Have a [Ubuntu 18.04 Desktop](https://releases.ubuntu.com/18.04/) VM available
-2. [Install SaltStack in the VM](#install-saltstack)
-3. `sudo git clone https://github.com/REMnux/salt-states.git /srv/salt`
-4. `sudo salt-call --local state.sls remnux`
-5. Sit back and enjoy
+1. Download and set up a system (likely a virtual machine) running [Ubuntu 18.04 Desktop](https://releases.ubuntu.com/18.04/).
 
-### Install SaltStack
-
-As root run the following commands:
+2. Install SaltStack in the VM by running the following instructions as root. Note that the version of SaltStack that comes with Ubuntu 18.04 might not be compatible with REMnux, so you need to perform the following steps to ensure you're running a supported version:
 
 ```bash
 wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
@@ -36,6 +30,15 @@ systemctl disable salt-minion
 systemctl stop salt-minion
 echo "file_client: local" > /etc/salt/minion
 ```
+
+3. Run the following commands in the VM to clone this repository and direct SaltStack to install REMnux:
+
+```bash
+sudo git clone https://github.com/REMnux/salt-states.git /srv/salt
+sudo salt-call --local state.sls remnux
+```
+
+4. Wait for the install to be completed. This could take 1-2 hours, depending on the capabilities of your system and your internet connection.
 
 ## Testing States
 
