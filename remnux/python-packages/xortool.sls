@@ -1,7 +1,7 @@
 include:
-  - remnux.python-packages.pip
+  - remnux.packages.python-pip
 
 xortool:
   pip.installed:
     - require:
-      - pip: pip
+      - sls: remnux.packages.python-pip

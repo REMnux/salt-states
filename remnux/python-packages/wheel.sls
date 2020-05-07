@@ -1,7 +1,7 @@
 include:
-  - remnux.python-packages.pip
+  - remnux.packages.python-pip
 
 wheel:
   pip.installed:
     - require:
-      - pip: pip
+      - sls: remnux.packages.python-pip

@@ -7,4 +7,4 @@ docker:
     - keyid: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
     - keyserver: hkp://ipv4.pool.sks-keyservers.net:80
     - refresh: true
-    #- gpgcheck: 1
+    - gpgcheck: 1

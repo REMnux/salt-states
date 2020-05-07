@@ -1,11 +1,11 @@
 include:
-  - remnux.python-packages.pip
+  - remnux.packages.python-pip
   - remnux.python-packages.six
   - remnux.python-packages.setuptools
 
 cybox:
   pip.installed:
     - require:
-      - pip: pip
+      - sls: remnux.packages.python-pip
       - pip: six
       - pip: setuptools

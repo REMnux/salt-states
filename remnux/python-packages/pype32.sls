@@ -1,7 +1,7 @@
 include:
-  - remnux.python-packages.pip
+  - remnux.packages.python-pip
 
 pype32:
   pip.installed:
     - require:
-      - pip: pip
+      - sls: remnux.packages.python-pip

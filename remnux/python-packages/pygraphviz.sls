@@ -1,5 +1,5 @@
 include:
-  - remnux.python-packages.pip
+  - remnux.packages.python-pip
   - remnux.packages.graphviz-dev
   - remnux.packages.graphviz
 
@@ -12,4 +12,4 @@ remnux-pygraphviz:
     - require:
       - pkg: graphviz-dev
       - pkg: graphviz
-      - pip: pip
+      - sps: remnux.packages.python-pip

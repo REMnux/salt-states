@@ -1,8 +1,8 @@
 include:
-  - remnux.python-packages.pip
+  - remnux.packages.python-pip
 
 setuptools:
   pip.installed:
     - upgrade: True
     - require:
-      - pip: pip
+      - sls: remnux.packages.python-pip

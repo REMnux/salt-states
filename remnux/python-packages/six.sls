@@ -1,9 +1,9 @@
 include:
-  - remnux.python-packages.pip
+  - remnux.packages.python-pip
 
 six:
   pip.installed:
     - name: six >= 1.6
     - upgrade: True
     - require:
-      - pip: pip
+      - sls: remnux.packages.python-pip
