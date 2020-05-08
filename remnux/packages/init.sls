@@ -1,6 +1,4 @@
 include:
-  - remnux.packages.absent.cups-client
-  - remnux.packages.absent.xscreensaver
   - remnux.packages.aeskeyfind
   - remnux.packages.apt-transport-https
   - remnux.packages.autoconf
@@ -140,8 +138,6 @@ include:
 remnux-packages:
   test.nop:
     - require:
-      - sls: remnux.packages.absent.cups-client
-      - sls: remnux.packages.absent.xscreensaver
       - sls: remnux.packages.aeskeyfind
       - sls: remnux.packages.apt-transport-https
       - sls: remnux.packages.autoconf

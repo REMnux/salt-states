@@ -1,2 +1,0 @@
-cups-client:
-  pkg.removed
