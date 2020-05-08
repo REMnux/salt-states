@@ -4,71 +4,58 @@ include:
   - remnux.config.user
   - remnux.tools.networkminer
 
-# If this is already a symlink, leave it alone. Otherwise, we run into errors in some cases.
-{% if 0 != salt['cmd.retcode']('test -L /usr/local/NetworkMiner_2-5/AssembledFiles') %}
-
-remnux-config-networkminer-assembledfiles:
+remnux-config-rename-networkminer-assembledfiles:
   file.rename:
-    - name: /var/log/networkminer/AssembledFiles
+    - name: /usr/local/NetworkMiner_2-5/AssembledFiles.original
     - source: /usr/local/NetworkMiner_2-5/AssembledFiles
     - force: true
     - makedirs: True
     - require:
-      - user: remnux-user-{{ user }}
       - sls: remnux.tools.networkminer
   
-remnux-config-networkminer-assembledfiles-permissions:
+remnux-config-create-networkminer-assembledfiles:
   file.directory:
-    - name: /var/log/networkminer/AssembledFiles
+    - name: /var/log/networkminer/AssembledFiles/cache
+    - makedirs: True
     - user: {{ user }}
     - group: {{ user }}
     - mode: 755
-    - recurse:
-      - user
-      - group
-      - mode
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - file: remnux-config-networkminer-assembledfiles
+      - file: remnux-config-rename-networkminer-assembledfiles
 
 remnux-config-networkminer-assembledfiles-link:
   file.symlink:
     - name: /usr/local/NetworkMiner_2-5/AssembledFiles
     - target: /var/log/networkminer/AssembledFiles
     - watch:
-      - file: remnux-config-networkminer-assembledfiles-permissions
+      - file: remnux-config-create-networkminer-assembledfiles
 
-{% endif %}
-
-# If this is already a symlink, leave it alone. Otherwise, we run into errors in some cases.
-{% if 0 != salt['cmd.retcode']('test -L /usr/local/NetworkMiner_2-5/Captures') %}
-
-remnux-config-networkminer-captures:
+remnux-config-rename-networkminer-captures:
   file.rename:
-    - name: /var/log/networkminer/Captures
+    - name: /usr/local/NetworkMiner_2-5/Captures.original
     - source: /usr/local/NetworkMiner_2-5/Captures
     - force: true
     - makedirs: True
     - require:
-      - user: remnux-user-{{ user }}
+      - sls: remnux.tools.networkminer
   
-remnux-config-networkminer-captures-permissions:
+remnux-config-create-networkminer-captures:
   file.directory:
     - name: /var/log/networkminer/Captures
+    - makedirs: True
     - user: {{ user }}
     - group: {{ user }}
     - mode: 755
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - file: remnux-config-networkminer-captures
+      - file: remnux-config-rename-networkminer-captures
 
 remnux-config-networkminer-captures-link:
   file.symlink:
     - name: /usr/local/NetworkMiner_2-5/Captures
     - target: /var/log/networkminer/Captures
     - watch:
-      - file: remnux-config-networkminer-captures-permissions
-
-{% endif %}
+      - file: remnux-config-create-networkminer-captures

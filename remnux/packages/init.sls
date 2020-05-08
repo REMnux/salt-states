@@ -136,6 +136,7 @@ include:
   - remnux.packages.i386-architecture
   - remnux.packages.pev
   - remnux.packages.pdftk-java
+  - remnux.packages.net-tools
 
 remnux-packages:
   test.nop:
@@ -277,3 +278,4 @@ remnux-packages:
       - sls: remnux.packages.i386-architecture
       - sls: remnux.packages.pev
       - sls: remnux.packages.pdftk-java
+      - sls: remnux.packages.net-tools
