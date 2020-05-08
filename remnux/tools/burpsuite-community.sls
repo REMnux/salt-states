@@ -12,8 +12,8 @@ include:
 remnux-tools-burpsuite-community:
   file.managed:
     - name: /usr/local/burpsuite-community/burpsuite_community.jar
-    - source: https://portswigger.net/burp/releases/download?product=community&version=2020.2.1&type=jar
-    - source_hash: sha256=d60aae76f65bbea92775fff73a35ee395841ee817d7f7eff281970d79270d622
+    - source: https://portswigger.net/burp/releases/download?product=community&version=2020.4&type=Jar
+    - source_hash: sha256=009ceb84060724dc4a0943c69b2cc8a0e382ef68085216d8e610f944707576a6
     - makedirs: True
     - require:
       - sls: remnux.packages.default-jre
