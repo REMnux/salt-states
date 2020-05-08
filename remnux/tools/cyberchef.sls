@@ -1,3 +1,11 @@
+# Name: CyberChef
+# Website: https://github.com/gchq/CyberChef/
+# Description: Decode and otherwise analyze data
+# Category: 
+# Author: GCHQ
+# License: https://github.com/gchq/CyberChef/blob/master/LICENSE
+# Notes: cyberchef
+
 {% set version = "9.20.3" -%}
 {% set hash = "5490446ace6880949938dbf708f8e370cf54f89f519912d18860e794e2c76c3d" -%}
 
@@ -22,4 +30,4 @@ remnux-tools-cyberchef-wrapper:
       - archive: remnux-tools-cyberchef
     - contents:
         #!/bin/bash
-        firefox /usr/local/cyberchef/CyberChef_v{{ version }}.html
+        firefox /usr/local/cyberchef/CyberChef_v{{ version }}.html &
