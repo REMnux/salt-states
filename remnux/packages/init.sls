@@ -52,7 +52,6 @@ include:
   - remnux.packages.libxslt1-dev
   - remnux.packages.linux-headers
   - remnux.packages.ltrace
-  - remnux.packages.lxde
   - remnux.packages.mercurial
   - remnux.packages.nginx
   - remnux.packages.ngrep
@@ -194,7 +193,6 @@ remnux-packages:
       - sls: remnux.packages.libxslt1-dev
       - sls: remnux.packages.linux-headers
       - sls: remnux.packages.ltrace
-      - sls: remnux.packages.lxde
       - sls: remnux.packages.mercurial
       - sls: remnux.packages.nginx
       - sls: remnux.packages.ngrep
