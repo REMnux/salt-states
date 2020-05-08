@@ -129,7 +129,6 @@ include:
   - remnux.packages.wxhexeditor
   - remnux.packages.xmlstarlet
   - remnux.packages.xpdf
-  - remnux.packages.xterm
   - remnux.packages.yara
   - remnux.packages.zlib1g-dev
   - remnux.packages.sudo
@@ -272,7 +271,6 @@ remnux-packages:
       - sls: remnux.packages.wxhexeditor
       - sls: remnux.packages.xmlstarlet
       - sls: remnux.packages.xpdf
-      - sls: remnux.packages.xterm
       - sls: remnux.packages.yara
       - sls: remnux.packages.zlib1g-dev
       - sls: remnux.packages.sudo
