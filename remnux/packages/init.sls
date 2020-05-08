@@ -137,6 +137,7 @@ include:
   - remnux.packages.pev
   - remnux.packages.pdftk-java
   - remnux.packages.net-tools
+  - remnux.packages.firefox
 
 remnux-packages:
   test.nop:
@@ -279,3 +280,4 @@ remnux-packages:
       - sls: remnux.packages.pev
       - sls: remnux.packages.pdftk-java
       - sls: remnux.packages.net-tools
+      - sls: remnux.packages.firefox
