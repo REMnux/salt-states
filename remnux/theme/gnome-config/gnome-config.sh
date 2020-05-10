@@ -7,7 +7,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize
 gsettings set org.gnome.shell enabled-extensions "['window-list@gnome-shell-extensions.gcampax.github.com']"
 
 # Set the desktop background to black and display the REMnux logo in the center.
-gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/icons/hicolor/256x256/apps/gnome-power-manager.png"
+gsettings set org.gnome.desktop.background picture-uri "file:///usr/local/share/remnux/remnux-logo.png"
 gsettings set org.gnome.desktop.background picture-options "centered"
 gsettings set org.gnome.desktop.background primary-color "#000000000000"
 
