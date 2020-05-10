@@ -8,6 +8,7 @@ include:
   - remnux.config.bash-rc
   - remnux.config.thug
   - remnux.config.networkminer
+  - remnux.config.salt-minion
 
 remnux-config:
   test.nop:
@@ -21,3 +22,4 @@ remnux-config:
       - sls: remnux.config.bash-rc
       - sls: remnux.config.thug
       - sls: remnux.config.networkminer
+      - sls: remnux.config.salt-minion

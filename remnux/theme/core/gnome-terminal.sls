@@ -1,0 +1,2 @@
+gnome-terminal:
+  pkg.installed

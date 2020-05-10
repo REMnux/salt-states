@@ -1,0 +1,2 @@
+gnome-session:
+  pkg.installed
