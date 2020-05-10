@@ -17,7 +17,7 @@ remnux-theme-autologin-user:
   file.replace:
     - name: /etc/gdm3/custom.conf
     - pattern: '#  AutomaticLogin = user1'
-    - repl: '#  AutomaticLogin = {{ user }}'
+    - repl: 'AutomaticLogin = {{ user }}'
     - prepend_if_not_found: True
     - count: 1
     - watch:
