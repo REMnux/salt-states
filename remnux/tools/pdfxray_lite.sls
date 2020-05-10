@@ -30,7 +30,7 @@ remnux-tools-pdfxray-lite-shebang:
   - watch:
       - git: remnux-tools-pdfxray-lite
 
-emnux-tools-swf-mastah-shebang:
+remnux-tools-swf-mastah-shebang:
   file.replace:
     - name: /usr/local/pdfxray_lite/swf_mastah.py
     - pattern: '#!/usr/bin/env python'
