@@ -40,7 +40,7 @@ include:
   - remnux.packages.libfuzzy-dev
   - remnux.packages.libjpeg-dev
   - remnux.packages.libjpeg8-dev
-  - remnux.packages.libmozjs-52-dev
+  - remnux.packages.spidermonkey
   - remnux.packages.libncurses
   # - remnux.packages.libolecf-utils
   - remnux.packages.libsqlite3-dev
@@ -275,3 +275,4 @@ remnux-packages:
       - sls: remnux.packages.net-tools
       - sls: remnux.packages.firefox
       - sls: remnux.packages.wine
+      - sls: remnux.packages.spidermonkey
