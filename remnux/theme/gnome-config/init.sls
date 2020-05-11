@@ -6,6 +6,8 @@
   {% set home = "/home/" + user %}
 {% endif %}
 
+{%- set dbus_address = salt['cmd.run']("dbus-launch | grep DBUS_SESSION_BUS_ADDRESS | cut -d= -f2-", shell="/bin/bash", runas=user, cwd=home, python_shell=True) -%}
+
 include:
   - remnux.config.user
   - remnux.theme.core.gnome-shell-extensions
@@ -70,5 +72,7 @@ remnux-gnome-config-terminal-profiles-install:
     - runas: {{ user }}
     - cwd: {{ home }}
     - shell: /bin/bash
+    - env:
+      - DBUS_SESSION_BUS_ADDRESS: "{{ dbus_address }}"
     - watch:
       - file: remnux-gnome-config-terminal-profiles-file
