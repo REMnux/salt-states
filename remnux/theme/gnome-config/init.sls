@@ -52,3 +52,23 @@ remnux-gnome-config-autostart-ignore-lid-switch-tweak:
     - makedirs: True
     - require:
       - sls: remnux.theme.core.gnome-tweaks
+
+remnux-gnome-config-terminal-profiles-file:
+  file.managed:
+    - name: /usr/local/share/remnux/terminal-profiles.ini
+    - source: salt://remnux/theme/gnome-config/terminal-profiles.ini
+    - user: root
+    - group: root
+    - mode: 0644
+    - makedirs: True
+    - require:
+      - sls: remnux.theme.core.gnome-terminal
+
+remnux-gnome-config-terminal-profiles-install:
+  cmd.run:
+    - name: dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < /usr/local/share/remnux/terminal-profiles.ini
+    - runas: {{ user }}
+    - cwd: {{ home }}
+    - shell: /bin/bash
+    - watch:
+      - file: remnux-gnome-config-terminal-profiles-file
