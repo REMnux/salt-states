@@ -16,7 +16,6 @@ remnux-networkminer-source:
     - source_hash: sha256=3f11dc812a9a3c84fafa29660e6142464582825569771e1f60bd6568e0269b23
     - makedirs: True
     - replace: False
-    - replace: False
     - require:
       - sls: remnux.packages.mono-devel
 
@@ -32,6 +31,7 @@ remnux-networkminer-archive:
 /usr/local/NetworkMiner_2-5/NetworkMiner.exe:
   file.managed:
     - mode: 755
+    - replace: False
     - watch:
       - archive: remnux-networkminer-archive
 
