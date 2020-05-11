@@ -26,8 +26,8 @@ You can install REMnux on your existing system, if your system is running Ubuntu
 ```bash
 wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
 echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/2018.3 bionic main" | sudo tee /etc/apt/sources.list.d/saltstack.list
-apt-get update -y
-apt-get install -y salt-minion git 
+apt update -y
+apt install -y salt-minion git 
 systemctl disable salt-minion
 systemctl stop salt-minion
 echo "file_client: local" > /etc/salt/minion
