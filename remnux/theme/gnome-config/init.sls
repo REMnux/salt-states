@@ -76,3 +76,11 @@ remnux-gnome-config-terminal-profiles-install:
       - DBUS_SESSION_BUS_ADDRESS: "{{ dbus_address }}"
     - watch:
       - file: remnux-gnome-config-terminal-profiles-file
+
+remnux-gnome-config-keyring-ssh-disable-autostart:
+  file.replace:
+    - name: /etc/xdg/autostart/gnome-keyring-ssh.desktop
+    - pattern: 'X-GNOME-Autostart-enabled=false'
+    - repl: 'X-GNOME-Autostart-enabled=false'
+    - append_if_not_found: True
+    - count: 1
