@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/REMnux/salt-states.svg?branch=master)](https://travis-ci.org/REMnux/salt-states)
-
 # REMnux Salt States
 
 Work in Progress: Working on creating state files.
@@ -11,34 +9,81 @@ Not all state files have been created yet.
 ## Goals
 
 * Be compatible with SIFT.
-* Easy to update and make changes.
+* Make it easy to update and make changes.
 * Support Ubuntu 18.04 LTE as the base OS.
+* Stay lightweight, installing only the prerequisites needed for the tools.
 
-## How to Use this Repository
+## How to Use this Repository to Install REMnux
 
-1. Download and set up a system (likely a virtual machine) running [Ubuntu 18.04 Desktop](https://releases.ubuntu.com/18.04/).
+You can [install REMnux on your existing system](#installing-remnux-on-an-existing-system), in which case you'll get the tools and configuration tweaks that comprise REMnux without the REMnux look-and-feel. Alternatively, you can [set up a dedicated REMnux system](#setting-up-a-dedicated-remnux-system) that is as lightweight as practical and that provides the full REMnux look and feel.
 
-2. Run the following commands as root in the VM to install SaltStack. That the version of SaltStack that comes with Ubuntu 18.04 might not be compatible with REMnux, so you need to do this to install the supported SaltStack version:
+### Installing REMnux on an Existing System
+
+You can install REMnux on your existing system, if your system is running Ubuntu 18.04. This configuration doesn't modify your system's look and feel, so you won't have the REMnux look and feel. To proceed this way:
+
+1. Run the following commands as root (start with `sudo -s`) on your system to install SaltStack. That the version of SaltStack that comes with Ubuntu 18.04 might not be compatible with REMnux, so you need to do this to install the supported SaltStack version:
 
 ```bash
 wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
 echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/2018.3 bionic main" | sudo tee /etc/apt/sources.list.d/saltstack.list
 apt-get update -y
-apt-get upgrade -y
 apt-get install -y salt-minion git 
 systemctl disable salt-minion
 systemctl stop salt-minion
 echo "file_client: local" > /etc/salt/minion
 ```
 
-3. Run the following commands as root in the VM to clone this repository and direct SaltStack to install REMnux:
+2. Run the following commands as root on your system (start with `sudo -s`) to clone the REMnux state file repository and direct SaltStack to install REMnux. Replace **YOUR_USERNAME** with your username:
+
+```bash
+git clone https://github.com/REMnux/salt-states.git /srv/salt
+salt-call --local state.sls remnux pillar='{"remnux_user": "YOUR_USERNAME"}'
+```
+
+Remember to replace **YOUR_USERNAME** with the username you use to log into your system. The installation will take about an hour, depending on the capabilities of your system and your internet connection.
+
+### Setting Up a Dedicated REMnux System
+
+You can install REMnux on a dedicated system. In this case, you'll get the full REMnux distro, including the REMnux look-and-feel. The resulting system will be as lightweight as practical, because it only includes the necessary dependencies to run REMnux tools. To proceed this way:
+
+1. Download the [ISO of the "MinimalCD" version of Ubuntu 18.04](https://help.ubuntu.com/community/Installation/MinimalCD).
+
+2. Install the "MinimalCD" version of Ubuntu 18.04 on your system. A common way to do this is to set up a virtual machine. When going through the installation steps:
+   
+   * Set up the user named "**remnux**" when prompted.
+   * Don't add any software packages when prompted to install optional packages.
+
+3. Once the minimal system boots up, you'll see the console login prompt. Log in as the user "remnux".
+4. Run the following commands to install the graphical interface and essential packages, then reboot:
+
+```bash
+sudo apt install -y gnome-session gdm3 open-vm-tools-desktop gnome-terminal
+reboot
+```
+
+5. Once the system reboots, log into the graphical interface as the user "remnux".
+6. Go to the Activities menu in the top left corner, click there, then launch the Terminal.
+7. Run the following commands as root (start with `sudo -s`) in the Terminal to install SaltStack:
+
+```bash
+wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
+echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/2018.3 bionic main" | sudo tee /etc/apt/sources.list.d/saltstack.list
+apt update -y
+apt install -y salt-minion git 
+systemctl disable salt-minion
+systemctl stop salt-minion
+echo "file_client: local" > /etc/salt/minion
+```
+
+8. Run the following commands as root (start with `sudo -s`)  to clone this repository and direct SaltStack to install REMnux:
 
 ```bash
 git clone https://github.com/REMnux/salt-states.git /srv/salt
 salt-call --local state.sls remnux
+salt-call --local state.sls remnux.theme
 ```
 
-4. Wait for the install to be completed. This could take 1-2 hours, depending on the capabilities of your system and your internet connection.
+The installation (mostly the first `salt-call` command will take about an hour, depending on the capabilities of your system and your internet connection.
 
 ## Testing States
 
