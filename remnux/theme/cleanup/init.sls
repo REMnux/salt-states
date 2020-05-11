@@ -1,7 +1,11 @@
 include:
-  - remnux.cleanup.gnome-user-docs
+  - remnux.theme.cleanup.gnome-user-docs
 
 remnux-theme-cleanup:
   test.nop:
     - require:
-      - sls: remnux.cleanup.gnome-user-docs
+      - sls: remnux.theme.cleanup.gnome-user-docs
+
+remnux-theme-cleanup-autoremove:
+  cmd.run:
+    - name: apt-get autoremove -y
