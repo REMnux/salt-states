@@ -1,5 +1,11 @@
-# Source:  https://bitbucket.org/Alexander_Hanel/xxxswf.git
-# Commit:  c231234
+# Name: xxxswf
+# Website: https://bitbucket.org/Alexander_Hanel/xxxswf.git
+# Description: Python script for analyzing Flash SWF files
+# Category: Examine browser malware: Flash
+# Author: Alexander Hanel
+# License: https://bitbucket.org/Alexander_Hanel/xxxswf/src/master/LICENSE.txt
+# Notes: 
+
 include:
   - remnux.packages.git
   - remnux.packages.python-pip
