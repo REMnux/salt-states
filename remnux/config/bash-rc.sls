@@ -18,11 +18,21 @@ remnux-config-bash-rc:
     - require:
       - user: remnux-user-{{ user }}
 
-remnux-config-bash-rc-noclobber:
+remnux-config-bash-rc-aliases-file:
+  file.managed:
+    - name: /usr/local/share/remnux/bash-aliases.sh
+    - source: salt://remnux/config/bash-aliases.sh
+    - makedirs: True
+
+remnux-config-bash-rc-source-aliases:
   file.append:
     - name: {{ home }}/.bashrc
-    - text: 'set -o noclobber'
+    - text: |
+        if [ -f /usr/local/share/remnux/bash-aliases.sh ]; then
+        . /usr/local/share/remnux/bash-aliases.sh
+        fi
     - require:
       - user: remnux-user-{{ user }}
     - watch:
       - file: remnux-config-bash-rc
+      - file: remnux-config-bash-rc-aliases-file

@@ -1,0 +1,2 @@
+galculator:
+  pkg.installed

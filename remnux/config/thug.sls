@@ -9,7 +9,6 @@
 include:
   - remnux.config.user
   - remnux.config.bash-rc
-  - remnux.config.bash-aliases
   - remnux.python-packages.thug
 
 remnux-config-thug:
@@ -33,4 +32,3 @@ remnux-config-thug-bash-rc:
     - watch:
        - file: remnux-config-bash-rc
        - file: remnux-config-thug
-       - file: remnux-config-bash-aliases

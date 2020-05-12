@@ -135,6 +135,7 @@ include:
   - remnux.packages.net-tools
   - remnux.packages.firefox
   - remnux.packages.wine
+  - remnux.packages.galculator
 
 remnux-packages:
   test.nop:
@@ -276,3 +277,4 @@ remnux-packages:
       - sls: remnux.packages.firefox
       - sls: remnux.packages.wine
       - sls: remnux.packages.spidermonkey
+      - sls: remnux.packages.galculator
