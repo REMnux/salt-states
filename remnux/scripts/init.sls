@@ -8,6 +8,7 @@ include:
   - remnux.scripts.extractscripts
   - remnux.scripts.virustotal-search
   - remnux.scripts.base64dump
+  - remnux.scripts.java_idx_parser
 
 remnux-scripts:
   test.nop:
@@ -21,3 +22,4 @@ remnux-scripts:
       - sls: remnux.scripts.extractscripts
       - sls: remnux.scripts.virustotal-search
       - sls: remnux.scripts.base64dump
+      - sls: remnux.scripts.java_idx_parser

@@ -4,7 +4,7 @@
 # Category: Examine browser malware: Java
 # Author: Lee Benfield
 # License: https://github.com/leibnitz27/cfr/blob/master/LICENSE
-# Notes: cfr
+# Notes: 
 
 include:
   - remnux.packages.default-jre
