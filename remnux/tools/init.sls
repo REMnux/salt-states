@@ -12,6 +12,7 @@ include:
   - remnux.tools.ghidra
   - remnux.tools.cyberchef
   - remnux.tools.cfr
+  - remnux.tools.cutter
 
 remnux-tools:
   test.nop:
@@ -29,3 +30,4 @@ remnux-tools:
       - sls: remnux.tools.ghidra
       - sls: remnux.tools.cyberchef
       - sls: remnux.tools.cfr
+      - sls: remnux.tools.cutter
