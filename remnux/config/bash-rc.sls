@@ -20,6 +20,7 @@ remnux-config-bash-rc:
 
 remnux-config-bash-rc-aliases-file:
   file.managed:
+    - replace: False
     - name: /usr/local/share/remnux/bash-aliases.sh
     - source: salt://remnux/config/bash-aliases.sh
     - makedirs: True
