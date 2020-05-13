@@ -93,4 +93,5 @@ remnux-gnome-config-cutter-icon:
     - source: salt://remnux/theme/gnome-config/cutter.desktop
     - makedirs: True
     - require:
-      - sls: remnux.tools.cutter
+        - user: remnux-user-{{ user }}
+        - sls: remnux.tools.cutter
