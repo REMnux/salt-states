@@ -37,10 +37,13 @@ echo "file_client: local" > /etc/salt/minion
 
 ```bash
 git clone https://github.com/REMnux/salt-states.git /srv/salt
-salt-call --local state.sls remnux pillar='{"remnux_user": "YOUR_USERNAME"}'
+salt-call --local state.sls remnux.addon pillar='{"remnux_user": "YOUR_USERNAME"}'
 ```
-
 Remember to replace **YOUR_USERNAME** with the username you use to log into your system. The installation will take about an hour, depending on the capabilities of your system and your internet connection.
+
+If you'd like to observe progress of the installation, you can supply the optional parameter `-l info` to the `salt-call` command.
+
+The installation (mostly the  `salt-call` command will take about an hour or more, depending on the capabilities of your system and your internet connection.
 
 ### Setting Up a Dedicated REMnux System
 
@@ -50,7 +53,7 @@ You can install REMnux on a dedicated system. In this case, you'll get the full 
 
 2. Install the "MinimalCD" version of Ubuntu 18.04 on your system. A common way to do this is to set up a virtual machine. When going through the installation steps:
    
-   * Set up the user named "**remnux**" when prompted.
+   * Set up the user named "**remnux**" when prompted. This is important.
    * Don't add any software packages when prompted to install optional packages.
 
 3. Once the minimal system boots up, you'll see the console login prompt. Log in as the user "remnux".
@@ -79,11 +82,12 @@ echo "file_client: local" > /etc/salt/minion
 
 ```bash
 git clone https://github.com/REMnux/salt-states.git /srv/salt
-salt-call --local state.sls remnux
-salt-call --local state.sls remnux.theme
+salt-call --local state.sls remnux.standalone
 ```
 
-The installation (mostly the first `salt-call` command will take about an hour, depending on the capabilities of your system and your internet connection.
+If you'd like to observe progress of the installation, you can supply the optional parameter `-l info` to the `salt-call` command.
+
+The installation (mostly the  `salt-call` command will take about an hour or more, depending on the capabilities of your system and your internet connection.
 
 ## Testing States
 

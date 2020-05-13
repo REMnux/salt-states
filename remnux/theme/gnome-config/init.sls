@@ -1,12 +1,12 @@
-{% set user = salt['pillar.get']('remnux_user', 'remnux') %}
+{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}
 
-{% if user == "root" %}
-  {% set home = "/root" %}
-{% else %}
-  {% set home = "/home/" + user %}
-{% endif %}
+{%- if user == "root" -%}
+  {%- set home = "/root" -%}
+{%- else %}
+  {%- set home = "/home/" + user -%}
+{%- endif -%}
 
-{% set dbus_address = salt['cmd.run']("dbus-launch | grep DBUS_SESSION_BUS_ADDRESS | cut -d= -f2-", shell="/bin/bash", runas=user, cwd=home, python_shell=True) %}
+{%- set dbus_address = salt['cmd.run']("dbus-launch | grep DBUS_SESSION_BUS_ADDRESS | cut -d= -f2-", shell="/bin/bash", runas=user, cwd=home, python_shell=True) -%}
 
 include:
   - remnux.config.user
@@ -43,6 +43,7 @@ remnux-gnome-config-autostart-terminal:
     - source: salt://remnux/theme/gnome-config/gnome-terminal.desktop
     - makedirs: True
     - require:
+      - user: remnux-user-{{ user }}
       - sls: remnux.theme.core.gnome-terminal
 
 remnux-gnome-config-autostart-ignore-lid-switch-tweak:
@@ -75,6 +76,8 @@ remnux-gnome-config-terminal-profiles-install:
     - shell: /bin/bash
     - env:
       - DBUS_SESSION_BUS_ADDRESS: "{{ dbus_address }}"
+    - require:
+      - user: remnux-user-{{ user }}
     - watch:
       - file: remnux-gnome-config-terminal-profiles-file
 
@@ -93,5 +96,4 @@ remnux-gnome-config-cutter-icon:
     - source: salt://remnux/theme/gnome-config/cutter.desktop
     - makedirs: True
     - require:
-        - user: remnux-user-{{ user }}
         - sls: remnux.tools.cutter
