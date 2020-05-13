@@ -181,7 +181,6 @@ remnux-packages:
       - sls: remnux.packages.libfuzzy-dev
       - sls: remnux.packages.libjpeg-dev
       - sls: remnux.packages.libjpeg8-dev
-      - sls: remnux.packages.libmozjs-52-dev
       - sls: remnux.packages.libncurses
       # - sls: remnux.packages.libolecf-utils
       - sls: remnux.packages.libsqlite3-dev

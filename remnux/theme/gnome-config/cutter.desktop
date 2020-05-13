@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Cutter
+Exec=cutter
+Icon=cutter
+Categories=Development;
+Comment=Software reverse engineering tool suite

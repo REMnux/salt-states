@@ -6,13 +6,14 @@
   {% set home = "/home/" + user %}
 {% endif %}
 
-{%- set dbus_address = salt['cmd.run']("dbus-launch | grep DBUS_SESSION_BUS_ADDRESS | cut -d= -f2-", shell="/bin/bash", runas=user, cwd=home, python_shell=True) -%}
+{% set dbus_address = salt['cmd.run']("dbus-launch | grep DBUS_SESSION_BUS_ADDRESS | cut -d= -f2-", shell="/bin/bash", runas=user, cwd=home, python_shell=True) %}
 
 include:
   - remnux.config.user
   - remnux.theme.core.gnome-shell-extensions
   - remnux.theme.core.gnome-terminal
   - remnux.theme.core.gnome-tweaks
+  - remnux.tools.cutter
 
 remnux-gnome-config-logo:
   file.managed:
@@ -84,3 +85,12 @@ remnux-gnome-config-keyring-ssh-disable-autostart:
     - repl: 'X-GNOME-Autostart-enabled=false'
     - append_if_not_found: True
     - count: 1
+
+remnux-gnome-config-cutter-icon:
+  file.managed:
+    - replace: False
+    - name: /usr/share/applications/cutter.desktop
+    - source: salt://remnux/theme/gnome-config/cutter.desktop
+    - makedirs: True
+    - require:
+      - sls: remnux.tools.cutter
