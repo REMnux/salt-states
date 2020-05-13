@@ -43,7 +43,7 @@ Remember to replace **YOUR_USERNAME** with the username you use to log into your
 
 If you'd like to observe progress of the installation, you can supply the optional parameter `-l info` to the `salt-call` command.
 
-The installation (mostly the  `salt-call` command will take about an hour or more, depending on the capabilities of your system and your internet connection.
+The installation (mostly the  `salt-call` command) will take about an hour or more, depending on the capabilities of your system and your internet connection.
 
 ### Setting Up a Dedicated REMnux System
 
@@ -87,7 +87,7 @@ salt-call --local state.sls remnux.dedicated
 
 If you'd like to observe progress of the installation, you can supply the optional parameter `-l info` to the `salt-call` command.
 
-The installation (mostly the  `salt-call` command will take about an hour or more, depending on the capabilities of your system and your internet connection.
+The installation (mostly the  `salt-call` command) will take about an hour or more, depending on the capabilities of your system and your internet connection.
 
 ## Testing States
 
