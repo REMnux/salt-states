@@ -5,7 +5,7 @@ include:
     - remnux.addon
     - remnux.theme
 
-remnux-standalone-version-file:
+remnux-dedicated-version-file:
   file.managed:
     - name: /etc/sift-version
     - source: salt://VERSION
