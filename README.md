@@ -33,7 +33,7 @@ systemctl stop salt-minion
 echo "file_client: local" > /etc/salt/minion
 ```
 
-2. Run the following commands as root on your system (start with `sudo -s`) to clone the REMnux state file repository and direct SaltStack to install REMnux. Replace **YOUR_USERNAME** with your username:
+2. Run the following commands as root on your system (start with `sudo -s`) to clone the REMnux state file repository and direct SaltStack to install the addon version of REMnux. Replace **YOUR_USERNAME** with your username:
 
 ```bash
 git clone https://github.com/REMnux/salt-states.git /srv/salt
@@ -78,7 +78,7 @@ systemctl stop salt-minion
 echo "file_client: local" > /etc/salt/minion
 ```
 
-8. Run the following commands as root (start with `sudo -s`)  to clone this repository and direct SaltStack to install REMnux:
+8. Run the following commands as root (start with `sudo -s`)  to clone this repository and direct SaltStack to install the standalone version of REMnux. As a reminder, this assumes you  created the user named "remnux" as part of the Ubuntu installation process.
 
 ```bash
 git clone https://github.com/REMnux/salt-states.git /srv/salt
