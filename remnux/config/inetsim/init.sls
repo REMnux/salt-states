@@ -10,3 +10,16 @@ remnux-config-inetsim:
     - makedirs: True
     - require:
       - sls: remnux.packages.inetsim
+
+# Runlevel isn't in a Docker container, so check whether it exists before
+# trying to control  services
+{%- if salt['file.file_exists']('/sbin/runlevel') %}
+
+remnux-config-inetsim-service:
+  service.dead:
+    - name: inetsim
+    - enable: False
+    - require:
+      - sls: remnux.packages.inetsim
+
+{% endif %}
