@@ -14,7 +14,7 @@ remnux-theme-cleanup-service-bluetooth:
     - name: bluetooth
     - enable: False
 
-remnux-theme-cleanup-service-bluetooth
+remnux-theme-cleanup-service-docker:
   service.dead:
     - name: docker
     - enable: False
