@@ -2,20 +2,20 @@
 
 {%- if version == "stable" %}
 
-sift-dev:
+remnux-dev:
   pkgrepo.absent:
-    - ppa: sift/dev
+    - ppa: remnux/dev
 
 {%- else %}
 
-sift-stable:
+remnux-stable:
   pkgrepo.absent:
-    - ppa: sift/stable
+    - ppa: remnux/stable
 
 {%- endif %}
 
-sift-repo:
+remnux-repo:
   pkgrepo.managed:
-    - ppa: sift/{{ version }}
+    - ppa: remnux/{{ version }}
     - refresh: true
     - keyid_ppa: true
