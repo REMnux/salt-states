@@ -137,6 +137,7 @@ include:
   - remnux.packages.wine
   - remnux.packages.galculator
   - remnux.packages.libjavassist-java
+  - remnux.packages.vim
 
 remnux-packages:
   test.nop:
@@ -279,3 +280,4 @@ remnux-packages:
       - sls: remnux.packages.spidermonkey
       - sls: remnux.packages.galculator
       - sls: remnux.packages.libjavassist-java
+      - sls: remnux.packages.vim
