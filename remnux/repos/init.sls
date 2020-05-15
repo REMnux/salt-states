@@ -6,6 +6,7 @@ include:
   - remnux.repos.gift
   - remnux.repos.sift
   - remnux.repos.mono
+  - remnux.repos.remnux
 
 remnux-repos:
   test.nop:
@@ -17,3 +18,4 @@ remnux-repos:
       - sls: remnux.repos.gift
       - sls: remnux.repos.sift
       - sls: remnux.repos.mono
+      - sls: remnux.repos.remnux
