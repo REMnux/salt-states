@@ -97,3 +97,8 @@ remnux-gnome-config-cutter-icon:
     - makedirs: True
     - require:
         - sls: remnux.tools.cutter
+
+# Delete the VIM desktop file, because showing
+# it in the applications menu is just silly.
+/usr/share/applications/vim.desktop:
+  file.absent
