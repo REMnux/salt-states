@@ -14,6 +14,7 @@ include:
   - remnux.theme.core.gnome-terminal
   - remnux.theme.core.gnome-tweaks
   - remnux.tools.cutter
+  - remnux.theme.gnome-config.remove-app-icons
 
 remnux-gnome-config-logo:
   file.managed:
@@ -98,7 +99,7 @@ remnux-gnome-config-cutter-icon:
     - require:
         - sls: remnux.tools.cutter
 
-# Delete the VIM desktop file, because showing
-# it in the applications menu is just silly.
-/usr/share/applications/vim.desktop:
-  file.absent
+remnux-theme-gnome-config:
+  test.nop:
+    - require:
+      - sls: remnux.theme.gnome-config.remove-app-icons
