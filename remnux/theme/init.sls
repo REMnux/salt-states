@@ -4,6 +4,7 @@ include:
   - remnux.theme.compatibility
   - remnux.theme.autologin
   - remnux.theme.sudoers
+  - remnux.theme.cleanup
 
 remnux-theme:
   test.nop:
@@ -13,3 +14,4 @@ remnux-theme:
       - sls: remnux.theme.compatibility
       - sls: remnux.theme.autologin
       - sls: remnux.theme.sudoers
+      - sls: remnux.theme.cleanup
