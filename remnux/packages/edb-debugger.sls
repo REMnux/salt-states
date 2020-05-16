@@ -8,7 +8,10 @@
 
 include:
   - remnux.repos.remnux
+  - remnux.packages.xterm
   
 edb-debugger:
   pkg.installed:
     - pkgrepo: remnux
+    - require:
+      - sls: remnux.packages.xterm
