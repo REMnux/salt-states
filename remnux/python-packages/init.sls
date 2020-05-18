@@ -36,6 +36,7 @@ include:
   - remnux.python-packages.peepdf
   - remnux.python-packages.pype32
   - remnux.python-packages.thug
+  - remnux.python-packages.unxor
 
 remnux-python-packages:
   test.nop:
@@ -77,3 +78,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.peepdf
       - sls: remnux.python-packages.pype32
       - sls: remnux.python-packages.thug
+      - sls: remnux.python-packages.unxor
