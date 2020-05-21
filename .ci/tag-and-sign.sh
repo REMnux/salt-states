@@ -55,7 +55,7 @@ echo "==> Generating SHA256 of tar.gz"
 shasum -a 256 /tmp/remnux-salt-states-$TAG_NAME.tar.gz > /tmp/remnux-salt-states-$TAG_NAME.tar.gz.sha256
 
 echo "==> Generating GPG Signature of SHA256"
-gpg --armor --clearsign --digest-algo SHA256 -u D3C24F9F /tmp/remnux-salt-states-$TAG_NAME.tar.gz.sha256
+gpg --armor --clearsign --digest-algo SHA256 -u 28CD19DB /tmp/remnux-salt-states-$TAG_NAME.tar.gz.sha256
 
 echo "==> Generating GPG Signature of tar.gz file"
 gpg --armor --detach-sign -u 28CD19DB /tmp/remnux-salt-states-$TAG_NAME.tar.gz
