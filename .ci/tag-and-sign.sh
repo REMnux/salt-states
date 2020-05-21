@@ -58,7 +58,7 @@ echo "==> Generating GPG Signature of SHA256"
 gpg --armor --clearsign --digest-algo SHA256 -u D3C24F9F /tmp/remnux-salt-states-$TAG_NAME.tar.gz.sha256
 
 echo "==> Generating GPG Signature of tar.gz file"
-gpg --armor --detach-sign -u D3C24F9F /tmp/remnux-salt-states-$TAG_NAME.tar.gz
+gpg --armor --detach-sign -u 28CD19DB /tmp/remnux-salt-states-$TAG_NAME.tar.gz
 
 echo "==> Uploading remnux-salt-states-$TAG_NAME.tar.gz.sha256"
 curl -XPOST -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" -H "Content-Type: text/plain" -q "https://uploads.github.com/repos/remnux/salt-states/releases/${RELEASE_ID}/assets?name=remnux-salt-states-${TAG_NAME}.tar.gz.sha256" --data-binary @/tmp/remnux-salt-states-$TAG_NAME.tar.gz.sha256
