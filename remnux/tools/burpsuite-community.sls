@@ -7,8 +7,7 @@
 # Notes: burpsuite
 
 include:
-  - include:
-	  - remnux.repos.remnux
+  - remnux.repos.remnux
 
 burpsuite-community:
   pkg.installed
