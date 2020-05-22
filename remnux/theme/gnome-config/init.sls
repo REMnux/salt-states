@@ -31,6 +31,17 @@ remnux-gnome-config-script:
       - require:
         - sls: remnux.theme.core.gnome-shell-extensions
 
+remnux-gnome-config-dconf-directory:
+  file.directory:
+    - makedirs: True
+    - user: {{ user }}
+    - group: {{ user }}
+    - name: {{ home }}/.config/dconf
+    - require:
+      - user: remnux-user-{{ user }}
+    - watch:
+      - file: remnux-gnome-config-script
+
 remnux-gnome-config-script-run:
   cmd.run:
     - name: dbus-run-session -- /usr/local/share/remnux/gnome-config.sh
@@ -38,7 +49,7 @@ remnux-gnome-config-script-run:
     - shell: /bin/bash
     - runas: {{ user }}
     - watch:
-        - file: remnux-gnome-config-logo
+        - file: remnux-gnome-config-dconf-directory
     - require:
       - user: remnux-user-{{ user }}
 
