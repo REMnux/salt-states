@@ -6,7 +6,8 @@
   {%- set home = "/home/" + user -%}
 {%- endif -%}
 
-{%- set dbus_address = salt['cmd.run']("dbus-launch | grep DBUS_SESSION_BUS_ADDRESS | cut -d= -f2-", shell="/bin/bash", runas=user, cwd=home, python_shell=True) -%}
+{%- set dbus_address_command = salt['cmd.run']("dbus-run-session -- bash", shell="/bin/bash", runas=user, cwd=home, python_shell=True) -%}
+{%- set dbus_address    = salt['environ.get']('DBUS_SESSION_BUS_ADDRESS') -%}
 
 include:
   - remnux.config.user
