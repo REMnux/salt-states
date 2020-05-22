@@ -21,17 +21,24 @@ remnux-gnome-config-logo:
     - makedirs: True
 
 remnux-gnome-config-script:
-  cmd.script:
+  file.managed:
       - name: /usr/local/share/remnux/gnome-config.sh
       - source: salt://remnux/theme/gnome-config/gnome-config.sh
       - mode: 755
       - makedirs: True
-      - runas: {{ user }}
       - watch:
         - file: remnux-gnome-config-logo
       - require:
-        - user: remnux-user-{{ user }}
         - sls: remnux.theme.core.gnome-shell-extensions
+
+remnux-gnome-config-script-run:
+  cmd.run:
+    - name: /usr/local/share/remnux/gnome-config.sh
+    - runas: {{ user }}
+    - watch:
+        - file: remnux-gnome-config-logo
+    - require:
+      - user: remnux-user-{{ user }}
 
 remnux-gnome-config-autostart-terminal:
   file.managed:
