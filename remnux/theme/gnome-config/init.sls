@@ -33,7 +33,9 @@ remnux-gnome-config-script:
 
 remnux-gnome-config-script-run:
   cmd.run:
-    - name: /usr/local/share/remnux/gnome-config.sh
+    - name: dbus-run-session -- /usr/local/share/remnux/gnome-config.sh
+    - cwd: {{ home }}
+    - shell: /bin/bash
     - runas: {{ user }}
     - watch:
         - file: remnux-gnome-config-logo
