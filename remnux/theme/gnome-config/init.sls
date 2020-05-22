@@ -6,9 +6,6 @@
   {%- set home = "/home/" + user -%}
 {%- endif -%}
 
-{%- set dbus_address_command = salt['cmd.run']("dbus-run-session -- bash", shell="/bin/bash", runas=user, cwd=home, python_shell=True) -%}
-{%- set dbus_address    = salt['environ.get']('DBUS_SESSION_BUS_ADDRESS') -%}
-
 include:
   - remnux.config.user
   - remnux.theme.core.gnome-shell-extensions
@@ -82,12 +79,10 @@ remnux-gnome-config-terminal-profiles-file:
 
 remnux-gnome-config-terminal-profiles-install:
   cmd.run:
-    - name: dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < /usr/local/share/remnux/terminal-profiles.ini
+    - name: dbus-run-session -- dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < /usr/local/share/remnux/terminal-profiles.ini
     - runas: {{ user }}
     - cwd: {{ home }}
     - shell: /bin/bash
-    - env:
-      - DBUS_SESSION_BUS_ADDRESS: "{{ dbus_address }}"
     - require:
       - user: remnux-user-{{ user }}
     - watch:
