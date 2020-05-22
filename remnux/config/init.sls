@@ -24,4 +24,4 @@ remnux-config:
       - sls: remnux.config.thug
       - sls: remnux.config.networkminer
       - sls: remnux.config.salt-minion
-      - sls: - remnux.config.dot-local
+      - sls: remnux.config.dot-local
