@@ -6,7 +6,6 @@
 
 {% set home = "/home/" + user  %}
 
-
 include:
   - remnux.config.user
 
@@ -19,4 +18,4 @@ remnux-config-bash-history:
     - require:
       - user: remnux-user-{{ user }}
 
-  {% endif %}
+{% endif %}

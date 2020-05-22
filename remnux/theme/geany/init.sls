@@ -21,3 +21,13 @@ remnux-theme-geany-config:
     - require:
       - user: remnux-user-{{ user }}
       - sls: remnux.packages.geany
+  
+remnux-theme-geany-config-grandparent-owner:
+  file.directory:
+    - user: {{ user }}
+    - group: {{ user }}
+    - name: {{ home }}/.config
+    - require:
+      - user: remnux-user-{{ user }}
+    - watch:
+      - file: remnux-theme-geany-config

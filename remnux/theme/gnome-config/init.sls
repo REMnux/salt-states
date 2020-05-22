@@ -58,6 +58,16 @@ remnux-gnome-config-autostart-ignore-lid-switch-tweak:
     - require:
       - sls: remnux.theme.core.gnome-tweaks
 
+remnux-gnome-config-autostart-parent-owner:
+  file.directory:
+    - user: {{ user }}
+    - group: {{ user }}
+    - name: {{ home }}/.config
+    - require:
+      - user: remnux-user-{{ user }}
+    - watch:
+      - file: remnux-gnome-config-autostart-ignore-lid-switch-tweak
+
 remnux-gnome-config-terminal-profiles-file:
   file.managed:
     - name: /usr/local/share/remnux/terminal-profiles.ini

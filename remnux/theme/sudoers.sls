@@ -1,4 +1,3 @@
-
 {% set user = salt['pillar.get']('remnux_user', 'remnux') %}
 
 include:
