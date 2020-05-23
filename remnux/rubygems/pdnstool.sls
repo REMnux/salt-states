@@ -1,5 +1,10 @@
-# Source: https://github.com/chrislee35/passivedns-client
+# Name: pdnstool
+# Website: https://github.com/chrislee35/passivedns-client
+# Description: Rubygem tool for passive DNS mapping
+# Category: Examine browser malware: Websites
 # Author: Chris Lee
+# License: https://github.com/chrislee35/passivedns-client/blob/master/LICENSE.txt
+# Notes:
 
 include:
   - remnux.packages.ruby
