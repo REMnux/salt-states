@@ -4,7 +4,7 @@
 # Category: Examine browser malware: Websites
 # Author: Angelo Dell'Aera
 # License:
-# Notes: Requitement for thug
+# Notes: 
 
 include:
   - remnux.packages.git
