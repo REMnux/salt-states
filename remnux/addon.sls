@@ -13,7 +13,7 @@ include:
 
 remnux-addon-version-file:
   file.managed:
-    - name: /etc/sift-version
+    - name: /etc/remnux-version
     - source: salt://VERSION
     - user: root
     - group: root
