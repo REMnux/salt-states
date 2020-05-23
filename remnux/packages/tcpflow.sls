@@ -6,5 +6,8 @@
 # License: https://github.com/simsong/tcpflow/blob/master/COPYING
 # Notes: 
 
+include:
+  - remnux.repos.remnux
+
 tcpflow:
   pkg.installed
