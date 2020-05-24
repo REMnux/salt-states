@@ -13,6 +13,7 @@ include:
   - remnux.tools.cyberchef
   - remnux.tools.cfr
   - remnux.tools.cutter
+  - remnux.tools.remnux-cli
 
 remnux-tools:
   test.nop:
@@ -31,3 +32,4 @@ remnux-tools:
       - sls: remnux.tools.cyberchef
       - sls: remnux.tools.cfr
       - sls: remnux.tools.cutter
+      - sls: remnux.tools.remnux-cli
