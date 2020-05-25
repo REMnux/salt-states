@@ -10,6 +10,36 @@ include:
   - remnux.config.user
   - remnux.tools.ghidra
 
+remnux-config-ghidra-gdt-file:
+  file.managed:
+    - name: /usr/local/src/remnux/files/ghidra-data-type.zip
+    - source: https://raw.githubusercontent.com/REMnux/distro/master/ghidra-data-type.zip
+    - source_hash: sha256=40d0d4595b8f0e6854d276a72cd0a9ce03f112a5512b28def5aefa8bbd795657
+    - makedirs: true
+    - require:
+      - sls: remnux.tools.ghidra
+
+remnux-config-ghidra-gdt-archive:
+  archive.extracted:
+    - name: {{ home }}/.ghidra/gdt
+    - source: /usr/local/src/remnux/files/ghidra-data-type.zip
+    - user: {{ user }}
+    - group: {{ user }}
+    - enforce_toplevel: False
+    - require:
+      - user: remnux-user-{{ user }}
+    - watch:
+      - file: remnux-config-ghidra-gdt-file
+
+remnux-config-ghidra-gdt-owner:
+  file.directory:
+    - replace: False
+    - name: {{ home }}/.ghidra/gdt
+    - user: {{ user }}
+    - group: {{ user }}
+    - require:
+      - user: remnux-user-{{ user }}
+
 remnux-config-ghidra-file-preferences:
   file.managed:
     - name: {{ home }}/.ghidra/.ghidra_9.1.2_PUBLIC/preferences 
@@ -21,7 +51,7 @@ remnux-config-ghidra-file-preferences:
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - sls: remnux.tools.ghidra
+      - file: remnux-config-ghidra-gdt-owner
 
 remnux-config-ghidra-file-tool-code-browser:
   file.managed:
