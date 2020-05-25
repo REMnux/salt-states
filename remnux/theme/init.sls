@@ -5,6 +5,7 @@ include:
   - remnux.theme.autologin
   - remnux.theme.sudoers
   - remnux.theme.cleanup
+  - remnux.theme.dog
   - remnux.theme.geany
 
 remnux-theme:
@@ -16,4 +17,5 @@ remnux-theme:
       - sls: remnux.theme.autologin
       - sls: remnux.theme.sudoers
       - sls: remnux.theme.cleanup
+      - sls: remnux.theme.dog
       - sls: remnux.theme.geany
