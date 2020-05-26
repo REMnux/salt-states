@@ -33,7 +33,7 @@ include:
   - remnux.python-packages.wheel
   - remnux.python-packages.xortool
   - remnux.python-packages.xxxswf
-  - remnux.python-packages.peepdf
+# - remnux.python-packages.peepdf
   - remnux.python-packages.pype32
   - remnux.python-packages.thug
   - remnux.python-packages.unxor
@@ -75,7 +75,7 @@ remnux-python-packages:
       - sls: remnux.python-packages.wheel
       - sls: remnux.python-packages.xortool
       - sls: remnux.python-packages.xxxswf
-      - sls: remnux.python-packages.peepdf
+ #    - sls: remnux.python-packages.peepdf
       - sls: remnux.python-packages.pype32
       - sls: remnux.python-packages.thug
       - sls: remnux.python-packages.unxor

@@ -1,4 +1,10 @@
-# Author: Didier Stevens
+# Name: pdf-parser
+# Website: https://blog.didierstevens.com/programs/pdf-tools/
+# Description: Tool to identify fundamental elements used in a given PDF file
+# Category: Examine document files: PDF
+# Author: Didier Stevens 
+# License: Free, unknown license
+# Notes:
 
 include:
   - remnux.packages.python-yara

@@ -4,7 +4,7 @@
 # Category: Examine browser malware: Websites
 # Author: Area1 Security
 # License: https://github.com/area1/stpyv8/blob/master/LICENSE.txt
-# Notes: Required for thug
+# Notes: 
 
 include:
   - remnux.packages.git
