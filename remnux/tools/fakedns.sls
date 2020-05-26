@@ -13,7 +13,7 @@ remnux-tools-fakedns-source:
   file.managed:
     - name: /usr/local/src/remnux/files/fakedns.py
     - source: https://github.com/REMnux/distro/raw/master/files/fakedns.py
-    - source_hash: 567dc60f02e87623fa26ed4707756a1accf7b8c9c71b2661d8b7b2a8c662ce8c
+    - source_hash: d0c387f60b0a8326591c3a6f2d5bd59503d833e99f9c50bc6ac841b4b173bdc6
     - makedirs: True
     - require:
         - sls: remnux.packages.python
