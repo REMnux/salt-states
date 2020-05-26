@@ -14,6 +14,7 @@ include:
   - remnux.tools.cfr
   - remnux.tools.cutter
   - remnux.tools.remnux-cli
+  - remnux.tools.fakedns
 
 remnux-tools:
   test.nop:
@@ -33,3 +34,4 @@ remnux-tools:
       - sls: remnux.tools.cfr
       - sls: remnux.tools.cutter
       - sls: remnux.tools.remnux-cli
+      - sls: remnux.tools.fakedns
