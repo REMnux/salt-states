@@ -13,7 +13,7 @@ include:
 remnux-config-ghidra-gdt-file:
   file.managed:
     - name: /usr/local/src/remnux/files/ghidra-data-type.zip
-    - source: https://raw.githubusercontent.com/REMnux/distro/master/ghidra-data-type.zip
+    - source: https://raw.githubusercontent.com/REMnux/distro/master/files/ghidra-data-type.zip
     - source_hash: sha256=40d0d4595b8f0e6854d276a72cd0a9ce03f112a5512b28def5aefa8bbd795657
     - makedirs: true
     - require:
