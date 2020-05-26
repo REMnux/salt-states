@@ -1,5 +1,10 @@
+# Name: ExtractScripts
+# Website: https://blog.didierstevens.com/programs/extractscripts/
+# Description: Extract scripts from HTML files
+# Category: Examine browser malware: JavaScript
 # Author: Didier Stevens
-# Source: https://blog.didierstevens.com/programs/extractscripts/
+# License: Free, unknown license
+# Notes: extractscripts.py
 
 remnux-scripts-extractscripts-source:
   file.managed:

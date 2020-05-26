@@ -1,4 +1,10 @@
+# Name: pdfid
+# Website: https://blog.didierstevens.com/programs/pdf-tools/
+# Description: Tool to identify pdf components in a given file
+# Category: Examine document files: PDF
 # Author: Didier Stevens
+# License: Free, unknown license
+# Notes: 
 
 remnux-scripts-pdfid-source:
   file.managed:
