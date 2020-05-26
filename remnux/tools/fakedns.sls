@@ -1,9 +1,9 @@
-# Name: fakedns.py
+# Name: fakedns
 # Website: https://code.activestate.com/recipes/491264-mini-fake-dns-server/
-# Description: Extract and decompile ActionScript from Flash (SWF) files
+# Description: Respond to DNS queries with the specified IP address
 # Category: Network Interactions
 # Author: Francisco Santos, modifications by Kevin Murray
-# License: Freeware
+# License: Free, unknown license
 # Notes: 
 
 include:
