@@ -32,6 +32,10 @@ function objdump {
   /usr/bin/objdump -M intel ${*}
 }
 
+function fakedns {
+  sudo /usr/local/bin/fakedns ${*}
+}
+
 # Useful for hard-coding a specific IP address until the next reboot
 function set-static-ip {
   NIC_NAME=$( ip link | egrep '^2\:'| awk '{print $2}' | sed 's/.$//' )
