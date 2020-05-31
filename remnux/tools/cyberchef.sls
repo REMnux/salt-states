@@ -7,7 +7,7 @@
 # Notes: cyberchef
 
 {% set version = "9.20.3" -%}
-{% set hash = "5490446ace6880949938dbf708f8e370cf54f89f519912d18860e794e2c76c3d" -%}
+{% set hash = "033c0a44e0b80b6ac58bb5c00073eaccc0ae3e56853b91095930f48eeebcdaef" -%}
 
 include:
   - remnux.packages.firefox
@@ -16,7 +16,7 @@ remnux-tools-cyberchef:
   archive.extracted:
     - name: /usr/local/cyberchef
     - enforce_toplevel: False
-    - source: https://gchq.github.io/CyberChef/CyberChef_v{{ version }}.zip
+    - source: https://github.com/gchq/CyberChef/releases/download/v{{ version}}/CyberChef_v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - overwrite: True
     - require:
