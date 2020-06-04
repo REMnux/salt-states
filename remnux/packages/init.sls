@@ -139,6 +139,7 @@ include:
   - remnux.packages.libjavassist-java
   - remnux.packages.vim
   - remnux.packages.edb-debugger
+  - remnux.packages.xorstrings
 
 remnux-packages:
   test.nop:
@@ -283,3 +284,4 @@ remnux-packages:
       - sls: remnux.packages.libjavassist-java
       - sls: remnux.packages.vim
       - sls: remnux.packages.edb-debugger
+      - sls: remnux.packages.xorstrings
