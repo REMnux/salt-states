@@ -37,7 +37,6 @@ include:
   - remnux.python-packages.pype32
   - remnux.python-packages.thug
   - remnux.python-packages.unxor
-  - remnux-python-packages.pygments
 
 remnux-python-packages:
   test.nop:
