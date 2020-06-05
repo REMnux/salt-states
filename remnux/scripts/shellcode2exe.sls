@@ -1,6 +1,6 @@
 # Name: shellcode2exe.py
 # Website: https://github.com/MarioVilas/shellcode_tools
-# Description: Shellcode to executable converter
+# Description: Convert 32-bit shellcode to a Windows executable file
 # Category: Examine document files: Shellcode
 # Author: Mario Vilas
 # License: https://github.com/MarioVilas/shellcode_tools/blob/master/shellcode2exe.py#L23
@@ -9,7 +9,7 @@
 include:
   - remnux.python-packages.inlineegg
 
-remnux-scripts-shellcode2exe-source:
+remnux-scripts-shellcode2exe-py-source:
   file.managed:
     - name: /usr/local/bin/shellcode2exe.py
     - source: https://raw.githubusercontent.com/MarioVilas/shellcode_tools/master/shellcode2exe.py
@@ -17,5 +17,3 @@ remnux-scripts-shellcode2exe-source:
     - mode: 755
     - require:
       - sls: remnux.python-packages.inlineegg
-
-

@@ -6,5 +6,11 @@
 # License: https://wiki.winehq.org/Licensing
 # Notes: wine
 
-wine-stable:
-  pkg.installed
+include:
+  - remnux.packages.i386-architecture
+
+remnux-packages-wine:
+  pkg.installed:
+    - name: wine-stable  
+    - require:
+      - sls: remnux.packages.i386-architecture

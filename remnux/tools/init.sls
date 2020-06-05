@@ -15,6 +15,7 @@ include:
   - remnux.tools.cutter
   - remnux.tools.remnux-cli
   - remnux.tools.fakedns
+  - remnux.tools.shellcode2exe-bat
 
 remnux-tools:
   test.nop:
@@ -35,3 +36,4 @@ remnux-tools:
       - sls: remnux.tools.cutter
       - sls: remnux.tools.remnux-cli
       - sls: remnux.tools.fakedns
+      - sls: remnux.tools.shellcode2exe-bat
