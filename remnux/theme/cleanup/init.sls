@@ -30,9 +30,9 @@ remnux-theme-cleanup-service-docker:
     - require:
       - sls: remnux.packages.docker
 
-remnux-theme-cleanup-service-openssh-server:
+remnux-theme-cleanup-service-ssh:
   service.dead:
-    - name: openssh-server
+    - name: ssh
     - enable: False
     - require:
       - sls: remnux.packages.openssh-server
