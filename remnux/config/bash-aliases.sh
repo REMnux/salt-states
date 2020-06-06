@@ -48,6 +48,11 @@ function httpd {
   sudo systemctl ${*} nginx
 }
 
+# A wrapper around the command to stop and start SSH server for old timers
+function sshd {
+  sudo systemctl ${*} ssh
+}
+
 # Convenient names
 alias notepad="scite"
 alias calc="galculator"

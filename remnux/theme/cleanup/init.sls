@@ -2,7 +2,6 @@
 
 include:
   - remnux.packages.docker
-  - remnux.packages.openssh-server
 
 yelp:
   pkg.removed
@@ -29,13 +28,6 @@ remnux-theme-cleanup-service-docker:
     - enable: False
     - require:
       - sls: remnux.packages.docker
-
-remnux-theme-cleanup-service-ssh:
-  service.dead:
-    - name: ssh
-    - enable: False
-    - require:
-      - sls: remnux.packages.openssh-server
 
 remnux-theme-cleanup-docker-wrapper:
   file.managed:
