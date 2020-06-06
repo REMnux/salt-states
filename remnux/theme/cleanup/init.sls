@@ -6,6 +6,9 @@ include:
 yelp:
   pkg.removed
 
+unattended-upgrades:
+  pkg.removed
+
 remnux-theme-cleanup-autoremove:
   cmd.run:
     - name: apt-get autoremove -y
@@ -25,6 +28,13 @@ remnux-theme-cleanup-service-docker:
     - enable: False
     - require:
       - sls: remnux.packages.docker
+
+remnux-theme-cleanup-service-openssh-server:
+  service.dead:
+    - name: openssh-server
+    - enable: False
+    - require:
+      - pkg: openssh-server
 
 remnux-theme-cleanup-docker-wrapper:
   file.managed:
