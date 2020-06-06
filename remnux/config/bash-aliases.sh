@@ -43,6 +43,11 @@ function set-static-ip {
   sudo systemctl restart network-manager
 }
 
+# A wrapper around the command to stop and start ngnix for old timers
+function httpd {
+  sudo systemctl ${*} nginx
+}
+
 # Convenient names
 alias notepad="scite"
 alias calc="galculator"

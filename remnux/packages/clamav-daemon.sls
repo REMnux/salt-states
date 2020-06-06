@@ -9,6 +9,10 @@
 clamav-daemon:
   pkg.installed
 
+# Runlevel isn't in a Docker container, so check whether it exists before
+# trying to control  services
+{%- if salt['file.file_exists']('/sbin/runlevel') %}
+
 clamav-daemon-service:
   service.dead:
     - name: clamav-daemon
@@ -22,3 +26,5 @@ clamav-freshclam-service:
     - enable: False
     - watch:
       - pkg: clamav-daemon
+
+{% endif %}
