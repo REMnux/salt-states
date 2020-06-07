@@ -8,24 +8,16 @@
 
 include:
   - remnux.packages.python-pip
-  - remnux.packages.python-lxml
   - remnux.packages.libemu
   - remnux.packages.libjpeg8-dev
   - remnux.packages.zlib1g-dev
-  - remnux.python-packages.pylibemu
-  - remnux.packages.libboost-python-dev
-  - remnux.packages.libboost-thread-dev
 
-remnux-peepdf:
+remnux-tools-peepdf-source:
   pip.installed:
-    - name: peepdf
+    - name: git+https://github.com/digitalsleuth/peepdf.git
     - pip_bin: /usr/bin/python2
     - require:
       - sls: remnux.packages.python-pip
-      - sls: remnux.packages.python-lxml
       - sls: remnux.packages.libemu
       - sls: remnux.packages.libjpeg8-dev
       - sls: remnux.packages.zlib1g-dev
-      - sls: remnux.python-packages.pylibemu
-      - sls: remnux.packages.libboost-python-dev
-      - sls: remnux.packages.libboost-thread-dev
