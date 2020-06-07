@@ -1,0 +1,2 @@
+python-enchant:
+  pkg.installed

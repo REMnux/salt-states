@@ -1,5 +1,10 @@
-# Source: https://github.com/9b/pdfxray_lite
+# Name: pdfxray-lite
+# Website: https://github.com/9b/pdfxray_lite
+# Description: Lite version of PDF X-Ray
+# Category: Examine document files: PDF
 # Author: Brandon Dixon
+# License: Free, unknown license
+# Notes: 
 
 include:
   - remnux.packages.git

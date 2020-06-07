@@ -66,6 +66,7 @@ include:
   - remnux.packages.python-cryptography
   - remnux.packages.python-dev
   - remnux.packages.python-dnspython
+  - remnux.packages.python-enchant
   - remnux.packages.python-future
   - remnux.packages.python-gtksourceview2
   - remnux.packages.python-hachoir-core
@@ -210,6 +211,7 @@ remnux-packages:
       - sls: remnux.packages.python-cryptography
       - sls: remnux.packages.python-dev
       - sls: remnux.packages.python-dnspython
+      - sls: remnux.packages.python-enchant
       - sls: remnux.packages.python-future
       - sls: remnux.packages.python-gtksourceview2
       - sls: remnux.packages.python-hachoir-core
