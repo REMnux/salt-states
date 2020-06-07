@@ -31,9 +31,9 @@ include:
   - remnux.packages.inspircd
   - remnux.packages.ipython
   - remnux.packages.lame
-  - remnux.packages.libboost-all-dev
+  - remnux.packages.libboost-dev
   - remnux.packages.libboost-python-dev
-  - remnux.packages.libboost-thread-dev
+  - remnux.packages.libboost-system-dev
   - remnux.packages.libemail-outlook-message-perl
   - remnux.packages.libemu
   - remnux.packages.libffi-dev
@@ -42,7 +42,6 @@ include:
   - remnux.packages.libjpeg8-dev
   - remnux.packages.spidermonkey
   - remnux.packages.libncurses
-  # - remnux.packages.libolecf-utils
   - remnux.packages.libsqlite3-dev
   - remnux.packages.libssl-dev
   - remnux.packages.libtool
@@ -76,7 +75,6 @@ include:
   - remnux.packages.python-hachoir-subfile
   - remnux.packages.python-hachoir-urwid
   - remnux.packages.python-hachoir-wx
-  - remnux.packages.python-lxml
   - remnux.packages.python-magic
   - remnux.packages.python-networkx
   - remnux.packages.python-numpy
@@ -177,9 +175,9 @@ remnux-packages:
       - sls: remnux.packages.inspircd
       - sls: remnux.packages.ipython
       - sls: remnux.packages.lame
-      - sls: remnux.packages.libboost-all-dev
+      - sls: remnux.packages.libboost-dev
       - sls: remnux.packages.libboost-python-dev
-      - sls: remnux.packages.libboost-thread-dev
+      - sls: remnux.packages.libboost-system-dev
       - sls: remnux.packages.libemail-outlook-message-perl
       - sls: remnux.packages.libemu
       - sls: remnux.packages.libffi-dev
@@ -187,7 +185,6 @@ remnux-packages:
       - sls: remnux.packages.libjpeg-dev
       - sls: remnux.packages.libjpeg8-dev
       - sls: remnux.packages.libncurses
-      # - sls: remnux.packages.libolecf-utils
       - sls: remnux.packages.libsqlite3-dev
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.libtool
@@ -221,7 +218,6 @@ remnux-packages:
       - sls: remnux.packages.python-hachoir-subfile
       - sls: remnux.packages.python-hachoir-urwid
       - sls: remnux.packages.python-hachoir-wx
-      - sls: remnux.packages.python-lxml
       - sls: remnux.packages.python-magic
       - sls: remnux.packages.python-networkx
       - sls: remnux.packages.python-numpy

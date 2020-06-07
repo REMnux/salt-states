@@ -1,2 +1,0 @@
-python-lxml:
-  pkg.installed
