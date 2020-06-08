@@ -16,6 +16,7 @@ include:
   - remnux.tools.remnux-cli
   - remnux.tools.fakedns
   - remnux.tools.shellcode2exe-bat
+  - remnux.tools.swf_mastah
 
 remnux-tools:
   test.nop:
@@ -37,3 +38,4 @@ remnux-tools:
       - sls: remnux.tools.remnux-cli
       - sls: remnux.tools.fakedns
       - sls: remnux.tools.shellcode2exe-bat
+      - sls: remnux.tools.swf_mastah
