@@ -37,6 +37,7 @@ include:
   - remnux.python-packages.pype32
   - remnux.python-packages.thug
   - remnux.python-packages.unxor
+  - remnux.python-packages.xlmmacrodeobfuscator
 
 remnux-python-packages:
   test.nop:
@@ -79,3 +80,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.pype32
       - sls: remnux.python-packages.thug
       - sls: remnux.python-packages.unxor
+      - sls: remnux.python-packages.xlmmacrodeobfuscator
