@@ -139,6 +139,8 @@ include:
   - remnux.packages.vim
   - remnux.packages.edb-debugger
   - remnux.packages.xorstrings
+  - remnux.packages.nodejs
+  - remnux.packages.npm
 
 remnux-packages:
   test.nop:
@@ -283,3 +285,5 @@ remnux-packages:
       - sls: remnux.packages.vim
       - sls: remnux.packages.edb-debugger
       - sls: remnux.packages.xorstrings
+      - sls: remnux.packages.nodejs
+      - sls: remnux.packages.npm
