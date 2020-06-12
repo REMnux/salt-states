@@ -141,6 +141,7 @@ include:
   - remnux.packages.nodejs
   - remnux.packages.npm
   - remnux.packages.python3-tk
+  - remnux.packages.nautilus
 
 remnux-packages:
   test.nop:
@@ -287,3 +288,4 @@ remnux-packages:
       - sls: remnux.packages.nodejs
       - sls: remnux.packages.npm
       - sls: remnux.packages.python3-tk
+      - sls: remnux.packages.nautilus
