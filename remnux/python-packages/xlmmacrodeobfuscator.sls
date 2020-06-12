@@ -13,7 +13,7 @@ include:
 remnux-pip-xlmmacrodeobfuscator:
   pip.installed:
     - name: xlmmacrodeobfuscator
-    - bin_env: /usr/bin/pip3
+    - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.python-pip
