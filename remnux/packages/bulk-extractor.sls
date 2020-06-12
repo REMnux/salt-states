@@ -9,11 +9,9 @@
 include:
   - remnux.repos.sift
   - remnux.repos.openjdk
-  - remnux.packages.libewf
 
 bulk-extractor:
   pkg.installed:
     - require:
       - pkgrepo: sift-repo
       - pkgrepo: openjdk-repo
-      - sls: remnux.packages.libewf
