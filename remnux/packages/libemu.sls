@@ -1,9 +1,9 @@
 # Name: libemu
 # Website: https://github.com/buffer/libemu
 # Description: x86 emulation and shellcode detection
-# Category: Examine browser malware: Websites
-# Author: Angelo Dell'Aera
-# License:
+# Category: Examine document files: Shellcode
+# Author: https://github.com/buffer/libemu/blob/master/AUTHORS
+# License: Free, unknown license
 # Notes: 
 
 include:

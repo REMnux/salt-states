@@ -1,4 +1,13 @@
+# Name: emldump
+# Website: https://blog.didierstevens.com/2017/07/21/update-emldump-py-version-0-0-10/
+# Description: Python program to parse eml files
+# Category: Examine document files: Microsoft Office
 # Author: Didier Stevens
+# License: Free, unknown license
+# Notes: 
+
+include:
+  - remnux.python-packages.yara-python
 
 remnux-scripts-emldump-source:
   file.managed:
@@ -20,5 +29,7 @@ remnux-scripts-emldump-binary:
     - name: /usr/local/bin/emldump.py
     - source: /usr/local/src/remnux/emldump-0.0.10/emldump.py
     - mode: 755
+    - require:
+      - sls: remnux.python-packages.yara-python
     - watch:
       - archive: remnux-scripts-emldump-archive
