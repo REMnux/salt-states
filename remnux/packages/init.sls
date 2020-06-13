@@ -114,7 +114,6 @@ include:
   - remnux.packages.tcpxtract
   - remnux.packages.tor
   - remnux.packages.unhide
-  - remnux.packages.unicode
   - remnux.packages.unrar
   - remnux.packages.upx-ucl
   - remnux.packages.usbmount
@@ -143,6 +142,7 @@ include:
   - remnux.packages.python3-tk
   - remnux.packages.nautilus
   - remnux.packages.postgresql
+  - remnux.packages.libolecf
 
 remnux-packages:
   test.nop:
@@ -261,7 +261,6 @@ remnux-packages:
       - sls: remnux.packages.tcpxtract
       - sls: remnux.packages.tor
       - sls: remnux.packages.unhide
-      - sls: remnux.packages.unicode
       - sls: remnux.packages.unrar
       - sls: remnux.packages.upx-ucl
       - sls: remnux.packages.usbmount
@@ -291,3 +290,4 @@ remnux-packages:
       - sls: remnux.packages.python3-tk
       - sls: remnux.packages.nautilus
       - sls: remnux.packages.postgresql
+      - sls: remnux.packages.libolecf

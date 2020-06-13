@@ -1,5 +1,10 @@
-# Author: Didier Stevens
-# Source: https://blog.didierstevens.com/programs/oledump-py/
+# Name: oledump
+# Website: https://blog.didierstevens.com/programs/oledump-py/
+# Description: Python program to analyze OLE files
+# Category: Examine document files: Microsoft Office
+# Author: Didier Stevens 
+# License: Free, unknown license
+# Notes: 
 
 include:
   - remnux.python-packages.yara-python
@@ -7,15 +12,15 @@ include:
 
 remnux-scripts-oledump-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/oledump_V0_0_42.zip
-    - source: https://didierstevens.com/files/software/oledump_V0_0_42.zip
-    - source_hash: sha256=14A1FDA4AB57B09729AEB2697818782FAE498369A760FEC8AEE5CFB0A0E9D126
+    - name: /usr/local/src/remnux/files/oledump_V0_0_50.zip
+    - source: https://didierstevens.com/files/software/oledump_V0_0_50.zip
+    - source_hash: sha256=870167AE5576B169EB52572788D04F1FFCEC5C8AFDEBCC59FE3B8B01CBDE6CD9
     - makedirs: True
 
 remnux-scripts-oledump-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/oledump_V0_0_42
-    - source: /usr/local/src/remnux/files/oledump_V0_0_42.zip
+    - name: /usr/local/src/remnux/oledump_V0_0_50
+    - source: /usr/local/src/remnux/files/oledump_V0_0_50.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-oledump-source
@@ -23,7 +28,7 @@ remnux-scripts-oledump-archive:
 remnux-scripts-oledump-binary:
   file.managed:
     - name: /usr/local/bin/oledump.py
-    - source: /usr/local/src/remnux/oledump_V0_0_42/oledump.py
+    - source: /usr/local/src/remnux/oledump_V0_0_50/oledump.py
     - mode: 755
     - require:
       - sls: remnux.python-packages.yara-python
