@@ -17,6 +17,8 @@ include:
   - remnux.tools.fakedns
   - remnux.tools.shellcode2exe-bat
   - remnux.tools.swf_mastah
+  - remnux.tools.densityscout
+  - remnux.tools.bytehist
 
 remnux-tools:
   test.nop:
@@ -39,3 +41,5 @@ remnux-tools:
       - sls: remnux.tools.fakedns
       - sls: remnux.tools.shellcode2exe-bat
       - sls: remnux.tools.swf_mastah
+      - sls: remnux.tools.densityscout
+      - sls: remnux.tools.bytehist
