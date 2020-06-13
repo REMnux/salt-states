@@ -1,4 +1,4 @@
-# Name: Evan Teran: edb
+# Name: edb
 # Website: https://github.com/eteran/edb-debugger
 # Description: An AArch32/x86/x86-64 debugger, well suited for debugging ELF files.
 # Category: Investigate Linux Malware

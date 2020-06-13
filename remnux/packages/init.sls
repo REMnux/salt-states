@@ -142,6 +142,7 @@ include:
   - remnux.packages.npm
   - remnux.packages.python3-tk
   - remnux.packages.nautilus
+  - remnux.packages.postgresql
 
 remnux-packages:
   test.nop:
@@ -289,3 +290,4 @@ remnux-packages:
       - sls: remnux.packages.npm
       - sls: remnux.packages.python3-tk
       - sls: remnux.packages.nautilus
+      - sls: remnux.packages.postgresql

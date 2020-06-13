@@ -19,6 +19,7 @@ include:
   - remnux.tools.swf_mastah
   - remnux.tools.densityscout
   - remnux.tools.bytehist
+  - remnux.tools.binnavi
 
 remnux-tools:
   test.nop:
@@ -43,3 +44,4 @@ remnux-tools:
       - sls: remnux.tools.swf_mastah
       - sls: remnux.tools.densityscout
       - sls: remnux.tools.bytehist
+      - sls: remnux.tools.binnavi
