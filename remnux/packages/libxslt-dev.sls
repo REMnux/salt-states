@@ -1,2 +1,0 @@
-libxslt-dev:
-  pkg.installed
