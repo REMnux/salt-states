@@ -90,7 +90,6 @@ include:
   - remnux.packages.python-setuptools
   - remnux.packages.software-properties-common
   - remnux.packages.python-virtualenv
-  - remnux.packages.volatility
   - remnux.packages.python-yara
   - remnux.packages.python
   - remnux.packages.python3-pip
@@ -143,6 +142,7 @@ include:
   - remnux.packages.python3-tk
   - remnux.packages.nautilus
   - remnux.packages.postgresql
+  - remnux.packages.procdot
 
 remnux-packages:
   test.nop:
@@ -237,7 +237,6 @@ remnux-packages:
       - sls: remnux.packages.python-setuptools
       - sls: remnux.packages.software-properties-common
       - sls: remnux.packages.python-virtualenv
-      - sls: remnux.packages.volatility
       - sls: remnux.packages.python-yara
       - sls: remnux.packages.python
       - sls: remnux.packages.python3-pip
@@ -291,3 +290,4 @@ remnux-packages:
       - sls: remnux.packages.python3-tk
       - sls: remnux.packages.nautilus
       - sls: remnux.packages.postgresql
+      - sls: remnux.packages.procdot

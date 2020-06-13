@@ -20,7 +20,6 @@ include:
   - remnux.tools.densityscout
   - remnux.tools.bytehist
   - remnux.tools.binnavi
-  - remnux.tools.procdot
 
 remnux-tools:
   test.nop:
@@ -46,4 +45,3 @@ remnux-tools:
       - sls: remnux.tools.densityscout
       - sls: remnux.tools.bytehist
       - sls: remnux.tools.binnavi
-      - sls: remnux.tools.procdot
