@@ -44,6 +44,7 @@ include:
   - remnux.python-packages.unicode
   - remnux.python-packages.volatility
   - remnux.python-packages.ioc-writer
+  - remnux.python-packages.volatility3
 
 remnux-python-packages:
   test.nop:
@@ -93,3 +94,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.unicode
       - sls: remnux.python-packages.volatility
       - sls: remnux.python-packages.ioc-writer
+      - sls: remnux.python-packages.volatility3

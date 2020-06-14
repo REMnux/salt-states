@@ -1,41 +1,24 @@
-# Name: libemu
+# Name: ibemu
 # Website: https://github.com/buffer/libemu
 # Description: x86 emulation and shellcode detection
-# Category: Examine document files: Shellcode
+# Category: Library
 # Author: https://github.com/buffer/libemu/blob/master/AUTHORS
 # License: Free, unknown license
 # Notes: 
 
 include:
-  - remnux.packages.git
-  - remnux.packages.autoconf
-  - remnux.packages.libtool
-  - remnux.packages.build-essential
+  - remnux.repos.remnux
+  
+libemu:
+  pkg.installed:
+    - pkgrepo: remnux
 
-remnux-git-libemu:
-  git.cloned:
-    - name: https://github.com/buffer/libemu.git
-    - target: /usr/local/src/libemu
+libemu-dev:
+  pkg.installed:
+    - pkgrepo: remnux
 
-remnux-autoreconf-libemu:
-  cmd.run:
-    - cwd: /usr/local/src/libemu
-    - name: autoreconf -v -i
-    - require:
-      - sls: remnux.packages.autoconf
-      - sls: remnux.packages.libtool
-    - watch: 
-      - git: remnux-git-libemu
-
-remnux-config-make-libemu:
-  cmd.run:
-    - cwd: /usr/local/src/libemu
-    - name: ./configure && make install
-    - watch:
-      - cmd: remnux-autoreconf-libemu
-
-remnux-ldconfig-libemu:
+remnux-packages-libemu-ldconfig:
   cmd.run:
     - name: ldconfig
     - watch:
-      - cmd: remnux-config-make-libemu
+      - pkg: libemu

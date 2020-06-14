@@ -11,6 +11,7 @@ include:
   - remnux.packages.libemu
   - remnux.packages.libjpeg8-dev
   - remnux.packages.zlib1g-dev
+  - remnux.packages.git
 
 remnux-tools-peepdf-source:
   pip.installed:
@@ -21,3 +22,4 @@ remnux-tools-peepdf-source:
       - sls: remnux.packages.libemu
       - sls: remnux.packages.libjpeg8-dev
       - sls: remnux.packages.zlib1g-dev
+      - sls: remnux.packages.git
