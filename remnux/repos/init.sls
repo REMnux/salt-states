@@ -7,6 +7,7 @@ include:
   - remnux.repos.sift
   - remnux.repos.mono
   - remnux.repos.remnux
+  - remnux.repos.wireshark-dev
 
 remnux-repos:
   test.nop:
@@ -19,3 +20,4 @@ remnux-repos:
       - sls: remnux.repos.sift
       - sls: remnux.repos.mono
       - sls: remnux.repos.remnux
+      - sls: remnux.repos.wireshark-dev

@@ -143,6 +143,7 @@ include:
   - remnux.packages.postgresql
   - remnux.packages.libolecf
   - remnux.packages.procdot
+  - remnux.packages.tshark
 
 remnux-packages:
   test.nop:
@@ -291,3 +292,4 @@ remnux-packages:
       - sls: remnux.packages.postgresql
       - sls: remnux.packages.libolecf
       - sls: remnux.packages.procdot
+      - sls: remnux.packages.tshark
