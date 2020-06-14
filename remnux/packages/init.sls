@@ -119,6 +119,7 @@ include:
   - remnux.packages.vbindiff
   - remnux.packages.wget
   - remnux.packages.wireshark
+  - remnux.packages.tshark
   - remnux.packages.wxhexeditor
   - remnux.packages.xmlstarlet
   - remnux.packages.xpdf
@@ -266,6 +267,7 @@ remnux-packages:
       - sls: remnux.packages.vbindiff
       - sls: remnux.packages.wget
       - sls: remnux.packages.wireshark
+      - sls: remnux.packages.tshark
       - sls: remnux.packages.wxhexeditor
       - sls: remnux.packages.xmlstarlet
       - sls: remnux.packages.xpdf

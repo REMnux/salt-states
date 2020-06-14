@@ -10,4 +10,5 @@ include:
   - remnux.repos.wireshark-dev
 
 wireshark:
-  pkg.installed
+  pkg.installed:
+    - pkgrepo: wireshark-dev
