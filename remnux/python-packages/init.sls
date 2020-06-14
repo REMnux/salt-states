@@ -45,6 +45,7 @@ include:
   - remnux.python-packages.volatility
   - remnux.python-packages.ioc-writer
   - remnux.python-packages.volatility3
+  - remnux.python-packages.fakemail
 
 remnux-python-packages:
   test.nop:
@@ -95,3 +96,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.volatility
       - sls: remnux.python-packages.ioc-writer
       - sls: remnux.python-packages.volatility3
+      - sls: remnux.python-packages.fakemail
