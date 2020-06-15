@@ -8,6 +8,7 @@ include:
   - remnux.theme.ssh
   - remnux.theme.dog
   - remnux.theme.geany
+  - remnux.theme.wireshark
 
 remnux-theme:
   test.nop:
@@ -21,3 +22,4 @@ remnux-theme:
       - sls: remnux.theme.ssh
       - sls: remnux.theme.dog
       - sls: remnux.theme.geany
+      - sls: remnux.theme.wireshark
