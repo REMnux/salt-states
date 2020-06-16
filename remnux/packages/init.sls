@@ -144,6 +144,7 @@ include:
   - remnux.packages.postgresql
   - remnux.packages.libolecf
   - remnux.packages.procdot
+  - remnux.packages.dex2jar
 
 remnux-packages:
   test.nop:
@@ -293,3 +294,4 @@ remnux-packages:
       - sls: remnux.packages.postgresql
       - sls: remnux.packages.libolecf
       - sls: remnux.packages.procdot
+      - sls: remnux.packages.dex2jar
