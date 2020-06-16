@@ -9,7 +9,7 @@
 remnux-tools-xorsearch-source:
   file.managed:
     - name: /usr/local/src/remnux/files/XORSearch_V1_11_3.zip
-    - source: https://didierstevens.com/files/software/XORSearch_V1_11_3.zip
+    - source: https://github.com/DidierStevens/FalsePositives/raw/master/XORSearch_V1_11_3.zip
     - source_hash: 50d1cdf5fe93e29e1d7fcb3cf2256ceac0034cbd887e4dac1cb897e14b28bc16
     - makedirs: True
 
