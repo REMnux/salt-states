@@ -7,14 +7,13 @@
 # Notes: mraptor, msodde, olebrowse, oledir, oleid, olemap, olemeta, oleobj, oletimes, olevba, pyxswf, rtfobj
 
 include:
-  - remnux.packages.python-pip
   - remnux.packages.python3-pip
   - remnux.packages.python3-tk
+  - remnux.packages.python-pip
 
 oletools:
   pip.installed:
     - bin_env: /usr/bin/python3
     - require:
-      - sls: remnux.packages.python-pip
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.python3-tk
