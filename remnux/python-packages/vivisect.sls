@@ -9,7 +9,8 @@
 include:
   - remnux.packages.git
   - remnux.packages.python-pip
-  - remnux.packages.python-qt4
+  - remnux.packages.python-pyqt5
+  - remnux.packages.python-pyqt5-qtwebkit
 
 remnux-pip-vivisect:
   pip.installed:
@@ -17,4 +18,5 @@ remnux-pip-vivisect:
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
-      - sls: remnux.packages.python-qt4
+      - sls: remnux.packages.python-pyqt5
+      - sls: remnux.packages.python-pyqt5-qtwebkit
