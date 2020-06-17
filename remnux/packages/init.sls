@@ -103,7 +103,6 @@ include:
   - remnux.packages.scite
   - remnux.packages.ssdeep
   - remnux.packages.strace
-  - remnux.packages.stunnel4
   - remnux.packages.subversion
   - remnux.packages.swftools
   - remnux.packages.sysdig
@@ -252,7 +251,6 @@ remnux-packages:
       - sls: remnux.packages.scite
       - sls: remnux.packages.ssdeep
       - sls: remnux.packages.strace
-      - sls: remnux.packages.stunnel4
       - sls: remnux.packages.subversion
       - sls: remnux.packages.swftools
       - sls: remnux.packages.sysdig
