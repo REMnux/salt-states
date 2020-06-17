@@ -17,3 +17,9 @@ remnux-pip-xlmmacrodeobfuscator:
     - require:
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.python-pip
+
+/usr/local/bin/runxlrd2.py:
+  file.managed:
+    - mode: 755
+    - require:
+      - pip: remnux-pip-xlmmacrodeobfuscator
