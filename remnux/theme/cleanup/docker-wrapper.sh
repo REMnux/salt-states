@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# A wrapper for launching Docker even if its dervice is disabled.
+# A wrapper for launching Docker even if its service is disabled.
 # 
 
 if [ ! -e /usr/bin/docker ]; then
