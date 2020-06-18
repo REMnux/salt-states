@@ -11,6 +11,7 @@ include:
   - remnux.config.salt-minion
   - remnux.config.dot-local
   - remnux.config.ghidra
+  - remnux.config.bash-completion
 
 remnux-config:
   test.nop:
@@ -27,3 +28,4 @@ remnux-config:
       - sls: remnux.config.salt-minion
       - sls: remnux.config.dot-local
       - sls: remnux.config.ghidra
+      - sls: remnux.config.bash-completion

@@ -1,0 +1,15 @@
+_pdf-parser() 
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in -*)
+        COMPREPLY=( $(compgen -W "--version --help --search --filter --object --reference --elements --raw --stats --type --verbose --extract --hash --nocanonicalizedoutput --dump --debug --content --searchstream --unfiltered --casesensitive --regex --generate --generateembedded --yara --yarastrings --decoders --decoderoptions " -- ${cur}) )
+        return 0
+    esac
+
+    return 0
+}
+
+complete -d -o default -F _pdf-parser pdf-parser.py
