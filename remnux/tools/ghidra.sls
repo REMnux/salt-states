@@ -4,7 +4,7 @@
 # Category: Static Analysis
 # Author: National Security Agency
 # License: https://github.com/NationalSecurityAgency/ghidra/blob/master/LICENSE
-# Notes: 
+# Notes: Close CodeBrowser before exiting Ghidra to prevent Ghidra from freezing when you reopen the tool (it's a Ghidra bug).
 
 include:
   - remnux.packages.default-jdk
