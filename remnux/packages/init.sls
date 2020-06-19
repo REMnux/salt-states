@@ -144,6 +144,8 @@ include:
   - remnux.packages.libolecf
   - remnux.packages.procdot
   - remnux.packages.dex2jar
+  - remnux.packages.netcat
+  - remnux.packages.python3-pyqt5
 
 remnux-packages:
   test.nop:
@@ -293,3 +295,5 @@ remnux-packages:
       - sls: remnux.packages.libolecf
       - sls: remnux.packages.procdot
       - sls: remnux.packages.dex2jar
+      - sls: remnux.packages.netcat
+      - sls: remnux.packages.python3-pyqt5
