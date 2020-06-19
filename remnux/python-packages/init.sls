@@ -46,6 +46,7 @@ include:
   - remnux.python-packages.ioc-writer
   - remnux.python-packages.volatility3
   - remnux.python-packages.fakemail
+  - remnux.python-packages.androwarn
   - remnux.python-packages.pyperclip
 
 remnux-python-packages:
@@ -98,4 +99,5 @@ remnux-python-packages:
       - sls: remnux.python-packages.ioc-writer
       - sls: remnux.python-packages.volatility3
       - sls: remnux.python-packages.fakemail
+      - sls: remnux.python-packages.androwarn
       - sls: remnux.python-packages.pyperclip
