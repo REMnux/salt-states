@@ -13,6 +13,7 @@ include:
   - remnux.scripts.brxor
   - remnux.scripts.nomorexor
   - remnux.scripts.xorbruteforcer
+  - remnux.scripts.strdeob
 
 remnux-scripts:
   test.nop:
@@ -31,3 +32,4 @@ remnux-scripts:
       - sls: remnux.scripts.brxor
       - sls: remnux.scripts.nomorexor
       - sls: remnux.scripts.xorbruteforcer
+      - sls: remnux.scripts.strdeob
