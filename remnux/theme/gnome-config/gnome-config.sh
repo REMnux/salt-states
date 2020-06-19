@@ -22,4 +22,4 @@ gsettings set org.gnome.desktop.screensaver lock-enabled "false"
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "nothing"
 
 # Define favorites
-gsettings set org.gnome.shell favorite-apps "['gnome-terminal.desktop','firefox.desktop']"
+gsettings set org.gnome.shell favorite-apps "['gnome-terminal.desktop','firefox.desktop','nautilus.desktop']"
