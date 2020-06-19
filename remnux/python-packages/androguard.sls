@@ -1,31 +1,22 @@
-# Source: https://github.com/androguard/androguard
+# Name: androguard
+# Website: https://github.com/androguard/androguard
+# Description: Python tools and library for examining Android files
+# Category: Investigate mobile malware
+# Author: Anthony Desnos, Geoffroy GueGuen
+# License: https://github.com/androguard/androguard/blob/master/LICENCE-2.0
+# Notes: androarsc.py, androauto.py, androaxml.py, androcg.py, androdd.py, androdis.py, androguard, androgui.py, androlyze.py, androsign.py
 
 include:
-  - remnux.packages.git
   - remnux.packages.python-pip
-  - remnux.packages.ipython
-  - remnux.packages.python-cryptography
-  - remnux.packages.python-future
-  - remnux.packages.python-magic
-  - remnux.packages.python-networkx
-  - remnux.packages.python-pyasn1
-  - remnux.packages.python-pydot
-  - remnux.packages.python-pyperclip
-  - remnux.packages.python-pyqt5
+  - remnux.packages.python3-pip
+  - remnux.packages.python3-pyqt5
+  - remnux.python-packages.pyperclip
 
 remnux-python-androguard:
   pip.installed:
-    - name: git+https://github.com/androguard/androguard.git@cf8cc39
+    - name: androguard
+    - bin_env: /usr/bin/python3
     - require:
-      - pkg: git
-      - pkg: python-pip
-      - sls: remnux.packages.ipython
-      - sls: remnux.packages.python-cryptography
-      - sls: remnux.packages.python-future
-      - sls: remnux.packages.python-magic
-      - sls: remnux.packages.python-networkx
-      - sls: remnux.packages.python-pyasn1
-      - sls: remnux.packages.python-pydot
-      - sls: remnux.packages.python-pyperclip
-      - sls: remnux.packages.python-pyqt5
-      
+      - sls: remnux.packages.python3-pip
+      - sls: remnux.packages.python3-pyqt5
+      - sls: remnux.python-packages.pyperclip      
