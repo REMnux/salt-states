@@ -1,0 +1,14 @@
+. /etc/bash_completion.d/remnuxlib
+
+_oledump() 
+{
+	local cur prev opts
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+
+	case "$cur" in -*)
+		_parse_args "oledump.py -h"
+	esac
+}
+
+complete -d -o default -F _oledump oledump.py

@@ -1,0 +1,49 @@
+. /etc/bash_completion.d/remnuxlib
+
+_balbuzard() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "balbuzard --help"
+	esac
+}
+
+complete -d -o default -F _balbuzard balbuzard
+
+_bbcrack() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "bbcrack --help"
+	esac
+}
+
+complete -d -o default -F _bbcrack bbcrack
+
+_bbharvest() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "bbharvest --help"
+	esac
+}
+
+complete -d -o default -F _bbharvest bbharvest
+
+_bbtrans() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "bbtrans --help"
+	esac
+}
+
+complete -d -o default -F _bbtrans bbtrans

@@ -7,14 +7,12 @@
 # Notes: balbuzard, bbcrack, bbharvest, bbtrans
 
 include:
-  - remnux.packages.git
   - remnux.packages.python-pip
   - remnux.python-packages.yara-python
 
-remnux-pip-balbuzard:
+remnux-python-packages-balbuzard:
   pip.installed:
     - name: balbuzard
     - require:
-      - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
       - sls: remnux.python-packages.yara-python

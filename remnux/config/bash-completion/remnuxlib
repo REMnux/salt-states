@@ -1,0 +1,41 @@
+# https://www.gnu.org/software/bash/manual/html_node/Programmable-Completion-Builtins.html
+
+# debugging -x=on, +x=off
+set +x
+
+_parse_args()
+{
+	# the purpose of the function is to parse usage output from commands.
+
+	COMPREPLY=()
+	
+	sha1=$(echo $1 | sha1sum | cut -f 1 -d ' ')
+	FILE="/tmp/remnux-$sha1"
+	
+	if [ -f "$FILE" ]; then
+		# load cached content
+		args=$(head -n 1 $FILE)
+	else 
+		args=$($1 | grep -oP "\-\-(.*)" | cut -f 1 -d ' ' | cut -f 1 -d "=" | cut -f 1 -d ")" | cut -f 1 -d "]" | cut -f 1 -d "." | sort | uniq | tr '\n' ' ')
+		# 	$1				executes the incoming command ex: pdf-parser -h
+		#	grep -oP "\-\-(.*)"	regex match on pattern --option; example result "--yara=YARA  YARA rule ..."
+		#	cut -f 1 -d ' '		takes the first field; result is "--yara=YARA"
+		#	cut -f 1 -d "="		takes 1st field splitting on equal sign; result --yara
+		#	cut -f 1 -d ")"		takes 1st field splitting on ); result --yara
+		#	cut -f 1 -d "]"		takes 1st field splitting on ]; result --yara
+		#	cut -f 1 -d "."		takes 1st field splitting on . (dot); result --yara
+		#	sort				sorts the list in advance of uniq
+		#	uniq				removes duplicates, sometimes the documentation references options in the help text of other options
+		#	tr '\n' ' '			replace new line w/ spaces
+		
+		#cache command output
+		echo $args > $FILE
+	fi
+	
+	COMPREPLY=( $(compgen -W "$args" -- ${cur}) )
+}
+
+_remnux_clear_completion_cache()
+{
+	rm /tmp/remnux-*
+}

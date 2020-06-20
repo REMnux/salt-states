@@ -1,13 +1,13 @@
 . /etc/bash_completion.d/remnuxlib
 
-_pdf-parser() 
+_floss() 
 {
 	local cur
 	cur="${COMP_WORDS[COMP_CWORD]}"
 	
 	case "$cur" in -*)
-		_parse_args "pdf-parser.py -h"
+		_parse_args "floss --help"
 	esac
 }
 
-complete -d -o default -F _pdf-parser pdf-parser.py
+complete -d -o default -F _floss floss

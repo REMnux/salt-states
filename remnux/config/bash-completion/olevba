@@ -1,0 +1,12 @@
+. /etc/bash_completion.d/remnuxlib
+
+_olevba() 
+{
+	cur="${COMP_WORDS[COMP_CWORD]}"
+
+	case "$cur" in -*)
+		_parse_args "olevba -h"
+	esac
+}
+
+complete -d -o default -F _olevba olevba

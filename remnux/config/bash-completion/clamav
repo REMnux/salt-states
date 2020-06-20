@@ -1,0 +1,25 @@
+. /etc/bash_completion.d/remnuxlib
+
+_clamscan() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "clamscan --help"
+	esac
+}
+
+complete -d -o default -F _clamscan clamscan
+
+_freshclam() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "freshclam --help"
+	esac
+}
+
+complete -d -o default -F _freshclam freshclam
