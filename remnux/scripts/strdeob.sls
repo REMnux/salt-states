@@ -9,7 +9,7 @@
 include:
   - remnux.packages.perl
 
-remnux-scripts-brxor-source:
+remnux-scripts-strdeob-source:
   file.managed:
     - name: /usr/local/bin/strdeob.pl
     - source: https://github.com/REMnux/distro/raw/master/files/strdeob.pl
