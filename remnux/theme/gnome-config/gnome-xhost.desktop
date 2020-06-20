@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=xhost
+Exec=xhost +SI:localuser:root

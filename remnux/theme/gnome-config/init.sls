@@ -76,6 +76,18 @@ remnux-gnome-config-autostart-ignore-lid-switch-tweak:
     - require:
       - sls: remnux.theme.core.gnome-tweaks
 
+# Allow root to run X commands
+remnux-gnome-config-autostart-xhost:
+  file.managed:
+    - replace: False
+    - user: {{ user }}
+    - group: {{ user }}
+    - name: {{ home }}/.config/autostart/xhost.desktop
+    - source: salt://remnux/theme/gnome-config/xhost.desktop
+    - makedirs: True
+    - require:
+      - sls: remnux.theme.core.gnome-tweaks
+
 remnux-gnome-config-autostart-parent-owner:
   file.directory:
     - user: {{ user }}
@@ -84,7 +96,7 @@ remnux-gnome-config-autostart-parent-owner:
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - file: remnux-gnome-config-autostart-ignore-lid-switch-tweak
+      - file: remnux-gnome-config-autostart-xhost
 
 remnux-gnome-config-terminal-profiles-file:
   file.managed:
