@@ -1,0 +1,13 @@
+. /etc/bash_completion.d/remnuxlib
+
+_thug() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "thug --help"
+	esac
+}
+
+complete -d -o default -F _thug thug

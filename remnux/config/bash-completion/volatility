@@ -1,0 +1,33 @@
+. /etc/bash_completion.d/remnuxlib
+
+_vol() 
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in -*)
+	#hard coded because vol.py displays a banner
+        COMPREPLY=( $(compgen -W "--help --conf-file --debug --plugins --info --cache-directory --cache --tz --filename --profile --info --location --write --dtb --shift --output --output-file --verbose --kdbg --force --cookie --kpcr " -- ${cur}) )
+        return 0
+    esac
+    
+    return 0
+}
+
+complete -d -o default -F _vol vol.py
+
+_volatility() 
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in -*)
+	#hard coded because volatility displays a banner
+        COMPREPLY=( $(compgen -W "--help --conf-file --debug --plugins --info --cache-directory --cache --tz --filename --profile --info --location --write --dtb --shift --output --output-file --verbose --kdbg --force --cookie --kpcr " -- ${cur}) )
+        return 0
+    esac
+    
+    return 0
+}
+
+complete -d -o default -F _volatility volatility

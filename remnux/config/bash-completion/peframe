@@ -1,0 +1,13 @@
+. /etc/bash_completion.d/remnuxlib
+
+_peframe() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "peframe -h"
+	esac
+}
+
+complete -d -o default -F _peframe peframe

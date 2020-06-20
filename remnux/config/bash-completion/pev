@@ -1,0 +1,61 @@
+. /etc/bash_completion.d/remnuxlib
+
+_pestr() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "pestr --help"
+	esac
+}
+
+complete -d -o default -F _pestr pestr
+
+_pescan() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "pescan --help"
+	esac
+}
+
+complete -d -o default -F _pescan pescan
+
+_pehash() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "pehash --help"
+	esac
+}
+
+complete -d -o default -F _pehash pehash
+
+_pedis() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "pedis --help"
+	esac
+}
+
+complete -d -o default -F _pedis pedis
+
+_readpe() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "readpe --help"
+	esac
+}
+
+complete -d -o default -F _readpe readpe

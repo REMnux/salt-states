@@ -1,0 +1,11 @@
+_upx() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		COMPREPLY=( $(compgen -W "--best --no-color --mono --color --no-progress --brute --ultra-brute --backup --no-backup --overlay --coff --8086 --8086 --no-reloc --8086 --8-bit --8mib-ram --boot-only --no-align --le --compress-exports --compress-icons --compress-resources --keep-resource --strip-relocs --preserve-build-id " -- ${cur}) )
+	esac
+}
+
+complete -d -o default -F _upx upx

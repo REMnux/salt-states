@@ -1,0 +1,13 @@
+. /etc/bash_completion.d/remnuxlib
+
+_swfdump() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "swfdump --help"
+	esac
+}
+
+complete -d -o default -F _swfdump swfdump

@@ -1,0 +1,13 @@
+. /etc/bash_completion.d/remnuxlib
+
+_shellcode2exe() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "shellcode2exe.py -h"
+	esac
+}
+
+complete -d -o default -F _shellcode2exe shellcode2exe.py
