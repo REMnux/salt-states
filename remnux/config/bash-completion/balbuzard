@@ -1,12 +1,12 @@
 . /etc/bash_completion.d/remnuxlib
 
-_balbuzard() 
+_bbcrack() 
 {
 	local cur
 	cur="${COMP_WORDS[COMP_CWORD]}"
 	
 	case "$cur" in -*)
-		_parse_args "balbuzard --help"
+		_parse_args "bbcrack --help"
 	esac
 }
 
