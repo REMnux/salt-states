@@ -21,6 +21,7 @@ include:
   - remnux.packages.upx-ucl
   - remnux.python-packages.xortool
   - remnux.scripts.virustotal-search
+  - remnux.tools.remnux-cli
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -249,3 +250,13 @@ remnux-config-bash-completion-virustotal-search:
     - mode: 644
     - require:
       - sls: remnux.scripts.virustotal-search
+
+remnux-config-bash-completion-remnux-cli:
+  file.managed:
+    - name: /etc/bash_completion.d/remnix-cli
+    - source: salt://remnux/config/bash-completion/remnux-cli
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.tools.remnux-cli
