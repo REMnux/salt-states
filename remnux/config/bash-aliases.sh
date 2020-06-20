@@ -9,7 +9,7 @@ function title() {
 
 # Show the IP address of the primary network interface
 function myip4 {
-  hostname -I | awk '{print $1}'
+  ip addr | grep -A 1 "ens" | grep "inet" | cut -f 6 -d " " | cut -f 1 -d "/"
 }
 function myip6 {
   ip -6 addr | grep inet6 | awk -F '[ \t]+|/' '{print $3}' | grep -v "^::1"
