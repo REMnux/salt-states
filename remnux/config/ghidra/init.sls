@@ -31,15 +31,6 @@ remnux-config-ghidra-gdt-archive:
     - watch:
       - file: remnux-config-ghidra-gdt-file
 
-remnux-config-ghidra-gdt-owner:
-  file.directory:
-    - replace: False
-    - name: {{ home }}/.ghidra/gdt
-    - user: {{ user }}
-    - group: {{ user }}
-    - require:
-      - user: remnux-user-{{ user }}
-
 remnux-config-ghidra-file-preferences:
   file.managed:
     - name: {{ home }}/.ghidra/.ghidra_9.1.2_PUBLIC/preferences 
@@ -51,7 +42,7 @@ remnux-config-ghidra-file-preferences:
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - file: remnux-config-ghidra-gdt-owner
+      - archive: remnux-config-ghidra-gdt-archive
 
 remnux-config-ghidra-file-tool-code-browser:
   file.managed:
@@ -76,6 +67,18 @@ remnux-config-ghidra-file-tool-version-tracking:
     - makedirs: True
     - require:
       - user: remnux-user-{{ user }}
+    - watch:
+      - sls: remnux.tools.ghidra
+
+remnux-config-ghidra-owner:
+   file.directory:
+    - user: {{ user }}
+    - group: {{ user }}
+    - name: {{ home }}/.ghidra
+    - makedirs: True
+    - recurse:
+      - user
+      - group
     - watch:
       - sls: remnux.tools.ghidra
 
