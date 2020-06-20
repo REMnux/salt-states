@@ -1,0 +1,13 @@
+. /etc/bash_completion.d/remnuxlib
+
+_virustotal-search() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "virustotal-search.py --help"
+	esac
+}
+
+complete -d -o default -F _virustotal-search virustotal-search.py

@@ -20,6 +20,7 @@ include:
   - remnux.packages.swftools
   - remnux.packages.upx-ucl
   - remnux.python-packages.xortool
+  - remnux.scripts.virustotal-search
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -238,3 +239,13 @@ remnux-config-bash-completion-xortool:
     - mode: 644
     - require:
       - sls: remnux.python-packages.xortool
+
+remnux-config-bash-completion-virustotal-search:
+  file.managed:
+    - name: /etc/bash_completion.d/virustotal-search
+    - source: salt://remnux/config/bash-completion/virustotal-search
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.scripts.virustotal-search
