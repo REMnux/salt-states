@@ -1,43 +1,28 @@
 include:
-  - ..packages.build-essential
-  - ..packages.python-dev
-  - ..packages.python-pip
-  - ..packages.libncurses
-  - ..packages.python-virtualenv
-  - .setuptools
-  - .wheel
+  - remnux.packages.python-pip
+  - remnux.packages.python3-pip
+  - remnux.packages.libncurses
 
-rekall-virtualenv:
-  virtualenv.managed:
-    - name: /opt/rekall
-    - pip_pkgs:
-      - pip
-      - future==0.16.0
-      - pyaff4==0.26.post6 
-      - sortedcontainers==1.5.7
-      - pyparsing==2.1.5  
-      - setuptools
-      - wheel
-      - rekall
-    - require:
-      - pkg: python-virtualenv
-
-rekall:
+remnux-rekall-requirements:
   pip.installed:
-    - name: rekall
-    - bin_env: /opt/rekall
+    - names: 
+      - future==0.16.0
+      - pyaff4==0.26.post6
+      - pybindgen
+      - capstone
+    - bin_env: /usr/bin/python3
     - require:
-      - pkg: python-dev
-      - pkg: python-pip
-      - pkg: libncurses
-      - pkg: build-essential
-      - pip: setuptools
-      - pip: wheel
-      - virtualenv: rekall-virtualenv
+      - sls: remnux.packages.libncurses
+      - sls: remnux.packages.python3-pip
 
-rekall-symlink:
-  file.symlink:
-    - name: /usr/local/bin/rekall
-    - target: /opt/rekall/bin/rekall
+remnux-rekall-install:
+  pip.installed:
+    - names:
+      - rekall
+      - rekall-agent
+    - bin_env: /usr/bin/python3
     - require:
-      - pip: rekall
+      - sls: remnux.packages.python3-pip
+      - pip: remnux-rekall-requirements
+    - watch:
+      - pip: remnux-rekall-requirements
