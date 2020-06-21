@@ -1,3 +1,11 @@
+# Name: rekall
+# Website: https://github.com/google/rekall
+# Description: Memory analysis framework
+# Category: Examine memory snapshots
+# Author: https://github.com/google/rekall/blob/master/AUTHORS.md
+# License: https://github.com/google/rekall/blob/master/LICENSE.txt
+# Notes: rekall, rekal
+
 include:
   - remnux.packages.python-pip
   - remnux.packages.python3-pip
