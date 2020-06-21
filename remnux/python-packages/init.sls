@@ -48,6 +48,7 @@ include:
   - remnux.python-packages.fakemail
   - remnux.python-packages.pyperclip
   - remnux.python-packages.balbuzard
+  - remnux.python-packages.dc3-mwcp
 
 remnux-python-packages:
   test.nop:
@@ -101,3 +102,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.fakemail
       - sls: remnux.python-packages.pyperclip
       - sls: remnux.python-packages.balbuzard
+      - sls: remnux.python-packages.dc3-mwcp
