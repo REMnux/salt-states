@@ -13,7 +13,7 @@ remnux-pyinstaller-source:
     - source_hash: sha256=1494b4979ca8facadf2ac3b1a44de55793df98688b6a8d94d75656fc5939221b
     - mode: 755
     - makedirs: false
-    - 
+
 remnux-pyinstaller-shebang:
   file.replace:
     - name: /usr/local/bin/pyinstxtractor.py
