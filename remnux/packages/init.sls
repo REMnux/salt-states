@@ -59,7 +59,6 @@ include:
   - remnux.packages.pdfresurrect
   - remnux.packages.pkg-config
   - remnux.packages.pyew
-  - remnux.packages.python-balbuzard
   - remnux.packages.python-capstone
   - remnux.packages.python-crypto
   - remnux.packages.python-cryptography
@@ -209,7 +208,6 @@ remnux-packages:
       - sls: remnux.packages.pdfresurrect
       - sls: remnux.packages.pkg-config
       - sls: remnux.packages.pyew
-      - sls: remnux.packages.python-balbuzard
       - sls: remnux.packages.python-capstone
       - sls: remnux.packages.python-crypto
       - sls: remnux.packages.python-cryptography
