@@ -24,6 +24,7 @@ remnux-mitmproxy-archive:
 
 remnux-mitmproxy-files:
   file.managed:
+    - replace: False
     - names:
       - /usr/local/bin/mitmproxy
       - /usr/local/bin/mitmdump

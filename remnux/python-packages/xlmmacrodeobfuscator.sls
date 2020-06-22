@@ -20,6 +20,7 @@ remnux-pip-xlmmacrodeobfuscator:
 
 /usr/local/bin/runxlrd2.py:
   file.managed:
+    - replace: False
     - mode: 755
     - require:
       - pip: remnux-pip-xlmmacrodeobfuscator
