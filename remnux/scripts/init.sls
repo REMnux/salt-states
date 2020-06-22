@@ -14,6 +14,7 @@ include:
   - remnux.scripts.nomorexor
   - remnux.scripts.xorbruteforcer
   - remnux.scripts.strdeob
+  - remnux.scripts.pyinstaller-extractor
 
 remnux-scripts:
   test.nop:
@@ -33,3 +34,4 @@ remnux-scripts:
       - sls: remnux.scripts.nomorexor
       - sls: remnux.scripts.xorbruteforcer
       - sls: remnux.scripts.strdeob
+      - sls: remnux.scripts.pyinstaller-extractor
