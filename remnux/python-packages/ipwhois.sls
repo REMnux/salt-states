@@ -18,7 +18,6 @@ ipwhois:
 
 remnux-python-packages-ipwhois_cli-shebang:
   file.replace:
-    - replace: False
     - name: /usr/local/bin/ipwhois_cli.py
     - pattern: '#!/usr/bin/env python3'
     - repl: '#!/usr/bin/env python3'
@@ -29,7 +28,6 @@ remnux-python-packages-ipwhois_cli-shebang:
 
 remnux-python-packages-ipwhois_utils-shebang:
   file.replace:
-    - replace: False
     - name: /usr/local/bin/ipwhois_utils_cli.py
     - pattern: '#!/usr/bin/env python3'
     - repl: '#!/usr/bin/env python3'
