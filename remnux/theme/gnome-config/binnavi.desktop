@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=BinNavi
+Exec=binnavi
+Icon=binnavi
+Categories=Development;
+Comment=Software reverse engineering tool suite
