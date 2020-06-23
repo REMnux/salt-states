@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=CyberChef
+Exec=cyberchef
+Icon=cyberchef
+Categories=Development;
+Comment=Decode and otherwise analyze data

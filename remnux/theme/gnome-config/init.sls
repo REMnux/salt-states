@@ -13,6 +13,8 @@ include:
   - remnux.theme.core.gnome-tweaks
   - remnux.tools.cutter
   - remnux.tools.binnavi
+  - remnux.tools.cyberchef
+  - remnux.tools.networkminer
   - remnux.theme.gnome-config.remove-app-icons
 
 remnux-gnome-config-logo:
@@ -155,6 +157,42 @@ remnux-gnome-config-binnavi-icon:
     - makedirs: True
     - watch:
       - file: remnux-gnome-config-binnavi-icon-file
+
+remnux-gnome-config-cyberchef-icon-file:
+  file.managed:
+    - replace: False
+    - name: /usr/share/icons/cyberchef.png
+    - source: salt://remnux/theme/gnome-config/cyberchef.png
+    - makedirs: True
+    - require:
+      - sls: remnux.tools.cyberchef
+
+remnux-gnome-config-networkminer-icon-file:
+  file.managed:
+    - replace: False
+    - name: /usr/share/icons/networkminer.png
+    - source: salt://remnux/theme/gnome-config/networkminer.png
+    - makedirs: True
+    - require:
+      - sls: remnux.tools.networkminer
+
+remnux-gnome-config-networkminer-icon:
+  file.managed:
+    - replace: False
+    - name: /usr/share/applications/networkminer.desktop
+    - source: salt://remnux/theme/gnome-config/networkminer.desktop
+    - makedirs: True
+    - watch:
+      - file: remnux-gnome-config-networkminer-icon-file
+
+remnux-gnome-config-cyberchef-icon:
+  file.managed:
+    - replace: False
+    - name: /usr/share/applications/cyberchef.desktop
+    - source: salt://remnux/theme/gnome-config/cyberchef.desktop
+    - makedirs: True
+    - watch:
+      - file: remnux-gnome-config-cyberchef-icon-file
 
 remnux-theme-gnome-config:
   test.nop:

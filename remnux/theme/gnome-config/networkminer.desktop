@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=NetworkMiner
+Exec=networkminer
+Icon=networkminer
+Categories=Development;
+Comment=Examine network traffic and carve PCAP capture files.

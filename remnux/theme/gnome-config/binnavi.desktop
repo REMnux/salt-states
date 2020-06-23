@@ -4,4 +4,4 @@ Name=BinNavi
 Exec=binnavi
 Icon=binnavi
 Categories=Development;
-Comment=Software reverse engineering tool suite
+Comment=IDE that allows to inspect, navigate, edit and annotate flow graphs of disassembled code.
