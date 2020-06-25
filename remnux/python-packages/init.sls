@@ -49,7 +49,7 @@ include:
   - remnux.python-packages.balbuzard
   - remnux.python-packages.dc3-mwcp
   - remnux.python-packages.yara-python3
-#  - remnux.python-packages.ratdecoders
+  - remnux.python-packages.ratdecoders
 
 remnux-python-packages:
   test.nop:
@@ -104,4 +104,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.balbuzard
       - sls: remnux.python-packages.dc3-mwcp
       - sls: remnux.python-packages.yara-python3
-#      - sls: remnux.python-pacakges.ratdecoders
+      - sls: remnux.python-pacakges.ratdecoders
