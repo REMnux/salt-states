@@ -3,7 +3,7 @@
 # Description: Extract scripts from HTML files
 # Category: Examine browser malware: JavaScript
 # Author: Didier Stevens
-# License: Free, unknown license
+# License: Public Domain
 # Notes: extractscripts.py
 
 remnux-scripts-extractscripts-source:

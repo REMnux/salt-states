@@ -3,7 +3,7 @@
 # Description: Tool to identify fundamental elements used in a given PDF file
 # Category: Examine document files: PDF
 # Author: Didier Stevens 
-# License: Free, unknown license
+# License: Public Domain
 # Notes:
 
 include:

@@ -16,6 +16,7 @@ include:
   - remnux.scripts.strdeob
   - remnux.scripts.pyinstaller-extractor
   - remnux.scripts.linuxmemdiff
+  - remnux.scripts.rtfdump
 
 remnux-scripts:
   test.nop:
@@ -37,3 +38,4 @@ remnux-scripts:
       - sls: remnux.scripts.strdeob
       - sls: remnux.scripts.pyinstaller-extractor
       - sls: remnux.scripts.linuxmemdiff
+      - sls: remnux.scripts.rtfdump

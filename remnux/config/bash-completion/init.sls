@@ -1,6 +1,7 @@
 include:
   - remnux.scripts.pdf-parser
   - remnux.scripts.pdfid
+  - remnux.scripts.rtfdump
   - remnux.python-packages.xxxswf
   - remnux.python-packages.balbuzard
   - remnux.scripts.base64dump
@@ -50,6 +51,16 @@ remnux-config-bash-completion-pdfid:
     - mode: 644
     - require:
       - sls: remnux.scripts.pdfid
+
+remnux-config-bash-completion-rtfdump:
+  file.managed:
+    - name: /etc/bash_completion.d/rtfdump
+    - source: salt://remnux/config/bash-completion/rtfdump
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.scripts.rtfdump
 
 remnux-config-bash-completion-xxxswf:
   file.managed:
