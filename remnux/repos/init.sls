@@ -8,6 +8,7 @@ include:
   - remnux.repos.mono
   - remnux.repos.remnux
   - remnux.repos.wireshark-dev
+  - remnux.repos.microsoft
 
 remnux-repos:
   test.nop:
@@ -21,3 +22,4 @@ remnux-repos:
       - sls: remnux.repos.mono
       - sls: remnux.repos.remnux
       - sls: remnux.repos.wireshark-dev
+      - sls: remnux.repos.microsoft
