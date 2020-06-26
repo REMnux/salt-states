@@ -8,6 +8,7 @@
 
 include:
   - remnux.packages.perl
+  - remnux.packages.binutils
 
 remnux-scripts-strdeob-source:
   file.managed:
@@ -18,3 +19,4 @@ remnux-scripts-strdeob-source:
     - mode: 755
     - require:
       - sls: remnux.packages.perl
+      - sls: remnux.packages.binutils

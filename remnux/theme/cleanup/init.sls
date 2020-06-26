@@ -9,6 +9,9 @@ yelp:
 unattended-upgrades:
   pkg.removed
 
+avahi-daemon:
+  pkg.removed
+
 remnux-theme-cleanup-autoremove:
   cmd.run:
     - name: apt-get autoremove -y
