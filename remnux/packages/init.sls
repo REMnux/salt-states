@@ -145,6 +145,7 @@ include:
   - remnux.packages.dex2jar
   - remnux.packages.netcat
   - remnux.packages.python3-pyqt5
+  - remnux.packages.fakenet-ng
 
 remnux-packages:
   test.nop:
@@ -295,3 +296,4 @@ remnux-packages:
       - sls: remnux.packages.dex2jar
       - sls: remnux.packages.netcat
       - sls: remnux.packages.python3-pyqt5
+      - sls: remnux.packages.fakenet-ng

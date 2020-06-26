@@ -62,6 +62,21 @@ function httpd {
   sudo systemctl ${*} nginx
 }
 
+# A wrapper around the "remnux" command to avoid having to specify "sudo"
+function remnux {
+    SUDO=/usr/bin/sudo
+    REMNUX_CLI=/usr/local/bin/remnux
+  if [ -e $SUDO ]; then
+    if [ $USER == "root" ]; then
+      $REMNUX_CLI ${*}
+    else
+      sudo $REMNUX_CLI ${*}
+    fi
+  else
+    $REMNUX_CLI ${*}
+  fi
+}
+
 # A wrapper around the command to stop and start SSH server for old timers
 function sshd {
   sudo systemctl ${*} ssh
