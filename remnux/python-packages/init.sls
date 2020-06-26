@@ -104,4 +104,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.balbuzard
       - sls: remnux.python-packages.dc3-mwcp
       - sls: remnux.python-packages.yara-python3
-      - sls: remnux.python-pacakges.ratdecoders
+      - sls: remnux.python-packakges.ratdecoders
