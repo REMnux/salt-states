@@ -147,6 +147,7 @@ include:
   - remnux.packages.python3-pyqt5
   - remnux.packages.fakenet-ng
   - remnux.packages.vscode
+  - remnux.packages.bearparser
 
 remnux-packages:
   test.nop:
@@ -299,3 +300,4 @@ remnux-packages:
       - sls: remnux.packages.python3-pyqt5
       - sls: remnux.packages.fakenet-ng
       - sls: remnux.packages.vscode
+      - sls: remnux.packages.bearparser
