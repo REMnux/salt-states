@@ -9,7 +9,7 @@
 include:
   - remnux.packages.git
   - remnux.packages.python-pip
-  - remnux.packages.python-yara
+  - remnux.python-packages.yara-python
   - remnux.python-packages.pylzma
 
 remnux-pip-xxxswf:
@@ -18,5 +18,5 @@ remnux-pip-xxxswf:
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
-      - sls: remnux.packages.python-yara
+      - sls: remnux.python-packages.yara-python
       - sls: remnux.python-packages.pylzma

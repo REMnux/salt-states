@@ -7,7 +7,7 @@
 # Notes:
 
 include:
-  - remnux.packages.python-yara
+  - remnux.python-packages.yara-python
 
 remnux-scripts-nomorexor-source:
   file.managed:
@@ -17,5 +17,5 @@ remnux-scripts-nomorexor-source:
   - mode: 755
   - makedirs: false
   - require:
-    - sls: remnux.packages.python-yara
+    - sls: remnux.python-packages.yara-python
 

@@ -89,7 +89,6 @@ include:
   - remnux.packages.python-setuptools
   - remnux.packages.software-properties-common
   - remnux.packages.python-virtualenv
-  - remnux.packages.python-yara
   - remnux.packages.python
   - remnux.packages.python3-pip
   - remnux.packages.qpdf
@@ -242,7 +241,6 @@ remnux-packages:
       - sls: remnux.packages.python-setuptools
       - sls: remnux.packages.software-properties-common
       - sls: remnux.packages.python-virtualenv
-      - sls: remnux.packages.python-yara
       - sls: remnux.packages.python
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.qpdf
