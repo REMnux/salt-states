@@ -19,7 +19,6 @@ include:
   - remnux.packages.firefox
   - remnux.packages.flex
   - remnux.packages.gdb
-  - remnux.packages.geany
   - remnux.packages.git
   - remnux.packages.snapd
   - remnux.packages.snap
@@ -174,7 +173,6 @@ remnux-packages:
       - sls: remnux.packages.firefox
       - sls: remnux.packages.flex
       - sls: remnux.packages.gdb
-      - sls: remnux.packages.geany
       - sls: remnux.packages.git
       - sls: remnux.packages.libgraphviz-dev
       - sls: remnux.packages.graphviz
