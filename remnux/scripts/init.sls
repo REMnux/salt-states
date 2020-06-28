@@ -17,6 +17,7 @@ include:
   - remnux.scripts.pyinstaller-extractor
   - remnux.scripts.linuxmemdiff
   - remnux.scripts.rtfdump
+  - remnux.scripts.virustotal-submit
 
 remnux-scripts:
   test.nop:
@@ -39,3 +40,4 @@ remnux-scripts:
       - sls: remnux.scripts.pyinstaller-extractor
       - sls: remnux.scripts.linuxmemdiff
       - sls: remnux.scripts.rtfdump
+      - sls: remnux.scripts.virustotal-submit
