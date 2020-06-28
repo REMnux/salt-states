@@ -50,6 +50,7 @@ include:
   - remnux.python-packages.dc3-mwcp
   - remnux.python-packages.yara-python3
   - remnux.python-packages.ratdecoders
+  - remnux.python-packages.poster
 
 remnux-python-packages:
   test.nop:
@@ -105,3 +106,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.dc3-mwcp
       - sls: remnux.python-packages.yara-python3
       - sls: remnux.python-packages.ratdecoders
+      - sls: remnux.python-packages.poster
