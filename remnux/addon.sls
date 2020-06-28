@@ -11,6 +11,7 @@ include:
   - remnux.config
   - remnux.tools
   - remnux.node-packages
+  - remnux.perl-packages
 
 remnux-addon-version-file:
   file.managed:
@@ -27,3 +28,4 @@ remnux-addon-version-file:
       - sls: remnux.config
       - sls: remnux.tools
       - sls: remnux.node-packages
+      - sls: remnux.perl-packages
