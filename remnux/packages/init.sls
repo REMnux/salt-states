@@ -147,6 +147,7 @@ include:
   - remnux.packages.vscode
   - remnux.packages.bearparser
   - remnux.packages.signsrch
+  - remnux.packages.pycdc
 
 remnux-packages:
   test.nop:
@@ -299,3 +300,4 @@ remnux-packages:
       - sls: remnux.packages.vscode
       - sls: remnux.packages.bearparser
       - sls: remnux.packages.signsrch
+      - sls: remnux.packages.pycdc

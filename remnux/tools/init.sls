@@ -21,6 +21,7 @@ include:
   - remnux.tools.binnavi
   - remnux.tools.de4dot
   - remnux.tools.trid
+  - remnux.tools.manalyze
 
 remnux-tools:
   test.nop:
@@ -47,3 +48,4 @@ remnux-tools:
       - sls: remnux.tools.binnavi
       - sls: remnux.tools.de4dot
       - sls: remnux.tools.trid
+      - sls: remnux.tools.manalyze
