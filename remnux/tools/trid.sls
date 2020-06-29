@@ -79,11 +79,16 @@ remnux-tools-tridupdate-defs-location:
     - require:
       - archive: remnux-tools-tridupdate-archive
 
-/usr/local/bin/trid:
-  file.symlink:
-    - target: /usr/local/trid_linux_64/trid
+remnux-tools-trid-wrapper:
+  file.managed:
+    - name: /usr/local/bin/trid
+    - mode: 755
+    - replace: False
     - watch:
       - file: remnux-tools-tridfiles-mode
+    - contents:
+      - '#!/bin/bash'
+      - LC_CTYPE=C.UTF-8 /usr/local/trid_linux_64/trid ${*}
 
 /usr/local/bin/tridupdate:
   file.symlink:
