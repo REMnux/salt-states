@@ -7,7 +7,6 @@ include:
   - remnux.theme.cleanup
   - remnux.theme.ssh
   - remnux.theme.dog
-  - remnux.theme.geany
   - remnux.theme.wireshark
 
 remnux-theme:
@@ -21,5 +20,4 @@ remnux-theme:
       - sls: remnux.theme.cleanup
       - sls: remnux.theme.ssh
       - sls: remnux.theme.dog
-      - sls: remnux.theme.geany
       - sls: remnux.theme.wireshark
