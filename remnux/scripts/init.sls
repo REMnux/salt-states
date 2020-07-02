@@ -18,6 +18,7 @@ include:
   - remnux.scripts.linuxmemdiff
   - remnux.scripts.rtfdump
   - remnux.scripts.virustotal-submit
+  - remnux.scripts.hash-identifier
   - remnux.scripts.disitool
 
 remnux-scripts:
@@ -42,4 +43,5 @@ remnux-scripts:
       - sls: remnux.scripts.linuxmemdiff
       - sls: remnux.scripts.rtfdump
       - sls: remnux.scripts.virustotal-submit
+      - sls: remnux.scripts.hash-identifier
       - sls: remnux.scripts.disitool
