@@ -19,6 +19,7 @@ include:
   - remnux.scripts.rtfdump
   - remnux.scripts.virustotal-submit
   - remnux.scripts.hash-identifier
+  - remnux.scripts.disitool
 
 remnux-scripts:
   test.nop:
@@ -43,3 +44,4 @@ remnux-scripts:
       - sls: remnux.scripts.rtfdump
       - sls: remnux.scripts.virustotal-submit
       - sls: remnux.scripts.hash-identifier
+      - sls: remnux.scripts.disitool
