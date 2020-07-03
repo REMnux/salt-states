@@ -51,6 +51,7 @@ include:
   - remnux.python-packages.ratdecoders
   - remnux.python-packages.poster
   - remnux.python-packages.pylzma-python3
+  - remnux.python-packages.viper-framework
 
 remnux-python-packages:
   test.nop:
@@ -107,3 +108,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.ratdecoders
       - sls: remnux.python-packages.poster
       - sls: remnux.python-packages.pylzma-python3
+      - sls: remnux.python-packages.viper-framework

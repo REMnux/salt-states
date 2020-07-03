@@ -87,7 +87,6 @@ include:
   - remnux.packages.python-scipy
   - remnux.packages.python-setuptools
   - remnux.packages.software-properties-common
-  - remnux.packages.python-virtualenv
   - remnux.packages.python
   - remnux.packages.python3-pip
   - remnux.packages.qpdf
@@ -148,6 +147,10 @@ include:
   - remnux.packages.bearparser
   - remnux.packages.signsrch
   - remnux.packages.pycdc
+  - remnux.packages.libusb-1
+  - remnux.packages.python3-venv
+  - remnux.packages.python3-virtualenv
+  - remnux.packages.virtualenv
 
 remnux-packages:
   test.nop:
@@ -239,7 +242,6 @@ remnux-packages:
       - sls: remnux.packages.python-scipy
       - sls: remnux.packages.python-setuptools
       - sls: remnux.packages.software-properties-common
-      - sls: remnux.packages.python-virtualenv
       - sls: remnux.packages.python
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.qpdf
@@ -301,3 +303,8 @@ remnux-packages:
       - sls: remnux.packages.bearparser
       - sls: remnux.packages.signsrch
       - sls: remnux.packages.pycdc
+      - sls: remnux.packages.libusb-1
+      - sls: remnux.packages.python3-venv
+      - sls: remnux.packages.python3-virtualenv
+      - sls: remnux.packages.virtualenv
+
