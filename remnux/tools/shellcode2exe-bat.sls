@@ -26,5 +26,5 @@ remnux-tools-shellcode2exe-bat-wrapper:
     - watch:
       - git: remnux-tools-shellcode2exe-bat
     - contents:
-        #!/bin/bash
-        wine cmd /c "/usr/local/shellcode2exe-bat/shellcode2exe.bat ${*}"
+      - '#!/bin/bash'
+      - wine cmd /c "/usr/local/shellcode2exe-bat/shellcode2exe.bat ${*}"

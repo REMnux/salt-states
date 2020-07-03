@@ -29,5 +29,5 @@ remnux-tools-cyberchef-wrapper:
     - watch:
       - archive: remnux-tools-cyberchef
     - contents:
-        #!/bin/bash
-        firefox /usr/local/cyberchef/CyberChef_v{{ version }}.html &
+      - '#!/bin/bash'
+      - firefox /usr/local/cyberchef/CyberChef_v{{ version }}.html &

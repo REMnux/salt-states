@@ -40,5 +40,5 @@ remnux-tools-manalyze-wrapper:
     - watch:
         - archive: remnux-tools-manalyze-archive
     - contents:
-        #!/bin/bash
-        LD_LIBRARY_PATH=/usr/local/manalyze:$LD_LIBRARY_PATH /usr/local/manalyze/manalyze ${*}
+      - '#!/bin/bash'
+      - LD_LIBRARY_PATH=/usr/local/manalyze:$LD_LIBRARY_PATH /usr/local/manalyze/manalyze ${*}

@@ -38,7 +38,7 @@ remnux-tools-binnavi-wrapper:
     - watch:
       - file: remnux-tools-binnavi-source
     - contents:
-        #!/bin/bash
-        sudo systemctl start postgresql;
-        java --illegal-access=warn -jar /usr/local/binnavi/binnavi-all.jar ${*}
+      - '#!/bin/bash'
+      - sudo systemctl start postgresql;
+      - java --illegal-access=warn -jar /usr/local/binnavi/binnavi-all.jar ${*}
 

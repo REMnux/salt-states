@@ -34,5 +34,5 @@ remnux-tools-de4dot-wrapper:
     - watch:
       - archive: remnux-tools-de4dot-archive
     - contents:
-        #!/bin/bash
-        dotnet /usr/local/de4dot/de4dot.dll ${*}
+      - '#!/bin/bash'
+      - dotnet /usr/local/de4dot/de4dot.dll ${*}

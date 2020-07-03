@@ -35,6 +35,6 @@ remnux-tools-cfr-wrapper:
     - watch:
       - file: remnux-tools-cfr-source
     - contents:
-        #!/bin/bash
-        java -jar /usr/local/cfr/cfr-0.149.jar ${*}
+      - '#!/bin/bash'
+      - java -jar /usr/local/cfr/cfr-0.149.jar ${*}
 

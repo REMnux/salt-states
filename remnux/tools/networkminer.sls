@@ -43,5 +43,5 @@ remnux-networkminer-wrapper:
     - watch:
         - file: /usr/local/NetworkMiner_2-5/NetworkMiner.exe
     - contents:
-        #!/bin/bash
-        mono /usr/local/NetworkMiner_2-5/NetworkMiner.exe ${*}
+      - '#!/bin/bash'
+      - mono /usr/local/NetworkMiner_2-5/NetworkMiner.exe ${*}
