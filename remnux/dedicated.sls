@@ -15,4 +15,4 @@ remnux-dedicated-version-file:
     - require:
       - sls: remnux.addon
       - sls: remnux.theme
-      - sls: remnux.theme-local
+      - sls: remnux.theme-dedicated
