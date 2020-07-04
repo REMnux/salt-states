@@ -4,7 +4,7 @@
 include:
     - remnux.addon
     - remnux.theme
-    - remnux.theme-local
+    - remnux.theme-dedicated
 
 remnux-dedicated-version-file:
   file.managed:
