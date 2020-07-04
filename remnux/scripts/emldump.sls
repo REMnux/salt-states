@@ -1,6 +1,6 @@
 # Name: emldump
 # Website: https://blog.didierstevens.com/2017/07/21/update-emldump-py-version-0-0-10/
-# Description: Python program to parse eml files
+# Description: Parse and analyze EML files
 # Category: Examine document files: Microsoft Office
 # Author: Didier Stevens
 # License: Free, unknown license
