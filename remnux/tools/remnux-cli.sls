@@ -1,5 +1,5 @@
-{%- set source = "https://github.com/REMnux/remnux-cli/releases/download/v1.2.4/remnux-cli-linux" -%}		
-{%- set hash = "19a1cc45cd1481d53087addee15cfe0fc386564af2d74705cea834dab0f99df8" -%}		
+{%- set source = "https://github.com/REMnux/remnux-cli/releases/download/v1.2.5/remnux-cli-linux" -%}		
+{%- set hash = "dc79a10e31eb795dfe749f35c45b1570033676f1a3df4882917ae24c807cdd5e" -%}		
 
 remnux-tool-remnux-cli:
   file.managed:
