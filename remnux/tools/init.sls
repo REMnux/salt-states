@@ -22,6 +22,7 @@ include:
   - remnux.tools.de4dot
   - remnux.tools.trid
   - remnux.tools.manalyze
+  - remnux.tools.malware-jail
 
 remnux-tools:
   test.nop:
@@ -49,3 +50,4 @@ remnux-tools:
       - sls: remnux.tools.de4dot
       - sls: remnux.tools.trid
       - sls: remnux.tools.manalyze
+      - sls: remnux.tools.malware-jail
