@@ -151,6 +151,7 @@ include:
   - remnux.packages.python3-virtualenv
   - remnux.packages.virtualenv
   - remnux.packages.scdbg
+  - remnux.packages.powershell
 
 remnux-packages:
   test.nop:
@@ -307,3 +308,4 @@ remnux-packages:
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.virtualenv
       - sls: remnux.packages.scdbg
+      - sls: remnux.packages.powershell
