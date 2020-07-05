@@ -125,7 +125,6 @@ include:
   - remnux.packages.pev
   - remnux.packages.pdftk-java
   - remnux.packages.net-tools
-  - remnux.packages.firefox
   - remnux.packages.wine
   - remnux.packages.galculator
   - remnux.packages.libjavassist-java
@@ -151,6 +150,7 @@ include:
   - remnux.packages.python3-venv
   - remnux.packages.python3-virtualenv
   - remnux.packages.virtualenv
+  - remnux.packages.scdbg
 
 remnux-packages:
   test.nop:
@@ -280,7 +280,6 @@ remnux-packages:
       - sls: remnux.packages.pev
       - sls: remnux.packages.pdftk-java
       - sls: remnux.packages.net-tools
-      - sls: remnux.packages.firefox
       - sls: remnux.packages.wine
       - sls: remnux.packages.spidermonkey
       - sls: remnux.packages.galculator
@@ -307,4 +306,4 @@ remnux-packages:
       - sls: remnux.packages.python3-venv
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.virtualenv
-
+      - sls: remnux.packages.scdbg
