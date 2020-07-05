@@ -1,5 +1,5 @@
 # Name: PowerShell Core 
-# Website: https://code.visualstudio.com/
+# Website: https://github.com/powershell/powershell
 # Description: Run PowerShell scripts and commands.
 # Category: Script Analysis and Deobfuscation; Other tasks
 # Author: Microsoft Corporation
