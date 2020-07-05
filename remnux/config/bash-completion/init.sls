@@ -23,6 +23,7 @@ include:
   - remnux.python-packages.xortool
   - remnux.scripts.virustotal-search
   - remnux.tools.remnux-cli
+  - remnux.python-packages.pcodedmp
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -271,3 +272,13 @@ remnux-config-bash-completion-remnux-cli:
     - mode: 644
     - require:
       - sls: remnux.tools.remnux-cli
+
+remnux-config-bash-completion-pcodedmp:
+  file.managed:
+    - name: /etc/bash_completion.d/pcodedmp
+    - source: salt://remnux/config/bash-completion/pcodedmp
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.python-packages.pcodedmp

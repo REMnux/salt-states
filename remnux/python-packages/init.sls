@@ -3,7 +3,6 @@ include:
   - remnux.python-packages.bitstring
   - remnux.python-packages.bottle
   - remnux.python-packages.cryptography
-  - remnux.python-packages.cybox
   - remnux.python-packages.distorm3
   - remnux.python-packages.docker-compose
   - remnux.python-packages.fuzzywuzzy
@@ -53,6 +52,7 @@ include:
   - remnux.python-packages.pylzma-python3
   - remnux.python-packages.viper-framework
   - remnux.python-packages.time-decode
+  - remnux.python-packages.pcodedmp
 
 remnux-python-packages:
   test.nop:
@@ -61,7 +61,6 @@ remnux-python-packages:
       - sls: remnux.python-packages.bitstring
       - sls: remnux.python-packages.bottle
       - sls: remnux.python-packages.cryptography
-      - sls: remnux.python-packages.cybox
       - sls: remnux.python-packages.distorm3
       - sls: remnux.python-packages.docker-compose
       - sls: remnux.python-packages.fuzzywuzzy
@@ -111,3 +110,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.pylzma-python3
       - sls: remnux.python-packages.viper-framework
       - sls: remnux.python-packages.time-decode
+      - sls: remnux.python-packages.pcodedmp
