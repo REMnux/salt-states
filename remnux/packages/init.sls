@@ -54,7 +54,7 @@ include:
   - remnux.packages.openssh-client
   - remnux.packages.openssh-server
   - remnux.packages.openssl
-  - remnux.packages.p7zip-full
+  - remnux.packages.7zip
   - remnux.packages.pdfresurrect
   - remnux.packages.pkg-config
   - remnux.packages.pyew
@@ -152,6 +152,7 @@ include:
   - remnux.packages.virtualenv
   - remnux.packages.scdbg
   - remnux.packages.powershell
+  - remnux.packages.cabextract
 
 remnux-packages:
   test.nop:
@@ -210,7 +211,7 @@ remnux-packages:
       - sls: remnux.packages.openssh-client
       - sls: remnux.packages.openssh-server
       - sls: remnux.packages.openssl
-      - sls: remnux.packages.p7zip-full
+      - sls: remnux.packages.7zip
       - sls: remnux.packages.pdfresurrect
       - sls: remnux.packages.pkg-config
       - sls: remnux.packages.pyew
@@ -309,3 +310,4 @@ remnux-packages:
       - sls: remnux.packages.virtualenv
       - sls: remnux.packages.scdbg
       - sls: remnux.packages.powershell
+      - sls: remnux.packages.cabextract
