@@ -155,6 +155,7 @@ include:
   - remnux.packages.cabextract
   - remnux.packages.baksmali
   - remnux.packages.procyon-decompiler
+  - remnux.packages.portex
 
 remnux-packages:
   test.nop:
@@ -315,3 +316,4 @@ remnux-packages:
       - sls: remnux.packages.cabextract
       - sls: remnux.packages.baksmali
       - sls: remnux.packages.procyon-decompiler
+      - sls: remnux.packages.portex
