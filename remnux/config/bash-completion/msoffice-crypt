@@ -1,0 +1,13 @@
+. /etc/bash_completion.d/remnuxlib
+
+_msoffice-crypt() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "msoffice-crypt -h"
+	esac
+}
+
+complete -d -o default -F _msoffice-crypt msoffice-crypt

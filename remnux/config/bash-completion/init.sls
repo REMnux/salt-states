@@ -25,6 +25,7 @@ include:
   - remnux.tools.remnux-cli
   - remnux.python-packages.pcodedmp
   - remnux.scripts.xor-kpa
+  - remnux.packages.msoffice-crypt
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -293,3 +294,13 @@ remnux-config-bash-completion-xor-kpa:
     - mode: 644
     - require:
       - sls: remnux.scripts.xor-kpa
+
+remnux-config-bash-completion-msoffice-crypt:
+  file.managed:
+    - name: /etc/bash_completion.d/msoffice-crypt
+    - source: salt://remnux/config/bash-completion/msoffice-crypt
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.packages.msoffice-crypt
