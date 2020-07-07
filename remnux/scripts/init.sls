@@ -21,6 +21,7 @@ include:
   - remnux.scripts.hash-identifier
   - remnux.scripts.disitool
   - remnux.scripts.cut-bytes
+  - remnux.scripts.xor-kpa
 
 remnux-scripts:
   test.nop:
@@ -47,3 +48,4 @@ remnux-scripts:
       - sls: remnux.scripts.hash-identifier
       - sls: remnux.scripts.disitool
       - sls: remnux.scripts.cut-bytes
+      - sls: remnux.scripts.xor-kpa

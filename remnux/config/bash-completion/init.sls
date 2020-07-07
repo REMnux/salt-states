@@ -24,6 +24,7 @@ include:
   - remnux.scripts.virustotal-search
   - remnux.tools.remnux-cli
   - remnux.python-packages.pcodedmp
+  - remnux.scripts.xor-kpa
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -282,3 +283,13 @@ remnux-config-bash-completion-pcodedmp:
     - mode: 644
     - require:
       - sls: remnux.python-packages.pcodedmp
+
+remnux-config-bash-completion-xor-kpa:
+  file.managed:
+    - name: /etc/bash_completion.d/xor-kpa
+    - source: salt://remnux/config/bash-completion/xor-kpa
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.scripts.xor-kpa

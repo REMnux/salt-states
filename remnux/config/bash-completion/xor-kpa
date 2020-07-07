@@ -1,0 +1,13 @@
+. /etc/bash_completion.d/remnuxlib
+
+_xor-kpa() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+
+	case "$cur" in -*)
+		_parse_args "xor-kpa.py -h"
+	esac
+}
+
+complete -d -o default -F _xor-kpa xor-kpa.py
