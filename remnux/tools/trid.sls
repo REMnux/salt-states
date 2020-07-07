@@ -55,7 +55,7 @@ remnux-tools-tridfiles-mode:
 remnux-tools-tridupdate-shebang:
   file.replace:
     - name: /usr/local/trid_linux_64/tridupdate.py
-    - pattern: '#!/usr/bin/env python'
+    - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/env python3'
     - prepend_if_not_found: False
     - count: 1
