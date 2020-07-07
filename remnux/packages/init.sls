@@ -153,6 +153,8 @@ include:
   - remnux.packages.scdbg
   - remnux.packages.powershell
   - remnux.packages.cabextract
+  - remnux.packages.baksmali
+  - remnux.packages.procyon-decompiler
 
 remnux-packages:
   test.nop:
@@ -311,3 +313,5 @@ remnux-packages:
       - sls: remnux.packages.scdbg
       - sls: remnux.packages.powershell
       - sls: remnux.packages.cabextract
+      - sls: remnux.packages.baksmali
+      - sls: remnux.packages.procyon-decompiler
