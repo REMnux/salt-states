@@ -11,6 +11,12 @@ include:
   - remnux.packages.npm
   - remnux.packages.curl
 
+# Sometimes node is not installed, which causes npm.installed to
+# not work, so let's explicitly add the npm package here.
+remnux-node-packages-box-js-npm:
+  pkg.installed:
+    - name: npm
+
 box-js:
   npm.installed:
     - require:
