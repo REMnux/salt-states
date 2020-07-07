@@ -6,7 +6,7 @@ include:
 remnux-theme-sudoers:
   file.append:
     - name: /etc/sudoers.d/remnux
-    - text: "remnux ALL=NOPASSWD: ALL"
+    - text: "{{ user }} ALL=NOPASSWD: ALL\nDefaults env_keep += \"ftp_proxy http_proxy https_proxy no_proxy\""
     - makedirs: True
     - require:
       - user: remnux-user-{{ user }}
