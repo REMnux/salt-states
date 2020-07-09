@@ -1,7 +1,7 @@
 # Name: peepdf
 # Website: https://eternal-todo.com/tools/peepdf-pdf-analysis-tool
-# Description: Tool to breakout components of a given PDF file
-# Category: Examine document files: PDF
+# Description: Examine elements of the PDF file.
+# Category: Analyze Documents: PDF
 # Author: Jose Miguel Esparza
 # License: https://github.com/jesparza/peepdf/blob/master/COPYING
 # Notes: 

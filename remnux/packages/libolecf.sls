@@ -1,10 +1,10 @@
 # Name: libolecf
 # Website: https://github.com/libyal/libolecf
-# Description: Library and tools to access the OLE 2 Compound File (OLECF) format
-# Category: Examine document files: Microsoft Office
+# Description: Microsoft Office OLE2 compound documents.
+# Category: Analyze Documents: Microsoft Office
 # Author: Joachim Metz
-# License: https://github.com/libyal/libolecf/blob/master/COPYING
-# Notes: 
+# License: GNU Lesser General Public License v3 or later (LGPLv3+): https://github.com/libyal/libolecf/blob/master/COPYING
+# Notes: olecfexport, olecfinfo, olecfmount, etc.
 
 include:
   - remnux.repos.gift

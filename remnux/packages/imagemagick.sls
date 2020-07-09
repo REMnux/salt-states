@@ -1,10 +1,10 @@
 # Name: ImageMagick
 # Website: https://imagemagick.org/
 # Description: View and manipulate image and related files
-# Category: File Editing and Viewing: Images
-# Author: 
-# License: https://imagemagick.org/script/license.php
-# Notes: 
+# Category: View or Edit Files
+# Author: ImageMagick Studio LLC, https://github.com/ImageMagick/ImageMagick/blob/master/AUTHORS.txt
+# License: https://github.com/ImageMagick/ImageMagick/blob/master/LICENSE
+# Notes: display, convert, mogrify, etc.
 
 imagemagick:
   pkg.installed

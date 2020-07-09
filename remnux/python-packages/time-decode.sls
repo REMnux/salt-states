@@ -1,7 +1,7 @@
 # Name: time-decode
 # Website: https://github.com/digitalsleuth/time_decode
-# Description: Decode/encode date and timestamps
-# Category: Other tasks
+# Description: Decode and encode date and timestamps.
+# Category: Gather and Analyze Data
 # Author: Corey Forman
 # License: https://github.com/digitalsleuth/time_decode/blob/master/LICENSE
 # Notes: time_decode.py

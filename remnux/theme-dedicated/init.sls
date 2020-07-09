@@ -1,5 +1,5 @@
 include:
-  - remnux.packages.openssh-server
+  - remnux.packages.openssh
 
 # Runlevel isn't in a Docker container, so check whether it exists before
 # trying to control  services
@@ -10,6 +10,6 @@ remnux-theme-ssh-sshd-disable-service:
     - name: ssh
     - enable: False
     - require:
-      - sls: remnux.packages.openssh-server
+      - sls: remnux.packages.openssh
 
 {% endif %}

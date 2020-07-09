@@ -1,9 +1,9 @@
 # Name: DeXRAY
 # Website: http://www.hexacorn.com/blog/category/software-releases/dexray/
-# Description: Perl script to decrypt AV quarantined files and metadata
-# Category: Artifact Extraction and Decoding: Deobfuscation
+# Description: Extract and decode data fro antivirus quarantine files.
+# Category: Gather and Analyze Data
 # Author: Hexacorn
-# License: Copyright Hexacorn.com (http://hexacorn.com/d/DeXRAY.pl)
+# License: Free; copyright by Hexacorn.com: http://hexacorn.com/d/DeXRAY.pl
 # Notes: dexray
 
 include:

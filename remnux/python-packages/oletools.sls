@@ -1,8 +1,8 @@
 # Name: oletools
 # Website: http://www.decalage.info/python/oletools
-# Description: Package of python tools to analyse Microsoft OLE2 files
-# Category: Examine document files: Microsoft Office
-# Author: Philippe Lagadec
+# Description: Microsoft Office OLE2 compound documents.
+# Category: Analyze Documents: Microsoft Office
+# Author: Philippe Lagadec: https://twitter.com/decalage2
 # License: https://github.com/decalage2/oletools/blob/master/LICENSE.md
 # Notes: mraptor, msodde, olebrowse, oledir, oleid, olemap, olemeta, oleobj, oletimes, olevba, pyxswf, rtfobj
 

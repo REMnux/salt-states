@@ -4,7 +4,6 @@ include:
   - remnux.packages.autoconf
   - remnux.packages.automake
   - remnux.packages.binutils
-  - remnux.packages.bison
   - remnux.packages.build-essential
   - remnux.packages.bulk-extractor
   - remnux.packages.bundler
@@ -51,8 +50,7 @@ include:
   - remnux.packages.mercurial
   - remnux.packages.nginx
   - remnux.packages.ngrep
-  - remnux.packages.openssh-client
-  - remnux.packages.openssh-server
+  - remnux.packages.openssh
   - remnux.packages.openssl
   - remnux.packages.7zip
   - remnux.packages.pdfresurrect
@@ -166,7 +164,6 @@ remnux-packages:
       - sls: remnux.packages.autoconf
       - sls: remnux.packages.automake
       - sls: remnux.packages.binutils
-      - sls: remnux.packages.bison
       - sls: remnux.packages.build-essential
       - sls: remnux.packages.bulk-extractor
       - sls: remnux.packages.bundler
@@ -212,8 +209,7 @@ remnux-packages:
       - sls: remnux.packages.mercurial
       - sls: remnux.packages.nginx
       - sls: remnux.packages.ngrep
-      - sls: remnux.packages.openssh-client
-      - sls: remnux.packages.openssh-server
+      - sls: remnux.packages.openssh
       - sls: remnux.packages.openssl
       - sls: remnux.packages.7zip
       - sls: remnux.packages.pdfresurrect

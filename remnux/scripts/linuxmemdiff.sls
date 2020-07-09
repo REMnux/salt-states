@@ -1,8 +1,8 @@
 # Name: linux_mem_diff_tool
 # Website: https://github.com/monnappa22/linux_mem_diff_tool
-# Description: Script to perform Linux Memory Diff Analysis using Volatility
-# Category: Examine memory snapshots
-# Author: Monnappa
+# Description: Compare two memory images of Linux systems by using Volatility.
+# Category: Perform Memory Forensics
+# Author: Monnappa K A
 # License: Free, unknown license
 # Notes: linux_mem_diff.py
 

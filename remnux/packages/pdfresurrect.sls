@@ -1,7 +1,7 @@
 # Name: pdfresurrect
 # Website: https://github.com/enferex/pdfresurrect
-# Description: PDF historical analysis tool
-# Category: Examine document files: PDF
+# Description: Extract previous versions of content from PDF files.
+# Category: Analyze Documents: PDF
 # Author: Matt Davis
 # License: https://github.com/enferex/pdfresurrect/blob/master/LICENSE
 # Notes: 

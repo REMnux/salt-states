@@ -1,7 +1,7 @@
 # Name: qpdf
 # Website: http://qpdf.sourceforge.net/
-# Description: PDF manipulation tool
-# Category: Examine document files: PDF
+# Description: Manipulate (merge, convert, transform) PDF files.
+# Category: Analyze Documents: PDF
 # Author: Jay Berkenbilt
 # License: https://github.com/qpdf/qpdf/blob/master/LICENSE.txt
 # Notes: 

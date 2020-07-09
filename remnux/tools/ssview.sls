@@ -1,7 +1,7 @@
 # Name: SSView
 # Website: https://www.mitec.cz/ssv.html
 # Description: Analyze OLE2 Structured Storage files
-# Category: Examine document files: Microsoft Office
+# Category: Analyze Documents: Microsoft Office
 # Author: Michal Mutl
 # License: Free to use for private, educational and non-commercial purposes.
 # Notes: 

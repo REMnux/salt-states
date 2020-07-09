@@ -1,7 +1,7 @@
 # Name: bulk_extractor
 # Website: https://github.com/simsong/bulk_extractor/
 # Description: Extract interesting strings from binary files.
-# Category: Examine Static Properties, Perform Memory Forensics
+# Category: Examine Static Properties: General, Perform Memory Forensics
 # Author: https://github.com/simsong/bulk_extractor/blob/master/AUTHORS
 # License: https://github.com/simsong/bulk_extractor/blob/master/COPYING
 # Notes: 

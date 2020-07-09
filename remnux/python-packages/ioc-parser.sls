@@ -1,10 +1,10 @@
 # Name: ioc_parser
 # Website: https://github.com/buffer/ioc_parser
-# Description: Tool to extract IOCs from security report PDFs
-# Category: Examine file properties and contents: Define signatures
+# Description: Extract IOCs from security report PDFs.
+# Category: Gather and Analyze Data
 # Author: Armin Buescher
-# License: https://github.com/buffer/ioc_parser/blob/master/LICENSE.txt
-# Notes: ioc_parser
+# License: MIT License: https://github.com/buffer/ioc_parser/blob/master/LICENSE.txt
+# Notes:
 
 include:
   - remnux.packages.python-pip

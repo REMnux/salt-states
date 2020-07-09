@@ -2,8 +2,8 @@
 
 # Name: Volatility Framework
 # Website: https://github.com/volatilityfoundation/volatility
-# Description: Memory forensics tool and framework
-# Category: Examine Memory Snapshots
+# Description: Memory forensics tool and framework.
+# Category: Perform Memory Forensics
 # Author: https://github.com/volatilityfoundation/volatility/blob/2.6.1/AUTHORS.txt
 # License: https://github.com/volatilityfoundation/volatility/blob/2.6.1/LICENSE.txt
 # Notes: vol.py

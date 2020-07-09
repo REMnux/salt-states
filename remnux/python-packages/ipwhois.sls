@@ -1,9 +1,9 @@
 # Name: ipwhois
 # Website: https://github.com/secynic/ipwhois
-# Description: IP WHOIS lookup tools
-# Category: Network Interactions: Miscellaneous Network
+# Description: Retrieve and parse whois data for IP addresses.
+# Category: Gather and Analyze Data
 # Author: Philip Hane
-# License: https://github.com/secynic/ipwhois/blob/master/LICENSE.txt
+# License: BSD 2-Clause "Simplified" License: https://github.com/secynic/ipwhois/blob/master/LICENSE.txt
 # Notes: ipwhois_cli.py, ipwhois_utils_cli.py
 
 include:

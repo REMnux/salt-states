@@ -1,7 +1,7 @@
 # Name: fakemail
 # Website: https://hg.sr.ht/~olly/fakemail
-# Description: Fake SMTP server useful for testing emails
-# Category: Network Interactions: Services
+# Description: Intercept and examine SMTP email activity with this fake SMTP server.
+# Category: Explore Network Interactions
 # Author: Oliver Cope
 # License: https://hg.sr.ht/~olly/fakemail/browse/LICENSE.txt?rev=default
 # Notes: 

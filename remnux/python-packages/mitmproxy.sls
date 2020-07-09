@@ -1,7 +1,7 @@
 # Name: mitmproxy
 # Website: https://mitmproxy.org/
-# Description: Open source interactive https proxy
-# Category: Examine browser malware: Websites
+# Description: Investigate website interactions using this web proxy.
+# Category: Explore Network Interactions
 # Author: https://github.com/orgs/mitmproxy/people
 # License: https://github.com/mitmproxy/mitmproxy/blob/master/LICENSE
 # Notes: mitmproxy, mitmdump, mitmweb

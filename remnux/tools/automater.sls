@@ -1,9 +1,9 @@
 # Name: Automater
 # Website: http://www.tekdefense.com/automater/
-# Description: OSINT automation tool
-# Category: Examine browser malware: Websites
-# Author: 1aN0rmus / TekDefense
-# License: https://github.com/1aN0rmus/TekDefense-Automater/blob/master/LICENSE
+# Description: Gather OSINT data about IPs, domains, and hashes.
+# Category: Gather and Analyze Data
+# Author: 1aN0rmus: https://twitter.com/TekDefense
+# License: MIT License: https://github.com/1aN0rmus/TekDefense-Automater/blob/master/LICENSE
 # Notes: Automater.py
 
 include:

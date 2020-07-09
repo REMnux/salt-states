@@ -1,9 +1,9 @@
 # Name: VirusTotal API
 # Website: https://github.com/doomedraven/VirusTotalApi
-# Description: Python 3 tool to query and interact with VirusTotal at a CLI
-# Category: Examine file properties and contents: Hashes
+# Description: Query and interact with VirusTotal using a command-line interface.
+# Category: Gather and Analyze Data
 # Author: doomedraven
-# License: https://github.com/doomedraven/VirusTotalApi/blob/master/LICENSE.md
+# License: MIT License: https://github.com/doomedraven/VirusTotalApi/blob/master/LICENSE.md
 # Notes: vt
 
 include:

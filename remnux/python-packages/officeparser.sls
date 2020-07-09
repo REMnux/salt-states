@@ -1,9 +1,9 @@
 # Name: officeparser
 # Website: https://github.com/unixfreak0037/officeparser
-# Description: Python2 script to parse OLE compound documents
-# Category: Examine document files: Microsoft Office
-# Author: John Davison
-# License: https://github.com/unixfreak0037/officeparser/blob/master/LICENSE
+# Description: Parse Microsoft Office OLE2 compound documents.
+# Category: Analyze Documents: Microsoft Office
+# Author: John William Davison
+# License: MIT License: https://github.com/unixfreak0037/officeparser/blob/master/LICENSE
 # Notes: 
 
 include:

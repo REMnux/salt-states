@@ -1,9 +1,9 @@
 # Name: oledump
 # Website: https://blog.didierstevens.com/programs/oledump-py/
 # Description: Analyze OLE2 Structured Storage files
-# Category: Examine document files: Microsoft Office
+# Category: Analyze Documents Microsoft Office
 # Author: Didier Stevens 
-# License: Free, unknown license
+# License: Public Domain
 # Notes: 
 
 include:

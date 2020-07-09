@@ -1,10 +1,10 @@
 # Name: Origami
 # Website: https://github.com/gdelugre/origami
-# Description: Ruby library to parse, modify, and generate PDF documents
-# Category: Examine document files: PDF
+# Description: Parse, modify, generate PDF files.
+# Category: Analyze Documents: PDF
 # Author: Guillaume Delugré
 # License: https://github.com/gdelugre/origami/blob/master/COPYING.LESSER
-# Notes: 
+# Notes: pdfcop, pdfdecompress, pdfdecrypt, pdfextract, etc.
 
 include:
   - remnux.packages.ruby

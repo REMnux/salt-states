@@ -1,7 +1,7 @@
 # Name: virustotal-submit
 # Website: https://blog.didierstevens.com/programs/virustotal-tools/
 # Description: Submit files to VirusTotal.
-# Category: Examine file properties and contents: Scan
+# Category: Gather and Analyze Data
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
 # Notes: virustotal-submit.py

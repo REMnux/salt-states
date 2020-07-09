@@ -1,7 +1,7 @@
 # Name: disitool
 # Website: https://blog.didierstevens.com/programs/disitool/
 # Description: Manipulate embedded digital signatures.
-# Category: Examine Static Properties
+# Category: Examine Static Properties: General
 # Author: Didier Stevens
 # License: Public Domain
 # Notes: disitool.py

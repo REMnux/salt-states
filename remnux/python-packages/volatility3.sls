@@ -1,7 +1,7 @@
 # Name: Volatility 3
 # Website: https://github.com/volatilityfoundation/volatility3
 # Description: Memory forensics tool and framework
-# Category: Examine Memory Snapshots
+# Category: Perform Memory Forensics
 # Author: The Volatility Foundation
 # License: https://github.com/volatilityfoundation/volatility3/blob/master/LICENSE.txt
 # Notes: vol3, volshell3

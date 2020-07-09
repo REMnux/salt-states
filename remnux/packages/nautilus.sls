@@ -1,7 +1,7 @@
 # Name: Nautilus
 # Website: https://gitlab.gnome.org/GNOME/nautilus
 # Description: Graphical file manager
-# Category: Other tasks
+# Category: General Utilities
 # Author: https://gitlab.gnome.org/Teams
 # License: https://gitlab.gnome.org/GNOME/nautilus/-/blob/master/LICENSE
 # Notes: 

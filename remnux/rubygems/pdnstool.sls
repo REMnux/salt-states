@@ -1,9 +1,9 @@
 # Name: pdnstool
 # Website: https://github.com/chrislee35/passivedns-client
-# Description: Rubygem tool for passive DNS mapping
-# Category: Examine browser malware: Websites
+# Description: Query passive DNS databases for DNS data.
+# Category: Gather and Analyze Data
 # Author: Chris Lee
-# License: https://github.com/chrislee35/passivedns-client/blob/master/LICENSE.txt
+# License: MIT License: https://github.com/chrislee35/passivedns-client/blob/master/LICENSE.txt
 # Notes:
 
 include:

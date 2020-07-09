@@ -1,7 +1,7 @@
 # Name: virustotal-search
 # Website: https://blog.didierstevens.com/programs/virustotal-tools/
 # Description: Search VirusTotal for file hashes.
-# Category: File Properties and Contents: Scan
+# Category: Gather and Analyze Data
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
 # Notes: virustotal-search.py

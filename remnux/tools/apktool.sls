@@ -1,10 +1,10 @@
 # Name: apktool
 # Website: https://ibotpeaches.github.io/Apktool/
-# Description: Java tool to reverse engineer Android apps
-# Category: Investigate mobile malware
+# Description: Reverse-engineer Android APK files.
+# Category: Statically Analyze Code: Android
 # Author: Connor Tumbleson, Ryszard Wisniewski
-# License: https://github.com/iBotPeaches/Apktool/blob/master/LICENSE
-# Notes: apktool
+# License: Apache License 2.0: https://github.com/iBotPeaches/Apktool/blob/master/LICENSE
+# Notes: 
 
 include:
   - remnux.packages.default-jre

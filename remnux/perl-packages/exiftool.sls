@@ -1,7 +1,7 @@
 # Name: ExifTool
 # Website: https://exiftool.org/
 # Description: Tool to read from, write to, and edit EXIF metadata of various file types
-# Category: Examine Static Properties
+# Category: Examine Static Properties: General
 # Author: Phil Harvey
 # License: https://exiftool.org/#license
 # Notes: 

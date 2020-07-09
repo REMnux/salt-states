@@ -1,7 +1,7 @@
 # Name: Docker
 # Website: https://www.docker.com
 # Description: Run and manage containers.
-# Category: Other Tasks
+# Category: General Utilities
 # Author: Docker Inc.
 # License: https://github.com/moby/moby/blob/master/LICENSE
 # Notes: 

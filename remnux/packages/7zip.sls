@@ -1,7 +1,7 @@
 # Name: 7-Zip
 # Website: https://www.7-zip.org
 # Description: Compress and decompress files using a variety of algorithms.
-# Category: Examine Static Properties, General Utilities
+# Category: General Utilities, Examine Static Properties: General
 # Author: Igor Pavlov
 # License: GNU LGPL
 # Notes: 7z, 7za, 7zr

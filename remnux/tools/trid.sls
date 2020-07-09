@@ -1,7 +1,7 @@
 # Name: TrID
 # Website: https://mark0.net/soft-trid-e.html
 # Description: Identify file type.
-# Category: Examine Static Properties, Statically Analyze Code: Unpacking
+# Category: Examine Static Properties: General, Statically Analyze Code: Unpacking
 # Author: Marco Pontello
 # License: Free, unknown license
 # Notes: trid, tridupdate

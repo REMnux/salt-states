@@ -1,7 +1,7 @@
 # Name: thug
 # Website: https://github.com/buffer/thug
-# Description: Python-based low-interaction honeyclient
-# Category: Examine browser malware: Websites
+# Description: Examine suspicious website using this low-interaction honeyclient.
+# Category: Explore Network Interactions
 # Author: Angelo Dell'Aera
 # License: https://github.com/buffer/thug/blob/master/LICENSE.txt
 # Notes: thug -F

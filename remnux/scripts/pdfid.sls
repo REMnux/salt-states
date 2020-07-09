@@ -1,7 +1,7 @@
 # Name: pdfid
 # Website: https://blog.didierstevens.com/programs/pdf-tools/
-# Description: Tool to identify pdf components in a given file
-# Category: Examine document files: PDF
+# Description: Identify suspicious elements of the PDF file.
+# Category: Analyze Documents: PDF
 # Author: Didier Stevens
 # License: Public Domain
 # Notes: 

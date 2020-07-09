@@ -1,7 +1,7 @@
 # Name: pdf-parser
 # Website: https://blog.didierstevens.com/programs/pdf-tools/
-# Description: Tool to identify fundamental elements used in a given PDF file
-# Category: Examine document files: PDF
+# Description: Examine elements of the PDF file.
+# Category: Analyze Documents: PDF
 # Author: Didier Stevens 
 # License: Public Domain
 # Notes:

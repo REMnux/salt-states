@@ -1,10 +1,10 @@
 # Name: pytesseract
 # Website: https://github.com/madmaze/pytesseract
-# Description: Python wrapper for Google Tesseract (OCR)
-# Category: Examine browser malware: Websites
+# Description: Examine images to identify and extract text using optical character recognition (OCR).
+# Category: Analyze Documents
 # Author: Matthias A Lee
-# License: https://github.com/madmaze/pytesseract/blob/master/LICENSE
-# Notes: Requirement/enhancement for thug
+# License: Apache License 2.0: https://github.com/madmaze/pytesseract/blob/master/LICENSE
+# Notes: 
 
 include:
   - remnux.packages.python3-pip

@@ -1,8 +1,8 @@
 # Name: ViperMonkey
 # Website: https://www.decalage.info/en/vba_emulation
 # Description: A VBA parser and emulation engine to analyze malicious macros
-# Category: Examine document files: Microsoft Office
-# Author: Philippe Lagadec
+# Category: Analyze Documents: Microsoft Office
+# Author: Philippe Lagadec: https://twitter.com/decalage2
 # License: https://github.com/decalage2/ViperMonkey#license
 # Notes: vmonkey
 

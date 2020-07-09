@@ -1,7 +1,7 @@
 # Name: inspircd 3
 # Website: https://www.inspircd.org/
-# Description: IRC server
-# Category: Network Interactions: Services
+# Description: Examine IRC activity with this IRC server.
+# Category: Explore Network Interactions
 # Author: InspIRCd Development Team
 # License: https://docs.inspircd.org/license/
 # Notes: 

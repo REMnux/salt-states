@@ -1,9 +1,9 @@
 # Name: ioc_writer
 # Website: https://github.com/mandiant/ioc_writer
 # Description: Python library that allows for basic creation and editing of OpenIOC objects.
-# Category: Library
+# Category: Gather and Analyze Data
 # Author: William Gibb
-# License: https://github.com/mandiant/ioc_writer/blob/master/LICENSE
+# License: Apache License 2.0: https://github.com/mandiant/ioc_writer/blob/master/LICENSE
 # Notes: 
 
 include:

@@ -1,10 +1,10 @@
 # Name: Nginx
 # Website: https://nginx.org
 # Description: Web server
-# Category: Network Interactions: Services
+# Category: Explore Network Interactions
 # Author: Igor Sysoev, Nginx, Inc.
 # License: https://nginx.org/LICENSE
-# Notes: 
+# Notes: httpd <start|stop|status>
 
 nginx:
   pkg.installed

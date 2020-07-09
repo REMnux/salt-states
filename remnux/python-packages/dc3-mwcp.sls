@@ -1,9 +1,9 @@
 # Name: DC3-MWCP
 # Website: https://github.com/Defense-Cyber-Crime-Center/DC3-MWCP
-# Description: Python3 framework for parsing configuration information from malware
-# Category: Statically examine PE files: Investigate
+# Description: Parsing configuration information from malware.
+# Category: Examine Static Properties: Deobfuscation
 # Author: Defense Cyber Crime Center - United States Government
-# License: https://github.com/Defense-Cyber-Crime-Center/DC3-MWCP/blob/master/LICENSE.txt
+# License: Custom license: https://github.com/Defense-Cyber-Crime-Center/DC3-MWCP/blob/master/LICENSE.txt
 # Notes: mwcp
 
 include:

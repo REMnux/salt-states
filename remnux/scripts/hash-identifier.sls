@@ -1,7 +1,7 @@
 # Name: Hash ID
 # Website: https://github.com/blackploit/hash-identifier
 # Description: Identify dfferent types of hashes.
-# Category: Examine Static Properties
+# Category: Examine Static Properties: General
 # Author: Zion3R
 # License: GNU GPL v3
 # Notes: hash-id.py

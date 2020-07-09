@@ -1,9 +1,9 @@
-# Name: viper-framework
+# Name: Viper
 # Website: https://github.com/viper-framework/viper
-# Description: Binary analysis and management framework
-# Category: Process multiple samples
-# Author: Claudio Guarnieri
-# License: https://github.com/viper-framework/viper/blob/master/LICENSE
+# Description: Organize and query a collection of malware samples.
+# Category: Gather and Analyze Data
+# Author: Claudio Guarnieri: https://nex.sx
+# License: BSD 3-Clause License: https://github.com/viper-framework/viper/blob/master/LICENSE
 # Notes: viper
 
 include:

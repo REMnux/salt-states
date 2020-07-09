@@ -1,7 +1,7 @@
 # Name: tshark
 # Website: https://www.wireshark.org
-# Description: Network traffic analyzer - console version
-# Category: Network Interactions: Sniffing
+# Description: Capture and analyze network traffic with this console-based sniffer.
+# Category: Explore Network Interactions
 # Author: https://www.wireshark.org/about.html#authors
 # License: https://www.wireshark.org/about.html#legal
 # Notes: 
