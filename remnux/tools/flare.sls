@@ -1,7 +1,7 @@
 # Name: Flare
 # Website: http://www.nowrap.de/flare.html
-# Description: Extract and decompile ActionScript from Flash (SWF) files
-# Category: Browser Malware Analysis
+# Description: Extract and decompile ActionScript from Flash (SWF) files.
+# Category: Statically Analyze Code: Flash
 # Author: Igor Kogan
 # License: Freeware with some restrictions
 # Notes: 

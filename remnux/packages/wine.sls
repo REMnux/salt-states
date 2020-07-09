@@ -1,7 +1,7 @@
 # Name: Wine
 # Website: https://www.winehq.org
 # Description: Run Windows applications.
-# Category: Other Tasks
+# Category: Dynamically Reverse-Engineer Code, General Utilities
 # Author: https://wiki.winehq.org/Acknowledgements
 # License: https://wiki.winehq.org/Licensing
 # Notes: wine

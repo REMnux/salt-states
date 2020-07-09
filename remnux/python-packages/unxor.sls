@@ -1,7 +1,7 @@
 # Name: unXOR
 # Website: https://github.com/tomchop/unxor/
-# Description: Python 2 script to deobfuscate XOR'd files
-# Category: Artifact Extraction and Decoding: Deobfuscate
+# Description: Deobfuscate XOR'ed files.
+# Category: Examine Static Properties: Deobfuscation
 # Author: Thomas Chopitea
 # License: https://github.com/tomchop/unxor/blob/master/LICENSE
 # Notes: 

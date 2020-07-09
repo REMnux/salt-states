@@ -1,7 +1,7 @@
 # Name: DroidLysis
 # Website: https://github.com/cryptax/droidlysis
-# Description: Perform static analysis of Android applications
-# Category: Static Analysis; Investigate mobile malware
+# Description: Perform static analysis of Android applications.
+# Category: Statically Analyze Code: Android, Examine Static Properties
 # Author: cryptax
 # License: https://github.com/cryptax/droidlysis/blob/master/LICENSE
 # Notes: droidlysis3.py

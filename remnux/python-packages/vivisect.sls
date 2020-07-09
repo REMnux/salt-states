@@ -1,8 +1,8 @@
 # Name: Vivisect
 # Website: https://github.com/vivisect/vivisect
 # Description: Statically examine and emulate binary files.
-# Category: Linux Investigations: Disassemble
-# Author: invisigoth: invisigoth@kenshoto.com; installable vivisect module by Willi Ballenthin
+# Category: Statically Analyze Code
+# Author: invisigoth: invisigoth@kenshoto.com, Installable vivisect module by Willi Ballenthin: https://twitter.com/williballenthin
 # License: https://github.com/vivisect/vivisect/blob/master/LICENSE.txt
 # Notes: vivbin, vdbbin
 

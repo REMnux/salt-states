@@ -1,7 +1,7 @@
 # Name: disitool
 # Website: https://blog.didierstevens.com/programs/disitool/
-# Description: Small python program to manipulate embedded digital signatures
-# Category: Examine file properties and contents: Scan
+# Description: Manipulate embedded digital signatures.
+# Category: Examine Static Properties
 # Author: Didier Stevens
 # License: Public Domain
 # Notes: disitool.py

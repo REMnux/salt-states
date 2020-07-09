@@ -1,7 +1,7 @@
 # Name: BinNavi
 # Website: https://github.com/google/binnavi
 # Description: IDE that allows to inspect, navigate, edit and annotate control flow graphs and call graphs of disassembled code. 
-# Category: Statically examine PE files: Disassemble
+# Category: Statically Analyze Code
 # Author: Google/Zynamics
 # License: https://github.com/leibnitz27/cfr/blob/master/LICENSE
 # Notes: binnavi

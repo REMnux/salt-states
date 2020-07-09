@@ -1,7 +1,7 @@
 # Name: scdbg
 # Website: http://sandsprite.com/blogs/index.php?uid=7&pid=152
 # Description: Analyze shellcode by emulating its execution.
-# Category: Examine document files: Shellcode
+# Category: Dynamically Reverse-Engineer Code: Shellcode
 # Author: David Zimmer
 # License: Free, unknown license
 # Notes: scdbg (GUI), scdbgc (console)

@@ -1,7 +1,7 @@
 # Name: radare2
 # Website: https://www.radare.org/n/radare2.html
 # Description: Examine binary files, including disassembling and debugging.
-# Category: Linux Investigations: Disassemble
+# Category: Dynamically Reverse-Engineer Code
 # Author: https://github.com/radareorg/radare2/blob/master/AUTHORS.md
 # License: https://github.com/radareorg/radare2/blob/master/COPYING
 # Notes: r2, rasm2, rabin2, rahash2, rafind2

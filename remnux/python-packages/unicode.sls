@@ -1,7 +1,7 @@
 # Name: unicode
 # Website: https://github.com/garabik/unicode
-# Description: Display unicode character properties
-# Category: Artifact Extraction and Decoding: Extract Strings
+# Description: Display Unicode character properties.
+# Category: Examine Static Properties: Deobfuscation
 # Author: Radovan Garabik
 # License: https://github.com/garabik/unicode/blob/master/COPYING
 # Notes: 

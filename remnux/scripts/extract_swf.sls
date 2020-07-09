@@ -1,8 +1,8 @@
 # Name: extract_swf
 # Website: https://github.com/digitalsleuth/extract_swf
-# Description: Python 3 script to extract potential SWF files from Flash Projector binaries
-# Category: Examine browser malware: Flash
-# Author: Nathan Ostgard (updated for Python 3 by Corey Forman)
+# Description: Extract potential SWF files from Flash Projector binaries.
+# Category: Statically Analyze Code: Flash
+# Author: Nathan Ostgard, Updated for Python 3 by Corey Forman
 # License: Free, unknown license
 # Notes: 
 

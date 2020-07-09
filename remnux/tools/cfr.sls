@@ -1,7 +1,7 @@
 # Name: cfr
 # Website: https://www.benf.org/other/cfr/
 # Description: Java decompiler
-# Category: Examine browser malware: Java
+# Category: Statically Analyze Code: Java
 # Author: Lee Benfield
 # License: https://github.com/leibnitz27/cfr/blob/master/LICENSE
 # Notes: 

@@ -1,7 +1,7 @@
 # Name: UPX
 # Website: https://upx.github.io
-# Description: A popular tool for packing and unpacking executable files
-# Category: Statically examine PE files: Unpacking
+# Description: Pack and unpack PE files.
+# Category: Statically Analyze Code: Unpacking
 # Author: Markus Oberhumer, Laszlo Molnar
 # License: https://github.com/upx/upx/blob/master/LICENSE
 # Notes: upx

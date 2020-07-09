@@ -1,8 +1,8 @@
 # Name: Cutter
 # Website: https://cutter.re
 # Description: Reverse engineering platform powered by radare2
-# Category: Static Analysis
-# Author: Radare
+# Category: Statically Analyze Code
+# Author: Unknown
 # License: https://github.com/radareorg/cutter/blob/master/COPYING
 # Notes: 
 

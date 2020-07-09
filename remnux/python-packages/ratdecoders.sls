@@ -1,8 +1,8 @@
 # Name: RATDecoders
 # Website: https://github.com/kevthehermit/RATDecoders
 # Description: Python3 Decoders for Remote Access Trojans
-# Category: Statically examine PE files: Investigate
-# Author: Kevin Breen
+# Category: Examine Static Properties: Deobfuscation
+# Author: Kevin Breen: https://twitter.com/KevTheHermit
 # License: https://github.com/kevthehermit/RATDecoders/blob/master/LICENSE
 # Notes: malconf
 

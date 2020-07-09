@@ -1,7 +1,7 @@
 # Name: STPyV8
 # Website: https://github.com/area1/stpyv8
 # Description: Python3 and JavaScript interop engine, fork of the original PyV8 project
-# Category: Examine browser malware: Websites
+# Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Area1 Security
 # License: https://github.com/area1/stpyv8/blob/master/LICENSE.txt
 # Notes: 

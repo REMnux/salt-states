@@ -1,7 +1,7 @@
 # Name: de4dot
 # Website: https://github.com/0xd4d/de4dot
 # Description: .NET deobfuscator and unpacker
-# Category: Statically examine PE files: Unpacking
+# Category: Statically Analyze Code: Unpacker
 # Author: 0xd4d
 # License: https://github.com/0xd4d/de4dot/blob/master/COPYING
 # Notes: 

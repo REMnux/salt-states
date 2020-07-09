@@ -1,7 +1,7 @@
 # Name: xortool
 # Website: https://github.com/hellman/xortool
-# Description: Python 3 tool for XOR analysis
-# Category: Artifact Extraction and Decoding: Deobfuscate
+# Description: Analyze XOR-encoded data.
+# Category: Examine Static Properties: Deobfuscation
 # Author: Aleksei Hellman
 # License: https://github.com/hellman/xortool/blob/master/LICENSE
 # Notes: 

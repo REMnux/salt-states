@@ -1,7 +1,7 @@
 # Name: JAD Java Decompiler
-# Website: 
+# Website: Unknown
 # Description: Java decompiler and analysis tool
-# Category: Examine browser malware: Java
+# Category: Statically Analyze Code: Java
 # Author: Pavel Kouznetsov
 # License: Free, unknown license
 # Notes: jad

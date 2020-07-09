@@ -1,7 +1,7 @@
 # Name: PEframe
 # Website: https://github.com/guelfoweb/peframe
 # Description: Statically analyze PE and Microsoft Office files.
-# Category: Static Analysis
+# Category: Examine Static Properties: PE Files
 # Author: Gianni Amato: https://twitter.com/guelfoweb
 # License: Free, unknown license
 # Notes: 

@@ -1,7 +1,7 @@
 # Name: bearparser
 # Website: https://github.com/hasherezade/bearparser/wiki
 # Description: Parse PE file contnents
-# Category: Statically examine PE files: Investigate
+# Category: Examine Static Properties: PE Files
 # Author: hasherezade: hasherezade@op.pl
 # License: https://github.com/hasherezade/bearparser/blob/master/LICENSE
 # Notes: bearcommander

@@ -1,7 +1,7 @@
 # Name: xor-kpa.py
 # Website: https://blog.didierstevens.com/2017/06/06/update-xor-kpa-py-version-0-0-5/
 # Description: Implement a XOR known plaintext attack.
-# Category: Artifact Extraction and Decoding
+# Category: Examine Static Properties: Deobfuscation
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
 # Notes: 

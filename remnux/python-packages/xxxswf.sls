@@ -1,7 +1,7 @@
 # Name: xxxswf
 # Website: https://github.com/viper-framework/xxxswf
-# Description: Python script for analyzing Flash SWF files
-# Category: Examine browser malware: Flash
+# Description: Analyze Flash SWF files.
+# Category: Statically Analyze Code: Flash
 # Author: Alexander Hanel
 # License: https://github.com/viper-framework/xxxswf/blob/master/LICENSE.txt
 # Notes: 

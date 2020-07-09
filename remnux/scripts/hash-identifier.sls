@@ -1,9 +1,9 @@
-# Name: hash-identifier
+# Name: Hash ID
 # Website: https://github.com/blackploit/hash-identifier
-# Description: Python script to identify different types of hashes
-# Category: Examine file properties and contents: Hashes
+# Description: Identify dfferent types of hashes.
+# Category: Examine Static Properties
 # Author: Zion3R
-# License: GNU GPL v3 (https://code.google.com/archive/p/hash-identifier/)
+# License: GNU GPL v3
 # Notes: hash-id.py
 
 remnux-scripts-hash-identifier-source:

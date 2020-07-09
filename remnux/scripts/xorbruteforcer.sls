@@ -1,7 +1,7 @@
 # Name: xorBruteForcer.py
 # Website: https://eternal-todo.com/category/bruteforcer
-# Description: Python 2 script for bruteforcing an XOR encoded file
-# Category: Artifact Extraction and Decoding: Deobfuscate
+# Description: Bruteforce an XOR-encoded file.
+# Category: Examine Static Properties: Deobfuscation
 # Author: Jose Miguel Esparza
 # License: Free, unknown license
 # Notes: 

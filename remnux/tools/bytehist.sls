@@ -1,8 +1,8 @@
 # Name: Density Scout
 # Website: https://www.cert.at/downloads/software/bytehist_en.html
-# Description: Generate byte-usage-histograms for all types of files with a focus PE files
-# Category: Statically examine PE files: Unpacking
-# Author: Christian Wojner
+# Description: Generate byte-usage-histograms for all types of files with a focus PE files.
+# Category: Statically Analyze Code: Unpacking
+# Author: Christian Wojner: https://twitter.com/Didelphodon
 # License: https://en.wikipedia.org/wiki/ISC_license
 # Notes: bytehist
 

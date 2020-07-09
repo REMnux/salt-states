@@ -1,7 +1,7 @@
 # Name: swf_mastah.py
 # Website: https://github.com/9b/pdfxray_lite
 # Description: Parse SWF files from PDF's
-# Category: Examine document files: PDF
+# Category: Statically Analyze Code: Flash, Analyze Documents: PDF
 # Author: Brandon Dixon
 # License: Free, unknown license
 # Notes: 

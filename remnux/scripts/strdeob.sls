@@ -1,7 +1,7 @@
 # Name: strdeob.pl
 # Website: https://github.com/REMnux/distro/blob/master/files/strdeob.pl
-# Description: Locate and decode stack strings.
-# Category: Extract and Decode Artifacts: Extract Strings
+# Description: Locate and decode stack strings in executable files.
+# Category: Examine Static Properties: Deobfuscation
 # Author: TotalHash
 # License: Free, unknown license
 # Notes: 

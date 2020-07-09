@@ -1,7 +1,7 @@
 # Name: PyInstaller Extractor
 # Website: https://github.com/extremecoders-re/pyinstxtractor
-# Description: Extracts contents of a PyInstaller-generated Windows EXE
-# Category: Statically examine PE files: Investigate
+# Description: Extract contents of a PyInstaller-generated PE files.
+# Category: Statically Analyze Code: Python
 # Author: extremecoders-re
 # License: https://github.com/extremecoders-re/pyinstxtractor/blob/master/LICENSE
 # Notes: pyinstxtractor.py

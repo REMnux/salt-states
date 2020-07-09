@@ -1,7 +1,7 @@
 # Name: ExtractScripts
 # Website: https://blog.didierstevens.com/programs/extractscripts/
-# Description: Extract scripts from HTML files
-# Category: Examine browser malware: JavaScript
+# Description: Extract scripts from HTML files.
+# Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Didier Stevens
 # License: Public Domain
 # Notes: extractscripts.py

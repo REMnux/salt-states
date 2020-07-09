@@ -1,7 +1,7 @@
 # Name: NoMoreXOR.py
 # Website: https://github.com/hiddenillusion/NoMoreXOR
-# Description: Python 2 tool to help guess a file's 256-byte XOR by using frequency analysis
-# Category: Artifact Extraction and Decoding: Deobfuscate
+# Description: Help guess a file's 256-byte XOR by using frequency analysis.
+# Category: Examine Static Properties: Deobfuscation
 # Author: Glenn P. Edwards Jr.
 # License: Free, unknown license
 # Notes:

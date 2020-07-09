@@ -1,7 +1,7 @@
 # Name: ex_pe_xor.py
 # Website: http://hooked-on-mnemonics.blogspot.com/2014/04/expexorpy.html
-# Description: Search an XOR'd file for indications of executable binaries
-# Category: Artifact Extraction and Decoding: Deobfuscate
+# Description: Search an XOR'ed file for indications of executable binaries.
+# Category: Examine Static Properties: Deobfuscation
 # Author: Alexander Hanel
 # License: Free, unknown license
 # Notes: 

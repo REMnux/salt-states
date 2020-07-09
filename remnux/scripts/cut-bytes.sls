@@ -1,7 +1,7 @@
 # Name: cut-bytes.py
 # Website: https://blog.didierstevens.com/2015/10/14/cut-bytes-py/
 # Description: Cut out a part of a data stream.
-# Category: Artifact Extraction and Decoding
+# Category: Dynamically Reverse-Engineer Code: Shellcode, Examine Static Properties: Deobfuscation
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
 # Notes:

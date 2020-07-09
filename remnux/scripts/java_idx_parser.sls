@@ -1,8 +1,8 @@
-# Name: java_idx_parser
+# Name: Java IDX Parser
 # Website: https://github.com/digitalsleuth/Java_IDX_Parser
-# Description: Python 3 script to analyze Java IDX files
-# Category: Examine browser malware: Java
-# Author: Brian Baskin (updated for Python 3 by Corey Forman)
+# Description: Analyze Java IDX files.
+# Category: Statically Analyze Code: Java
+# Author: Brian Baskin: https://twitter.com/bbaskin, Updated for Python 3 by Corey Forman
 # License: https://github.com/digitalsleuth/Java_IDX_Parser/blob/master/LICENSE
 # Notes: idx_parser.py
 

@@ -1,7 +1,7 @@
 # Name: brxor.py
 # Website: https://github.com/REMnux/distro/blob/master/files/brxor.py
-# Description: Python 2 script for bruteforcing encoded strings
-# Category: Artifact Extraction and Decoding: Deobfuscate
+# Description:Bruteforce XOR'ed strings.
+# Category: Examine Static Properties: Deobfuscation
 # Author: Alexander Hanel, Trenton Tait
 # License: Free, unknown license
 # Notes: 

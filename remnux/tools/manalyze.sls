@@ -1,7 +1,7 @@
 # Name: Manalyze
 # Website: https://github.com/JusticeRage/Manalyze
 # Description: Perform static analysis of suspicious PE files.
-# Category: Statically examine PE files: Investigate
+# Category: Examine Static Properties: PE Files
 # Author: Ivan Kwiatkowski: https://twitter.com/JusticeRage
 # License: https://github.com/zrax/pycdc/blob/master/LICENSE
 # Notes: Run "manalyze" to invoke the tool. To update the tool's Yara rules to include ClamAV, run "sudo /usr/local/manalyze/yara_rules/update_clamav_signatures.py".

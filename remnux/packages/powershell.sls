@@ -1,7 +1,7 @@
-# Name: PowerShell Core 
+# Name: PowerShell  Core
 # Website: https://github.com/powershell/powershell
 # Description: Run PowerShell scripts and commands.
-# Category: Script Analysis and Deobfuscation; Other tasks
+# Category: Dynamically Reverse-Engineer Code: Scripts, General Utilities
 # Author: Microsoft Corporation
 # License: https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt
 # Notes: pwsh

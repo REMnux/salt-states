@@ -1,7 +1,7 @@
 # Name: androguard
 # Website: https://github.com/androguard/androguard
-# Description: Python tools and library for examining Android files
-# Category: Investigate mobile malware
+# Description: Examine Android files.
+# Category: Statically Analyze Code: Android
 # Author: Anthony Desnos, Geoffroy GueGuen
 # License: https://github.com/androguard/androguard/blob/master/LICENCE-2.0
 # Notes: androarsc.py, androauto.py, androaxml.py, androcg.py, androdd.py, androdis.py, androguard, androgui.py, androlyze.py, androsign.py

@@ -1,7 +1,7 @@
 # Name: Flasm
 # Website: http://www.nowrap.de/flasm.html
-# Description: Extract and disassemble ActionScript from Flash (SWF) files
-# Category: Browser Malware Analysis
+# Description: Extract and disassemble ActionScript from Flash (SWF) files.
+# Category: Statically Analyze Code: Flash
 # Author: Igor Kogan, Wang Zhen
 # License: Freeware with some restrictions
 # Notes: 
