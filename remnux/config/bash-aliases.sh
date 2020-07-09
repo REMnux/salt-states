@@ -7,25 +7,6 @@ function title() {
   PS1=${ORIG}${TITLE}
 }
 
-# Show the IP address of the primary network interface
-function myip4 {
-  ip addr | egrep -A 1 " (en|eth)" | grep "inet" | cut -f 6 -d " " | cut -f 1 -d "/"
-}
-function myip6 {
-  ip -6 addr | grep inet6 | awk -F '[ \t]+|/' '{print $3}' | grep -v "^::1"
-}
-function myip {
-  ipv4=`myip4`
-  ipv6=`myip6`
-  if [ ${#ipv4} -gt 0 ]; then
-  	echo $ipv4
-  else
-  	if [ ${#ipv6} -gt 0 ]; then
-  		echo $ipv6
-  	fi
-  fi
-}
-
 # Renew DCHP release using a single command
 alias renew-dhcp="echo 'Old IP: `myip`' && sudo dhclient -r && sudo dhclient && echo 'New IP: `myip`'"
 
@@ -44,6 +25,10 @@ function hex-escaped2raw ()
 # Use Intel's conventions when disassembling code with objdump
 function objdump {
   /usr/bin/objdump -M intel ${*}
+}
+
+function inetsim {
+  sudo /usr/bin/inetsim ${*}
 }
 
 function fakedns {
