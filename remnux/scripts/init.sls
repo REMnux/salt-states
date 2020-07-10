@@ -23,6 +23,8 @@ include:
   - remnux.scripts.cut-bytes
   - remnux.scripts.xor-kpa
   - remnux.scripts.dexray
+  - remnux.scripts.accept-all-ips
+  - remnux.scripts.myip
 
 remnux-scripts:
   test.nop:
@@ -51,3 +53,5 @@ remnux-scripts:
       - sls: remnux.scripts.cut-bytes
       - sls: remnux.scripts.xor-kpa
       - sls: remnux.scripts.dexray
+      - sls: remnux.scripts.accept-all-ips
+      - sls: remnux.scripts.myip
