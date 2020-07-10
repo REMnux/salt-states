@@ -155,6 +155,7 @@ include:
   - remnux.packages.portex
   - remnux.packages.msoffice-crypt
   - remnux.packages.flare-floss
+  - remnux.packages.sqlite
 
 remnux-packages:
   test.nop:
@@ -315,3 +316,4 @@ remnux-packages:
       - sls: remnux.packages.portex
       - sls: remnux.packages.msoffice-crypt
       - sls: remnux.packages.flare-floss
+      - sls: remnux.packages.sqlite
