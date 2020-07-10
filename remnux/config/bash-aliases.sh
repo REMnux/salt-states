@@ -8,7 +8,12 @@ function title() {
 }
 
 # Renew DCHP release using a single command
-alias renew-dhcp="echo 'Old IP: `myip`' && sudo dhclient -r && sudo dhclient && echo 'New IP: `myip`'"
+function renew-dhcp {
+  echo Old IP: `myip`
+  sudo dhclient -r
+  sudo dhclient
+  echo New IP: `myip`
+}
 
 # Clean up and convert encodings when examining shellcode
 function unicode2hex-escaped {
