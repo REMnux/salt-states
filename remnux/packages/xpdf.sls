@@ -3,7 +3,7 @@
 # Description: View and manipulate PDF files.
 # Category: View or Edit Files
 # Author: Derek Noonburg
-# License: http://www.xpdfreader.com/opensource.html
+# License: dual licensed under GNU General Public License (GPL) v2 and GPL v3: http://www.xpdfreader.com/opensource.html
 # Notes: xpdf
 
 xpdf:

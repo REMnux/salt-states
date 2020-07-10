@@ -19,4 +19,4 @@ remnux-config-curl:
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - pkg: remnux-package-curl
+      - pkg: remnux-packages-curl

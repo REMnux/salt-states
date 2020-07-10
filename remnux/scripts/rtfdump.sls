@@ -1,7 +1,7 @@
 # Name: rtfdump
 # Website: https://blog.didierstevens.com/2018/12/10/update-rtfdump-py-version-0-0-9/
-# Description: Analyze a suspicious RTF file
-# Category: Analyze Documents
+# Description: Analyze a suspicious RTF file.
+# Category: Analyze Documents: Microsoft Office
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
 # Notes: rtfdump.py

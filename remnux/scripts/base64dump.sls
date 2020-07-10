@@ -1,7 +1,7 @@
 # Name: base64dump
 # Website: https://blog.didierstevens.com/2020/07/03/update-base64dump-py-version-0-0-12/
 # Description: Locate and decode strings encoded in Base64 and other common encodings.
-# Category: Examine Static Properties: Deobfuscation, Analyze Documents
+# Category: Examine Static Properties: Deobfuscation, Analyze Documents: General
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
 # Notes: base64dump.py

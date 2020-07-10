@@ -3,7 +3,7 @@
 # Description: Analyze Java IDX files.
 # Category: Statically Analyze Code: Java
 # Author: Brian Baskin: https://twitter.com/bbaskin, Updated for Python 3 by Corey Forman
-# License: https://github.com/digitalsleuth/Java_IDX_Parser/blob/master/LICENSE
+# License: Apache License 2.0: https://github.com/digitalsleuth/Java_IDX_Parser/blob/master/LICENSE
 # Notes: idx_parser.py
 
 remnux-scripts-java_idx_parser-source:

@@ -3,7 +3,7 @@
 # Description: Pack and unpack PE files.
 # Category: Statically Analyze Code: Unpacking
 # Author: Markus Oberhumer, Laszlo Molnar
-# License: https://github.com/upx/upx/blob/master/LICENSE
+# License: GNU General Public License (GPL): https://github.com/upx/upx/blob/master/LICENSE
 # Notes: upx
 
 include:

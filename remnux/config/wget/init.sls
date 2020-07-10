@@ -19,4 +19,4 @@ remnux-config-wget:
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - pkg: remnux-package-wget
+      - pkg: remnux-packages-wget
