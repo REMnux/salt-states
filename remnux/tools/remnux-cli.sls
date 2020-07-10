@@ -5,7 +5,7 @@
 # Website: https://github.com/REMnux/remnux-cli
 # Description: Install and upgrade the REMnux distro. 
 # Category: General Utilities
-# Author: 2018 Harbingers LLC, Erik Kristensen, revisions by Lenny Zeltser
+# Author: Harbingers LLC, Erik Kristensen, revisions by Lenny Zeltser
 # License: MIT License: https://github.com/REMnux/remnux-cli/blob/master/LICENSE
 # Notes: remnux
 

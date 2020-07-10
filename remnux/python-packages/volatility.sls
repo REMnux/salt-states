@@ -2,7 +2,7 @@
 
 # Name: Volatility Framework
 # Website: https://github.com/volatilityfoundation/volatility
-# Description: Memory forensics tool and framework.
+# Description: Memory forensics tool and framework
 # Category: Perform Memory Forensics
 # Author: https://github.com/volatilityfoundation/volatility/blob/2.6.1/AUTHORS.txt
 # License: GNU General Public License (GPL) v2: https://github.com/volatilityfoundation/volatility/blob/2.6.1/LICENSE.txt
