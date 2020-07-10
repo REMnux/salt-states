@@ -3,7 +3,7 @@
 # Description: Edit, create, and examine PDF files.
 # Category: Analyze Documents: PDF
 # Author: Marc Vinyals
-# License: https://gitlab.com/pdftk-java/pdftk/-/blob/master/LICENSE
+# License: GNU General Public License (GPL) v2: https://gitlab.com/pdftk-java/pdftk/-/blob/master/LICENSE
 # Notes: pdftk
 
 include:

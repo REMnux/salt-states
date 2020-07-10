@@ -1,9 +1,9 @@
 # Name: thug
 # Website: https://github.com/buffer/thug
 # Description: Examine suspicious website using this low-interaction honeyclient.
-# Category: Explore Network Interactions
+# Category: Explore Network Interactions: Connecting
 # Author: Angelo Dell'Aera
-# License: https://github.com/buffer/thug/blob/master/LICENSE.txt
+# License: GNU General Public License (GPL) v2: https://github.com/buffer/thug/blob/master/LICENSE.txt
 # Notes: thug -F
 
 include:

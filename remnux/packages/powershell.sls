@@ -3,7 +3,7 @@
 # Description: Run PowerShell scripts and commands.
 # Category: Dynamically Reverse-Engineer Code: Scripts, General Utilities
 # Author: Microsoft Corporation
-# License: https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt
+# License: MIT License: https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt
 # Notes: pwsh
 
 include:

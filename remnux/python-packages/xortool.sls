@@ -3,7 +3,7 @@
 # Description: Analyze XOR-encoded data.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Aleksei Hellman
-# License: https://github.com/hellman/xortool/blob/master/LICENSE
+# License: MIT License: https://github.com/hellman/xortool/blob/master/LICENSE
 # Notes: 
 
 include:

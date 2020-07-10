@@ -3,7 +3,7 @@
 # Description: Examine elements of the PDF file.
 # Category: Analyze Documents: PDF
 # Author: Jose Miguel Esparza
-# License: https://github.com/jesparza/peepdf/blob/master/COPYING
+# License: GNU General Public License (GPL) v3: https://github.com/jesparza/peepdf/blob/master/COPYING
 # Notes: 
 
 include:

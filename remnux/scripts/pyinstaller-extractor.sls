@@ -3,7 +3,7 @@
 # Description: Extract contents of a PyInstaller-generated PE files.
 # Category: Statically Analyze Code: Python
 # Author: extremecoders-re
-# License: GNU General Public License (GPL) v3.0: https://github.com/extremecoders-re/pyinstxtractor/blob/master/LICENSE
+# License: GNU General Public License (GPL) v3: https://github.com/extremecoders-re/pyinstxtractor/blob/master/LICENSE
 # Notes: pyinstxtractor.py
 
 remnux-pyinstaller-source:

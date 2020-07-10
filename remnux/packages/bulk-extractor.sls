@@ -3,7 +3,7 @@
 # Description: Extract interesting strings from binary files.
 # Category: Examine Static Properties: General, Perform Memory Forensics
 # Author: https://github.com/simsong/bulk_extractor/blob/master/AUTHORS
-# License: https://github.com/simsong/bulk_extractor/blob/master/COPYING
+# License: Portions Public Domain, portions MIT License: https://github.com/simsong/bulk_extractor/blob/master/LICENSE.md
 # Notes: 
 
 include:

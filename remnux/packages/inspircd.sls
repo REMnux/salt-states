@@ -1,9 +1,9 @@
 # Name: inspircd 3
 # Website: https://www.inspircd.org/
 # Description: Examine IRC activity with this IRC server.
-# Category: Explore Network Interactions
+# Category: Explore Network Interactions: Services
 # Author: InspIRCd Development Team
-# License: https://docs.inspircd.org/license/
+# License: GNU General Public License (GPL) v2: https://docs.inspircd.org/license/
 # Notes: 
 
 remnux-inspircd-source:

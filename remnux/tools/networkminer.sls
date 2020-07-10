@@ -1,9 +1,9 @@
 # Name: Network Miner Free Edition
 # Website: https://www.netresec.com/
 # Description: Examine network traffic and carve PCAP capture files.
-# Category: Explore Network Interactions
+# Category: Explore Network Interactions: Monitoring
 # Author: NETRESEC AB
-# License: https://www.netresec.com/?page=NetworkMinerSourceCode
+# License: GNU General Public License (GPL) v2: https://www.netresec.com/?page=NetworkMinerSourceCode
 # Notes: networkminer
 
 include:

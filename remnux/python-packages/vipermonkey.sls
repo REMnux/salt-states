@@ -3,7 +3,7 @@
 # Description: A VBA parser and emulation engine to analyze malicious macros
 # Category: Analyze Documents: Microsoft Office
 # Author: Philippe Lagadec: https://twitter.com/decalage2
-# License: https://github.com/decalage2/ViperMonkey#license
+# License: Free, custom license: https://github.com/decalage2/ViperMonkey#license
 # Notes: vmonkey
 
 include:

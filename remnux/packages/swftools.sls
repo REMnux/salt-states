@@ -3,7 +3,7 @@
 # Description: Examine and convert Flash (SWF) files.
 # Category: Statically Analyze Code: Flash
 # Author: https://github.com/matthiaskramm/swftools/blob/master/AUTHORS
-# License: https://github.com/matthiaskramm/swftools/blob/master/COPYING
+# License: GNU General Public License (GPL) v2: https://github.com/matthiaskramm/swftools/blob/master/COPYING
 # Notes: swfdump, swfstrings, etc.
 
 swftools:

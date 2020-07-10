@@ -3,7 +3,7 @@
 # Description: Memory forensics tool and framework
 # Category: Perform Memory Forensics
 # Author: The Volatility Foundation
-# License: https://github.com/volatilityfoundation/volatility3/blob/master/LICENSE.txt
+# License: Volatility Software License: https://github.com/volatilityfoundation/volatility3/blob/master/LICENSE.txt
 # Notes: vol3, volshell3
 
 include:

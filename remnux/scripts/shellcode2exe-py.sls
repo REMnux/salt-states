@@ -3,7 +3,7 @@
 # Description: Convert 32-bit shellcode to a Windows executable file
 # Category: Dynamically Reverse-Engineer Code: Shellcode
 # Author: Mario Vilas
-# License: https://github.com/MarioVilas/shellcode_tools/blob/master/shellcode2exe.py#L23
+# License: Free, custom license: https://github.com/MarioVilas/shellcode_tools/blob/master/shellcode2exe.py#L23
 # Notes: 
 
 include:

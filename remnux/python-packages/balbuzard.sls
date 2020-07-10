@@ -3,7 +3,7 @@
 # Description: Extract and deobfuscate patterns from suspicious files.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Philippe Lagadec: https://twitter.com/decalage2
-# License: https://creativecommons.org/licenses/by-nc-sa/3.0/
+# License: Free, custom license: https://github.com/decalage2/balbuzard
 # Notes: balbuzard, bbcrack, bbharvest, bbtrans
 
 include:

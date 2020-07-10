@@ -3,7 +3,7 @@
 # Description: Analyze Flash SWF files.
 # Category: Statically Analyze Code: Flash
 # Author: Alexander Hanel
-# License: https://github.com/viper-framework/xxxswf/blob/master/LICENSE.txt
+# License: GNU General Public License (GPL) v3.0: https://github.com/viper-framework/xxxswf/blob/master/LICENSE.txt
 # Notes: 
 
 include:

@@ -1,4 +1,4 @@
-# Name: ibemu
+# Name: libemu
 # Website: https://github.com/buffer/libemu
 # Description: A library for x86 code emulation and shellcode detection
 # Category: Dynamically Reverse-Engineer Code: Shellcode

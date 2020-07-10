@@ -3,7 +3,7 @@
 # Description: Trace library calls and signals.
 # Category: Dynamically Reverse-Engineer Code: ELF Files
 # Author: Juan Cespedes
-# License: https://gitlab.com/cespedes/ltrace/-/blob/master/COPYING
+# License: GNU General Public License (GPL) v2: https://gitlab.com/cespedes/ltrace/-/blob/master/COPYING
 # Notes: 
 
 ltrace:

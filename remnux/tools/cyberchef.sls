@@ -3,7 +3,7 @@
 # Description: Decode and otherwise analyze data
 # Category: Examine Static Properties: Deobfuscation
 # Author: GCHQ
-# License: https://github.com/gchq/CyberChef/blob/master/LICENSE
+# License: Apache License 2.0: https://github.com/gchq/CyberChef/blob/master/LICENSE
 # Notes: cyberchef
 
 {% set version = "9.21.0" -%}

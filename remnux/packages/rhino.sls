@@ -3,7 +3,7 @@
 # Description: GUI JavaScript debugger
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Mozilla Project
-# License: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino/License
+# License: Mozilla Public License v2.0: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino/License
 # Notes:
 
 rhino:

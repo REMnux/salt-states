@@ -3,7 +3,7 @@
 # Description: Python3 and JavaScript interop engine, fork of the original PyV8 project
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Area1 Security
-# License: https://github.com/area1/stpyv8/blob/master/LICENSE.txt
+# License: Apache License 2.0: https://github.com/area1/stpyv8/blob/master/LICENSE.txt
 # Notes: 
 
 include:

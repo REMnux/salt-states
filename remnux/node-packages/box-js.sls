@@ -3,7 +3,7 @@
 # Description: Analyze suspicious JavaScript scripts.
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: CapacitorSet
-# License: https://github.com/CapacitorSet/box-js/blob/master/LICENSE
+# License: MIT License: https://github.com/CapacitorSet/box-js/blob/master/LICENSE
 # Notes: box-js, box-export
 
 include:

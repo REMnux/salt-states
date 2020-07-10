@@ -3,7 +3,7 @@
 # Description: Deobfuscate XOR'ed files.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Thomas Chopitea
-# License: https://github.com/tomchop/unxor/blob/master/LICENSE
+# License: Apache License 2.0: https://github.com/tomchop/unxor/blob/master/LICENSE
 # Notes: 
 
 remnux-scripts-unxor-source:

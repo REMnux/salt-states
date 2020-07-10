@@ -3,7 +3,7 @@
 # Description: Deobfuscate XLM macros (also known as Excel 4.0 macros) from Microsoft Office files.
 # Category: Analyze Documents: Microsoft Office
 # Author: https://twitter.com/DissectMalware
-# License: Apache License: https://github.com/DissectMalware/XLMMacroDeobfuscator/blob/master/LICENSE
+# License: Apache License 2.0: https://github.com/DissectMalware/XLMMacroDeobfuscator/blob/master/LICENSE
 # Notes: xlmdeobfuscator
 
 include:

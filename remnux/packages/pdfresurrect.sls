@@ -3,7 +3,7 @@
 # Description: Extract previous versions of content from PDF files.
 # Category: Analyze Documents: PDF
 # Author: Matt Davis
-# License: https://github.com/enferex/pdfresurrect/blob/master/LICENSE
+# License: GNU General Public License (GPL) v3: https://github.com/enferex/pdfresurrect/blob/master/LICENSE
 # Notes: 
 
 include:

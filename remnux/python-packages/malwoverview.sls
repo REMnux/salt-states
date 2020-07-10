@@ -3,7 +3,7 @@
 # Description: Query public repositories of malware data (e.g., VirusTotal, HybridAnalysis).
 # Category: Gather and Analyze Data
 # Author: Alexandre Borges
-# License: GNU General Public License v3.0: https://github.com/digitalsleuth/malwoverview/blob/master/LICENSE
+# License: GNU General Public License v3: https://github.com/digitalsleuth/malwoverview/blob/master/LICENSE
 # Notes: malwoverview.py, add API keys to ~/.malwapi.conf
 
 {%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}

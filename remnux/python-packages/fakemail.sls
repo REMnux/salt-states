@@ -1,9 +1,9 @@
 # Name: fakemail
 # Website: https://hg.sr.ht/~olly/fakemail
 # Description: Intercept and examine SMTP email activity with this fake SMTP server.
-# Category: Explore Network Interactions
+# Category: Explore Network Interactions: Services
 # Author: Oliver Cope
-# License: https://hg.sr.ht/~olly/fakemail/browse/LICENSE.txt?rev=default
+# License: Apache License 2.0: https://hg.sr.ht/~olly/fakemail/browse/LICENSE.txt?rev=default
 # Notes: 
 
 include:
