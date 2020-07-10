@@ -3,7 +3,7 @@
 # Description: Compare binary files.
 # Category: View or Edit Files
 # Author: Christopher J. Madsen
-# License: https://www.gnu.org/copyleft/gpl.html
+# License: GNU General Public License (GPL) v2 or greater
 # Notes: vbindiff
 
 vbindiff:

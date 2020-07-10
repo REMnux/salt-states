@@ -3,7 +3,7 @@
 # Description: Reformat JavaScript scripts for easier analysis.
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Einar Lielmanis, Liam Newman, and contributors
-# License: https://github.com/beautify-web/js-beautify/blob/master/LICENSE
+# License: MIT License: https://github.com/beautify-web/js-beautify/blob/master/LICENSE
 # Notes: 
 
 include:

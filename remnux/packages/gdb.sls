@@ -3,7 +3,7 @@
 # Description: Multi-language debugger
 # Category: Dynamically Reverse-Engineer Code: ELF Files
 # Author: https://www.gnu.org/software/gdb/committee/
-# License: https://www.sourceware.org/gdb/download/onlinedocs/gdb.html#Summary
+# License: GNU General Public License (GPL): https://www.sourceware.org/gdb/download/onlinedocs/gdb.html#Summary
 # Notes: 
 
 gdb:

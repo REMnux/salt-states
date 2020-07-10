@@ -154,6 +154,7 @@ include:
   - remnux.packages.procyon-decompiler
   - remnux.packages.portex
   - remnux.packages.msoffice-crypt
+  - remnux.packages.flare-floss
 
 remnux-packages:
   test.nop:
@@ -313,3 +314,4 @@ remnux-packages:
       - sls: remnux.packages.procyon-decompiler
       - sls: remnux.packages.portex
       - sls: remnux.packages.msoffice-crypt
+      - sls: remnux.packages.flare-floss

@@ -3,7 +3,7 @@
 # Description: Identify dfferent types of hashes.
 # Category: Examine Static Properties: General
 # Author: Zion3R
-# License: GNU GPL v3
+# License: GNU General Public License (GPL) v3
 # Notes: hash-id.py
 
 remnux-scripts-hash-identifier-source:

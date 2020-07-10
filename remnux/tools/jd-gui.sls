@@ -3,7 +3,7 @@
 # Description: Java decompiler with GUI
 # Category: Statically Analyze Code: Java
 # Author: Emmanuel Dupuy
-# License: https://github.com/java-decompiler/jd-gui/blob/master/LICENSE
+# License: GNU General Public License (GPL) v3: https://github.com/java-decompiler/jd-gui/blob/master/LICENSE
 # Notes: jd-gui
 
 include:

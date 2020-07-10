@@ -3,7 +3,7 @@
 # Description: Display Unicode character properties.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Radovan Garabik
-# License: https://github.com/garabik/unicode/blob/master/COPYING
+# License: GNU General Public License (GPL) v3: https://github.com/garabik/unicode/blob/master/COPYING
 # Notes: 
 
 include:

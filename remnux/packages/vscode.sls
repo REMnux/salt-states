@@ -3,7 +3,7 @@
 # Description: Powerful source code editor
 # Category: View or Edit Files
 # Author: Microsoft Corporation
-# License: https://code.visualstudio.com/License/
+# License: Custom license: https://code.visualstudio.com/License/
 # Notes: code
 
 include:

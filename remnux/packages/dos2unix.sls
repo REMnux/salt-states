@@ -3,7 +3,7 @@
 # Description:  Convert text files with Windows or macOS line breaks to Unix line breaks and vise versa.
 # Category: View or Edit Files
 # Author: Benjamin Lin, Bernd Johannes Wuebben, Erwin Waterlander
-# License: https://waterlan.home.xs4all.nl/dos2unix/COPYING.txt
+# License: FreeBSD style license: https://waterlan.home.xs4all.nl/dos2unix/COPYING.txt
 # Notes: dos2unix, mac2unix, unix2dos, unix2mac
 
 dos2unix:

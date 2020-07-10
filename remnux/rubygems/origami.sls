@@ -3,7 +3,7 @@
 # Description: Parse, modify, generate PDF files.
 # Category: Analyze Documents: PDF
 # Author: Guillaume Delugré
-# License: https://github.com/gdelugre/origami/blob/master/COPYING.LESSER
+# License: GNU Lesser General Public License (LGPL) v3: https://github.com/gdelugre/origami/blob/master/COPYING.LESSER
 # Notes: pdfcop, pdfdecompress, pdfdecrypt, pdfextract, etc.
 
 include:

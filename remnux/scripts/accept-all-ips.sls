@@ -1,9 +1,9 @@
 # Name: accept-all-ips
 # Website: https://github.com/REMnux/distro/blob/master/files/strdeob.pl
 # Description: Accept connections to all IPv4 and IPv6 addresses and redirect it to the corresponding local port.
-# Category: Explore Network Interactions
+# Category: Explore Network Interactions: Services
 # Author: Lenny Zeltser, with input from the community
-# License: GPL-3.0+
+# License: GNU General Public License (GPL) v3+
 # Notes: 
 
 include:

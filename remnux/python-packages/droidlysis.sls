@@ -3,7 +3,7 @@
 # Description: Perform static analysis of Android applications.
 # Category: Statically Analyze Code: Android, Examine Static Properties: General
 # Author: cryptax
-# License: https://github.com/cryptax/droidlysis/blob/master/LICENSE
+# License: MIT License: https://github.com/cryptax/droidlysis/blob/master/LICENSE
 # Notes: droidlysis3.py
 
 include:

@@ -1,9 +1,9 @@
 # Name: tor
 # Website: https://www.torproject.org
 # Description: Obfuscate your origins by routing traffic through a network of anonymizing nodes.
-# Category: Explore Network Interactions
-# Author: Tor Project, Inc.
-# License: https://www.torproject.org/about/trademark/
+# Category: Explore Network Interactions: Connecting
+# Author: Roger Dingledine, Nick Mathewson, Tor Project Inc.
+# License: 3-Clause BSD license: https://github.com/torproject/tor/blob/master/LICENSE
 # Notes: 
 
 tor:

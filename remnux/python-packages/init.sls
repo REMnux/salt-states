@@ -35,7 +35,6 @@ include:
   - remnux.python-packages.unxor
   - remnux.python-packages.xlmmacrodeobfuscator
   - remnux.python-packages.officeparser
-  - remnux.python-packages.flare-floss
   - remnux.python-packages.vipermonkey
   - remnux.python-packages.unicode
   - remnux.python-packages.volatility
@@ -94,7 +93,6 @@ remnux-python-packages:
       - sls: remnux.python-packages.unxor
       - sls: remnux.python-packages.xlmmacrodeobfuscator
       - sls: remnux.python-packages.officeparser
-      - sls: remnux.python-packages.flare-floss
       - sls: remnux.python-packages.vipermonkey
       - sls: remnux.python-packages.unicode
       - sls: remnux.python-packages.volatility

@@ -3,7 +3,7 @@
 # Description: Examine Android files.
 # Category: Statically Analyze Code: Android
 # Author: Anthony Desnos, Geoffroy GueGuen
-# License: https://github.com/androguard/androguard/blob/master/LICENCE-2.0
+# License: Apache License 2.0: https://github.com/androguard/androguard/blob/master/LICENCE-2.0
 # Notes: androarsc.py, androauto.py, androaxml.py, androcg.py, androdd.py, androdis.py, androguard, androgui.py, androlyze.py, androsign.py
 
 include:

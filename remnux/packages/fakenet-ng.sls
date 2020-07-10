@@ -1,9 +1,9 @@
 # Name: FakeNet-NG
 # Website: https://github.com/fireeye/flare-fakenet-ng
 # Description: Emulate common network services and interact with malware.
-# Category: Network Interactions
-# Author: https://github.com/fireeye/flare-fakenet-ng/blob/master/AUTHORS
-# License: https://github.com/fireeye/flare-fakenet-ng/blob/master/LICENSE.txt
+# Category: Explore Network Interactions: Services
+# Author: FireEye Inc, Peter Kacherginsky, Michael Bailey: https://github.com/fireeye/flare-fakenet-ng/blob/master/AUTHORS
+# License: Apache License 2.0: https://github.com/fireeye/flare-fakenet-ng/blob/master/LICENSE.txt
 # Notes: fakenet
 
 include:
