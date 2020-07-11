@@ -8,7 +8,7 @@
 # License: GNU General Public License (GPL) v2: https://github.com/volatilityfoundation/volatility/blob/2.6.1/LICENSE.txt
 # Notes: vol.py
 
-# This file is based directly on https://github.com/teamdfir/sift-saltstack/blob/master/sift/python-packages/volatility_bionic.sls
+# This file is based directly on github.com/teamdfir/sift-saltstack/blob/master/sift/python-packages/volatility_bionic.sls
 
 include:
   - remnux.packages.git
