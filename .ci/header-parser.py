@@ -7,6 +7,8 @@ import requests
 import json
 import argparse
 
+# This script was created by a contributor to the REMnux project who is presently anonymous.
+
 DEFAULT_REPO_URL = "https://github.com/REMnux/salt-states"
 DEFAULT_PARENT_PATH = "discover-the-tools"  # used to find the page group
 DEFAULT_VARIANTID = "master"
