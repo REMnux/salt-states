@@ -7,7 +7,11 @@
 # generate a listing of the tools described by the files,
 # and place the output in the designated space on Gitbook.
 #
-# Created by Halil Burak Noyan
+# Created by:
+#
+# Halil Burak Noyan: https://twitter.com/hbnoyan, https://github.com/0xballistics
+#
+# MIT License
 #
 
 import re
