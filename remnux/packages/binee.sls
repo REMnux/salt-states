@@ -9,6 +9,6 @@
 include:
   - remnux.repos.remnux
   
-bearparser:
+binee:
   pkg.installed:
     - pkgrepo: remnux
