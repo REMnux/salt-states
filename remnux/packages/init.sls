@@ -157,6 +157,7 @@ include:
   - remnux.packages.flare-floss
   - remnux.packages.sqlite
   - remnux.packages.nsrllookup
+  - remnux.packages.binee
 
 remnux-packages:
   test.nop:
@@ -319,3 +320,4 @@ remnux-packages:
       - sls: remnux.packages.flare-floss
       - sls: remnux.packages.sqlite
       - sls: remnux.packages.nsrllookup
+      - sls: remnux.packages.binee
