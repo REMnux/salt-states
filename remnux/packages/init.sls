@@ -156,6 +156,7 @@ include:
   - remnux.packages.msoffice-crypt
   - remnux.packages.flare-floss
   - remnux.packages.sqlite
+  - remnux.packages.nsrllookup
 
 remnux-packages:
   test.nop:
@@ -317,3 +318,4 @@ remnux-packages:
       - sls: remnux.packages.msoffice-crypt
       - sls: remnux.packages.flare-floss
       - sls: remnux.packages.sqlite
+      - sls: remnux.packages.nsrllookup
