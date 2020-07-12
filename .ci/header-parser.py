@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+
+#
+# header-parser.py
+#
+# Parse headers of REMnux' Salt state files,
+# generate a listing of the tools described by the files,
+# and place the output in the designated space on Gitbook.
+#
+# Created by Halil Burak Noyan
+#
+
 import re
 import logging
 import sys
@@ -7,12 +18,10 @@ import requests
 import json
 import argparse
 
-# This script was created by a contributor to the REMnux project who is presently anonymous.
-
 DEFAULT_REPO_URL = "https://github.com/REMnux/salt-states"
 DEFAULT_PARENT_PATH = "discover-the-tools"  # used to find the page group
 DEFAULT_VARIANTID = "master"
-DEFAULT_SLS_SEARCH_PATH = os.path.dirname(os.path.realpath(__file__))
+DEFAULT_SLS_SEARCH_PATH = os.path.dirname(os.path.realpath(__file__)) + "/../"
 
 def env_or_required(key, help, default=None):
     if os.environ.get(key) or default:
@@ -252,9 +261,9 @@ def main(args):
     set_logger()
     tools = find_tools(args.sls_search_path, args.repo_url)
     cfg = {
-        "token": args.gitbook_token,
-        "space_id": args.gitbook_spaceid,
-        "variant_id": args.gitbook_variantid,
+        "token": args.gitbook_token.strip(),
+        "space_id": args.gitbook_spaceid.strip(),
+        "variant_id": args.gitbook_variantid.strip(),
         "parent_path": args.gitbook_parent_path
     }
     pages, cfg["parent_title"] = get_gitbook_pages(cfg)
@@ -265,4 +274,3 @@ def main(args):
 if __name__ == "__main__":
     args = parser.parse_args()
     main(args)
-
