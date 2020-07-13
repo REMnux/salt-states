@@ -1,6 +1,6 @@
 # Name: CyberChef
 # Website: https://github.com/gchq/CyberChef/
-# Description: Decode and otherwise analyze data
+# Description: Decode and otherwise analyze data.
 # Category: Examine Static Properties: Deobfuscation
 # Author: GCHQ
 # License: Apache License 2.0: https://github.com/gchq/CyberChef/blob/master/LICENSE

@@ -53,6 +53,7 @@ include:
   - remnux.python-packages.pcodedmp
   - remnux.python-packages.droidlysis
   - remnux.python-packages.malwoverview
+  - remnux.python-packages.chepy
 
 remnux-python-packages:
   test.nop:
@@ -111,3 +112,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.pcodedmp
       - sls: remnux.python-packages.droidlysis
       - sls: remnux.python-packages.malwoverview
+      - sls: remnux.python-packages.chepy
