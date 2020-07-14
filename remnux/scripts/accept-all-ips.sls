@@ -4,7 +4,7 @@
 # Category: Explore Network Interactions: Services
 # Author: Lenny Zeltser, with input from the community
 # License: GNU General Public License (GPL) v3+
-# Notes: 
+# Notes: accept-all-ips <start|stop>
 
 include:
   - remnux.scripts.myip
