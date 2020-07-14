@@ -4,7 +4,7 @@
 # Category: Explore Network Interactions: Services
 # Author: Igor Sysoev, Nginx Inc.
 # License: Free, custom license: https://nginx.org/LICENSE
-# Notes: httpd <start|stop|status>
+# Notes: The webroot directory is /var/www/html. Control the daemon using: httpd <start|stop|status|restart>.
 
 nginx:
   pkg.installed
