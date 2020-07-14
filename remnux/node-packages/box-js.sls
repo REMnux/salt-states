@@ -8,25 +8,17 @@
 
 include:
   - remnux.packages.nodejs
-  - remnux.packages.npm
   - remnux.packages.curl
-
-# Sometimes node is not installed, which causes npm.installed to
-# not work, so let's explicitly add the npm package here.
-remnux-node-packages-box-js-npm:
-  pkg.installed:
-    - name: npm
 
 box-js:
   npm.installed:
     - require:
       - sls: remnux.packages.nodejs
-      - sls: remnux.packages.npm
       - sls: remnux.packages.curl
 
 remnux-node-packages-box-export-shebang:
   file.replace:
-    - name: /usr/local/bin/box-export
+    - name: /usr/bin/box-export
     - pattern: '#!/usr/bin/env node'
     - repl: '#!/usr/bin/env node'
     - prepend_if_not_found: True
@@ -34,3 +26,24 @@ remnux-node-packages-box-export-shebang:
     - require:
       - npm: box-js
 
+remnux-node-packages-box-export-version:
+  file.replace:
+    - name: /usr/bin/box-export
+    - pattern: ./package.json
+    - repl: ../../package.json
+    - count: 1
+    - require:
+      - npm: box-js
+    - watch:
+      - file: remnux-node-packages-box-export-shebang
+
+remnux-node-packages-box-export-license:
+  file.replace:
+    - name: /usr/bin/box-export
+    - pattern: /LICENSE
+    - repl: /../../LICENSE
+    - count: 1
+    - require:
+      - npm: box-js
+    - watch:
+      - file: remnux-node-packages-box-export-version
