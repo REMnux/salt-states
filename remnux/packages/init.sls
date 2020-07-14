@@ -129,7 +129,6 @@ include:
   - remnux.packages.edb-debugger
   - remnux.packages.xorstrings
   - remnux.packages.nodejs
-  - remnux.packages.npm
   - remnux.packages.python3-tk
   - remnux.packages.nautilus
   - remnux.packages.postgresql
@@ -292,7 +291,6 @@ remnux-packages:
       - sls: remnux.packages.edb-debugger
       - sls: remnux.packages.xorstrings
       - sls: remnux.packages.nodejs
-      - sls: remnux.packages.npm
       - sls: remnux.packages.python3-tk
       - sls: remnux.packages.nautilus
       - sls: remnux.packages.postgresql
