@@ -1,13 +1,13 @@
 . /etc/bash_completion.d/remnuxlib
 
-_binee() 
+_translate() 
 {
 	local cur
 	cur="${COMP_WORDS[COMP_CWORD]}"
 	
 	case "$cur" in -*)
-		_parse_args "binee -h"
+		_parse_args "translate.py -h"
 	esac
 }
 
-complete -d -o default -F _binee binee
+complete -d -o default -F _translate translate.py

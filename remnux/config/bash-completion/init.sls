@@ -27,6 +27,7 @@ include:
   - remnux.scripts.xor-kpa
   - remnux.packages.msoffice-crypt
   - remnux.packages.binee
+  - remnux.scripts.translate
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -315,3 +316,13 @@ remnux-config-bash-completion-binee:
     - mode: 644
     - require:
       - sls: remnux.packages.binee
+
+remnux-config-bash-completion-translate:
+  file.managed:
+    - name: /etc/bash_completion.d/translate
+    - source: salt://remnux/config/bash-completion/translate
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.scripts.translate
