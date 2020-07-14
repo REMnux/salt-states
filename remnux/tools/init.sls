@@ -23,6 +23,7 @@ include:
   - remnux.tools.trid
   - remnux.tools.manalyze
   - remnux.tools.apktool
+  - remnux.tools.polarproxy
 
 remnux-tools:
   test.nop:
@@ -51,3 +52,4 @@ remnux-tools:
       - sls: remnux.tools.trid
       - sls: remnux.tools.manalyze
       - sls: remnux.tools.apktool
+      - sls: remnux.tools.polarproxy
