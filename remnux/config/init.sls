@@ -14,6 +14,7 @@ include:
   - remnux.config.ghidra
   - remnux.config.bash-completion
   - remnux.config.binee
+  - remnux.packages.nginx
 
 remnux-config:
   test.nop:
@@ -33,3 +34,4 @@ remnux-config:
       - sls: remnux.config.ghidra
       - sls: remnux.config.bash-completion
       - sls: remnux.config.binee
+      - sls: remnux.packages.nginx
