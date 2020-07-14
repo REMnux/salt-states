@@ -21,6 +21,7 @@ remnux-config-nginx-sites-root:
     - repl: '\tlocation / {\n\t\tautoindex on;\n\t\t# First attempt'
     - prepend_if_not_found: False
     - count: 1
+    - backup: false
     - require:
       - sls: remnux.packages.nginx
 
