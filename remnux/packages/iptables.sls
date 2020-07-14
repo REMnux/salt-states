@@ -1,0 +1,2 @@
+iptables:
+  pkg.installed

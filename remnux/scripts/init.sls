@@ -25,6 +25,7 @@ include:
   - remnux.scripts.dexray
   - remnux.scripts.accept-all-ips
   - remnux.scripts.myip
+  - remnux.scripts.mynic
   - remnux.scripts.translate
 
 remnux-scripts:
@@ -56,4 +57,5 @@ remnux-scripts:
       - sls: remnux.scripts.dexray
       - sls: remnux.scripts.accept-all-ips
       - sls: remnux.scripts.myip
+      - sls: remnux.scripts.mynic
       - sls: remnux.scripts.translate
