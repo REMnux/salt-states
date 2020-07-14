@@ -1,6 +1,6 @@
-# Name: frida
-# Website: https://frida.re/
-# Description: Dynamic javascript and python-based code-injection and analysis tool 
+# Name: Frida
+# Website: https://frida.re
+# Description: Trace the execution of a process to analyze its behavior.
 # Category: Dynamically Reverse-Engineer Code: General
 # Author: Ole André Vadla Ravnås
 # License: wxWindows Library License 3.1: https://github.com/frida/frida/blob/master/COPYING

@@ -5,7 +5,6 @@ include:
   - remnux.tools.js-patched
   - remnux.tools.flare
   - remnux.tools.flasm
-  - remnux.tools.xorsearch
   - remnux.tools.networkminer
   - remnux.tools.jad
   - remnux.tools.jd-gui
@@ -34,7 +33,6 @@ remnux-tools:
       - sls: remnux.tools.js-patched
       - sls: remnux.tools.flare
       - sls: remnux.tools.flasm
-      - sls: remnux.tools.xorsearch
       - sls: remnux.tools.networkminer
       - sls: remnux.tools.jad
       - sls: remnux.tools.jd-gui

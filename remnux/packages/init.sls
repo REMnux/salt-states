@@ -157,6 +157,7 @@ include:
   - remnux.packages.sqlite
   - remnux.packages.nsrllookup
   - remnux.packages.binee
+  - remnux.packages.xorsearch
 
 remnux-packages:
   test.nop:
@@ -319,3 +320,4 @@ remnux-packages:
       - sls: remnux.packages.sqlite
       - sls: remnux.packages.nsrllookup
       - sls: remnux.packages.binee
+      - sls: remnux.packages.xorsearch
