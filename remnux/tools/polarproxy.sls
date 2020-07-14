@@ -3,7 +3,7 @@
 # Description: Transparent SSL/TLS Proxy
 # Category: Explore Network Interactions: Monitoring
 # Author: NETRESEC AB
-# License: CC BY-ND 4.0: https://www.netresec.com/?page=PolarProxy
+# License: Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) License: https://www.netresec.com/?page=PolarProxy
 # Notes: polarproxy
 
 remnux-polarproxy-source:
