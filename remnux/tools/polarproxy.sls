@@ -1,6 +1,6 @@
 # Name: PolarProxy
 # Website: https://www.netresec.com/
-# Description: Transparent SSL/TLS Proxy
+# Description: Intercept and decrypt TLS traffic.
 # Category: Explore Network Interactions: Monitoring
 # Author: NETRESEC AB
 # License: Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) License: https://www.netresec.com/?page=PolarProxy
