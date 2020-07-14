@@ -1,0 +1,13 @@
+. /etc/bash_completion.d/remnuxlib
+
+_js() 
+{
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	
+	case "$cur" in -*)
+		_parse_args "binee -h"
+	esac
+}
+
+complete -d -o default -F _binee binee

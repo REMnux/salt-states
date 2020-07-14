@@ -26,6 +26,7 @@ include:
   - remnux.python-packages.pcodedmp
   - remnux.scripts.xor-kpa
   - remnux.packages.msoffice-crypt
+  - remnux.packages.binee
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -304,3 +305,13 @@ remnux-config-bash-completion-msoffice-crypt:
     - mode: 644
     - require:
       - sls: remnux.packages.msoffice-crypt
+
+remnux-config-bash-completion-binee:
+  file.managed:
+    - name: /etc/bash_completion.d/binee
+    - source: salt://remnux/config/bash-completion/binee
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.packages.binee
