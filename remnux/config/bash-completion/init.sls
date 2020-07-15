@@ -13,7 +13,6 @@ include:
   - remnux.packages.oledump
   - remnux.python-packages.oletools
   - remnux.python-packages.peframe
-  - remnux.scripts.shellcode2exe-py
   - remnux.python-packages.thug
   - remnux.python-packages.volatility
   - remnux.packages.pev
@@ -187,16 +186,6 @@ remnux-config-bash-completion-peframe:
     - mode: 644
     - require:
       - sls: remnux.python-packages.peframe
-
-remnux-config-bash-completion-shellcode2exe-py:
-  file.managed:
-    - name: /etc/bash_completion.d/shellcode2exe-py
-    - source: salt://remnux/config/bash-completion/shellcode2exe-py
-    - replace: False
-    - makedirs: True
-    - mode: 644
-    - require:
-      - sls: remnux.scripts.shellcode2exe-py
 
 remnux-config-bash-completion-thug:
   file.managed:

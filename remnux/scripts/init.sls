@@ -7,7 +7,6 @@ include:
   - remnux.scripts.virustotal-search
   - remnux.scripts.base64dump
   - remnux.scripts.java_idx_parser
-  - remnux.scripts.shellcode2exe-py
   - remnux.scripts.ex_pe_xor
   - remnux.scripts.brxor
   - remnux.scripts.nomorexor
@@ -39,7 +38,6 @@ remnux-scripts:
       - sls: remnux.scripts.virustotal-search
       - sls: remnux.scripts.base64dump
       - sls: remnux.scripts.java_idx_parser
-      - sls: remnux.scripts.shellcode2exe-py
       - sls: remnux.scripts.ex_pe_xor
       - sls: remnux.scripts.brxor
       - sls: remnux.scripts.nomorexor
