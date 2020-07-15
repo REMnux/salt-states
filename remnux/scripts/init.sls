@@ -2,7 +2,6 @@ include:
   - remnux.scripts.pdf-parser
   - remnux.scripts.pdfobjflow
   - remnux.scripts.pdfid
-  - remnux.scripts.oledump
   - remnux.scripts.emldump
   - remnux.scripts.extractscripts
   - remnux.scripts.virustotal-search
@@ -27,6 +26,7 @@ include:
   - remnux.scripts.myip
   - remnux.scripts.mynic
   - remnux.scripts.translate
+  - remnux.scripts.zipdump
 
 remnux-scripts:
   test.nop:
@@ -34,7 +34,6 @@ remnux-scripts:
       - sls: remnux.scripts.pdf-parser
       - sls: remnux.scripts.pdfobjflow
       - sls: remnux.scripts.pdfid
-      - sls: remnux.scripts.oledump
       - sls: remnux.scripts.emldump
       - sls: remnux.scripts.extractscripts
       - sls: remnux.scripts.virustotal-search
@@ -59,3 +58,4 @@ remnux-scripts:
       - sls: remnux.scripts.myip
       - sls: remnux.scripts.mynic
       - sls: remnux.scripts.translate
+      - sls: remnux.scripts.zipdump
