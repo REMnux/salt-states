@@ -4,7 +4,7 @@
 # Category: Dynamically Reverse-Engineer Code: Shellcode
 # Author: Ori Damari: https://twitter.com/0xrepnz
 # License: Free, unknown license
-# Notes: 
+# Notes: Use full path name to specify the input file; look for the output file in /usr/local/shellcode2exe-bat
 
 include:
   - remnux.packages.git
@@ -27,4 +27,11 @@ remnux-tools-shellcode2exe-bat-wrapper:
       - git: remnux-tools-shellcode2exe-bat
     - contents:
       - '#!/bin/bash'
-      - wine cmd /c "/usr/local/shellcode2exe-bat/shellcode2exe.bat ${*}"
+      - cd /usr/local/shellcode2exe-bat && wine cmd /c "/usr/local/shellcode2exe-bat/shellcode2exe.bat ${*}"
+
+remnux-tools-shellcode2exe-bat-permissions:
+  file.directory:
+    - name: /usr/local/shellcode2exe-bat
+    - dir_mode: 777
+    - watch:
+      - file: remnux-tools-shellcode2exe-bat-wrapper
