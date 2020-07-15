@@ -10,7 +10,7 @@ include:
   - remnux.packages.clamav-daemon
   - remnux.packages.flare-floss
   - remnux.packages.spidermonkey
-  - remnux.scripts.oledump
+  - remnux.packages.oledump
   - remnux.python-packages.oletools
   - remnux.python-packages.peframe
   - remnux.scripts.shellcode2exe-py
@@ -28,6 +28,7 @@ include:
   - remnux.packages.msoffice-crypt
   - remnux.packages.binee
   - remnux.scripts.translate
+  - remnux.scripts.zipdump
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -155,7 +156,17 @@ remnux-config-bash-completion-oledump:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.oledump
+      - sls: remnux.packages.oledump
+
+remnux-config-bash-completion-zipdump:
+  file.managed:
+    - name: /etc/bash_completion.d/zipdump
+    - source: salt://remnux/config/bash-completion/zipdump
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.scripts.zipdump
 
 remnux-config-bash-completion-olevba:
   file.managed:

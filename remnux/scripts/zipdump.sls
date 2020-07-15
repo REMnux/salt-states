@@ -1,7 +1,7 @@
 # Name: zipdump.py
 # Website: https://blog.didierstevens.com/2020/04/30/update-zipdump-py-version-0-0-19/
 # Description: Analyze zip-compressed files.
-# Category: Examine Static Properties: Deobfuscation
+# Category: Analyze Documents: Microsoft Office, Examine Static Properties: General
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
 # Notes:
