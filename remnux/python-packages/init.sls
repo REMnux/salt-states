@@ -55,6 +55,7 @@ include:
   - remnux.python-packages.malwoverview
   - remnux.python-packages.chepy
   - remnux.python-packages.frida
+  - remnux.python-packages.stringsifter
 
 remnux-python-packages:
   test.nop:
@@ -115,3 +116,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.malwoverview
       - sls: remnux.python-packages.chepy
       - sls: remnux.python-packages.frida
+      - sls: remnux.python-packages.stringsifter
