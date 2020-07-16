@@ -2,7 +2,7 @@
 # Website: https://github.com/fireeye/stringsifter
 # Description: Automatically rank strings based on their relevance for malware analysis.
 # Category: Examine Static Properties: General
-# Author: Hapsida Securisec: https://twitter.com/securisec
+# Author: FireEye Inc.
 # License: Apache License 2.0: https://github.com/fireeye/stringsifter/blob/master/LICENSE
 # Notes: flarestrings
 
