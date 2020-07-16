@@ -159,6 +159,7 @@ include:
   - remnux.packages.binee
   - remnux.packages.xorsearch
   - remnux.packages.oledump
+  - remnux.packages.capa
 
 remnux-packages:
   test.nop:
@@ -323,3 +324,4 @@ remnux-packages:
       - sls: remnux.packages.binee
       - sls: remnux.packages.xorsearch
       - sls: remnux.packages.oledump
+      - sls: remnux.packages.capa
