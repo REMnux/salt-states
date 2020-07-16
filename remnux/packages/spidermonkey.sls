@@ -9,6 +9,11 @@
 libmozjs-52-dev:
   pkg.installed
 
-/usr/bin/js:
-  file.symlink:
-    - target: /usr/bin/js52
+remnux-packages-spidermonkey-config:
+  alternatives.install:
+    - name: js
+    - link: /usr/bin/js
+    - path: /usr/bin/js52
+    - priority: 300
+    - watch:
+      - pkg: libmozjs-52-dev
