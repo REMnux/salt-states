@@ -124,15 +124,22 @@ def parse_header(base_path, file_name, repo_url):
     return {"name": name, "categories": categories, "fields": fields, "desc": desc, 
     "state_file": [state_file_path, state_file_link]}
 
+def replace_bad_characters(s):
+    ''' Replace characters that are not rendered correctly in markdown. '''
+    replace_map = [("&", r"&amp;"), ("<", r"&lt;"), (">", r"&gt;")] # order is important !
+    for kfrom, kto in replace_map:
+        s = s.replace(kfrom, kto)
+    return s
 
 def to_markdown(tool):
     header = "# {}\n".format(tool["name"])
     desc = (tool["desc"] + "\n\n") if tool["desc"] else ""
     markdown = []
     tmp = "**{}**: {}"
-    # markdown.append(tmp.format("Categories", ",".join(tool["categories"])))
     for key, val in tool["fields"]:
-        markdown.append(tmp.format(key,val))
+        key_escaped = replace_bad_characters(key)
+        val_escaped = replace_bad_characters(val)
+        markdown.append(tmp.format(key_escaped,val_escaped))
     markdown.append("**State File**: [{}]({})".format(*tool["state_file"]))
 
     return header + desc + "  \n".join(markdown)
