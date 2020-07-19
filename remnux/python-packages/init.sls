@@ -12,7 +12,6 @@ include:
   - remnux.python-packages.mitmproxy
   - remnux.python-packages.ndg-httpsclient
   - remnux.python-packages.olefile
-  - remnux.python-packages.oletools
   - remnux.python-packages.peframe
   - remnux.python-packages.pydeep
   - remnux.python-packages.pyelftools
@@ -57,6 +56,7 @@ include:
   - remnux.python-packages.frida
   - remnux.python-packages.stringsifter
   - remnux.python-packages.vivisect
+  - remnux.python-packages.oletools
 
 remnux-python-packages:
   test.nop:
@@ -74,7 +74,6 @@ remnux-python-packages:
       - sls: remnux.python-packages.mitmproxy
       - sls: remnux.python-packages.ndg-httpsclient
       - sls: remnux.python-packages.olefile
-      - sls: remnux.python-packages.oletools
       - sls: remnux.python-packages.peframe
       - sls: remnux.python-packages.pydeep
       - sls: remnux.python-packages.pyelftools
@@ -119,3 +118,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.frida
       - sls: remnux.python-packages.stringsifter
       - sls: remnux.python-packages.vivisect
+      - sls: remnux.python-packages.oletools

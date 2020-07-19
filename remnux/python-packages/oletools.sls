@@ -4,7 +4,7 @@
 # Category: Analyze Documents: Microsoft Office
 # Author: Philippe Lagadec: https://twitter.com/decalage2
 # License: Free, custom license: https://github.com/decalage2/oletools/blob/master/LICENSE.md
-# Notes: mraptor, msodde, olebrowse, oledir, oleid, olemap, olemeta, oleobj, oletimes, olevba, pyxswf, rtfobj
+# Notes: mraptor, msodde, olebrowse, oledir, oleid, olemap, olemeta, oleobj, oletimes, olevba, pyxswf, rtfobj, ezhexviewer
 
 include:
   - remnux.packages.python3-pip
