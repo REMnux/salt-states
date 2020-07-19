@@ -96,5 +96,6 @@ remnux-python-packages-viper-symlink:
   file.symlink:
     - name: /usr/local/bin/viper
     - target: /opt/viper/bin/viper
+    - force: true
     - require:
       - pip: remnux-python-packages-viper-install

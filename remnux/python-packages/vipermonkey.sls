@@ -37,6 +37,7 @@ remnux-python-packages-vipermonkey-symlink:
   file.symlink:
     - name: /usr/local/bin/vmonkey
     - target: /opt/vipermonkey/bin/vmonkey
+    - force: true
     - require:
       - pip: remnux-python-packages-vipermonkey-install
 
