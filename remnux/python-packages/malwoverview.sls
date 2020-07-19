@@ -6,16 +6,19 @@
 # License: GNU General Public License v3: https://github.com/digitalsleuth/malwoverview/blob/master/LICENSE
 # Notes: malwoverview.py, add API keys to ~/.malwapi.conf
 
-{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}
+{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}       
 
-{% if user != "root" %}
-
-{% set home = "/home/" + user %}
+{% if user == "root" %}
+  {% set home = "/root" %}
+{% else %}
+  {% set home = "/home/" + user %}
+{% endif %}
 
 include:
   - remnux.packages.python-pip
   - remnux.packages.python3-pip
   - remnux.packages.git
+  - remnux.config.user
 
 remnux-python-packages-malwoverview-install:
   pip.installed:
@@ -32,6 +35,5 @@ remnux-python-packages-malwoverview-config-file:
     - group: {{ user }}
     - makedirs: False
     - require:
+      - user: remnux-user-{{ user }}
       - pip: remnux-python-packages-malwoverview-install
-
-{% endif %}
