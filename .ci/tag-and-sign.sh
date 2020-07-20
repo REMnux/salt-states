@@ -26,12 +26,13 @@ if [ $? -eq 0 ]; then
 fi
 
 STASH_RESULTS=`git stash -u`
+VERSION_FILE="remnux/VERSION"
 
-if [ "`cat VERSION`" != "${TAG_NAME}" ]; then
+if [ "`cat ${VERSION_FILE}`" != "${TAG_NAME}" ]; then
   echo "==> Updating Release Version"
-  rm -f VERSION
-  echo "$TAG_NAME" > VERSION
-  git add VERSION
+  rm -f ${VERSION_FILE}
+  echo "$TAG_NAME" > ${VERSION_FILE}
+  git add ${VERSION_FILE}
   git commit -m "Updating VERSION to $TAG_NAME"
   git push origin master
 
