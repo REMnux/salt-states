@@ -4,7 +4,7 @@
 # Category: Analyze Documents: Microsoft Office
 # Author: Michal Mutl
 # License: Free to use for private, educational and non-commercial purposes.
-# Notes: 
+# Notes: ssview
 
 include:
   - remnux.packages.wine
