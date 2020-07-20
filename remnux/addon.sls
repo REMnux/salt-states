@@ -16,7 +16,7 @@ include:
 remnux-addon-version-file:
   file.managed:
     - name: /etc/remnux-version
-    - source: salt://VERSION
+    - source: salt://remnux/VERSION
     - user: root
     - group: root
     - require:

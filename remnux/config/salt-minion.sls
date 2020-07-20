@@ -2,9 +2,12 @@
 # trying to control  services
 {%- if salt['file.file_exists']('/sbin/runlevel') %}
 
-salt-minion:
+remnux-config-salt-minion:
   service.dead:
     - name: salt-minion
     - enable: False
 
 {% endif %}
+
+remnux-config-salt-minion-placeholder:
+  test.nop

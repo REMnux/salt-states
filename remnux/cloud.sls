@@ -5,12 +5,8 @@ include:
     - remnux.addon
     - remnux.theme
 
-remnux-dedicated-version-file:
-  file.managed:
-    - name: /etc/remnux-version
-    - source: salt://VERSION
-    - user: root
-    - group: root
+remnux-cloud:
+  test.nop:
     - require:
       - sls: remnux.addon
       - sls: remnux.theme
