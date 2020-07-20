@@ -4,7 +4,7 @@
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Einar Lielmanis, Liam Newman, and contributors
 # License: MIT License: https://github.com/beautify-web/js-beautify/blob/master/LICENSE
-# Notes: 
+# Notes: js-beautify
 
 include:
   - remnux.packages.python-pip

@@ -4,7 +4,7 @@
 # Category: Examine Static Properties: General
 # Author: Phil Harvey
 # License: "This is free software; you can redistribute it and/or modify it under the same terms as Perl itself": https://exiftool.org/#license
-# Notes: 
+# Notes: exiftool
 
 include:
   - remnux.packages.perl
