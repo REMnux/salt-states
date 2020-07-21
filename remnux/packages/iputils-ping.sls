@@ -1,0 +1,2 @@
+iputils-ping:
+  pkg.installed

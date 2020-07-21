@@ -4,7 +4,7 @@
 # Category: Statically Analyze Code: General
 # Author: Unknown
 # License: GNU General Public License (GPL) v3.0: https://github.com/radareorg/cutter/blob/master/COPYING
-# Notes: 
+# Notes: If you're planning to use Cutter when running REMnux as a Docker container, you'll need to include the `--privileged` parameter when invoking the REMnux distro image in Docker.
 
 remnux-tools-cutter-source:
   file.managed:

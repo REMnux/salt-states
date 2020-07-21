@@ -1,4 +1,6 @@
 include:
+  - remnux.packages.dialog
+  - remnux.packages.iputils-ping
   - remnux.packages.aeskeyfind
   - remnux.packages.apt-transport-https
   - remnux.packages.autoconf

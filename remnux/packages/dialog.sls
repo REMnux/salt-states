@@ -1,0 +1,2 @@
+dialog:
+  pkg.installed
