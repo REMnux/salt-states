@@ -4,7 +4,7 @@
 # Category: Perform Memory Forensics
 # Author: Nadia Heninger, Alex Halderman
 # License: Free, unknown license
-# Notes: rsakeyfind
+# Notes: aeskeyfind
 
 aeskeyfind:
   pkg.installed
