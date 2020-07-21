@@ -1,0 +1,2 @@
+nano:
+  pkg.installed
