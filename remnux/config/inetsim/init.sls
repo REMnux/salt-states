@@ -11,6 +11,14 @@ remnux-config-inetsim:
     - require:
       - sls: remnux.packages.inetsim
 
+remnux-config-inetsim-permissions:
+  file.managed:
+    - name: /var/lib/inetsim/certs/default_key.pem
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.packages.inetsim
+
 # Runlevel isn't in a Docker container, so check whether it exists before
 # trying to control  services
 {%- if salt['file.file_exists']('/sbin/runlevel') %}

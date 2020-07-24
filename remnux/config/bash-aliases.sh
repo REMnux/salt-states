@@ -33,7 +33,7 @@ function objdump {
 }
 
 function inetsim {
-  sudo /usr/bin/inetsim ${*}
+  sudo /usr/bin/inetsim --bind-address=${1:-`myip`} ${*}
 }
 
 function fakedns {
