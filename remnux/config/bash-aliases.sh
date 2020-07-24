@@ -76,3 +76,7 @@ function sshd {
 alias notepad="scite"
 alias calc="galculator"
 alias ipconfig='ifconfig'
+
+function run-wine-trace {
+  WINEDEBUG=+relay wine ${*}
+}

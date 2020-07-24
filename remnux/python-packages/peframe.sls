@@ -4,7 +4,7 @@
 # Category: Examine Static Properties: PE Files
 # Author: Gianni Amato: https://twitter.com/guelfoweb
 # License: Free, unknown license
-# Notes: 
+# Notes: peframe
 
 include:
   - remnux.packages.git
