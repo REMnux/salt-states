@@ -13,7 +13,7 @@ remnux-scripts-myip-source:
   file.managed:
     - name: /usr/local/bin/myip
     - source: https://github.com/REMnux/distro/raw/master/files/myip
-    - source_hash: sha256=5d9a56807c596dfbb186123d175aaa753a2f3b092b34a201d42134e26edda48d
+    - source_hash: sha256=65c4392f1dc6ecef4759b5697300cd12e7a8cb470174e2b4dba55b9ded2c50c0
     - makedirs: false
     - mode: 755
     - require:
