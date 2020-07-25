@@ -8,8 +8,18 @@
 
 include:
   - remnux.packages.python-pip
+  - remnux.packages.python3-pip
 
-pefile:
+remnux-python-packages-pefile:
   pip.installed:
+    - name: pefile
+    - bin_env: /usr/bin/pip
     - require:
       - sls: remnux.packages.python-pip
+
+remnux-python-packages-pefile3:
+  pip.installed:
+    - name: pefile
+    - bin_env: /usr/bin/pip3
+    - require:
+      - sls: remnux.packages.python3-pip
