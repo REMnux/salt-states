@@ -8,7 +8,6 @@
 
 include:
   - remnux.python-packages.pefile
-  - remnux.config.userdb
 
 remnux-scripts-pecheck-source:
   file.managed:
@@ -19,7 +18,6 @@ remnux-scripts-pecheck-source:
     - mode: 755
     - require:
       - sls: remnux.python-packages.pefile
-      - sls: remnux.config.userdb
 
 remnux-scripts-pecheck-shebang:
   file.replace:

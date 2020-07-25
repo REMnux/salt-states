@@ -11,4 +11,4 @@ _pecheck()
 	esac
 }
 
-complete -d -o default -F _pecheck pecheck.py
+complete -d -o default -F _pecheck pecheck
