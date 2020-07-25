@@ -1,6 +1,6 @@
 # Name: TrID
 # Website: https://mark0.net/soft-trid-e.html
-# Description: Identify file type.
+# Description: Identify file type using signatures.
 # Category: Examine Static Properties: General, Statically Analyze Code: Unpacking
 # Author: Marco Pontello
 # License: Free, unknown license

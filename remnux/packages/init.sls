@@ -163,6 +163,7 @@ include:
   - remnux.packages.oledump
   - remnux.packages.capa
   - remnux.packages.nano
+  - remnux.packages.file
 
 remnux-packages:
   test.nop:
@@ -329,3 +330,4 @@ remnux-packages:
       - sls: remnux.packages.oledump
       - sls: remnux.packages.capa
       - sls: remnux.packages.nano
+      - sls: remnux.packages.file
