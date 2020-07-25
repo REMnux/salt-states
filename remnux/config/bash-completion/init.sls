@@ -28,6 +28,7 @@ include:
   - remnux.packages.binee
   - remnux.scripts.translate
   - remnux.scripts.zipdump
+  - remnux.scripts.pecheck
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -166,6 +167,16 @@ remnux-config-bash-completion-zipdump:
     - mode: 644
     - require:
       - sls: remnux.scripts.zipdump
+
+remnux-config-bash-completion-pecheck:
+  file.managed:
+    - name: /etc/bash_completion.d/pecheck
+    - source: salt://remnux/config/bash-completion/pecheck
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.scripts.pecheck
 
 remnux-config-bash-completion-olevba:
   file.managed:

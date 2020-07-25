@@ -71,6 +71,10 @@ function freshclam {
   sudo freshclam ${*}
 }
 
+function pecheck {
+  pecheck.py -d /usr/local/share/remnux/userdb.txt ${*}
+}
+
 # A wrapper around the command to stop and start SSH server for old timers
 function sshd {
   sudo systemctl ${*} ssh

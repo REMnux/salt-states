@@ -1,4 +1,4 @@
-# Name: pecheck.py
+# Name: pecheck
 # Website: https://blog.didierstevens.com/2020/03/15/pecheck-py-version-0-7-10/
 # Description: Analyze static properties of PE files.
 # Category: Examine Static Properties: PE Files
@@ -8,6 +8,7 @@
 
 include:
   - remnux.python-packages.pefile
+  - remnux.config.userdb
 
 remnux-scripts-pecheck-source:
   file.managed:
@@ -18,6 +19,7 @@ remnux-scripts-pecheck-source:
     - mode: 755
     - require:
       - sls: remnux.python-packages.pefile
+      - sls: remnux.config.userdb
 
 remnux-scripts-pecheck-shebang:
   file.replace:

@@ -26,6 +26,7 @@ include:
   - remnux.scripts.mynic
   - remnux.scripts.translate
   - remnux.scripts.zipdump
+  - remnux.scripts.pecheck
 
 remnux-scripts:
   test.nop:
@@ -57,3 +58,4 @@ remnux-scripts:
       - sls: remnux.scripts.mynic
       - sls: remnux.scripts.translate
       - sls: remnux.scripts.zipdump
+      - sls: remnux.scripts.pecheck
