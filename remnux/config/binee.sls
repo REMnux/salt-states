@@ -6,7 +6,7 @@ include:
 
 remnux-config-binee-owner:
   file.directory:
-    - name: /opt/binee-files/win10_32
+    - name: /opt/binee-files/win10_32/windows/system32
     - makedirs: True
     - user: {{ user }}
     - group: {{ user }}
