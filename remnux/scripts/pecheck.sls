@@ -13,7 +13,7 @@ remnux-scripts-pecheck-source:
   file.managed:
     - name: /usr/local/bin/pecheck.py
     - source: https://raw.githubusercontent.com/DidierStevens/DidierStevensSuite/master/pecheck.py
-    - source_hash: sha256=b0c2e7920a2948736a93d4d306f6feea201bec6108838d572c3e846d659f80ed
+    - source_hash: sha256=625ca103ce368a57e58091b1f38430b7ffd72bda27c4c449ac3cb4a7bbbe6533
     - makedirs: false
     - mode: 755
     - require:
@@ -22,8 +22,8 @@ remnux-scripts-pecheck-source:
 remnux-scripts-pecheck-shebang:
   file.replace:
     - name: /usr/local/bin/pecheck.py
-    - pattern: '^#!/usr/bin/env python3$'
-    - repl: '#!/usr/bin/env python'
+    - pattern: '^#!/usr/bin/env python$'
+    - repl: '#!/usr/bin/env python3'
     - prepend_if_not_found: False
     - count: 1
     - require:
