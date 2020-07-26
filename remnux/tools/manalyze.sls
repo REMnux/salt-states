@@ -4,7 +4,7 @@
 # Category: Examine Static Properties: PE Files
 # Author: Ivan Kwiatkowski: https://twitter.com/JusticeRage
 # License: GNU General Public License (GPL) v3: https://github.com/zrax/pycdc/blob/master/LICENSE
-# Notes: Run "manalyze" to invoke the tool. To update the tool's Yara rules to include ClamAV, run "sudo /usr/local/manalyze/yara_rules/update_clamav_signatures.py".
+# Notes: Run "manalyze" to invoke the tool. To update the tool's Yara rules to include ClamAV, run "sudo /usr/local/manalyze/yara_rules/update_clamav_signatures.py". To query VirusTotal, add your API key to /usr/local/manalyze/manalyze.conf.
 
 include:
   - remnux.packages.libboost-regex
