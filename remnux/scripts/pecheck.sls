@@ -22,8 +22,8 @@ remnux-scripts-pecheck-source:
 remnux-scripts-pecheck-shebang:
   file.replace:
     - name: /usr/local/bin/pecheck.py
-    - pattern: '^#!/usr/bin/env python$'
-    - repl: '#!/usr/bin/env python3'
+    - pattern: '^#!/usr/bin/env python3$'
+    - repl: '#!/usr/bin/env python'
     - prepend_if_not_found: False
     - count: 1
     - require:
