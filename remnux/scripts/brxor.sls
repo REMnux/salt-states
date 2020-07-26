@@ -1,6 +1,6 @@
 # Name: brxor.py
 # Website: https://github.com/REMnux/distro/blob/master/files/brxor.py
-# Description:Bruteforce XOR'ed strings.
+# Description: Bruteforce XOR'ed strings to find those that are English words.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Alexander Hanel, Trenton Tait
 # License: Free, unknown license
