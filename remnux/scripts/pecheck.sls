@@ -13,7 +13,7 @@ remnux-scripts-pecheck-source:
   file.managed:
     - name: /usr/local/bin/pecheck.py
     - source: https://raw.githubusercontent.com/DidierStevens/DidierStevensSuite/master/pecheck.py
-    - source_hash: sha256=625ca103ce368a57e58091b1f38430b7ffd72bda27c4c449ac3cb4a7bbbe6533
+    - source_hash: sha256=e0fa431af646b204bf8c55d8fc5198232a68b43d4c16bd2245047a56a7776f82
     - makedirs: false
     - mode: 755
     - require:
