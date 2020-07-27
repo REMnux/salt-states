@@ -1,7 +1,7 @@
 # Name: ClamAV
 # Website: https://www.clamav.net
 # Description: Scan files for malware signatures.
-# Category: Examine Static Properties: PE Files, Statically Analyze Code: Unpacking
+# Category: Examine Static Properties: General, Statically Analyze Code: Unpacking
 # Author: https://www.clamav.net/about
 # License: GNU General Public License (GPL): https://www.clamav.net/about
 # Notes: clamscan, freshclam
