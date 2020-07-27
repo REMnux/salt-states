@@ -1,7 +1,7 @@
 # Name: StringSifter
 # Website: https://github.com/fireeye/stringsifter
-# Description: Automatically rank strings based on their relevance for malware analysis.
-# Category: Examine Static Properties: General
+# Description: Automatically rank strings based on their relevance to the analysis of suspicious Windows executables.
+# Category: Examine Static Properties: PE Files
 # Author: FireEye Inc.
 # License: Apache License 2.0: https://github.com/fireeye/stringsifter/blob/master/LICENSE
 # Notes: flarestrings
