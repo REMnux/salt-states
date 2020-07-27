@@ -24,6 +24,7 @@ include:
   - remnux.tools.apktool
   - remnux.tools.polarproxy
   - remnux.tools.ssview
+  - remnux.tools.yara-rules
 
 remnux-tools:
   test.nop:
@@ -53,3 +54,4 @@ remnux-tools:
       - sls: remnux.tools.apktool
       - sls: remnux.tools.polarproxy
       - sls: remnux.tools.ssview
+      - sls: remnux.tools.yara-rules
