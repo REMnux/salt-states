@@ -1,9 +1,9 @@
 # Name: malwoverview
-# Website: https://github.com/digitalsleuth/malwoverview
+# Website: https://github.com/alexandreborges/malwoverview
 # Description: Query public repositories of malware data (e.g., VirusTotal, HybridAnalysis).
 # Category: Gather and Analyze Data
 # Author: Alexandre Borges
-# License: GNU General Public License v3: https://github.com/digitalsleuth/malwoverview/blob/master/LICENSE
+# License: GNU General Public License v3: https://github.com/alexandreborges/malwoverview/blob/master/LICENSE
 # Notes: malwoverview.py, add API keys to ~/.malwapi.conf
 
 {%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}       
@@ -22,7 +22,7 @@ include:
 
 remnux-python-packages-malwoverview-install:
   pip.installed:
-    - name: git+https://github.com/digitalsleuth/malwoverview.git
+    - name: git+https://github.com/alexandreborges/malwoverview.git
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.python3-pip
