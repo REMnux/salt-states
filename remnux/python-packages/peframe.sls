@@ -22,4 +22,3 @@ remnux-pip-peframe:
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.swig
       - sls: remnux.packages.python3-pip
-      - sls: remnux.packages.python-pip
