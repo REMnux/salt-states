@@ -9,15 +9,31 @@
 include:
   - remnux.python-packages.pefile
 
+
 remnux-scripts-pecheck-source:
   file.managed:
-    - name: /usr/local/bin/pecheck.py
-    - source: https://raw.githubusercontent.com/DidierStevens/DidierStevensSuite/master/pecheck.py
-    - source_hash: sha256=e0fa431af646b204bf8c55d8fc5198232a68b43d4c16bd2245047a56a7776f82
-    - makedirs: false
-    - mode: 755
+    - name: /usr/local/src/remnux/files/pecheck-v0_7_11.zip
+    - source: https://didierstevens.com/files/software/pecheck-v0_7_11.zip
+    - source_hash: 2B59F745377EABDF81118997CA70F5F4DBC1CE927370F02C6E0262869F988FA9
+    - makedirs: True
     - require:
       - sls: remnux.python-packages.pefile
+
+remnux-scripts-pecheck-archive:
+  archive.extracted:
+    - name: /usr/local/src/remnux/pecheck-v0_7_11
+    - source: /usr/local/src/remnux/files/pecheck-v0_7_11.zip
+    - enforce_toplevel: False
+    - watch:
+      - file: remnux-scripts-pecheck-source
+
+remnux-scripts-pecheck-binary:
+  file.managed:
+    - name: /usr/local/bin/pecheck.py
+    - source: /usr/local/src/remnux/pecheck-v0_7_11/pecheck.py
+    - mode: 755
+    - watch:
+      - archive: remnux-scripts-pecheck-archive
 
 remnux-scripts-pecheck-shebang:
   file.replace:
@@ -27,4 +43,4 @@ remnux-scripts-pecheck-shebang:
     - prepend_if_not_found: False
     - count: 1
     - require:
-      - file: remnux-scripts-pecheck-source
+      - file: remnux-scripts-pecheck-binary
