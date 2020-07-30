@@ -15,6 +15,7 @@ include:
   - remnux.config.bash-completion
   - remnux.config.binee
   - remnux.config.nginx
+  - remnux.config.android-project-creator
 
 remnux-config:
   test.nop:
@@ -35,3 +36,4 @@ remnux-config:
       - sls: remnux.config.bash-completion
       - sls: remnux.config.binee
       - sls: remnux.config.nginx
+      - sls: remnux.config.android-project-creator

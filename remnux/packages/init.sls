@@ -164,6 +164,7 @@ include:
   - remnux.packages.capa
   - remnux.packages.nano
   - remnux.packages.file
+  - remnux.packages.android-project-creator
 
 remnux-packages:
   test.nop:
@@ -331,3 +332,4 @@ remnux-packages:
       - sls: remnux.packages.capa
       - sls: remnux.packages.nano
       - sls: remnux.packages.file
+      - sls: remnux.packages.android-project-creator
