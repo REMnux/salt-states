@@ -14,7 +14,7 @@ include:
 remnux-pip-ioc-parser:
   pip.installed:
     - name: git+https://github.com/buffer/ioc_parser
-    - bin_env: '/usr/bin/python3'
+    - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.git

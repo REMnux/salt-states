@@ -12,11 +12,12 @@ include:
   - remnux.packages.libjpeg8-dev
   - remnux.packages.zlib1g-dev
   - remnux.packages.git
+  - remnux.packages.python3-pip
 
 remnux-tools-peepdf-source:
   pip.installed:
     - name: git+https://github.com/digitalsleuth/peepdf.git
-    - pip_bin: /usr/bin/python2
+    - bin_env: /usr/bin/python
     - require:
       - sls: remnux.packages.python-pip
       - sls: remnux.packages.libemu

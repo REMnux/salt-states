@@ -13,10 +13,10 @@ include:
   - remnux.packages.python3-pip
   - remnux.packages.python-pip
 
-remnux-pip-peframe:
+remnux-python-packages-peframe:
   pip.installed:
     - name: git+https://github.com/guelfoweb/peframe.git@master
-    - bin_env: /usr/bin/pip3
+    - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.libssl-dev
