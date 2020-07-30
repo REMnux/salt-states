@@ -3,7 +3,5 @@ mono-repo:
     - humanname: Mono
     - name: deb https://download.mono-project.com/repo/ubuntu stable-bionic main
     - file: /etc/apt/sources.list.d/mono-official-stable.list
-    - keyid: D3D831EF
-    - keyserver: keyserver.ubuntu.com
-    - gpgcheck: 1
+    - key_url: https://download.mono-project.com/repo/xamarin.gpg
     - refresh: true
