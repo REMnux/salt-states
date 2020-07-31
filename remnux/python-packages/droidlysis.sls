@@ -18,7 +18,7 @@ include:
 remnux-python-packages-droidlysis:
   pip.installed:
     - name: droidlysis
-    - bin_env: /usr/bin/pip3
+    - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.tools.apktool
       - sls: remnux.packages.baksmali

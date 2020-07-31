@@ -15,10 +15,9 @@ include:
 remnux-python-packages-volatility3:
   pip.installed:
     - name: git+https://github.com/volatilityfoundation/volatility3.git@master
-    - pip_bin: /usr/bin/python3
+    - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.git
-      - sls: remnux.packages.python-pip
       - sls: remnux.packages.python3-pip
       - sls: remnux.python-packages.pefile
 

@@ -8,7 +8,6 @@
 
 include:
   - remnux.packages.git
-  - remnux.packages.python3
   - remnux.packages.python3-setuptools
   - remnux.packages.python3-pip
   - remnux.packages.libemu
@@ -32,10 +31,9 @@ remnux-git-thug:
 remnux-pip3-install-thug:
   pip.installed:
     - name: thug
-    - bin_env: /usr/bin/pip3
+    - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.python3-pip
-      - sls: remnux.packages.python-pip
     - watch:
       - git: remnux-git-thug
 

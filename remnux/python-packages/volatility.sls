@@ -25,11 +25,12 @@ include:
   - remnux.python-packages.pysocks
   - remnux.python-packages.simplejson
   - remnux.python-packages.yara-python
+  - remnux.packages.python3-pip
 
 remnux-python-packages-volatility:
   pip.installed:
     - name: git+https://github.com/volatilityfoundation/volatility.git@2.6.1
-    - pip_bin: /usr/bin/pip
+    - bin_env: /usr/bin/python
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
