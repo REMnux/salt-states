@@ -19,7 +19,6 @@ include:
   - remnux.python-packages.pypdns
   - remnux.python-packages.pypssl
   - remnux.python-packages.r2pipe
-  - remnux.python-packages.rarfile
   - remnux.python-packages.requesocks
   - remnux.python-packages.setuptools
   - remnux.python-packages.shodan
@@ -57,6 +56,7 @@ include:
   - remnux.python-packages.stringsifter
   - remnux.python-packages.vivisect
   - remnux.python-packages.oletools
+  - remnux.python-packages.pycryptodomex
 
 remnux-python-packages:
   test.nop:
@@ -81,7 +81,6 @@ remnux-python-packages:
       - sls: remnux.python-packages.pypdns
       - sls: remnux.python-packages.pypssl
       - sls: remnux.python-packages.r2pipe
-      - sls: remnux.python-packages.rarfile
       - sls: remnux.python-packages.requesocks
       - sls: remnux.python-packages.setuptools
       - sls: remnux.python-packages.shodan
@@ -119,3 +118,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.stringsifter
       - sls: remnux.python-packages.vivisect
       - sls: remnux.python-packages.oletools
+      - sls: remnux.python-packages.pycryptodomex

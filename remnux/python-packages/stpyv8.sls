@@ -7,8 +7,6 @@
 # Notes: 
 
 include:
-  - remnux.packages.python3
-  - remnux.packages.python
   - remnux.packages.sudo
   - remnux.packages.libboost-python-dev
   - remnux.packages.libboost-system-dev
@@ -24,7 +22,6 @@ remnux-pip3-stpyv8:
     - name: https://github.com/area1/stpyv8/releases/download/v8.3.110.13/stpyv8-8.3.110.13-cp36-cp36m-linux_x86_64.whl
     - bin_env: /usr/bin/python3
     - require:
-      - sls: remnux.packages.python3
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.sudo
       - sls: remnux.packages.libboost-python-dev

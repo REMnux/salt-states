@@ -9,9 +9,11 @@
 include:
   - remnux.packages.python-pip
   - remnux.python-packages.lxml
+  - remnux.packages.python3-pip
 
 ioc_writer:
   pip.installed:
+    - bin_env: /usr/bin/python
     - require:
       - pkg: python-pip
-      - pip: lxml
+      - sls: remnux.python-packages.lxml

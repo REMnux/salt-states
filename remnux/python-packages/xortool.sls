@@ -12,7 +12,6 @@ include:
 
 xortool:
   pip.installed:
-    - pip_bin: /usr/bin/python3
+    - bin_env: /usr/bin/python3
     - require:
-      - sls: remnux.packages.python-pip
       - sls: remnux.packages.python3-pip

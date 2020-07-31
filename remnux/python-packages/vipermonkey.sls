@@ -10,6 +10,7 @@ include:
   - remnux.packages.python-pip
   - remnux.packages.git
   - remnux.packages.virtualenv
+  - remnux.packages.python3-pip
 
 remnux-python-packages-vipermonkey-virtualenv:
   virtualenv.managed:

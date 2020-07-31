@@ -3,11 +3,12 @@ include:
   - remnux.packages.python-pip
   - remnux.packages.python-m2crypto
   - remnux.python-packages.m2crypto
+  - remnux.packages.python3-pip
 
 dpapick:
   pip.installed:
     - name: dpapick
-    - pip_bin: /usr/bin/pip
+    - bin_env: /usr/bin/python
     - upgrade: True
     - require:
       - sls: remnux.packages.libssl-dev
