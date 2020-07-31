@@ -48,48 +48,23 @@ remnux-python-packages-viper-install:
 
 remnux-python-packages-viper-requirements:
   pip.installed:
-    - pkgs:
-      - androguard==3.3.5
-      - pyclamd==0.4.0
-      - pypdns==1.4.1
-      - pyelftools==0.25
-      - dnspython==1.16.0
-      - olefile==0.46
-      - git+https://github.com/viper-framework/xxxswf.git@9188316eb7a179326d99bfde9fe0184bb3cee6a3#egg=xxxswf
-      - pyparsing==2.4.7
-      - packaging==19.0
-      - pefile==2019.4.18
-      - bitstring==3.1.7
-      - pyasn1==0.4.8
-      - pyopenssl==19.1.0
-      - cryptography==2.9.2
-      - cffi==1.14.0
-      - asn1crypto==1.3.0
-      - idna==2.9
-      - ipaddress==1.0.23
-      - pycparser==2.20
-      - pypssl==2.1
-      - r2pipe==1.2.0
-      - beautifulsoup4==4.7.1
-      - pylzma==0.5.0
-      - virustotal-api==1.1.10
-      - yara-python==3.10.0
-      - pycrypto==2.6.1
-      - git+https://github.com/viper-framework/ScrapySplashWrapper.git#egg=ScrapySplashWrapper
-      - git+https://github.com/sebdraven/verify-sigs.git#egg=verify-sigs
-      - oletools==0.54.1
-      - git+https://github.com/MISP/PyTaxonomies.git#egg=PyTaxonomies
-      - git+https://github.com/MISP/PyMISPGalaxies.git#egg=PyMISPGalaxies
-      - ocrd-pyexiftool==0.2.0
-      - jbxapi>=3.1.3,<4
-      - pymisp[fileobjects,virustotal] >= 2.4.96
-      - jsonschema<4.0.0,>=3.2.0
-      - lief==0.10.1
-      - snoopdroid==2.1
-    - bin_env: /opt/viper/bin/python3
+    - name: jsonschema<4.0.0,>=3.2.0
+    - editable: git+https://github.com/viper-framework/xxxswf.git@9188316eb7a179326d99bfde9fe0184bb3cee6a3#egg=xxxswf
+    - editable: git+https://github.com/viper-framework/ScrapySplashWrapper.git#egg=ScrapySplashWrapper
+    - editable: git+https://github.com/sebdraven/verify-sigs.git#egg=verify-sigs
+    - editable: git+https://github.com/MISP/PyTaxonomies.git#egg=PyTaxonomies
+    - editable: git+https://github.com/MISP/PyMISPGalaxies.git#egg=PyMISPGalaxies
+    - requirements: https://github.com/viper-framework/viper-modules/raw/master/requirements.txt
+    - bin_env: /opt/viper/bin/pip3
+
+remnux-python-packages-viper-update-fix:
+  file.replace:
+    - name: /opt/viper/lib/python3.6/site-packages/viper/core/ui/cmd/update-modules.py
+    - pattern: pip3
+    - repl: /opt/viper/bin/pip3
+    - count: 1
+    - prepend_if_not_found: False
     - require:
-      - pip: remnux-python-packages-viper-install
-    - watch:
       - pip: remnux-python-packages-viper-install
 
 remnux-python-packages-viper-symlink:
