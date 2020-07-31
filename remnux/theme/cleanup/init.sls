@@ -6,15 +6,18 @@ include:
 yelp:
   pkg.removed
 
-unattended-upgrades:
-  pkg.removed
-
 avahi-daemon:
   pkg.removed
 
-remnux-theme-cleanup-autoremove:
-  cmd.run:
-    - name: apt-get autoremove -y
+# Disable unattended updates and upgrades
+unattended-upgrades:
+  pkg.removed
+
+remnux-theme-cleanup-disable-auto-upgrades:
+  file.append:
+    - name: /etc/apt/apt.conf.d/20auto-upgrades
+    - text: "APT::Periodic::Update-Package-Lists \"0\";\nAPT::Periodic::Unattended-Upgrade \"0\";"
+    - makedirs: True
 
 # Runlevel isn't in a Docker container, so check whether it exists before
 # trying to control  services
@@ -45,3 +48,7 @@ remnux-theme-cleanup-docker-wrapper:
       - sls: remnux.packages.docker
 
 {% endif %}
+
+remnux-theme-cleanup-autoremove:
+  cmd.run:
+    - name: apt-get autoremove -y
