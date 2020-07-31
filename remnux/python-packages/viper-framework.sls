@@ -4,7 +4,7 @@
 # Category: Gather and Analyze Data
 # Author: Claudio Guarnieri: https://nex.sx
 # License: BSD 3-Clause License: https://github.com/viper-framework/viper/blob/master/LICENSE
-# Notes: viper
+# Notes: Run the tool using the `viper` command. The first time you activate the tool, specify the `update-modules` command within it to download and update community modules from the tool's repository.
 
 include:
   - remnux.packages.libssl-dev
