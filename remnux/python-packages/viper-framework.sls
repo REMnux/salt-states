@@ -60,8 +60,8 @@ remnux-python-packages-viper-requirements:
 remnux-python-packages-viper-update-fix:
   file.replace:
     - name: /opt/viper/lib/python3.6/site-packages/viper/core/ui/cmd/update-modules.py
-    - pattern: pip3
-    - repl: /opt/viper/bin/pip3
+    - pattern: "pip3"
+    - repl: "/opt/viper/bin/pip3"
     - count: 1
     - prepend_if_not_found: False
     - require:

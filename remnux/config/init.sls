@@ -16,6 +16,7 @@ include:
   - remnux.config.binee
   - remnux.config.nginx
   - remnux.config.android-project-creator
+  - remnux.config.viper-virtualenv
 
 remnux-config:
   test.nop:
@@ -37,3 +38,4 @@ remnux-config:
       - sls: remnux.config.binee
       - sls: remnux.config.nginx
       - sls: remnux.config.android-project-creator
+      - sls: remnux.config.viper-virtualenv
