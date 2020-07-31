@@ -19,7 +19,6 @@ include:
   - remnux.python-packages.pypdns
   - remnux.python-packages.pypssl
   - remnux.python-packages.r2pipe
-  - remnux.python-packages.rarfile
   - remnux.python-packages.requesocks
   - remnux.python-packages.setuptools
   - remnux.python-packages.shodan
@@ -82,7 +81,6 @@ remnux-python-packages:
       - sls: remnux.python-packages.pypdns
       - sls: remnux.python-packages.pypssl
       - sls: remnux.python-packages.r2pipe
-      - sls: remnux.python-packages.rarfile
       - sls: remnux.python-packages.requesocks
       - sls: remnux.python-packages.setuptools
       - sls: remnux.python-packages.shodan
