@@ -57,6 +57,7 @@ include:
   - remnux.python-packages.vivisect
   - remnux.python-packages.oletools
   - remnux.python-packages.pycryptodomex
+  - remnux.python-packages.unfurl
 
 remnux-python-packages:
   test.nop:
@@ -119,3 +120,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.vivisect
       - sls: remnux.python-packages.oletools
       - sls: remnux.python-packages.pycryptodomex
+      - sls: remnux.python-packages.unfurl

@@ -29,6 +29,7 @@ include:
   - remnux.scripts.translate
   - remnux.scripts.zipdump
   - remnux.scripts.pecheck
+  - remnux.python-packages.unfurl
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -337,3 +338,13 @@ remnux-config-bash-completion-translate:
     - mode: 644
     - require:
       - sls: remnux.scripts.translate
+
+remnux-config-bash-completion-unfurl:
+  file.managed:
+    - name: /etc/bash_completion.d/unfurl
+    - source: salt://remnux/config/bash-completion/unfurl
+    - replace: False
+    - makedirs: True
+    - mode: 644
+    - require:
+      - sls: remnux.python-packages.unfurl
