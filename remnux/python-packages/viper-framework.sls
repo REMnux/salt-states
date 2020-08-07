@@ -29,7 +29,7 @@ include:
   - remnux.packages.build-essential
   - remnux.packages.libffi-dev
   - remnux.packages.unrar
-  - remnux.packages.p7zip-full
+  - remnux.packages.7zip
   - remnux.packages.tor
   - remnux.packages.clamav-daemon
   - remnux.packages.ssdeep
@@ -65,7 +65,7 @@ remnux-python-packages-viper-install:
       - sls: remnux.packages.build-essential
       - sls: remnux.packages.libffi-dev
       - sls: remnux.packages.unrar
-      - sls: remnux.packages.p7zip-full
+      - sls: remnux.packages.7zip
       - sls: remnux.packages.tor
       - sls: remnux.packages.clamav-daemon
       - sls: remnux.packages.ssdeep
