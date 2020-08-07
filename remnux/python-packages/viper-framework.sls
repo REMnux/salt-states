@@ -94,6 +94,7 @@ remnux-python-packages-viper-directory:
       - group
     - require:
       - pip: remnux-python-packages-viper-install
+      - user: remnux-user-{{ user }}
 
 remnux-python-packages-viper-modules-git:
   git.cloned:
