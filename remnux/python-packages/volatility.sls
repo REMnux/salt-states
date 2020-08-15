@@ -25,6 +25,7 @@ include:
   - remnux.python-packages.pysocks
   - remnux.python-packages.simplejson
   - remnux.python-packages.yara-python
+  - remnux.python-packages.requests
   - remnux.packages.python3-pip
 
 remnux-python-packages-volatility:
@@ -66,6 +67,26 @@ remnux-python-packages-volatility-community-plugins:
       - sls: remnux.python-packages.pysocks
       - sls: remnux.python-packages.simplejson
       - sls: remnux.python-packages.yara-python
+
+remnux-python-packages-volatility-malfind-yarascan-options1:
+  file.replace:
+    - name: /usr/local/lib/python2.7/dist-packages/volatility/plugins/malware/malfind.py
+    - pattern: short_option = 'C'
+    - repl: short_option = 'c'
+    - prepend_if_not_found: False
+    - count: 1
+    - require:
+      - git: remnux-python-packages-volatility-community-plugins
+
+remnux-python-packages-volatility-malfind-yarascan-options2:
+  file.replace:
+    - name: /usr/local/lib/python2.7/dist-packages/volatility/plugins/malware/malfind.py
+    - pattern: short_option = 'Y'
+    - repl: short_option = 'U'
+    - prepend_if_not_found: False
+    - count: 1
+    - require:
+      - file: remnux-python-packages-volatility-malfind-yarascan-options1
 
 {% for plugin in remove_plugins -%}
 
