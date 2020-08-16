@@ -166,6 +166,7 @@ include:
   - remnux.packages.file
   - remnux.packages.android-project-creator
   - remnux.packages.libdpkg-perl
+  - remnux.packages.sandfly-processdecloak
 
 remnux-packages:
   test.nop:
@@ -335,3 +336,4 @@ remnux-packages:
       - sls: remnux.packages.file
       - sls: remnux.packages.android-project-creator
       - sls: remnux.packages.libdpkg-perl
+      - sls: remnux.packages.sandfly-processdecloak
