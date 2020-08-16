@@ -15,6 +15,7 @@ remnux-radare2-source:
     - source: http://radare.mikelloc.com/get/4.3.1/radare2_4.3.1_amd64.deb
     - source_hash: sha256=d72170c5dcfdc10eed604f9e33b2868107aee6db564152eb63cab78b1d066aa7
 
+
 remnux-radare2:
   pkg.installed:
     - sources:
@@ -24,11 +25,17 @@ remnux-radare2:
     - require:
       - pkg: git
 
+remnux-radare2-cleanup:
+  pkg.removed:
+    - name: libradare2-common
+    - require:
+      - pkg: remnux-radare2
+
 remnux-radare2-init:
   cmd.wait:
     - name: r2pm init
     - watch:
-      - pkg: remnux-radare2
+      - pkg: remnux-radare2-cleanup
 
 remnux-radare2-update:
   cmd.wait:
