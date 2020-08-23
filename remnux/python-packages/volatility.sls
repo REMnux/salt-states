@@ -26,6 +26,7 @@ include:
   - remnux.python-packages.simplejson
   - remnux.python-packages.yara-python
   - remnux.python-packages.requests
+  - remnux.python-packages.openpyxl
   - remnux.packages.python3-pip
 
 remnux-python-packages-volatility:
@@ -67,6 +68,7 @@ remnux-python-packages-volatility-community-plugins:
       - sls: remnux.python-packages.pysocks
       - sls: remnux.python-packages.simplejson
       - sls: remnux.python-packages.yara-python
+      - sls: remnux.python-packages.openpyxl
 
 remnux-python-packages-volatility-malfind-yarascan-options1:
   file.replace:
