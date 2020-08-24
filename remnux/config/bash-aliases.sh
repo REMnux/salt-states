@@ -57,7 +57,7 @@ function remnux {
     SUDO=/usr/bin/sudo
     REMNUX_CLI=/usr/local/bin/remnux
   if [ -e $SUDO ]; then
-    if [ $USER == "root" ]; then
+    if [ "$USER" == "root" ]; then
       $REMNUX_CLI ${*}
     else
       sudo $REMNUX_CLI ${*}
