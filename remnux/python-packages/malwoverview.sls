@@ -19,14 +19,17 @@ include:
   - remnux.packages.python3-pip
   - remnux.packages.git
   - remnux.config.user
+  - remnux.python-packages.pytest
 
 remnux-python-packages-malwoverview-install:
   pip.installed:
     - name: git+https://github.com/alexandreborges/malwoverview.git
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.git
+      - sls: remnux.python-packages.pytest
 
 remnux-python-packages-malwoverview-config-file:
   file.managed:
