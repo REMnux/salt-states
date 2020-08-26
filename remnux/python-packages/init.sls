@@ -58,6 +58,7 @@ include:
   - remnux.python-packages.oletools
   - remnux.python-packages.pycryptodomex
   - remnux.python-packages.unfurl
+  - remnux.python-packages.speakeasy
 
 remnux-python-packages:
   test.nop:
@@ -121,3 +122,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.oletools
       - sls: remnux.python-packages.pycryptodomex
       - sls: remnux.python-packages.unfurl
+      - sls: remnux.python-packages.speakeasy
