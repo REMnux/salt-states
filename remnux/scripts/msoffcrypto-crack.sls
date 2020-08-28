@@ -3,7 +3,7 @@
 # Description: Recover the password of an encrypted Microsoft Office document.
 # Category: Analyze Documents: Microsoft Office
 # Author: Didier Stevens: https://twitter.com/DidierStevens
-# License: Free, unknown license
+# License: Public Domain
 # Notes: 
 
 include:
@@ -34,6 +34,15 @@ remnux-scripts-msoffcrypto-crack-binary:
     - require:
       - archive: remnux-scripts-msoffcrypto-crack-archive
 
+remnux-scripts-msoffcrypto-crack-formatting:
+  file.replace:
+    - name: /usr/local/bin/msoffcrypto-crack.py
+    - pattern: '\r'
+    - repl: ''
+    - backup: false
+    - require:
+      - file: remnux-scripts-msoffcrypto-crack-binary
+
 remnux-scripts-msoffcrypto-crack-shebang:
   file.replace:
     - name: /usr/local/bin/msoffcrypto-crack.py
@@ -43,4 +52,4 @@ remnux-scripts-msoffcrypto-crack-shebang:
     - backup: false
     - count: 1
     - require:
-      - file: remnux-scripts-msoffcrypto-crack-binary
+      - file: remnux-scripts-msoffcrypto-crack-formatting
