@@ -41,6 +41,7 @@ remnux-scripts-pecheck-shebang:
     - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/env python3'
     - prepend_if_not_found: False
+    - backup: false
     - count: 1
     - require:
       - file: remnux-scripts-pecheck-binary

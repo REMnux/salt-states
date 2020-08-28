@@ -27,6 +27,7 @@ include:
   - remnux.scripts.translate
   - remnux.scripts.zipdump
   - remnux.scripts.pecheck
+  - remnux.scripts.msoffcrypto-crack
 
 remnux-scripts:
   test.nop:
@@ -59,3 +60,4 @@ remnux-scripts:
       - sls: remnux.scripts.translate
       - sls: remnux.scripts.zipdump
       - sls: remnux.scripts.pecheck
+      - sls: remnux.scripts.msoffcrypto-crack
