@@ -5,6 +5,7 @@ include:
 pysocks:
   pip.installed:
     - bin_env: /usr/bin/python
+    - upgrade: True
     - name: pysocks
     - require:
       - pkg: python-pip

@@ -8,6 +8,7 @@ remnux-pygraphviz:
   pip.installed:
     - bin_env: /usr/bin/python
     - name: pygraphviz
+    - upgrade: True
     - install_options:
       - --include-path=/usr/include/graphviz
       - --library-path=/usr/lib/graphviz

@@ -14,6 +14,7 @@ remnux-pip-xlmmacrodeobfuscator:
   pip.installed:
     - name: xlmmacrodeobfuscator
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
 

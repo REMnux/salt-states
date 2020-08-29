@@ -20,6 +20,7 @@ remnux-python-packages-droidlysis:
     - name: droidlysis
     - upgrade: True
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.tools.apktool
       - sls: remnux.packages.baksmali

@@ -13,6 +13,7 @@ include:
 pcodedmp:
   pip.installed:
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
 
@@ -22,6 +23,7 @@ remnux-python-packages-pcodedmp-shebang:
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
     - prepend_if_not_found: False
+    - backup: false
     - count: 1
     - require:
       - pip: pcodedmp

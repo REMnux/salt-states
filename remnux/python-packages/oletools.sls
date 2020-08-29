@@ -14,6 +14,7 @@ include:
 oletools:
   pip.installed:
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.python3-tk
@@ -23,6 +24,7 @@ remnux-python-packages-olevba-shebang:
     - name: /usr/local/bin/olevba
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -33,6 +35,7 @@ remnux-python-packages-olevba3-shebang:
     - name: /usr/local/bin/olevba3
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -43,6 +46,7 @@ remnux-python-packages-olebrowse-shebang:
     - name: /usr/local/bin/olebrowse
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -53,6 +57,7 @@ remnux-python-packages-oledir-shebang:
     - name: /usr/local/bin/oledir
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -63,6 +68,7 @@ remnux-python-packages-oleid-shebang:
     - name: /usr/local/bin/oleid
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -73,6 +79,7 @@ remnux-python-packages-olemap-shebang:
     - name: /usr/local/bin/olemap
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -83,6 +90,7 @@ remnux-python-packages-olemeta-shebang:
     - name: /usr/local/bin/olemeta
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -93,6 +101,7 @@ remnux-python-packages-oleobj-shebang:
     - name: /usr/local/bin/oleobj
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -103,6 +112,7 @@ remnux-python-packages-oletimes-shebang:
     - name: /usr/local/bin/oletimes
     - pattern: '#!/usr/bin/python2'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:

@@ -14,6 +14,7 @@ include:
 ioc_writer:
   pip.installed:
     - bin_env: /usr/bin/python
+    - upgrade: True
     - require:
       - pkg: python-pip
       - sls: remnux.python-packages.lxml

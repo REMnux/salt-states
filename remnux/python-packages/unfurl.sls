@@ -23,6 +23,7 @@ remnux-python-packages-unfurl-requirements:
 remnux-python-packages-unfurl:
   pip.installed:
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - name: git+https://github.com/obsidianforensics/unfurl.git@master
     - require:
       - sls: remnux.packages.python3-pip

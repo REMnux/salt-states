@@ -16,6 +16,7 @@ include:
 remnux-python-packages-peframe:
   pip.installed:
     - name: git+https://github.com/guelfoweb/peframe.git@master
+    - upgrade: True
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.git

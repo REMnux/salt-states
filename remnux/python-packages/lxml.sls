@@ -7,6 +7,7 @@ include:
 lxml:
   pip.installed:
     - bin_env: /usr/bin/python
+    - upgrade: True
     - require:
       - pkg: python-pip
       - pkg: libxml2-dev

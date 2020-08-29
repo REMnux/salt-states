@@ -15,6 +15,7 @@ remnux-python-packages-balbuzard:
   pip.installed:
     - bin_env: /usr/bin/python
     - name: balbuzard
+    - upgrade: True
     - require:
       - sls: remnux.packages.python-pip
       - sls: remnux.python-packages.yara-python

@@ -15,6 +15,7 @@ remnux-python-package-virustotal-api:
   pip.installed:
     - name: git+https://github.com/doomedraven/VirusTotalApi
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.git

@@ -16,6 +16,7 @@ remnux-python-packages-volatility3:
   pip.installed:
     - name: git+https://github.com/volatilityfoundation/volatility3.git@master
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python3-pip

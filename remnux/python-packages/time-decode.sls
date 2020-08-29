@@ -14,5 +14,6 @@ remnux-python-packages-time-decode-install:
   pip.installed:
     - name: time-decode
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip

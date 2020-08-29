@@ -14,6 +14,7 @@ remnux-python-packages-pefile:
   pip.installed:
     - name: pefile
     - bin_env: /usr/bin/python
+    - upgrade: True
     - require:
       - sls: remnux.packages.python-pip
 

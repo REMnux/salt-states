@@ -18,6 +18,7 @@ remnux-tools-peepdf-source:
   pip.installed:
     - name: git+https://github.com/digitalsleuth/peepdf.git
     - bin_env: /usr/bin/python
+    - upgrade: True
     - require:
       - sls: remnux.packages.python-pip
       - sls: remnux.packages.libemu

@@ -22,6 +22,7 @@ remnux-python-packages-ipwhois_cli-shebang:
     - name: /usr/local/bin/ipwhois_cli.py
     - pattern: '#!/usr/bin/env python3'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: True
     - count: 1
     - require:
@@ -32,6 +33,7 @@ remnux-python-packages-ipwhois_utils-shebang:
     - name: /usr/local/bin/ipwhois_utils_cli.py
     - pattern: '#!/usr/bin/env python3'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: True
     - count: 1
     - require:

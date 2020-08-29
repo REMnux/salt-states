@@ -13,6 +13,7 @@ include:
 remnux-pip-unicode:
   pip.installed:
     - name: unicode
+    - upgrade: True
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.python3-pip

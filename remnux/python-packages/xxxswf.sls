@@ -17,6 +17,7 @@ remnux-python-packages-xxxswf:
   pip.installed:
     - name: git+https://github.com/viper-framework/xxxswf.git
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python3-pip

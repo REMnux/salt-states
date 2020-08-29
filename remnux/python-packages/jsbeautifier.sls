@@ -13,6 +13,7 @@ include:
 remnux-python-packages-jsbeautifier:
   pip.installed:
     - name: jsbeautifier
+    - upgrade: True
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.python3-pip
