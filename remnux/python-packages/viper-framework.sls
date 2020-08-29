@@ -55,7 +55,6 @@ remnux-python-packages-viper-install:
   pip.installed:
     - name: viper-framework
     - bin_env: /opt/viper/bin/python3
-    - upgrade: True
     - require:
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.swig
