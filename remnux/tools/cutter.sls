@@ -9,14 +9,14 @@
 remnux-tools-cutter-source:
   file.managed:
     - name: /usr/local/bin/cutter
-    - source: https://github.com/radareorg/cutter/releases/download/v1.11.0/Cutter-v1.11.0-x64.Linux.AppImage
-    - source_hash: d38135e24d98c849db325945c293af8947bef9dc6346aa21ee620a9b527cbf19
+    - source: https://github.com/radareorg/cutter/releases/download/v1.12.0/Cutter-v1.12.0-x64.Linux.AppImage
+    - source_hash: 73a0bb63d0b8b6cd2c45c98280f6753a394b061797b5a8bf125bb3d15bbca1b4
     - mode: 755
 
 remnux-tools-cutter-icon:
   file.managed:
     - name: /usr/share/icons/cutter.svg
-    - source: https://raw.githubusercontent.com/radareorg/cutter/v1.11.0/src/img/cutter.svg
+    - source: https://raw.githubusercontent.com/radareorg/cutter/v1.12.0/src/img/cutter.svg
     - source_hash: 4ad117f6d8fc9fffc1359d1eef7f3f1c68db0f74eebebc998fa47b89bab81832
     - mode: 644
     - makedirs: True
