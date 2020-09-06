@@ -124,6 +124,16 @@ remnux-python-packages-viper-modules-pymispgalaxies:
     - require:
       - git: remnux-python-packages-viper-modules-git
 
+remnux-python-packages-viper-modules-bitstring:
+  file.replace:
+    - name: {{ home }}/.viper/modules/requirements.txt
+    - pattern: 'bitstring==3.1.6'
+    - repl: ''
+    - count: 1
+    - prepend_if_not_found: False
+    - require:
+      - git: remnux-python-packages-viper-modules-git
+
 remnux-python-packages-viper-modules-init:
   cmd.run:
     - name: git submodule init
