@@ -12,7 +12,7 @@ include:
 remnux-tools-ssview-source:
   file.managed:
     - name: /usr/local/src/remnux/files/SSView.zip
-    - source: http://www.mitec.cz/Downloads/SSView.zip
+    - source: https://www.mitec.cz/Downloads/SSView.zip
     - source_hash: 8bafa359afa53984ed9809bbe2e848d6866a42edfc1b446c91841fd0b439e879
     - makedirs: True
     - require:
