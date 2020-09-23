@@ -19,7 +19,7 @@ include:
 
 remnux-pip3-stpyv8:
   pip.installed:
-    - name: https://github.com/area1/stpyv8/releases/download/v8.4.371.19/stpyv8-8.4.371.19-cp36-cp36m-linux_x86_64.whl
+    - name: https://github.com/area1/stpyv8/releases/download/v8.5.210.26/stpyv8-8.5.210.26-cp36-cp36m-linux_x86_64.whl
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.python3-pip
