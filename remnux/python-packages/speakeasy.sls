@@ -32,7 +32,7 @@ remnux-python-packages-speakeasy-wrapper:
   file.managed:
     - name: /usr/local/bin/run_speakeasy.py
     - source: https://raw.githubusercontent.com/fireeye/speakeasy/master/run_speakeasy.py
-    - source_hash: sha256=fddca5fb77fcafada3ee5469d6f0e2b7ea8cbb0ebe879114a2d83fa6746f0720
+    - source_hash: sha256=2c14f4e33cc065f63dd1fb8aadb34ee6d082d9b01fdd5cd9d76c1a91c486a00d
     - makedirs: false
     - mode: 755
     - require:
