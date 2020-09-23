@@ -18,7 +18,7 @@ remnux-scripts-dexray-source:
   file.managed:
     - name: /usr/local/bin/dexray
     - source: https://hexacorn.com/d/DeXRAY.pl 
-    - source_hash: sha256=9f314060960677a2c5feefe4e458a17a28694d4f38c05d3be8fe3db612829371
+    - source_hash: sha256=5a2759d89d8351a5728ce8eceb93db7bac80b062889f2d4ed33b2690303e4249
     - mode: 755
     - requires:
       - sls: remnux.packages.perl
@@ -28,3 +28,13 @@ remnux-scripts-dexray-source:
       - sls: remnux.perl-packages.digest-crc
       - sls: remnux.perl-packages.ole-storagelite
 
+remnux-scripts-dexray-replace:
+  file.replace:
+    - name: /usr/local/bin/dexray
+    - pattern: '@r0ns3n'
+    - repl: 'r0ns3n'
+    - backup: false
+    - prepend_if_not_found: false
+    - count: 3
+    - require:
+      - file: remnux-scripts-dexray-source
