@@ -45,16 +45,18 @@ remnux-gnome-config-dconf-directory:
     - watch:
       - file: remnux-gnome-config-script
 
-remnux-gnome-config-script-run:
-  cmd.run:
-    - name: /usr/local/share/remnux/gnome-config.sh
-    - cwd: {{ home }}
-    - shell: /bin/bash
-    - runas: {{ user }}
-    - watch:
-        - file: remnux-gnome-config-dconf-directory
+remnux-gnome-config-autostart:
+  file.managed:
+    - replace: False
+    - user: {{ user }}
+    - group: {{ user }}
+    - name: {{ home }}/.config/autostart/gnome-config.desktop
+    - source: salt://remnux/theme/gnome-config/gnome-config.desktop
+    - makedirs: True
     - require:
       - user: remnux-user-{{ user }}
+      - file: remnux-gnome-config-dconf-directory
+      - file: remnux-gnome-config-script
 
 remnux-gnome-config-autostart-terminal:
   file.managed:
