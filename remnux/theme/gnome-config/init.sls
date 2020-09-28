@@ -47,7 +47,7 @@ remnux-gnome-config-dconf-directory:
 
 remnux-gnome-config-script-run:
   cmd.run:
-    - name: dbus-run-session -- /usr/local/share/remnux/gnome-config.sh
+    - name: /usr/local/share/remnux/gnome-config.sh
     - cwd: {{ home }}
     - shell: /bin/bash
     - runas: {{ user }}
