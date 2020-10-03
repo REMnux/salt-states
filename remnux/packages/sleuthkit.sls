@@ -6,6 +6,10 @@
 # License: the IBM Public License, the Common Public License, the GPL2: https://www.sleuthkit.org/sleuthkit/licenses.php
 # Notes: 
 
+include:
+  - remnux.repos.gift
+
 remnux-packages-sleuthkit:
   pkg.installed:
     - name: sleuthkit
+    - pkgrepo: gift-repo
