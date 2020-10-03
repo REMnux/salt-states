@@ -18,4 +18,6 @@ sift-repo:
   pkgrepo.managed:
     - ppa: sift/{{ version }}
     - refresh: true
-    - keyid_ppa: true
+    # Source - https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xb2a668dd0744bec3
+    - key_url: salt://remnux/repos/files/SIFT-GPG-KEY.asc
+    - gpgcheck: 1
