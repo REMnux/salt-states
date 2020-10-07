@@ -32,8 +32,9 @@ include:
 # openpyxl is needed for the timeliner plugin
 remnux-python-packages-volatility:
   pip.installed:
-    - name: git+https://github.com/volatilityfoundation/volatility.git@2.6.1
+    - name: git+https://github.com/volatilityfoundation/volatility.git@master
     - bin_env: /usr/bin/python
+    - upgrade: True
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python-pip
