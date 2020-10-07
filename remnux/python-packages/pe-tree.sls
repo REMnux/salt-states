@@ -1,6 +1,6 @@
 # Name: PE Tree
 # Website: https://github.com/blackberry/pe_tree
-# Description: 
+# Description: Examine contents and structure of PE files.
 # Category: Examine Static Properties: PE Files
 # Author: BlackBerry Limited: https://twitter.com/BlackBerrySpark and Tom Bonner: thomas_bonner
 # License: Apache License 2.0: https://github.com/blackberry/pe_tree/blob/master/LICENSE
