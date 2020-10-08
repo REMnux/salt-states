@@ -18,7 +18,7 @@ remnux-scripts-dexray-source:
   file.managed:
     - name: /usr/local/bin/dexray
     - source: https://hexacorn.com/d/DeXRAY.pl 
-    - source_hash: sha256=5a2759d89d8351a5728ce8eceb93db7bac80b062889f2d4ed33b2690303e4249
+    - source_hash: sha256=e032f1c6f0cbff97eafc70b8bc3a6728dda54cc1bb700aa06237781bcc5de38b
     - mode: 755
     - requires:
       - sls: remnux.packages.perl
