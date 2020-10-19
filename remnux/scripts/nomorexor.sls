@@ -19,3 +19,11 @@ remnux-scripts-nomorexor-source:
   - require:
     - sls: remnux.python-packages.yara-python
 
+remnux-scripts-nomorexor-shebang:
+  file.replace:
+    - name: /usr/local/bin/nomorexor.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-nomorexor-source

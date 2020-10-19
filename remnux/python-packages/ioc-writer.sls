@@ -7,14 +7,14 @@
 # Notes: 
 
 include:
-  - remnux.packages.python-pip
+  - remnux.packages.python2-pip
   - remnux.python-packages.lxml
   - remnux.packages.python3-pip
 
 ioc_writer:
   pip.installed:
-    - bin_env: /usr/bin/python
+    - bin_env: /usr/bin/python2
     - upgrade: True
     - require:
-      - pkg: python-pip
+      - sls: remnux.packages.python2-pip
       - sls: remnux.python-packages.lxml

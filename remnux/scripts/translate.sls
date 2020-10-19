@@ -28,3 +28,12 @@ remnux-scripts-translate-binary:
     - mode: 755
     - watch:
       - archive: remnux-scripts-translate-archive
+
+remnux-scripts-translate-shebang:
+  file.replace:
+    - name: /usr/local/bin/translate.py
+    - pattern: '#!/usr/bin/env python'
+    - repl: '#!/usr/bin/env python3'
+    - count: 1
+    - require:
+      - file: remnux-scripts-translate-binary

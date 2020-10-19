@@ -22,11 +22,10 @@ remnux-tools-pdfxray-lite:
 remnux-tools-pdfxray-lite-shebang:
   file.replace:
     - name: /usr/local/pdfxray_lite/pdfxray_lite.py
-    - pattern: '#!/usr/bin/env python'
-    - repl: '#!/usr/bin/env python'
-    - prepend_if_not_found: True
+    - pattern: '^#!/usr/bin/env python$'
+    - repl: '#!/usr/bin/env python2'
     - count: 1
-    - watch:
+    - require:
       - git: remnux-tools-pdfxray-lite
 
 /usr/local/bin/pdfxray_lite.py:

@@ -10,12 +10,9 @@ include:
   - remnux.tools.pdfxray_lite
 
 remnux-tools-swf-mastah-shebang:
-  file.replace:
+  file.prepend:
     - name: /usr/local/pdfxray_lite/swf_mastah.py
-    - pattern: '#!/usr/bin/env python'
-    - repl: '#!/usr/bin/env python'
-    - prepend_if_not_found: True
-    - count: 1
+    - text: '#!/usr/bin/env python2'
     - require:
       - sls: remnux.tools.pdfxray_lite
 

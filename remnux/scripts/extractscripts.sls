@@ -28,3 +28,12 @@ remnux-scripts-extractscripts-binary:
     - mode: 755
     - watch:
       - archive: remnux-scripts-extractscripts-archive
+
+remnux-scripts-extractscripts-shebang:
+  file.replace:
+    - name: /usr/local/bin/extractscripts.py
+    - pattern: '#!/usr/bin/python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-extractscripts-binary

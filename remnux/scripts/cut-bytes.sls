@@ -36,3 +36,12 @@ remnux-scripts-cut-bytes-binary:
     - mode: 755
     - watch:
       - file: remnux-scripts-cut-bytes-formatting
+
+remnux-scripts-cut-bytes-shebang:
+  file.replace:
+    - name: /usr/local/bin/cut-bytes.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-cut-bytes-binary

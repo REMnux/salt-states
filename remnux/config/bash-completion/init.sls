@@ -2,7 +2,7 @@ include:
   - remnux.scripts.pdf-parser
   - remnux.scripts.pdfid
   - remnux.scripts.rtfdump
-  - remnux.python-packages.xxxswf
+  - remnux.python3-packages.xxxswf
   - remnux.python-packages.balbuzard
   - remnux.scripts.base64dump
   - remnux.node-packages.box-js
@@ -11,25 +11,25 @@ include:
   - remnux.packages.flare-floss
   - remnux.packages.spidermonkey
   - remnux.packages.oledump
-  - remnux.python-packages.oletools
-  - remnux.python-packages.peframe
-  - remnux.python-packages.thug
+  - remnux.python3-packages.oletools
+  - remnux.python3-packages.peframe
+  - remnux.python3-packages.thug
   - remnux.python-packages.volatility
   - remnux.packages.pev
   - remnux.rubygems.pedump
   - remnux.packages.swftools
   - remnux.packages.upx-ucl
-  - remnux.python-packages.xortool
+  - remnux.python3-packages.xortool
   - remnux.scripts.virustotal-search
   - remnux.tools.remnux-cli
-  - remnux.python-packages.pcodedmp
+  - remnux.python3-packages.pcodedmp
   - remnux.scripts.xor-kpa
   - remnux.packages.msoffice-crypt
   - remnux.packages.binee
   - remnux.scripts.translate
   - remnux.scripts.zipdump
   - remnux.scripts.pecheck
-  - remnux.python-packages.unfurl
+  - remnux.python3-packages.unfurl
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -77,7 +77,7 @@ remnux-config-bash-completion-xxxswf:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.python-packages.xxxswf
+      - sls: remnux.python3-packages.xxxswf
 
 remnux-config-bash-completion-balbuzard:
   file.managed:
@@ -187,7 +187,7 @@ remnux-config-bash-completion-olevba:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.python-packages.oletools
+      - sls: remnux.python3-packages.oletools
 
 remnux-config-bash-completion-peframe:
   file.managed:
@@ -197,7 +197,7 @@ remnux-config-bash-completion-peframe:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.python-packages.peframe
+      - sls: remnux.python3-packages.peframe
 
 remnux-config-bash-completion-thug:
   file.managed:
@@ -207,7 +207,7 @@ remnux-config-bash-completion-thug:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.python-packages.thug
+      - sls: remnux.python3-packages.thug
 
 remnux-config-bash-completion-volatility:
   file.managed:
@@ -267,7 +267,7 @@ remnux-config-bash-completion-xortool:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.python-packages.xortool
+      - sls: remnux.python3-packages.xortool
 
 remnux-config-bash-completion-virustotal-search:
   file.managed:
@@ -297,7 +297,7 @@ remnux-config-bash-completion-pcodedmp:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.python-packages.pcodedmp
+      - sls: remnux.python3-packages.pcodedmp
 
 remnux-config-bash-completion-xor-kpa:
   file.managed:
@@ -347,4 +347,4 @@ remnux-config-bash-completion-unfurl:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.python-packages.unfurl
+      - sls: remnux.python3-packages.unfurl

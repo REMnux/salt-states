@@ -28,3 +28,12 @@ remnux-scripts-base64dump-binary:
     - mode: 755
     - watch:
       - archive: remnux-scripts-base64dump-archive
+
+remnux-scripts-base64dump-shebang:
+  file.replace:
+    - name: /usr/local/bin/base64dump.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-base64dump-binary
