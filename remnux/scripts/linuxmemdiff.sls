@@ -17,12 +17,9 @@ remnux-linuxmemdiff-source:
     - mode: 755
 
 remnux-linuxmemdiff-shebang:
-  file.replace:
+  file.prepend:
     - name: /usr/local/bin/linux_mem_diff.py
-    - pattern: '#!/usr/bin/env python'
-    - repl: '#!/usr/bin/env python'
-    - prepend_if_not_found: True
-    - count: 1
+    - text: '#!/usr/bin/env python2'
     - require:
       - file: remnux-linuxmemdiff-source
     - watch:

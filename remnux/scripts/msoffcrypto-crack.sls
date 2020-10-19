@@ -7,7 +7,7 @@
 # Notes: 
 
 include:
-  - remnux.python-packages.msoffcrypto-tool
+  - remnux.python3-packages.msoffcrypto-tool
 
 remnux-scripts-msoffcrypto-crack-source:
   file.managed:
@@ -16,7 +16,7 @@ remnux-scripts-msoffcrypto-crack-source:
     - source_hash: sha256=FEEFDD89134083EA19936494C8FCBD05804B3B9C0D4C5FBAFE06578D466B50AE
     - makedirs: True
     - require:
-      - sls: remnux.python-packages.msoffcrypto-tool
+      - sls: remnux.python3-packages.msoffcrypto-tool
 
 remnux-scripts-msoffcrypto-crack-archive:
   archive.extracted:

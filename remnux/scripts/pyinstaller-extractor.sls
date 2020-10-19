@@ -15,12 +15,9 @@ remnux-pyinstaller-source:
     - makedirs: false
 
 remnux-pyinstaller-shebang:
-  file.replace:
+  file.prepend:
     - name: /usr/local/bin/pyinstxtractor.py
-    - pattern: '#!/usr/bin/env python3'
-    - repl: '#!/usr/bin/env python3'
-    - prepend_if_not_found: True
-    - count: 1
+    - text: '#!/usr/bin/env python3'
     - require:
       - file: remnux-pyinstaller-source
     - watch:

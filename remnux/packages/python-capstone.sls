@@ -1,2 +1,0 @@
-python-capstone:
-  pkg.installed

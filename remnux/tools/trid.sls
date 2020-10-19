@@ -52,21 +52,21 @@ remnux-tools-tridfiles-mode:
     - watch:
       - archive: remnux-tools-tridupdate-archive
 
-remnux-tools-tridupdate-shebang:
-  file.replace:
-    - name: /usr/local/trid_linux_64/tridupdate.py
-    - pattern: '^#!/usr/bin/env python$'
-    - repl: '#!/usr/bin/env python3'
-    - prepend_if_not_found: False
-    - count: 1
-    - require:
-      - archive: remnux-tools-tridupdate-archive
-
 remnux-tools-tridupdate-formatting:
   file.replace:
     - name: /usr/local/trid_linux_64/tridupdate.py
     - pattern: '\r'
     - repl: ''
+    - require:
+      - archive: remnux-tools-tridupdate-archive
+
+remnux-tools-tridupdate-shebang:
+  file.replace:
+    - name: /usr/local/trid_linux_64/tridupdate.py
+    - pattern: '^#!/usr/bin/env python.\n'
+    - repl: '#!/usr/bin/env python3\n'
+    - prepend_if_not_found: False
+    - count: 1
     - require:
       - archive: remnux-tools-tridupdate-archive
 
@@ -98,6 +98,6 @@ remnux-tools-trid-wrapper:
 
 remnux-tools-tridupdate-run:
   cmd.wait:
-    - name: /usr/local/bin/tridupdate
+    - name: /usr/bin/python3 /usr/local/bin/tridupdate
     - watch:
       - file: /usr/local/bin/tridupdate

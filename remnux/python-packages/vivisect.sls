@@ -8,17 +8,17 @@
 
 include:
   - remnux.packages.git
-  - remnux.packages.python-pip
+  - remnux.packages.python2-pip
   - remnux.packages.python-pyqt5
   - remnux.packages.python-pyqt5-qtwebkit
   - remnux.packages.python3-pip
 
 remnux-pip-vivisect:
   pip.installed:
-    - bin_env: /usr/bin/python
+    - bin_env: /usr/bin/python2
     - name: https://github.com/williballenthin/vivisect/zipball/master
     - require:
       - sls: remnux.packages.git
-      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python2-pip
       - sls: remnux.packages.python-pyqt5
       - sls: remnux.packages.python-pyqt5-qtwebkit

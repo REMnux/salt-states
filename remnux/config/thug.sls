@@ -9,7 +9,7 @@
 include:
   - remnux.config.user
   - remnux.config.bash-rc
-  - remnux.python-packages.thug
+  - remnux.python3-packages.thug
 
 remnux-config-thug:
   file.directory:
@@ -21,7 +21,7 @@ remnux-config-thug:
     - require:
       - user: remnux-user-{{ user }}
     - require:
-      - sls: remnux.python-packages.thug
+      - sls: remnux.python3-packages.thug
 
 remnux-config-thug-bash-rc:
   file.append:

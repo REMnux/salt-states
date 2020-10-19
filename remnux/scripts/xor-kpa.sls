@@ -28,3 +28,12 @@ remnux-scripts-xor-kpa-binary:
     - mode: 755
     - watch:
       - archive: remnux-scripts-xor-kpa-archive
+
+remnux-scripts-xor-kpa-shebang:
+  file.replace:
+    - name: /usr/local/bin/xor-kpa.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-xor-kpa-binary

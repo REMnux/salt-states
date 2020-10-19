@@ -58,10 +58,8 @@ include:
   - remnux.packages.pdfresurrect
   - remnux.packages.pkg-config
   - remnux.packages.pyew
-  - remnux.packages.python-capstone
   - remnux.packages.python-crypto
-  - remnux.packages.python-cryptography
-  - remnux.packages.python-dev
+#  - remnux.packages.python-dev
   - remnux.packages.python-dnspython
   - remnux.packages.python-enchant
   - remnux.packages.python-future
@@ -77,16 +75,15 @@ include:
   - remnux.packages.python-networkx
   - remnux.packages.python-numpy
   - remnux.packages.python-pil
-  - remnux.packages.python-pip
+  - remnux.packages.python2-pip
   - remnux.packages.python-pyasn1
-  - remnux.packages.python-pydot
   - remnux.packages.python-pyperclip
   - remnux.packages.python-pyqt5
   - remnux.packages.python-pyqt5-qtwebkit
   - remnux.packages.python-scipy
-  - remnux.packages.python-setuptools
   - remnux.packages.software-properties-common
-  - remnux.packages.python
+  - remnux.packages.python2
+  - remnux.packages.python3
   - remnux.packages.python3-pip
   - remnux.packages.qpdf
   - remnux.packages.radare2
@@ -228,10 +225,8 @@ remnux-packages:
       - sls: remnux.packages.pdfresurrect
       - sls: remnux.packages.pkg-config
       - sls: remnux.packages.pyew
-      - sls: remnux.packages.python-capstone
       - sls: remnux.packages.python-crypto
-      - sls: remnux.packages.python-cryptography
-      - sls: remnux.packages.python-dev
+#      - sls: remnux.packages.python-dev
       - sls: remnux.packages.python-dnspython
       - sls: remnux.packages.python-enchant
       - sls: remnux.packages.python-future
@@ -247,16 +242,15 @@ remnux-packages:
       - sls: remnux.packages.python-networkx
       - sls: remnux.packages.python-numpy
       - sls: remnux.packages.python-pil
-      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python2-pip
       - sls: remnux.packages.python-pyasn1
-      - sls: remnux.packages.python-pydot
       - sls: remnux.packages.python-pyperclip
       - sls: remnux.packages.python-pyqt5
       - sls: remnux.packages.python-pyqt5-qtwebkit
       - sls: remnux.packages.python-scipy
-      - sls: remnux.packages.python-setuptools
       - sls: remnux.packages.software-properties-common
-      - sls: remnux.packages.python
+      - sls: remnux.packages.python2
+      - sls: remnux.packages.python3
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.qpdf
       - sls: remnux.packages.radare2

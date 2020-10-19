@@ -2,7 +2,7 @@
 
 include:
   - remnux.config.user
-  - remnux.python-packages.viper-framework
+  - remnux.python3-packages.viper-framework
 
 remnux-config-viper-framework-virtualenv-permissions:
   file.directory:
@@ -18,4 +18,4 @@ remnux-config-viper-framework-virtualenv-permissions:
     - require:
       - user: remnux-user-{{ user }}
     - require:
-      - sls: remnux.python-packages.viper-framework
+      - sls: remnux.python3-packages.viper-framework

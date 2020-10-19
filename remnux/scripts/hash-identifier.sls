@@ -16,8 +16,8 @@ remnux-scripts-hash-identifier-source:
 remnux-scripts-hash-identifier-shebang:
   file.replace:
     - name: /usr/local/bin/hash-id.py
-    - pattern: '^#!/usr/bin/env python$'
-    - repl: '#!/usr/bin/env python3'
+    - pattern: '#!/usr/bin/env python'
+    - repl: '#!/usr/bin/env python3\n'
     - prepend_if_not_found: False
     - count: 1
     - watch:

@@ -30,4 +30,11 @@ remnux-scripts-disitool-archive:
     - watch:
       - archive: remnux-scripts-disitool-archive
 
-
+remnux-scripts-disitool-shebang:
+  file.replace:
+    - name: /usr/local/bin/disitool.py
+    - pattern: '#!/usr/bin/python'
+    - repl: '#!/usr/bin/env python2'
+    - count: 1
+    - watch:
+      - archive: remnux-scripts-disitool-archive

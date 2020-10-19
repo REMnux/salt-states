@@ -33,3 +33,12 @@ remnux-scripts-virustotal-submit-binary:
       - sls: remnux.python-packages.poster
     - watch:
       - archive: remnux-scripts-virustotal-submit-archive
+
+remnux-scripts-virustotal-submit-shebang:
+  file.replace:
+    - name: /usr/local/bin/virustotal-submit.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-virustotal-submit-binary

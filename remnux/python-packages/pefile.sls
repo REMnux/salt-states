@@ -7,20 +7,13 @@
 # Notes: https://github.com/erocarrera/pefile/blob/wiki/UsageExamples.md#introduction
 
 include:
-  - remnux.packages.python-pip
+  - remnux.packages.python2-pip
   - remnux.packages.python3-pip
 
 remnux-python-packages-pefile:
   pip.installed:
     - name: pefile
-    - bin_env: /usr/bin/python
+    - bin_env: /usr/bin/python2
     - upgrade: True
     - require:
-      - sls: remnux.packages.python-pip
-
-remnux-python-packages-pefile3:
-  pip.installed:
-    - name: pefile
-    - bin_env: /usr/bin/python3
-    - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.packages.python2-pip

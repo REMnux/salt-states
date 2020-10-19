@@ -10,7 +10,7 @@
 {%- set hash   = "059374f82a20107fa75f1f25f96cb3d24e9e53e98294c860496a810bae8e7b7d" %}
 
 include:
-  - remnux.packages.python-pydot
+  - remnux.python-packages.pydot
   - remnux.scripts.pdf-parser
 
 remnux-scripts-pdfobjflow:
@@ -20,5 +20,14 @@ remnux-scripts-pdfobjflow:
     - source_hash: sha256={{ hash }}
     - mode: 755
     - require:
-      - sls: remnux.packages.python-pydot
+      - sls: remnux.python-packages.pydot
       - sls: remnux.scripts.pdf-parser
+
+remnux-scripts-pdfobjflow-shebang:
+  file.replace:
+    - name: /usr/local/bin/pdfobjflow.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-pdfobjflow

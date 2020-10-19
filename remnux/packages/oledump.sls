@@ -7,9 +7,9 @@
 # Notes: oledump.py
 
 include:
-  - remnux.python-packages.yara-python3
-  - remnux.python-packages.olefile
-  - remnux.python-packages.pyzipper
+  - remnux.python3-packages.yara-python3
+  - remnux.python3-packages.olefile
+  - remnux.python3-packages.pyzipper
   - remnux.repos.remnux
 
 remnux-packages-oledump:
@@ -17,9 +17,9 @@ remnux-packages-oledump:
     - name: oledump
     - pkgrepo: remnux
     - require:
-      - sls: remnux.python-packages.yara-python3
-      - sls: remnux.python-packages.olefile
-      - sls: remnux.python-packages.pyzipper
+      - sls: remnux.python3-packages.yara-python3
+      - sls: remnux.python3-packages.olefile
+      - sls: remnux.python3-packages.pyzipper
 
 remnux-packages-oledump-shebang:
   file.replace:
