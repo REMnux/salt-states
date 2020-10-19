@@ -1,12 +1,12 @@
 include:
-  - remnux.packages.python-pip
+  - remnux.packages.python2-pip
   - remnux.packages.libgraphviz-dev
   - remnux.packages.graphviz
   - remnux.packages.python3-pip
 
 remnux-pygraphviz:
   pip.installed:
-    - bin_env: /usr/bin/python
+    - bin_env: /usr/bin/python2
     - name: pygraphviz
     - upgrade: True
     - install_options:
@@ -15,4 +15,4 @@ remnux-pygraphviz:
     - require:
       - pkg: libgraphviz-dev
       - pkg: graphviz
-      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python2-pip

@@ -15,26 +15,18 @@ remnux-tools-captipper:
     - name: https://github.com/omriher/CapTipper.git
     - rev: python3_support
     - target: /usr/local/CapTipper
+    - force_reset: True
+    - force_checkout: True
     - user: root
     - require:
       - sls: remnux.packages.python3
-
-remnux-tools-captipper-shebang:
-  file.replace:
-    - name: /usr/local/CapTipper/CapTipper.py
-    - pattern: '#!/usr/bin/env python$'
-    - repl: '#!/usr/bin/env python3'
-    - prepend_if_not_found: True
-    - count: 1
-    - watch:
-      - git: remnux-tools-captipper
 
 remnux-tools-captipper-permissions:
   file.managed:
     - name: /usr/local/CapTipper/CapTipper.py
     - mode: 755
     - watch:
-      - file: remnux-tools-captipper-shebang
+      - git: remnux-tools-captipper
 
 /usr/local/bin/CapTipper.py:
   file.symlink:

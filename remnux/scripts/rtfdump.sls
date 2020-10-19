@@ -28,3 +28,12 @@ remnux-scripts-rtfdump-binary:
     - mode: 755
     - watch:
       - archive: remnux-scripts-rtfdump-archive
+
+remnux-scripts-rtfdump-shebang:
+  file.replace:
+    - name: /usr/local/bin/rtfdump.py
+    - pattern: '#!/usr/bin/env python'
+    - repl: '#!/usr/bin/env python2'
+    - count: 1
+    - require:
+      - file: remnux-scripts-rtfdump-binary

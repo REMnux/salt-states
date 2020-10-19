@@ -7,8 +7,7 @@
 # Notes: 
 
 include:
-  - remnux.python-packages.pefile
-
+  - remnux.python3-packages.pefile
 
 remnux-scripts-pecheck-source:
   file.managed:
@@ -17,7 +16,7 @@ remnux-scripts-pecheck-source:
     - source_hash: 2B59F745377EABDF81118997CA70F5F4DBC1CE927370F02C6E0262869F988FA9
     - makedirs: True
     - require:
-      - sls: remnux.python-packages.pefile
+      - sls: remnux.python3-packages.pefile
 
 remnux-scripts-pecheck-archive:
   archive.extracted:

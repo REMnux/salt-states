@@ -33,3 +33,12 @@ remnux-scripts-emldump-binary:
       - sls: remnux.python-packages.yara-python
     - watch:
       - archive: remnux-scripts-emldump-archive
+
+remnux-scripts-emldump-shebang:
+  file.replace:
+    - name: /usr/local/bin/emldump.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-emldump-binary

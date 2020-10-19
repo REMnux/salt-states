@@ -28,3 +28,12 @@ remnux-scripts-virustotal-search-binary:
     - mode: 755
     - watch:
       - archive: remnux-scripts-virustotal-search-archive
+
+remnux-scripts-virustotal-search-shebang:
+  file.replace:
+    - name: /usr/local/bin/virustotal-search.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python2'
+    - count: 1
+    - require:
+      - file: remnux-scripts-virustotal-search-binary

@@ -7,7 +7,7 @@
 # Notes: vmonkey
 
 include:
-  - remnux.packages.python-pip
+  - remnux.packages.python2-pip
   - remnux.packages.git
   - remnux.packages.virtualenv
   - remnux.packages.python3-pip
@@ -16,13 +16,13 @@ remnux-python-packages-vipermonkey-virtualenv:
   virtualenv.managed:
     - name: /opt/vipermonkey
     - venv_bin: /usr/bin/virtualenv
-    - python: /usr/bin/python
+    - python: /usr/bin/python2
     - pip_pkgs:
       - pip
       - setuptools
       - wheel
     - require:
-      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python2-pip
       - sls: remnux.packages.virtualenv
 
 remnux-python-packages-vipermonkey-install:
@@ -31,7 +31,7 @@ remnux-python-packages-vipermonkey-install:
     - bin_env: /opt/vipermonkey/bin/python
     - require:
       - sls: remnux.packages.git
-      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python2-pip
       - virtualenv: remnux-python-packages-vipermonkey-virtualenv
 
 remnux-python-packages-vipermonkey-symlink:

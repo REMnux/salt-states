@@ -1,2 +1,0 @@
-python-pydot:
-  pkg.installed

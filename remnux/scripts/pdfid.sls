@@ -29,6 +29,15 @@ remnux-scripts-pdfid-binary:
     - watch:
       - archive: remnux-scripts-pdfid-archive
 
+remnux-scripts-pdfid-shebang:
+  file.replace:
+    - name: /usr/local/bin/pdfid.py
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/usr/bin/env python3\n'
+    - count: 1
+    - require:
+      - file: remnux-scripts-pdfid-binary
+
 remnux-scripts-pdfid-plugin-embeddedfile:
   file.managed:
     - name: /usr/local/share/pdfid/plugin_embeddedfile.py

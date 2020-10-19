@@ -8,6 +8,8 @@
 
 include:
   - remnux.packages.git
+  - remnux.python-packages.urllib3
+  - remnux.python-packages.certifi
 
 remnux-tools-automater:
   git.cloned:
@@ -23,9 +25,20 @@ remnux-tools-automater-binary:
     - mode: 755
     - watch:
       - git: remnux-tools-automater
+      - sls: remnux.python-packages.urllib3
+      - sls: remnux.python-packages.certifi
 
 remnux-tools-automater-symlink:
   file.symlink:
     - name: /usr/local/bin/Automater.py
     - target: /usr/local/automater/Automater.py
     - mode: 755
+
+remnux-tools-automater-shebang:
+  file.replace:
+    - name: /usr/local/bin/Automater.py
+    - pattern: '#!/usr/bin/python\n'
+    - repl: '#!/usr/bin/env python2\n'
+    - count: 1
+    - require:
+      - file: remnux-tools-automater-binary

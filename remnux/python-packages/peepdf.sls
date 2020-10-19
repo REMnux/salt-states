@@ -7,7 +7,7 @@
 # Notes: 
 
 include:
-  - remnux.packages.python-pip
+  - remnux.packages.python2-pip
   - remnux.packages.libemu
   - remnux.packages.libjpeg8-dev
   - remnux.packages.zlib1g-dev
@@ -17,10 +17,10 @@ include:
 remnux-tools-peepdf-source:
   pip.installed:
     - name: git+https://github.com/digitalsleuth/peepdf.git
-    - bin_env: /usr/bin/python
+    - bin_env: /usr/bin/python2
     - upgrade: True
     - require:
-      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python2-pip
       - sls: remnux.packages.libemu
       - sls: remnux.packages.libjpeg8-dev
       - sls: remnux.packages.zlib1g-dev

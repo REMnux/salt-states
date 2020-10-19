@@ -7,15 +7,15 @@
 # Notes: balbuzard, bbcrack, bbharvest, bbtrans
 
 include:
-  - remnux.packages.python-pip
+  - remnux.packages.python2-pip
   - remnux.python-packages.yara-python
   - remnux.packages.python3-pip
 
 remnux-python-packages-balbuzard:
   pip.installed:
-    - bin_env: /usr/bin/python
+    - bin_env: /usr/bin/python2
     - name: balbuzard
     - upgrade: True
     - require:
-      - sls: remnux.packages.python-pip
+      - sls: remnux.packages.python2-pip
       - sls: remnux.python-packages.yara-python
