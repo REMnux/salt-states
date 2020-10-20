@@ -10,7 +10,7 @@
 include:
   - remnux.config.user
 
-remnux-dot-cache-owner:
+remnux-dot-config-owner:
   file.directory:
     - user: {{ user }}
     - group: {{ user }}
