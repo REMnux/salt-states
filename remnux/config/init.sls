@@ -10,6 +10,7 @@ include:
   - remnux.config.networkminer
   - remnux.config.salt-minion
   - remnux.config.dot-local
+  - remnux.config.dot-config
   - remnux.config.dot-cache
   - remnux.config.ghidra
   - remnux.config.bash-completion
@@ -33,6 +34,7 @@ remnux-config:
       - sls: remnux.config.salt-minion
       - sls: remnux.config.dot-local
       - sls: remnux.config.dot-cache
+      - sls: remnux.config.dot-config
       - sls: remnux.config.ghidra
       - sls: remnux.config.bash-completion
       - sls: remnux.config.binee

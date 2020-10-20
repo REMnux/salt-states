@@ -165,6 +165,7 @@ include:
   - remnux.packages.libdpkg-perl
   - remnux.packages.sandfly-processdecloak
   - remnux.packages.sleuthkit
+  - remnux.packages.ilspy
 
 remnux-packages:
   test.nop:
@@ -333,3 +334,4 @@ remnux-packages:
       - sls: remnux.packages.libdpkg-perl
       - sls: remnux.packages.sandfly-processdecloak
       - sls: remnux.packages.sleuthkit
+      - sls: remnux.packages.ilspy

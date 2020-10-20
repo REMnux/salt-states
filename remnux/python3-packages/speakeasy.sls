@@ -1,7 +1,7 @@
 # Name: Speakeasy
 # Website: https://github.com/fireeye/speakeasy
 # Description: Emulate code execution, including shellcode, Windows drivers, and Windows PE files.
-# Category: PE Files: Statically Analyze Code, Dynamically Reverse-Engineer Code: Shellcode
+# Category: Statically Analyze Code: PE Files, Dynamically Reverse-Engineer Code: Shellcode
 # Author: FireEye Inc, Andrew Davis
 # License: MIT License: https://github.com/fireeye/speakeasy/blob/master/LICENSE.txt
 # Notes: run_speakeasy.py, emu_exe.py, emu_dll.py

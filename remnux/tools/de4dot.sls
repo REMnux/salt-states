@@ -1,7 +1,7 @@
 # Name: de4dot
 # Website: https://github.com/0xd4d/de4dot
-# Description: .NET deobfuscator and unpacker
-# Category: Statically Analyze Code: Unpacking
+# Description: Deobfuscate and unpack .NET programs.
+# Category: Statically Analyze Code: .NET
 # Author: 0xd4d
 # License: GNU General Public License (GPL) v3.0: https://github.com/0xd4d/de4dot/blob/master/COPYING
 # Notes: 

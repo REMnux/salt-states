@@ -1,7 +1,7 @@
 # Name: Unfurl
 # Website: https://github.com/obsidianforensics/unfurl
 # Description: Deconstruct and decode data from a URL.
-# Category: Connecting: Explore Network Interactions
+# Category: Explore Network Interactions: Connecting
 # Author: Ryan Benson: https://twitter.com/_RyanBenson
 # License: Apache License 2.0: https://github.com/obsidianforensics/unfurl/blob/master/LICENSE
 # Notes: For the command-line version of the tool, run `unfurl_cli.py`. For the local browser-based version, run `unfurl_app.py`.
