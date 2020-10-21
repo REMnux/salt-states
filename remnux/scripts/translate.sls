@@ -34,6 +34,7 @@ remnux-scripts-translate-shebang:
     - name: /usr/local/bin/translate.py
     - pattern: '#!/usr/bin/env python'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - count: 1
     - require:
       - file: remnux-scripts-translate-binary
