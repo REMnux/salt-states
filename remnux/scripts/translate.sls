@@ -8,15 +8,15 @@
 
 remnux-scripts-translate-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/translate_v2_5_8.zip
-    - source: https://didierstevens.com/files/software/translate_v2_5_8.zip
-    - source_hash: 977D7A87F771F5E86A6B57D2B565D7C789A7AC7696599E8B7412E9051D66DCFF
+    - name: /usr/local/src/remnux/files/translate_v2_5_9.zip
+    - source: https://didierstevens.com/files/software/translate_v2_5_9.zip
+    - source_hash: 3C469996F7014CC1BD5D4F02157B7D5803698D93018360904B79EA2A1601BD10
     - makedirs: True
 
 remnux-scripts-translate-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/translate_v2_5_8
-    - source: /usr/local/src/remnux/files/translate_v2_5_8.zip
+    - name: /usr/local/src/remnux/translate_v2_5_9
+    - source: /usr/local/src/remnux/files/translate_v2_5_9.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-translate-source
@@ -24,7 +24,7 @@ remnux-scripts-translate-archive:
 remnux-scripts-translate-binary:
   file.managed:
     - name: /usr/local/bin/translate.py
-    - source: /usr/local/src/remnux/translate_v2_5_8/translate.py
+    - source: /usr/local/src/remnux/translate_v2_5_9/translate.py
     - mode: 755
     - watch:
       - archive: remnux-scripts-translate-archive
