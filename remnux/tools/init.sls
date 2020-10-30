@@ -26,6 +26,7 @@ include:
   - remnux.tools.ssview
   - remnux.tools.yara-rules
   - remnux.tools.captipper
+  - remnux.tools.jadx
 
 remnux-tools:
   test.nop:
@@ -57,3 +58,4 @@ remnux-tools:
       - sls: remnux.tools.ssview
       - sls: remnux.tools.yara-rules
       - sls: remnux.tools.captipper
+      - sls: remnux.tools.jadx

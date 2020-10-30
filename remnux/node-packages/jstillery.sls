@@ -4,7 +4,7 @@
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Stefano Di Paola, Minded Security: http://www.mindedsecurity.com
 # License: GNU General Public License (GPL) v3: https://github.com/mindedsecurity/JStillery/blob/master/LICENSE
-# Notes:jstillery
+# Notes: jstillery
 
 include:
   - remnux.packages.nodejs
