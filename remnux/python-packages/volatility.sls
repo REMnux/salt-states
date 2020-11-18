@@ -118,9 +118,19 @@ remnux-python-packages-volatility-mimikatz-plugin-update:
 
 remnux-python-packages-volatility-pstotal:
   file.managed:
-    - name: /usr/local/lib/python2.7/dist-packages/volatility/plugins/pstotal.py
+    - name: /usr/local/lib/python2.7/dist-packages/volatility/plugins/sift/pstotal.py
     - source: https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/volatility/pstotal.py
     - source_hash: sha256=aaa88ce1fe88576f471e2ce40ea21c3e988bba642853df3000776c06320c0582
     - mode: 644
+    - makedirs: True
     - watch:
       - pip: remnux-python-packages-volatility
+
+remnux-python-packages-volatility-pstotal-init:
+  file.managed:
+    - name: /usr/local/lib/python2.7/dist-packages/volatility/plugins/sift/__init__.py
+    - mode: 644
+    - replace: False
+    - watch:
+      - file: remnux-python-packages-volatility-pstotal
+
