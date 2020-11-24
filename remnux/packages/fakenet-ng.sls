@@ -10,13 +10,15 @@ include:
   - remnux.packages.python2-pip
   - remnux.packages.python3-pip
   - remnux.python-packages.cryptography
-  - remnux.repos.remnux
-
-fakenet-ng:
-  pkg.installed:
-    - pkgrepo: remnux
-    - require:
-      - sls: remnux.python-packages.cryptography
+  - remnux.packages.build-essential
+  - remnux.packages.libnetfilter-queue-dev
+  - remnux.packages.libnfnetlink-dev
+  - remnux.packages.git
+{% if grains['oscodename'] == "bionic" %}
+  - remnux.packages.python-dev
+{% elif grains['oscodename'] == "focal" %}
+  - remnux.packages.python2-dev
+{% endif %}
 
 pydivert:
   pip.installed:
@@ -53,3 +55,15 @@ pyopenssl:
     - bin_env: /usr/bin/python2
     - require:
       - sls: remnux.packages.python2-pip
+
+fakenet-ng:
+  pip.installed:
+    - name: git+https://github.com/fireeye/flare-fakenet-ng
+    - bin_env: /usr/bin/python2
+    - require:
+      - sls: remnux.packages.git
+      - sls: remnux.packages.python2-pip
+      - sls: remnux.python-packages.cryptography
+      - sls: remnux.packages.build-essential
+      - sls: remnux.packages.libnetfilter-queue-dev
+      - sls: remnux.packages.libnfnetlink-dev
