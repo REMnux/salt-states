@@ -11,3 +11,14 @@ include:
 
 procdot:
   pkg.installed
+
+{%- if grains['oscodename'] == "focal" %}
+
+procdot-link:
+  file.symlink:
+    - name: /usr/lib/x86_64-linux-gnu/libwebkitgtk-3.0.so.0
+    - target: /usr/lib/x86_64-linux-gnu/libwebkit2gtk-4.0.so.37
+    - watch:
+      - pkg: procdot
+
+{% endif %}
