@@ -1,7 +1,18 @@
+{%- if grains['oscodename'] == "bionic" %}
+
+i386-arch:
+  cmd.run:
+    - name: dpkg --add-architecture i386
+    - unless: dpkg --print-foreign-architectures | grep i386
+
+{%- elif grains['oscodename'] == "focal" %}
+
 i386-arch:
   cmd.run:
     - name: dpkg --add-architecture i386 && apt-get update
     - unless: dpkg --print-foreign-architectures | grep i386
+
+{%- endif %}
 
 libc6:
   pkg.installed:
