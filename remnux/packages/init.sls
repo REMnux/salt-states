@@ -29,7 +29,7 @@ include:
   - remnux.packages.imagemagick
   - remnux.packages.inetsim
   - remnux.packages.inspircd
-  - remnux.packages.ipython
+  - remnux.packages.ipython3
   - remnux.packages.lame
   - remnux.packages.libboost-dev
   - remnux.packages.libboost-python-dev
@@ -61,7 +61,7 @@ include:
   - remnux.packages.python-crypto
 #  - remnux.packages.python-dev
   - remnux.packages.python-dnspython
-  - remnux.packages.python-enchant
+  - remnux.packages.enchant
   - remnux.packages.python-future
   - remnux.packages.python-gtksourceview2
   - remnux.packages.python-hachoir-core
@@ -198,7 +198,7 @@ remnux-packages:
       - sls: remnux.packages.imagemagick
       - sls: remnux.packages.inetsim
       - sls: remnux.packages.inspircd
-      - sls: remnux.packages.ipython
+      - sls: remnux.packages.ipython3
       - sls: remnux.packages.lame
       - sls: remnux.packages.libboost-dev
       - sls: remnux.packages.libboost-python-dev
@@ -229,7 +229,7 @@ remnux-packages:
       - sls: remnux.packages.python-crypto
 #      - sls: remnux.packages.python-dev
       - sls: remnux.packages.python-dnspython
-      - sls: remnux.packages.python-enchant
+      - sls: remnux.packages.enchant
       - sls: remnux.packages.python-future
       - sls: remnux.packages.python-gtksourceview2
       - sls: remnux.packages.python-hachoir-core
