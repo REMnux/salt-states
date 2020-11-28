@@ -6,5 +6,12 @@
 # License: GNU General Public License (GPL) v2: https://github.com/matthiaskramm/swftools/blob/master/COPYING
 # Notes: swfdump, swfstrings, etc.
 
+{%- if grains['oscodename'] == "focal" %}
+
+include:
+  - remnux.repos.remnux
+
+{% endif %}
+
 swftools:
   pkg.installed
