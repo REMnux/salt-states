@@ -1,2 +1,2 @@
-python-enchant:
+enchant:
   pkg.installed

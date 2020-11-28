@@ -7,7 +7,8 @@
 # Notes: 
 
 include:
-  - remnux.packages.python-enchant
+  - remnux.packages.enchant
+  - remnux.python-packages.pyenchant
 
 remnux-scripts-brxor-source:
   file.managed:
@@ -17,4 +18,16 @@ remnux-scripts-brxor-source:
     - makedirs: false
     - mode: 755
     - require:
-      - sls: remnux.packages.python-enchant
+      - sls: remnux.packages.enchant
+      - sls: remnux.python-packages.pyenchant
+
+remnux-scripts-brxor-shebang:
+  file.replace:
+    - name: /usr/local/bin/brxor.py
+    - pattern: '#!/usr/bin/python'
+    - repl: '#!/usr/bin/env python2'
+    - count: 1
+    - prepend_if_not_found: False
+    - watch:
+      - file: remnux-scripts-brxor-source
+
