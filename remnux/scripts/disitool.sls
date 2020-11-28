@@ -7,19 +7,21 @@
 # Notes: disitool.py
 
 include:
-  - remnux.python-packages.pefile
+  - remnux.python3-packages.pefile
 
 remnux-scripts-disitool-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/disitool_v0_3.zip
-    - source: https://www.didierstevens.com/files/software/disitool_v0_3.zip
-    - source_hash: sha256=AEF923F49E53C7C2194058F34A73B293D21448DEB7E2112819FC1B3B450347B8
+    - name: /usr/local/src/remnux/files/disitool_v0_4.zip
+    - source: https://didierstevens.com/files/software/disitool_v0_4.zip
+    - source_hash: sha256=51EBFB0759FEEA69FFFB643659FD74DC5043338719A91CE36E427D175196661A
     - makedirs: True
+    - require:
+      - sls: remnux.python3-packages.pefile
 
 remnux-scripts-disitool-archive:
   archive.extracted:
     - name: /usr/local/bin/
-    - source: /usr/local/src/remnux/files/disitool_v0_3.zip
+    - source: /usr/local/src/remnux/files/disitool_v0_4.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-disitool-source
@@ -33,8 +35,9 @@ remnux-scripts-disitool-archive:
 remnux-scripts-disitool-shebang:
   file.replace:
     - name: /usr/local/bin/disitool.py
-    - pattern: '#!/usr/bin/python'
-    - repl: '#!/usr/bin/env python2'
+    - pattern: '#!/usr/bin/env python'
+    - repl: '#!/usr/bin/python3'
+    - backup: false
     - count: 1
     - watch:
       - archive: remnux-scripts-disitool-archive
