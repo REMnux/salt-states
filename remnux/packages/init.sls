@@ -57,9 +57,7 @@ include:
   - remnux.packages.7zip
   - remnux.packages.pdfresurrect
   - remnux.packages.pkg-config
-  - remnux.packages.pyew
   - remnux.packages.python-crypto
-#  - remnux.packages.python-dev
   - remnux.packages.python-dnspython
   - remnux.packages.enchant
   - remnux.packages.python-future
@@ -225,9 +223,7 @@ remnux-packages:
       - sls: remnux.packages.7zip
       - sls: remnux.packages.pdfresurrect
       - sls: remnux.packages.pkg-config
-      - sls: remnux.packages.pyew
       - sls: remnux.packages.python-crypto
-#      - sls: remnux.packages.python-dev
       - sls: remnux.packages.python-dnspython
       - sls: remnux.packages.enchant
       - sls: remnux.packages.python-future
