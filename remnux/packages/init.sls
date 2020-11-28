@@ -113,7 +113,7 @@ include:
   - remnux.packages.tshark
   - remnux.packages.wxhexeditor
   - remnux.packages.xmlstarlet
-  - remnux.packages.xpdf
+  - remnux.packages.evince
   - remnux.packages.yara
   - remnux.packages.zlib1g-dev
   - remnux.packages.sudo
@@ -281,7 +281,7 @@ remnux-packages:
       - sls: remnux.packages.tshark
       - sls: remnux.packages.wxhexeditor
       - sls: remnux.packages.xmlstarlet
-      - sls: remnux.packages.xpdf
+      - sls: remnux.packages.evince
       - sls: remnux.packages.yara
       - sls: remnux.packages.zlib1g-dev
       - sls: remnux.packages.sudo
