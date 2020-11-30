@@ -16,3 +16,23 @@ remnux-python3-packages-hachoir:
     - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
+
+python-hachoir-core:
+  pkg.removed:
+    - require:
+      - pip: remnux-python3-packages-hachoir
+
+python-hachoir-regex:
+  pkg.removed:
+    - require:
+      - pip: remnux-python3-packages-hachoir
+
+python-hachoir-wx:
+  pkg.removed:
+    - require:
+      - pip: remnux-python3-packages-hachoir
+
+python-urwid:
+  pkg.removed:
+    - require:
+      - pip: remnux-python3-packages-hachoir
