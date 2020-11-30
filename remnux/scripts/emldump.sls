@@ -1,5 +1,5 @@
 # Name: emldump
-# Website: https://blog.didierstevens.com/2017/07/21/update-emldump-py-version-0-0-10/
+# Website: https://blog.didierstevens.com/2020/11/29/update-emldump-py-version-0-0-11/
 # Description: Parse and analyze EML files
 # Category: Analyze Documents: Email Messages
 # Author: Didier Stevens: https://twitter.com/DidierStevens
@@ -7,19 +7,19 @@
 # Notes: 
 
 include:
-  - remnux.python-packages.yara-python
+  - remnux.python3-packages.yara-python3
 
 remnux-scripts-emldump-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/emldump_V0_0_10.zip
-    - source: https://didierstevens.com/files/software/emldump_V0_0_10.zip
-    - source_hash: sha256=c5877e252ddb61b40bffcc5403db500e672dacfe96faa7d1e0668246c5202de5
+    - name: /usr/local/src/remnux/files/emldump_V0_0_11.zip
+    - source: https://didierstevens.com/files/software/emldump_V0_0_11.zip
+    - source_hash: sha256=01B3543CCBAE806E1536BF55E62DF7D30885737909DB4322348AC521138660CC
     - makedirs: True
 
 remnux-scripts-emldump-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/emldump-0.0.10
-    - source: /usr/local/src/remnux/files/emldump_V0_0_10.zip
+    - name: /usr/local/src/remnux/emldump-0.0.11
+    - source: /usr/local/src/remnux/files/emldump_V0_0_11.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-emldump-source
@@ -27,10 +27,10 @@ remnux-scripts-emldump-archive:
 remnux-scripts-emldump-binary:
   file.managed:
     - name: /usr/local/bin/emldump.py
-    - source: /usr/local/src/remnux/emldump-0.0.10/emldump.py
+    - source: /usr/local/src/remnux/emldump-0.0.11/emldump.py
     - mode: 755
     - require:
-      - sls: remnux.python-packages.yara-python
+      - sls: remnux.python3-packages.yara-python3
     - watch:
       - archive: remnux-scripts-emldump-archive
 
@@ -38,7 +38,7 @@ remnux-scripts-emldump-shebang:
   file.replace:
     - name: /usr/local/bin/emldump.py
     - pattern: '#!/usr/bin/env python\n'
-    - repl: '#!/usr/bin/env python2\n'
+    - repl: '#!/usr/bin/env python3\n'
     - count: 1
     - require:
       - file: remnux-scripts-emldump-binary
