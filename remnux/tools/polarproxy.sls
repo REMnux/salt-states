@@ -10,7 +10,7 @@ remnux-polarproxy-source:
   file.managed:
     - name: /usr/local/src/remnux/files/PolarProxy_0-8-15-1_linux-x64.tar
     - source: https://www.netresec.com/?download=PolarProxy
-    - source_hash: sha256=c71601921633bc60b0bbb507ca291b5bf2c22b0bf82faebab83937c285bcb7b9
+    - source_hash: sha256=9c0bef3bff91ef66f70daf91a423829104728f99d0a2a52bbc13a5c1d7ed60b8
     - makedirs: True
     - replace: False
 
