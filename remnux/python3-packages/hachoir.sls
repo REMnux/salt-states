@@ -8,6 +8,7 @@
 
 include:
   - remnux.packages.python3-pip
+  - remnux.packages.python3-urwid
 
 remnux-python3-packages-hachoir:
   pip.installed:
@@ -16,6 +17,13 @@ remnux-python3-packages-hachoir:
     - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
+      - sls: remnux.packages.python3-urwid
+
+remnux-python3-packages-hachoir-wx:
+  file.absent:
+    - name: /usr/local/bin/hachoir-wx
+    - require:
+      - pip: remnux-python3-packages-hachoir
 
 python-hachoir-core:
   pkg.removed:
