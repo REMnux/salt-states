@@ -38,6 +38,7 @@ include:
   - remnux.python3-packages.pe-tree
   - remnux.python3-packages.wheel
   - remnux.python3-packages.setuptools
+  - remnux.python3-packages.hachoir
 
 remnux-python3-packages:
   test.nop:
@@ -81,3 +82,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.pe-tree
       - sls: remnux.python3-packages.wheel
       - sls: remnux.python3-packages.setuptools
+      - sls: remnux.python3-packages.hachoir
