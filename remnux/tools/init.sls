@@ -8,7 +8,6 @@ include:
   - remnux.tools.networkminer
   - remnux.tools.jad
   - remnux.tools.jd-gui
-  - remnux.tools.ghidra
   - remnux.tools.cyberchef
   - remnux.tools.cfr
   - remnux.tools.cutter
@@ -40,7 +39,6 @@ remnux-tools:
       - sls: remnux.tools.networkminer
       - sls: remnux.tools.jad
       - sls: remnux.tools.jd-gui
-      - sls: remnux.tools.ghidra
       - sls: remnux.tools.cyberchef
       - sls: remnux.tools.cfr
       - sls: remnux.tools.cutter

@@ -8,7 +8,7 @@
 
 include:
   - remnux.config.user
-  - remnux.tools.ghidra
+  - remnux.packages.ghidra
 
 remnux-config-ghidra-gdt-file:
   file.managed:
@@ -17,7 +17,7 @@ remnux-config-ghidra-gdt-file:
     - source_hash: sha256=40d0d4595b8f0e6854d276a72cd0a9ce03f112a5512b28def5aefa8bbd795657
     - makedirs: true
     - require:
-      - sls: remnux.tools.ghidra
+      - sls: remnux.packages.ghidra
 
 remnux-config-ghidra-gdt-archive:
   archive.extracted:
@@ -55,7 +55,7 @@ remnux-config-ghidra-file-tool-code-browser:
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - sls: remnux.tools.ghidra
+      - sls: remnux.packages.ghidra
 
 remnux-config-ghidra-file-tool-version-tracking:
   file.managed:
@@ -68,7 +68,7 @@ remnux-config-ghidra-file-tool-version-tracking:
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - sls: remnux.tools.ghidra
+      - sls: remnux.packages.ghidra
 
 remnux-config-ghidra-owner:
    file.directory:
@@ -80,13 +80,4 @@ remnux-config-ghidra-owner:
       - user
       - group
     - watch:
-      - sls: remnux.tools.ghidra
-
-remnux-config-ghidra-icon:
-  file.managed:
-    - name: /usr/share/applications/ghidra.desktop
-    - source: salt://remnux/config/ghidra/ghidra.desktop
-    - replace: False
-    - makedirs: True
-    - watch:
-      - sls: remnux.tools.ghidra
+      - sls: remnux.packages.ghidra
