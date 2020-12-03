@@ -158,6 +158,7 @@ include:
   - remnux.packages.sleuthkit
   - remnux.packages.ilspy
   - remnux.packages.ghidra
+  - remnux.packages.bddisasm
 
 remnux-packages:
   test.nop:
@@ -319,3 +320,4 @@ remnux-packages:
       - sls: remnux.packages.sleuthkit
       - sls: remnux.packages.ilspy
       - sls: remnux.packages.ghidra
+      - sls: remnux.packages.bddisasm
