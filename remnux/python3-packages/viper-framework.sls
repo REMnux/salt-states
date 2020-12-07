@@ -1,6 +1,6 @@
 # Name: Viper
 # Website: https://github.com/viper-framework/viper
-# Description: Organize and query a collection of malware samples.
+# Description: Organize and query a collection of malware samples. (Temporarily excluded from the distro)
 # Category: Gather and Analyze Data
 # Author: Claudio Guarnieri: https://nex.sx
 # License: BSD 3-Clause License: https://github.com/viper-framework/viper/blob/master/LICENSE
