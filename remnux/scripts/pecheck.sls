@@ -4,24 +4,24 @@
 # Category: Examine Static Properties: PE Files
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
-# Notes: 
+# Notes: pecheck.py
 
 include:
   - remnux.python3-packages.pefile
 
 remnux-scripts-pecheck-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/pecheck-v0_7_11.zip
-    - source: https://didierstevens.com/files/software/pecheck-v0_7_11.zip
-    - source_hash: 2B59F745377EABDF81118997CA70F5F4DBC1CE927370F02C6E0262869F988FA9
+    - name: /usr/local/src/remnux/files/pecheck-v0_7_12.zip
+    - source: https://didierstevens.com/files/software/pecheck-v0_7_12.zip
+    - source_hash: 10B3B6903AB52381F7C8687F8284270CE060983CA001B4FC5DD88174744B705F
     - makedirs: True
     - require:
       - sls: remnux.python3-packages.pefile
 
 remnux-scripts-pecheck-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/pecheck-v0_7_11
-    - source: /usr/local/src/remnux/files/pecheck-v0_7_11.zip
+    - name: /usr/local/src/remnux/pecheck-v0_7_12
+    - source: /usr/local/src/remnux/files/pecheck-v0_7_12.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-pecheck-source
@@ -29,7 +29,7 @@ remnux-scripts-pecheck-archive:
 remnux-scripts-pecheck-binary:
   file.managed:
     - name: /usr/local/bin/pecheck.py
-    - source: /usr/local/src/remnux/pecheck-v0_7_11/pecheck.py
+    - source: /usr/local/src/remnux/pecheck-v0_7_12/pecheck.py
     - mode: 755
     - watch:
       - archive: remnux-scripts-pecheck-archive
