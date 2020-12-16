@@ -1,6 +1,6 @@
 # Name: msg-extractor
 # Website: https://github.com/TeamMsgExtractor/msg-extractor
-# Description: Extract emails and attachments from Outlooks .msg files
+# Description: Extract emails and attachments from MSG files.
 # Category: Analyze Documents: Email messages
 # Author: https://github.com/TeamMsgExtractor/msg-extractor#credits
 # License: GNU General Public LIcense v3.0: https://github.com/TeamMsgExtractor/msg-extractor/blob/master/LICENSE.txt

@@ -1,6 +1,6 @@
 # Name: emldump
 # Website: https://blog.didierstevens.com/2020/11/29/update-emldump-py-version-0-0-11/
-# Description: Parse and analyze EML files
+# Description: Parse and analyze EML files.
 # Category: Analyze Documents: Email Messages
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Free, unknown license
