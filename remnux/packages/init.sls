@@ -159,6 +159,7 @@ include:
   - remnux.packages.ilspy
   - remnux.packages.ghidra
   - remnux.packages.bddisasm
+  - remnux.packages.tzdata
 
 remnux-packages:
   test.nop:
@@ -321,3 +322,4 @@ remnux-packages:
       - sls: remnux.packages.ilspy
       - sls: remnux.packages.ghidra
       - sls: remnux.packages.bddisasm
+      - sls: remnux.packages.tzdata
