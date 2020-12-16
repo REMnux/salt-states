@@ -31,6 +31,7 @@ include:
   - remnux.scripts.msoffcrypto-crack
   - remnux.scripts.unxor
   - remnux.scripts.officeparser
+  - remnux.scripts.numbers-to-string
 
 remnux-scripts:
   test.nop:
@@ -67,3 +68,4 @@ remnux-scripts:
       - sls: remnux.scripts.msoffcrypto-crack
       - sls: remnux.scripts.unxor
       - sls: remnux.scripts.officeparser
+      - sls: remnux.scripts.numbers-to-string

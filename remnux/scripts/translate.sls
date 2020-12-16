@@ -6,12 +6,17 @@
 # License: Public Domain
 # Notes:
 
+include:
+  - remnux.packages.python3
+
 remnux-scripts-translate-source:
   file.managed:
     - name: /usr/local/src/remnux/files/translate_v2_5_10.zip
     - source: https://didierstevens.com/files/software/translate_v2_5_10.zip
     - source_hash: E8993B3F2C25A92A9F4583636E1CEF79D79649B29FFF56EAA9AF8A30FCF9B9A6
     - makedirs: True
+    - require:
+      - sls: remnux.packages.python3
 
 remnux-scripts-translate-archive:
   archive.extracted:
