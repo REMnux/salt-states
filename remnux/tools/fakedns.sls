@@ -13,7 +13,7 @@ remnux-tools-fakedns-source:
   file.managed:
     - name: /usr/local/src/remnux/files/fakedns.py
     - source: https://github.com/REMnux/distro/raw/master/files/fakedns.py
-    - source_hash: d0c387f60b0a8326591c3a6f2d5bd59503d833e99f9c50bc6ac841b4b173bdc6
+    - source_hash: 5a6d50b560eaf281f0f9ef4fe7ee33832c2c069ebb580cc02465748630ae923a
     - makedirs: True
     - require:
         - sls: remnux.packages.python2
@@ -25,12 +25,3 @@ remnux-tools-fakedns-binary:
     - mode: 755
     - watch:
         - file: remnux-tools-fakedns-source
-
-remnux-tools-fakedns-shebang:
-  file.replace:
-    - name: /usr/local/bin/fakedns
-    - pattern: '#!/usr/bin/python\n'
-    - repl: '#!/usr/bin/env python2\n'
-    - count: 1
-    - require:
-      - file: remnux-tools-fakedns-binary
