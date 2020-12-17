@@ -63,7 +63,6 @@ include:
   - remnux.packages.python-future
   - remnux.packages.python-gtksourceview2
   - remnux.packages.python-magic
-  - remnux.packages.python-networkx
   - remnux.packages.python-numpy
   - remnux.packages.python-pil
   - remnux.packages.python2-pip
@@ -224,7 +223,6 @@ remnux-packages:
       - sls: remnux.packages.python-future
       - sls: remnux.packages.python-gtksourceview2
       - sls: remnux.packages.python-magic
-      - sls: remnux.packages.python-networkx
       - sls: remnux.packages.python-numpy
       - sls: remnux.packages.python-pil
       - sls: remnux.packages.python2-pip
