@@ -71,7 +71,6 @@ include:
   - remnux.packages.python-pyperclip
   - remnux.packages.python-pyqt5
   - remnux.packages.python-pyqt5-qtwebkit
-  - remnux.packages.python-scipy
   - remnux.packages.software-properties-common
   - remnux.packages.python2
   - remnux.packages.python3
@@ -233,7 +232,6 @@ remnux-packages:
       - sls: remnux.packages.python-pyperclip
       - sls: remnux.packages.python-pyqt5
       - sls: remnux.packages.python-pyqt5-qtwebkit
-      - sls: remnux.packages.python-scipy
       - sls: remnux.packages.software-properties-common
       - sls: remnux.packages.python2
       - sls: remnux.packages.python3

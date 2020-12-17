@@ -1,2 +1,0 @@
-python-scipy:
-  pkg.installed
