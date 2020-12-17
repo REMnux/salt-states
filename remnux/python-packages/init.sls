@@ -22,7 +22,12 @@ include:
   - remnux.python-packages.ioc-writer
   - remnux.python-packages.balbuzard
   - remnux.python-packages.poster
+
+{%- if grains['oscodename'] == "bionic" %}
+
   - remnux.python-packages.vivisect
+
+{%- endif %}
 
 remnux-python-packages:
   test.nop:
@@ -50,4 +55,9 @@ remnux-python-packages:
       - sls: remnux.python-packages.ioc-writer
       - sls: remnux.python-packages.balbuzard
       - sls: remnux.python-packages.poster
+
+{%- if grains['oscodename'] == "bionic" %}
+
       - sls: remnux.python-packages.vivisect
+
+{%- endif %}
