@@ -13,3 +13,6 @@
 
 /usr/share/applications/xpdf.desktop:
   file.absent
+
+/usr/share/applications/info.desktop:
+  file.absent
