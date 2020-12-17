@@ -65,7 +65,6 @@ include:
   - remnux.packages.python-pil
   - remnux.packages.python2-pip
   - remnux.packages.python-pyasn1
-  - remnux.packages.python-pyperclip
   - remnux.packages.software-properties-common
   - remnux.packages.python2
   - remnux.packages.python3
@@ -221,7 +220,6 @@ remnux-packages:
       - sls: remnux.packages.python-pil
       - sls: remnux.packages.python2-pip
       - sls: remnux.packages.python-pyasn1
-      - sls: remnux.packages.python-pyperclip
       - sls: remnux.packages.software-properties-common
       - sls: remnux.packages.python2
       - sls: remnux.packages.python3
