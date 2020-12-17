@@ -60,7 +60,6 @@ include:
   - remnux.packages.python-crypto
   - remnux.packages.python-dnspython
   - remnux.packages.enchant
-  - remnux.packages.python-gtksourceview2
   - remnux.packages.python-magic
   - remnux.packages.python-numpy
   - remnux.packages.python-pil
@@ -219,7 +218,6 @@ remnux-packages:
       - sls: remnux.packages.python-crypto
       - sls: remnux.packages.python-dnspython
       - sls: remnux.packages.enchant
-      - sls: remnux.packages.python-gtksourceview2
       - sls: remnux.packages.python-magic
       - sls: remnux.packages.python-numpy
       - sls: remnux.packages.python-pil
