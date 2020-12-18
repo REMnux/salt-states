@@ -34,6 +34,7 @@ remnux-scripts-extractscripts-shebang:
     - name: /usr/local/bin/extractscripts.py
     - pattern: '#!/usr/bin/python\n'
     - repl: '#!/usr/bin/env python2\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-extractscripts-binary

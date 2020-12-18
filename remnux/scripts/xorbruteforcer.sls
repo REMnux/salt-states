@@ -19,6 +19,7 @@ remnux-scripts-xorbruteforcer-shebang:
     - name: /usr/local/bin/xorbruteforcer.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python2\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-xorbruteforcer-source

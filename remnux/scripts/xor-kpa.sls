@@ -34,6 +34,7 @@ remnux-scripts-xor-kpa-shebang:
     - name: /usr/local/bin/xor-kpa.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python2\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-xor-kpa-binary

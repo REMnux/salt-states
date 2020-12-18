@@ -39,6 +39,7 @@ remnux-scripts-pdf-parser-shebang:
     - name: /usr/local/bin/pdf-parser.py
     - pattern: '#!/usr/bin/python\n'
     - repl: '#!/usr/bin/env python3\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-pdf-parser-binary

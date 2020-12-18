@@ -34,6 +34,7 @@ remnux-scripts-virustotal-search-shebang:
     - name: /usr/local/bin/virustotal-search.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python2'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-virustotal-search-binary

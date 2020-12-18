@@ -34,6 +34,7 @@ remnux-scripts-rtfdump-shebang:
     - name: /usr/local/bin/rtfdump.py
     - pattern: '#!/usr/bin/env python'
     - repl: '#!/usr/bin/env python2'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-rtfdump-binary

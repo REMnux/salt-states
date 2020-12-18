@@ -34,6 +34,7 @@ remnux-scripts-base64dump-shebang:
     - name: /usr/local/bin/base64dump.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python2\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-base64dump-binary

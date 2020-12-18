@@ -30,6 +30,7 @@ remnux-linuxmemdiff-python-path:
     - name: /usr/local/bin/linux_mem_diff.py
     - pattern: "python_path = r''"
     - repl: "python_path = r'/usr/bin/python'"
+    - backup: False
     - count: 1
     - require:
       - file: remnux-linuxmemdiff-source
@@ -41,6 +42,7 @@ remnux-linuxmemdiff-vol-path:
     - name: /usr/local/bin/linux_mem_diff.py
     - pattern: "vol_path = r''"
     - repl: "vol_path = r'/usr/local/bin/vol.py'"
+    - backup: False
     - count: 1
     - require:
       - file: remnux-linuxmemdiff-source

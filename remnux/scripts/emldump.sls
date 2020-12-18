@@ -39,6 +39,7 @@ remnux-scripts-emldump-shebang:
     - name: /usr/local/bin/emldump.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python3\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-emldump-binary

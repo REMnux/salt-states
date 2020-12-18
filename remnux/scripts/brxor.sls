@@ -27,6 +27,7 @@ remnux-scripts-brxor-shebang:
     - pattern: '#!/usr/bin/python'
     - repl: '#!/usr/bin/env python2'
     - count: 1
+    - backup: False
     - prepend_if_not_found: False
     - watch:
       - file: remnux-scripts-brxor-source

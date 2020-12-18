@@ -18,6 +18,7 @@ remnux-scripts-unxor-shebang:
     - name: /usr/local/bin/unxor.py
     - pattern: '#!/usr/bin/env python'
     - repl: '#!/usr/bin/env python2'
+    - backup: False
     - count: 1
     - watch:
       - file: remnux-scripts-unxor-source

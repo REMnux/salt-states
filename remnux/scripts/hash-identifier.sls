@@ -28,5 +28,6 @@ remnux-scripts-hash-identifier-formatting:
     - name: /usr/local/bin/hash-id.py
     - pattern: '\r'
     - repl: ''
+    - backup: False
     - watch:
       - file: remnux-scripts-hash-identifier-shebang

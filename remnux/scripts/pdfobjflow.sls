@@ -28,6 +28,7 @@ remnux-scripts-pdfobjflow-shebang:
     - name: /usr/local/bin/pdfobjflow.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python2\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-pdfobjflow

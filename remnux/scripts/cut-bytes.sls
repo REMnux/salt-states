@@ -42,6 +42,7 @@ remnux-scripts-cut-bytes-shebang:
     - name: /usr/local/bin/cut-bytes.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python2\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-cut-bytes-binary

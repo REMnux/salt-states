@@ -39,6 +39,7 @@ remnux-tools-automater-shebang:
     - name: /usr/local/bin/Automater.py
     - pattern: '#!/usr/bin/python\n'
     - repl: '#!/usr/bin/env python2\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-tools-automater-binary

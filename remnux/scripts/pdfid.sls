@@ -34,6 +34,7 @@ remnux-scripts-pdfid-shebang:
     - name: /usr/local/bin/pdfid.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python3\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-pdfid-binary

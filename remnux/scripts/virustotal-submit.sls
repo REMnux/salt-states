@@ -39,6 +39,7 @@ remnux-scripts-virustotal-submit-shebang:
     - name: /usr/local/bin/virustotal-submit.py
     - pattern: '#!/usr/bin/env python\n'
     - repl: '#!/usr/bin/env python2\n'
+    - backup: False
     - count: 1
     - require:
       - file: remnux-scripts-virustotal-submit-binary
