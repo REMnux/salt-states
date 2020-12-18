@@ -30,8 +30,8 @@ remnux-scripts-officeparser:
 remnux-scripts-officeparser-shebang:
   file.replace:
     - name: /usr/local/bin/officeparser.py
-    - pattern: '^#!/usr/bin/env python.\n'
-    - repl: '#!/usr/bin/env python2\n'
+    - pattern: '^#!/usr/bin/env python$'
+    - repl: '#!/usr/bin/env python2'
     - count: 1
     - require:
       - file: remnux-scripts-officeparser
