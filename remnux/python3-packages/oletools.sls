@@ -15,7 +15,6 @@ include:
 oletools:
   pip.installed:
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - install_options:
       - --prefix=/usr/local
     - require:

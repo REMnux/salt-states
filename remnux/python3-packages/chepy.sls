@@ -23,6 +23,5 @@ remnux-python3-packages-chepy-extras:
   pip.installed:
     - name: chepy[extras]
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - watch:
       - pip: remnux-python3-packages-chepy
