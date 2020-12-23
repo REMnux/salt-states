@@ -12,19 +12,16 @@ include:
   - remnux.packages.swig
   - remnux.packages.python3-pip
 
-{%- if grains['oscodename'] == "bionic" %}
-remnux-python3-packages-peframe:
-  pip.installed:
-    - name: git+https://github.com/guelfoweb/peframe.git@master
-    - upgrade: True
-    - bin_env: /usr/bin/python3
-    - require:
-      - sls: remnux.packages.git
-      - sls: remnux.packages.libssl-dev
-      - sls: remnux.packages.swig
-      - sls: remnux.packages.python3-pip
+#remnux-python3-packages-peframe:
+#  pip.installed:
+#    - name: git+https://github.com/guelfoweb/peframe.git@master
+#    - bin_env: /usr/bin/python3
+#    - require:
+#      - sls: remnux.packages.git
+#      - sls: remnux.packages.libssl-dev
+#      - sls: remnux.packages.swig
+#      - sls: remnux.packages.python3-pip
 
-{%- elif grains['oscodename'] == "focal" %}
 remnux-python3-packages-peframe:
   git.cloned:
     - name: https://github.com/guelfoweb/peframe.git
@@ -51,4 +48,3 @@ remnux-python3-packages-peframe-install:
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.swig
 
-{%- endif %}

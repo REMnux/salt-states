@@ -46,7 +46,6 @@ remnux-python3-packages-malwoverview-install:
   pip.installed:
     - name: malwoverview
     - bin_env: /opt/malwoverview/bin/python3
-    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
       - virtualenv: remnux-python3-packages-malwoverview-virtualenv
