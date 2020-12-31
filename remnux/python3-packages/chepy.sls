@@ -14,7 +14,7 @@ remnux-python3-packages-chepy:
   pip.installed:
     - name: chepy
     - bin_env: /usr/bin/python3
-    - upgrade: True
+#    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip    
       - sls: remnux.python3-packages.pycryptodome
