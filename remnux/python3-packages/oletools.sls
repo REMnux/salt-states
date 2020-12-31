@@ -15,8 +15,6 @@ include:
 oletools:
   pip.installed:
     - bin_env: /usr/bin/python3
-    - install_options:
-      - --prefix=/usr/local
     - require:
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.python3-tk
