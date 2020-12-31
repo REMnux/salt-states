@@ -25,12 +25,12 @@ remnux-python3-packages-pypi-upgrade:
       - sls: remnux.python3-packages.setuptools
       - sls: remnux.python3-packages.wheel
 
-remnux-python3-packages-git-upgrade:
-  cmd.run:
-    - name: /usr/bin/python3 -m pip install --upgrade git+https://github.com/guelfoweb/peframe.git@master
-    - require:
-      - sls: remnux.packages.python3-pip
-      - sls: remnux.python3-packages.peframe
+#remnux-python3-packages-git-upgrade:
+#  cmd.run:
+#    - name: /usr/bin/python3 -m pip install --upgrade git+https://github.com/guelfoweb/peframe.git@master
+#    - require:
+#      - sls: remnux.packages.python3-pip
+#      - sls: remnux.python3-packages.peframe
 
 remnux-python3-packages-malwoverview-upgrade:
   cmd.run:
