@@ -37,7 +37,11 @@ function inetsim {
 }
 
 function fakedns {
-  sudo /usr/local/bin/fakedns ${*}
+  sudo /usr/local/bin/fakedns -I `myip` ${*}
+}
+
+function apt {
+  sudo /usr/bin/apt ${*}
 }
 
 # Useful for hard-coding a specific IP address until the next reboot
