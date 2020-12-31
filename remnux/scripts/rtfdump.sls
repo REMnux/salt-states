@@ -6,17 +6,22 @@
 # License: Public Domain
 # Notes: rtfdump.py
 
+include:
+  - remnux.packages.python3
+
 remnux-scripts-rtfdump-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/rtfdump_V0_0_9.zip
-    - source: https://didierstevens.com/files/software/rtfdump_V0_0_9.zip
-    - source_hash: sha256=3f6410ac7880116cdde4480367d3f5aa534cca3047b75fea0f4ba1f5eaa97b07
+    - name: /usr/local/src/remnux/files/rtfdump_V0_0_10.zip
+    - source: https://didierstevens.com/files/software/rtfdump_V0_0_10.zip
+    - source_hash: sha256=750430C0DA0B9D25B0BBBB972F107D1459FEAF45A2D61EAB6C10E84CB8AA01F8
     - makedirs: True
+    - require:
+      - sls: remnux.packages.python3
 
 remnux-scripts-rtfdump-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/rtfdump_V0_0_9
-    - source: /usr/local/src/remnux/files/rtfdump_V0_0_9.zip
+    - name: /usr/local/src/remnux/rtfdump_V0_0_10
+    - source: /usr/local/src/remnux/files/rtfdump_V0_0_10.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-rtfdump-source
@@ -24,7 +29,7 @@ remnux-scripts-rtfdump-archive:
 remnux-scripts-rtfdump-binary:
   file.managed:
     - name: /usr/local/bin/rtfdump.py
-    - source: /usr/local/src/remnux/rtfdump_V0_0_9/rtfdump.py
+    - source: /usr/local/src/remnux/rtfdump_V0_0_10/rtfdump.py
     - mode: 755
     - watch:
       - archive: remnux-scripts-rtfdump-archive
@@ -33,7 +38,7 @@ remnux-scripts-rtfdump-shebang:
   file.replace:
     - name: /usr/local/bin/rtfdump.py
     - pattern: '#!/usr/bin/env python'
-    - repl: '#!/usr/bin/env python2'
+    - repl: '#!/usr/bin/env python3'
     - backup: False
     - count: 1
     - require:
