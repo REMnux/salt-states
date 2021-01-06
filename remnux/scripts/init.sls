@@ -30,7 +30,6 @@ include:
   - remnux.scripts.pecheck
   - remnux.scripts.msoffcrypto-crack
   - remnux.scripts.unxor
-  - remnux.scripts.officeparser
   - remnux.scripts.numbers-to-string
 
 remnux-scripts:
@@ -67,5 +66,4 @@ remnux-scripts:
       - sls: remnux.scripts.pecheck
       - sls: remnux.scripts.msoffcrypto-crack
       - sls: remnux.scripts.unxor
-      - sls: remnux.scripts.officeparser
       - sls: remnux.scripts.numbers-to-string
