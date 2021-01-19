@@ -4,7 +4,11 @@
 # Category: Examine Static Properties: PE Files
 # Author: Fernando Merces, Jardel Weyrich
 # License: GNU General Public License (GPL) v2: https://github.com/merces/pev/blob/master/LICENSE
-# Notes: pestr, readpe, pedis, pehash, pescan
+# Notes: pestr, readpe, pedis, pehash, pescan, peldd, peres
 
+include:
+  - remnux.repos.remnux
+  
 pev:
-  pkg.installed
+  pkg.installed:
+    - pkgrepo: remnux
