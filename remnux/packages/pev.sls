@@ -12,3 +12,4 @@ include:
 pev:
   pkg.installed:
     - pkgrepo: remnux
+    - refresh: True
