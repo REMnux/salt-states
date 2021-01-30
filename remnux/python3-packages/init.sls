@@ -41,6 +41,7 @@ include:
   - remnux.python3-packages.hachoir
   - remnux.python3-packages.msg-extractor
   - remnux.python3-packages.upgrade
+  - remnux.python3-packages.name-that-hash
 
 remnux-python3-packages:
   test.nop:
@@ -87,3 +88,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.hachoir
       - sls: remnux.python3-packages.msg-extractor
       - sls: remnux.python3-packages.upgrade
+      - sls: remnux.python3-packages.name-that-hash
