@@ -6,10 +6,10 @@
 # License: Free, unknown license
 # Notes: nth
 
+{%- if grains['oscodename'] == "focal" %}
+
 include:
   - remnux.packages.python3-pip
-
-{%- if grains['oscodename'] == "focal" %}
 
 remnux-python3-name-that-hash-install:
   pip.installed:
@@ -18,5 +18,10 @@ remnux-python3-name-that-hash-install:
     - upgrade: True
     - require:
       - sls: remnux.packages.python3-pip
+
+{%- elif grains['oscodename'] == "bionic" %}
+
+remnux-python3-name-that-hash-install:
+  test.nop
 
 {%- endif %}

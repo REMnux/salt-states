@@ -9,7 +9,8 @@
 include:
   - remnux.repos.remnux
   
-pev:
+remnux-packages-pev:
   pkg.installed:
+    - name: pev
+    - version: '>=0.81'
     - pkgrepo: remnux
-    - refresh: True
