@@ -12,4 +12,6 @@ include:
 remnux-packages-pev:
   pkg.installed:
     - name: pev
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux
