@@ -9,13 +9,7 @@
 include:
   - remnux.repos.remnux
   
-remnux-packages-pev-repo:
-  pkgrepo.managed:
-    - name: remnux
-    - ppa: remnux/stable
- 
 remnux-packages-pev:
   pkg.installed:
     - name: pev
-    - require:
-      - pkgrepo: remnux
+    - pkgrepo: remnux
