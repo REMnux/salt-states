@@ -3,7 +3,7 @@
 # Description: Identify dfferent types of hashes. Available in the REMnux distro based on Ubuntu 20.04 (Focal); not available on Ubuntu 18.04 (Bionic).
 # Category: Examine Static Properties: General
 # Author: Brandon / Bee: https://twitter.com/bee_sec_san
-# License: Free, unknown license
+# License: GNU General Public License (GPL) v3.0: (https://github.com/HashPals/Name-That-Hash/blob/main/LICENSE)
 # Notes: nth
 
 {%- if grains['oscodename'] == "focal" %}
