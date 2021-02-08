@@ -37,7 +37,7 @@ function inetsim {
 }
 
 function fakedns {
-  sudo /usr/local/bin/fakedns -I `myip` ${*}
+  sudo /usr/local/bin/fakedns ${*}
 }
 
 function apt {
