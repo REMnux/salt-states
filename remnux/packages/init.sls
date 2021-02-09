@@ -153,6 +153,7 @@ include:
   - remnux.packages.ghidra
   - remnux.packages.bddisasm
   - remnux.packages.tzdata
+  - remnux.packages.binwalk
 
 remnux-packages:
   test.nop:
@@ -309,3 +310,4 @@ remnux-packages:
       - sls: remnux.packages.ghidra
       - sls: remnux.packages.bddisasm
       - sls: remnux.packages.tzdata
+      - sls: remnux.packages.binwalk
