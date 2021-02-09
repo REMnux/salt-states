@@ -8,7 +8,7 @@
 
 include:
   - remnux.packages.python3
-  - remnux.python3-packages.netifaces
+  - remnux.packages.python3-netifaces
 
 remnux-tools-fakedns-source:
   file.managed:
@@ -18,7 +18,7 @@ remnux-tools-fakedns-source:
     - makedirs: True
     - require:
         - sls: remnux.packages.python3
-        - sls: remnux.python3-packages.netifaces
+        - sls: remnux.packages.python3-netifaces
 
 remnux-tools-fakedns-binary:
   file.managed:

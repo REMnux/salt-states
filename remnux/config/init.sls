@@ -12,6 +12,7 @@ include:
   - remnux.config.dot-local
   - remnux.config.dot-config
   - remnux.config.dot-cpan
+  - remnux.config.dot-dbus
   - remnux.config.dot-cache
   - remnux.config.ghidra
   - remnux.config.bash-completion
@@ -37,6 +38,7 @@ remnux-config:
       - sls: remnux.config.dot-cache
       - sls: remnux.config.dot-config
       - sls: remnux.config.dot-cpan
+      - sls: remnux.config.dot-dbus
       - sls: remnux.config.ghidra
       - sls: remnux.config.bash-completion
       - sls: remnux.config.binee
