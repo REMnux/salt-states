@@ -9,7 +9,7 @@
 include:
   - remnux.repos.remnux
   
-remnux-packages-floss:
+remnux-packages-capa:
   pkg.installed:
     - name: capa
     - version: latest
