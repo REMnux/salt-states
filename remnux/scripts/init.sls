@@ -32,6 +32,7 @@ include:
   - remnux.scripts.unxor
   - remnux.scripts.numbers-to-string
   - remnux.scripts.pdftool
+  - remnux.scripts.anomy
 
 remnux-scripts:
   test.nop:
@@ -69,3 +70,4 @@ remnux-scripts:
       - sls: remnux.scripts.unxor
       - sls: remnux.scripts.numbers-to-string
       - sls: remnux.scripts.pdftool
+      - sls: remnux.scripts.anomy
