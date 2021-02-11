@@ -15,6 +15,8 @@ include:
 remnux-packages-oledump:
   pkg.installed:
     - name: oledump
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux
     - require:
       - sls: remnux.python3-packages.yara-python3
