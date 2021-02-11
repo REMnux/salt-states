@@ -7,13 +7,13 @@
 # Notes:
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
 
 pcodedmp:
   pip.installed:
     - bin_env: /usr/bin/python3
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
 
 remnux-python3-packages-pcodedmp-shebang:
   file.replace:

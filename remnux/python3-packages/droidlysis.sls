@@ -12,7 +12,7 @@
 {% endif %}
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
   - remnux.tools.apktool
   - remnux.packages.baksmali
   - remnux.packages.dex2jar
@@ -22,14 +22,12 @@ include:
 remnux-python-packages-droidlysis:
   pip.installed:
     - name: droidlysis
-    - upgrade: True
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - require:
       - sls: remnux.tools.apktool
       - sls: remnux.packages.baksmali
       - sls: remnux.packages.dex2jar
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
       - sls: remnux.packages.procyon-decompiler
       - sls: remnux.packages.unzip
 

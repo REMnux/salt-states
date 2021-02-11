@@ -1,34 +1,112 @@
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
+  - remnux.python3-packages.androguard
+  - remnux.python3-packages.cffi
   - remnux.python3-packages.chepy
+  - remnux.python3-packages.colorama
+  - remnux.python3-packages.dc3-mwcp
+  - remnux.python3-packages.docker-compose
+  - remnux.python3-packages.droidlysis
+  - remnux.python3-packages.fakemail
+  - remnux.python3-packages.frida
+  - remnux.python3-packages.hachoir
+  - remnux.python3-packages.ipwhois
+  - remnux.python3-packages.jsbeautifier
   - remnux.python3-packages.malwoverview
   - remnux.python3-packages.msoffcrypto-tool
+  - remnux.python3-packages.name-that-hash
   - remnux.python3-packages.olefile
   - remnux.python3-packages.oletools
   - remnux.python3-packages.pcodedmp
+  - remnux.python3-packages.pe-tree
+  - remnux.python3-packages.pefile
   - remnux.python3-packages.peframe
   - remnux.python3-packages.protobuf
+  - remnux.python3-packages.pyelftools
+  - remnux.python3-packages.pygraphviz
+  - remnux.python3-packages.pylzma
+  - remnux.python3-packages.pyperclip
+  - remnux.python3-packages.pytesseract
+  - remnux.python3-packages.pyzipper
+  - remnux.python3-packages.qiling
+  - remnux.python3-packages.r2pipe
+  - remnux.python3-packages.ratdecoders
   - remnux.python3-packages.setuptools
+  - remnux.python3-packages.setuptools-rust
+  - remnux.python3-packages.stringsifter
+  - remnux.python3-packages.thug
+  - remnux.python3-packages.time-decode
+  - remnux.python3-packages.unicode
   - remnux.python3-packages.wheel
+  - remnux.python3-packages.xlmmacrodeobfuscator
+  - remnux.python3-packages.xortool
+  - remnux.python3-packages.yara-python3
 
 remnux-python3-packages-pypi-upgrade:
   cmd.run:
-    - name: /usr/bin/python3 -m pip install --upgrade chepy chepy[extras] msoffcrypto-tool olefile oletools pcodedmp protobuf setuptools wheel peframe-ds
+    - name: /usr/bin/python3 -m pip install --upgrade androguard cffi chepy chepy[extras] colorama mwcp docker-compose droidlysis fakemail frida-tools hachoir ipwhois jsbeautifier msoffcrypto-tool olefile oletools pcodedmp pe_tree pefile protobuf pyelftools pygraphviz pylzma pyperclip pytesseract pyzipper qiling r2pipe malwareconfig setuptools setuptools_rust stringsifter thug time-decode unicode wheel peframe-ds xlmmacrodeobfuscator xortool yara-python
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
+      - sls: remnux.python3-packages.androguard
+      - sls: remnux.python3-packages.cffi
       - sls: remnux.python3-packages.chepy
+      - sls: remnux.python3-packages.colorama
+      - sls: remnux.python3-packages.dc3-mwcp
+      - sls: remnux.python3-packages.docker-compose
+      - sls: remnux.python3-packages.droidlysis
+      - sls: remnux.python3-packages.fakemail
+      - sls: remnux.python3-packages.frida
+      - sls: remnux.python3-packages.hachoir
+      - sls: remnux.python3-packages.ipwhois
+      - sls: remnux.python3-packages.jsbeautifier
+      - sls: remnux.python3-packages.malwoverview
       - sls: remnux.python3-packages.msoffcrypto-tool
+      - sls: remnux.python3-packages.name-that-hash
       - sls: remnux.python3-packages.olefile
       - sls: remnux.python3-packages.oletools
       - sls: remnux.python3-packages.pcodedmp
+      - sls: remnux.python3-packages.pe-tree
+      - sls: remnux.python3-packages.pefile
       - sls: remnux.python3-packages.peframe
       - sls: remnux.python3-packages.protobuf
+      - sls: remnux.python3-packages.pyelftools
+      - sls: remnux.python3-packages.pygraphviz
+      - sls: remnux.python3-packages.pylzma
+      - sls: remnux.python3-packages.pyperclip
+      - sls: remnux.python3-packages.pytesseract
+      - sls: remnux.python3-packages.pyzipper
+      - sls: remnux.python3-packages.qiling
+      - sls: remnux.python3-packages.r2pipe
+      - sls: remnux.python3-packages.ratdecoders
       - sls: remnux.python3-packages.setuptools
+      - sls: remnux.python3-packages.setuptools-rust
+      - sls: remnux.python3-packages.stringsifter
+      - sls: remnux.python3-packages.thug
+      - sls: remnux.python3-packages.time-decode
+      - sls: remnux.python3-packages.unicode
       - sls: remnux.python3-packages.wheel
+      - sls: remnux.python3-packages.xlmmacrodeobfuscator
+      - sls: remnux.python3-packages.xortool
+      - sls: remnux.python3-packages.yara-python3
 
 remnux-python3-packages-malwoverview-upgrade:
   cmd.run:
     - name: /opt/malwoverview/bin/python3 -m pip install --upgrade malwoverview
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
       - sls: remnux.python3-packages.malwoverview
+
+{%- if grains['oscodename'] == "focal" %}
+
+remnux-python3-packages-upgrade-nth:
+  cmd.run:
+    - name: /usr/bin/python3 -m pip install --upgrade name-that-hash
+    - require:
+      - sls: remnux.python3-packages.pip
+
+{%- elif grains['oscodename'] == "bionic" %}
+
+remnux-python3-packages-no-nth-to-upgrade:
+  test.nop
+
+{%- endif -%}

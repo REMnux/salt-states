@@ -9,19 +9,18 @@
 {%- if grains['oscodename'] == "focal" %}
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
 
-remnux-python3-name-that-hash-install:
+remnux-python3-packages-name-that-hash-install:
   pip.installed:
     - name: name-that-hash
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
 
 {%- elif grains['oscodename'] == "bionic" %}
 
-remnux-python3-name-that-hash-install:
+remnux-python3-packages-name-that-hash-install:
   test.nop
 
 {%- endif %}

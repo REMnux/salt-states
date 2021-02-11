@@ -7,15 +7,14 @@
 # Notes: xlmdeobfuscator
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
 
 remnux-python3-packages-xlmmacrodeobfuscator:
   pip.installed:
     - name: xlmmacrodeobfuscator
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
 
 /usr/local/bin/runxlrd2.py:
   file.managed:

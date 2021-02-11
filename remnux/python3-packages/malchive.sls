@@ -7,16 +7,15 @@
 # Notes: Malchive command-line tools start with the prefix `malutil-`. See [utilities documentation](https://github.com/MITRECND/malchive/wiki/Utilities) for details.
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
   - remnux.packages.git
   - remnux.python3-packages.cffi
 
 remnux-python3-packages-malchive:
   pip.installed:
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - name: git+https://github.com/MITRECND/malchive.git@main
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git
       - sls: remnux.python3-packages.cffi

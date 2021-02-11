@@ -12,7 +12,7 @@ include:
 remnux-tools-flasm-source:
   file.managed:
     - name: /usr/local/src/remnux/files/flasm16linux.tgz
-    - source: https://www.nowrap.de/download/flasm16linux.tgz
+    - source: http://www.nowrap.de/download/flasm16linux.tgz
     - source_hash: 88f16edcdee60773828107e6af16265a21bd577cf6acbf374c7864d2b58d43cb
     - makedirs: True
     - require:
