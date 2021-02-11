@@ -9,14 +9,14 @@
 include:
   - remnux.packages.libssl-dev
   - remnux.packages.swig
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
 
 remnux-python3-packages-peframe-remove:
   pip.removed:
     - name: peframe
     - bin_env: /usr/bin/python3
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
 
 remnux-python3-packages-peframe:
   pip.installed:
@@ -25,4 +25,4 @@ remnux-python3-packages-peframe:
     - require:
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.swig
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip

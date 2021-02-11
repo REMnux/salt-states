@@ -7,12 +7,11 @@
 # Notes: frida, frida-ps, frida-trace, frida-discover, frida-ls-devices, frida-kill
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
 
-remnux-python-packages-frida-install:
+remnux-python3-packages-frida-install:
   pip.installed:
     - name: frida-tools
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip

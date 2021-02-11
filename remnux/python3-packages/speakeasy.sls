@@ -7,7 +7,7 @@
 # Notes: run_speakeasy.py, emu_exe.py, emu_dll.py
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
   - remnux.packages.git
 
 remnux-python3-packages-speakeasy-requirements:
@@ -15,15 +15,14 @@ remnux-python3-packages-speakeasy-requirements:
     - bin_env: /usr/bin/python3
     - requirements: https://raw.githubusercontent.com/fireeye/speakeasy/master/requirements.txt
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
 
 remnux-python3-packages-speakeasy:
   pip.installed:
     - bin_env: /usr/bin/python3
     - name: git+https://github.com/fireeye/speakeasy.git@master
-    - upgrade: True
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git
       - pip: remnux-python3-packages-speakeasy-requirements
 

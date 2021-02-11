@@ -27,7 +27,7 @@ include:
   - remnux.packages.libfuzzy-dev
   - remnux.packages.git
   - remnux.packages.virtualenv
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
   - remnux.packages.python3-virtualenv
   - remnux.packages.python3-venv
   - remnux.packages.build-essential
@@ -50,7 +50,7 @@ remnux-python3-packages-viper-virtualenv:
       - setuptools
       - wheel
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.python3-venv
       - sls: remnux.packages.virtualenv
@@ -65,7 +65,7 @@ remnux-python3-packages-viper-install:
       - sls: remnux.packages.libusb-1
       - sls: remnux.packages.libfuzzy-dev
       - sls: remnux.packages.git
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
       - sls: remnux.packages.build-essential
       - sls: remnux.packages.libffi-dev
       - sls: remnux.packages.unrar
@@ -145,7 +145,6 @@ remnux-python3-packages-viper-modules-update:
 remnux-python3-packages-viper-modules-requirements:
   pip.installed:
     - requirements: {{ home }}/.viper/modules/requirements.txt
-    - upgrade: True
     - bin_env: /opt/viper/bin/pip3
     - require:
       - file: remnux-python3-packages-viper-modules-verify-sigs

@@ -1,8 +1,9 @@
 include:
   - remnux.python3-packages.pip
 
-pycryptodome==3.9.7:
+remnux-python3-packages-setuptools-rust:
   pip.installed:
+    - name: setuptools_rust
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.python3-packages.pip

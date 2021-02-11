@@ -19,7 +19,7 @@
 {% endif %}
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
   - remnux.packages.git
   - remnux.config.user
   - remnux.packages.python3-virtualenv
@@ -37,7 +37,7 @@ remnux-python3-packages-malwoverview-virtualenv:
       - setuptools
       - wheel
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.python3-venv
       - sls: remnux.packages.virtualenv
@@ -47,7 +47,7 @@ remnux-python3-packages-malwoverview-install:
     - name: malwoverview
     - bin_env: /opt/malwoverview/bin/python3
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
       - virtualenv: remnux-python3-packages-malwoverview-virtualenv
       - sls: remnux.packages.git
       - sls: remnux.config.user

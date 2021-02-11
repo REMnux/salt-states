@@ -8,8 +8,8 @@
 {%- if grains['oscodename'] == "bionic" %}
 include:
   - remnux.packages.git
+  - remnux.python3-packages.pip
   - remnux.python3-packages.setuptools
-  - remnux.packages.python3-pip
   - remnux.packages.libemu
   - remnux.packages.libgraphviz-dev
   - remnux.packages.libxml2-dev
@@ -25,9 +25,9 @@ include:
 {%- elif grains['oscodename'] == "focal" %}
 include:
   - remnux.packages.git
+  - remnux.python3-packages.pip
   - remnux.python3-packages.setuptools
   - remnux.python3-packages.pygraphviz
-  - remnux.packages.python3-pip
   - remnux.packages.libemu
   - remnux.packages.libgraphviz-dev
   - remnux.packages.libxml2-dev
@@ -51,9 +51,8 @@ remnux-python3-packages-thug:
   pip.installed:
     - name: thug
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
     - watch:
       - git: remnux-python3-packages-git-thug
 

@@ -7,30 +7,30 @@
 # Notes: ipwhois_cli.py, ipwhois_utils_cli.py
 
 include:
-  - remnux.packages.python3-pip
+  - remnux.python3-packages.pip
 
-ipwhois:
+remnux-python3-packages-ipwhois:
   pip.installed:
+    - name: ipwhois
     - bin_env: /usr/bin/python3
-    - upgrade: True
     - require:
-      - sls: remnux.packages.python3-pip
+      - sls: remnux.python3-packages.pip
 
-remnux-python-packages-ipwhois_cli-shebang:
+remnux-python3-packages-ipwhois_cli-shebang:
   file.prepend:
     - name: /usr/local/bin/ipwhois_cli.py
     - text: '#!/usr/bin/env python3'
     - require:
-      - pip: ipwhois
+      - pip: remnux-python3-packages-ipwhois
 
-remnux-python-packages-ipwhois_utils-shebang:
+remnux-python3-packages-ipwhois_utils-shebang:
   file.prepend:
     - name: /usr/local/bin/ipwhois_utils_cli.py
     - text: '#!/usr/bin/env python3'
     - require:
-      - pip: ipwhois
+      - pip: remnux-python3-packages-ipwhois
     - watch:
-      - file: remnux-python-packages-ipwhois_cli-shebang
+      - file: remnux-python3-packages-ipwhois_cli-shebang
 
 /usr/local/bin/ipwhois_cli.py:
   file.managed:
