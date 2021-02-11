@@ -12,7 +12,7 @@ include:
 
 remnux-python3-packages-chepy:
   pip.installed:
-    - name: chepy==2.6.3
+    - name: chepy
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.python3-packages.pip    
