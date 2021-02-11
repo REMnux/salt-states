@@ -8,7 +8,10 @@
 
 include:
   - remnux.repos.remnux
-  
-flare-floss:
+
+remnux-packages-floss:
   pkg.installed:
+    - name: floss
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux

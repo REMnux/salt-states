@@ -9,6 +9,9 @@
 include:
   - remnux.repos.remnux
   
-capa:
+remnux-packages-floss:
   pkg.installed:
+    - name: capa
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux
