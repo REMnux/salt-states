@@ -21,6 +21,7 @@ remnux-python3-packages-speakeasy:
   pip.installed:
     - bin_env: /usr/bin/python3
     - name: git+https://github.com/fireeye/speakeasy.git@master
+    - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git
