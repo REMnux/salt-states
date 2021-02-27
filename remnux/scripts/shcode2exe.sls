@@ -1,7 +1,7 @@
 # Name: shcode2exe
 # Website: https://github.com/accidentalrebel/shcode2exe
 # Description: Convert 32 and 64-bit shellcode to a Windows executable or a Linux binary file.
-# Category: General Utilities
+# Category: Dynamically Reverse-Engineer Code: Shellcode
 # Author: Karlo Licudine: https://twitter.com/accidentalrebel
 # License: GNU General Public License (GPL) v3.0: https://github.com/accidentalrebel/shcode2exe/blob/master/LICENSE
 # Notes: 
