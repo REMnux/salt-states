@@ -5,7 +5,7 @@
 # Author: Angelo Dell'Aera
 # License: GNU General Public License (GPL) v2: https://github.com/buffer/thug/blob/master/LICENSE.txt
 # Notes: thug -F
-{%- if grains['oscodename'] == "bionic" %}
+
 include:
   - remnux.packages.git
   - remnux.python3-packages.pip
@@ -21,26 +21,6 @@ include:
   - remnux.packages.tesseract-ocr
   - remnux.python3-packages.stpyv8
   - remnux.python3-packages.pytesseract
-
-{%- elif grains['oscodename'] == "focal" %}
-include:
-  - remnux.packages.git
-  - remnux.python3-packages.pip
-  - remnux.python3-packages.setuptools
-  - remnux.python3-packages.pygraphviz
-  - remnux.packages.libemu
-  - remnux.packages.libgraphviz-dev
-  - remnux.packages.libxml2-dev
-  - remnux.packages.libxslt1-dev
-  - remnux.packages.libffi-dev
-  - remnux.packages.libfuzzy-dev
-  - remnux.packages.libfuzzy2
-  - remnux.packages.libjpeg-dev
-  - remnux.packages.tesseract-ocr
-  - remnux.python3-packages.stpyv8
-  - remnux.python3-packages.pytesseract
-
-{%- endif %}
 
 remnux-python3-packages-git-thug:
   git.cloned:
