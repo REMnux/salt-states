@@ -15,7 +15,7 @@ remnux-scripts-shcode2exe-source:
   file.managed:
     - name: /usr/local/bin/shcode2exe
     - source: https://github.com/accidentalrebel/shcode2exe/raw/master/shcode2exe.py
-    - source_hash: sha256=9d2960394694b32fe2ed1af5f1bf04629b380edfdc39359c67be29a746e23058
+    - source_hash: sha256=017bfcdf981a4d360fa8654363e05ac1c7bcaa01c61a7a0690758a508328fb9e
     - makedirs: false
     - mode: 755
     - require:
