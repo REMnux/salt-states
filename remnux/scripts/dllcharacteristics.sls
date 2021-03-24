@@ -1,7 +1,7 @@
 # Name: dllcharacteristics.py
 # Website: https://github.com/accidentalrebel/dllcharacteristics.py
-# Description: A simple Python tool for getting and setting the values of DLL characteristics for PE files.
-# Category: View or Edit Files, Examine Static Properties: General
+# Description: Read and set DLL characteristics of a PE file.
+# Category: Examine Static Properties: PE Files
 # Author: Karlo Licudine: https://twitter.com/accidentalrebel
 # License: GNU General Public License (GPL) v3.0: https://github.com/accidentalrebel/dllcharacteristics.py/blob/master/LICENSE
 # Notes: 
