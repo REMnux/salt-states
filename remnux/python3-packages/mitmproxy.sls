@@ -8,15 +8,15 @@
 
 remnux-mitmproxy-source:
   file.managed.:
-    - name: /usr/local/src/remnux/files/mitmproxy-5.1.1-linux.tar.gz
-    - source: https://snapshots.mitmproxy.org/5.1.1/mitmproxy-5.1.1-linux.tar.gz
-    - source_hash: sha256=f7db3439abdce411ca8f0125bdcc2a3d8923487b79fc3d57ee15aa0ba21ffdc0
+    - name: /usr/local/src/remnux/files/mitmproxy-6.0.2-linux.tar.gz
+    - source: http://snapshots.mitmproxy.org/6.0.2/mitmproxy-6.0.2-linux.tar.gz
+    - source_hash: sha256=86e96c9a6f50f2863e69dcdfe91c38b4f0844ee1ab0037373689db8aaacb5191
     - makedirs: True
 
 remnux-mitmproxy-archive:
   archive.extracted:
     - name: /usr/local/bin/
-    - source: /usr/local/src/remnux/files/mitmproxy-5.1.1-linux.tar.gz
+    - source: /usr/local/src/remnux/files/mitmproxy-6.0.2-linux.tar.gz
     - enforce_toplevel: False
     - force: True
     - watch:
