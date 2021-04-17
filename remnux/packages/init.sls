@@ -142,7 +142,6 @@ include:
   - remnux.packages.binee
   - remnux.packages.xorsearch
   - remnux.packages.oledump
-  - remnux.packages.capa
   - remnux.packages.nano
   - remnux.packages.file
   - remnux.packages.android-project-creator
