@@ -300,7 +300,6 @@ remnux-packages:
       - sls: remnux.packages.binee
       - sls: remnux.packages.xorsearch
       - sls: remnux.packages.oledump
-      - sls: remnux.packages.capa
       - sls: remnux.packages.nano
       - sls: remnux.packages.file
       - sls: remnux.packages.android-project-creator

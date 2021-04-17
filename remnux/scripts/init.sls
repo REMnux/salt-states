@@ -35,6 +35,7 @@ include:
   - remnux.scripts.anomy
   - remnux.scripts.shcode2exe
   - remnux.scripts.dllcharacteristics
+  - remnux.scripts.mbcscan
 
 remnux-scripts:
   test.nop:
@@ -75,3 +76,4 @@ remnux-scripts:
       - sls: remnux.scripts.anomy
       - sls: remnux.scripts.shcode2exe
       - sls: remnux.scripts.dllcharacteristics
+      - sls: remnux.scripts.mbcscan

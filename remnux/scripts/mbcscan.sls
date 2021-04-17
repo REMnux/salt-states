@@ -1,6 +1,6 @@
 # Name: mbcscan
 # Website: https://github.com/accidentalrebel/mbcscan
-# Description: Scans a malware file and lists down the related MBC (Malware Behavior Catalog) details.
+# Description: Scan a PE file lists  the associated Malware Behavior Catalog (MBC) details.
 # Category: Examine Static Properties: PE Files
 # Author: Karlo Licudine: https://twitter.com/accidentalrebel
 # License: GNU General Public License (GPL) v3.0: https://github.com/accidentalrebel/mbcscan/blob/master/LICENSE
