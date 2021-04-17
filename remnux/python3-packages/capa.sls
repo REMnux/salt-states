@@ -9,6 +9,7 @@
 include:
   - remnux.python3-packages.pip
   - remnux.python3-packages.vivisect
+  - remnux.packages.git
 
 remnux-python3-packages-capa-cleanup1:
   file.absent:
@@ -34,3 +35,12 @@ remnux-python3-packages-capa-cleanup3:
     - name: capa
     - require:
       - pip: remnux-python3-packages-capa
+
+remnux-python3-packages-capa-rules:
+  git.cloned:
+    - name: https://github.com/fireeye/capa-rules.git
+    - target: /usr/local/share/capa-rules
+    - user: root
+    - branch: master
+    - require:
+      - pkg: remnux-python3-packages-capa-cleanup3
