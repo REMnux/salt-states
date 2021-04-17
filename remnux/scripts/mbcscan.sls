@@ -22,7 +22,7 @@ remnux-scripts-mbcscan-source:
   file.managed:
     - name: /usr/local/bin/mbcscan.py
     - source: https://raw.githubusercontent.com/accidentalrebel/mbcscan/master/mbcscan.py
-    - source_hash: sha256=a7e438fcebd5ba5f77b70cad5c198fdb6e107276d1e22dbf7a1164409cd91e53
+    - source_hash: sha256=95e9054bbcc19c819df4347a005c70411e12e152dee3c69c1663569612d81ad8
     - makedirs: false
     - mode: 755
     - require:
