@@ -1,6 +1,6 @@
-# Name: mbcscan
+# Name: MBCScan
 # Website: https://github.com/accidentalrebel/mbcscan
-# Description: Scan a PE file lists  the associated Malware Behavior Catalog (MBC) details.
+# Description: Scan a PE file to list the associated Malware Behavior Catalog (MBC) details.
 # Category: Examine Static Properties: PE Files
 # Author: Karlo Licudine: https://twitter.com/accidentalrebel
 # License: GNU General Public License (GPL) v3.0: https://github.com/accidentalrebel/mbcscan/blob/master/LICENSE
@@ -10,6 +10,7 @@ include:
   - remnux.packages.git
   - remnux.packages.python3
   - remnux.python3-packages.pip
+  - remnux.python3-packages.capa
 
 remnux-scripts-mbcscan-requirements:
   pip.installed:
@@ -17,6 +18,7 @@ remnux-scripts-mbcscan-requirements:
     - requirements: https://raw.githubusercontent.com/accidentalrebel/mbcscan/master/requirements.txt
     - require:
       - sls: remnux.python3-packages.pip
+      - sls: remnux.python3-packages.capa
 
 remnux-scripts-mbcscan-source:
   file.managed:

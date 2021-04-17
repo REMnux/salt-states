@@ -1,5 +1,9 @@
 include:
   - remnux.repos.nodejs
 
-nodejs:
-  pkg.latest
+remnux-packages-nodejs:
+  pkg.installed:
+    - name: nodejs
+    - version: latest
+    - upgrade: True
+    - pkgrepo: nodejs

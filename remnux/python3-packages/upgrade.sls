@@ -41,6 +41,8 @@ include:
   - remnux.python3-packages.xlmmacrodeobfuscator
   - remnux.python3-packages.xortool
   - remnux.python3-packages.yara-python3
+  - remnux.python3-packages.vivisect
+  - remnux.python3-packages.capa
 
 remnux-python3-packages-pypi-upgrade:
   cmd.run:
@@ -88,6 +90,8 @@ remnux-python3-packages-pypi-upgrade:
       - sls: remnux.python3-packages.xlmmacrodeobfuscator
       - sls: remnux.python3-packages.xortool
       - sls: remnux.python3-packages.yara-python3
+      - sls: remnux.python3-packages.vivisect
+      - sls: remnux.python3-packages.capa
 
 remnux-python3-packages-malwoverview-upgrade:
   cmd.run:
