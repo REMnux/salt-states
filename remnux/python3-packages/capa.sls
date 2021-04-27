@@ -32,7 +32,6 @@ remnux-python3-packages-capa:
     - name: flare-capa
     - bin_env: /usr/bin/python3
     - require:
-      - file: remnux-python3-packages-capa-cleanup2
       - sls: remnux.python3-packages.pip
 
 remnux-python3-packages-capa-cleanup:
