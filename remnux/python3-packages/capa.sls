@@ -11,6 +11,8 @@ include:
   - remnux.python3-packages.vivisect
   - remnux.packages.git
 
+{%- if grains['oscodename'] == "focal" %}
+
 remnux-python3-packages-capa-cleanup1:
   file.absent:
     - name: /usr/lib/python3/dist-packages/PyYAML-5.3.1.egg-info
@@ -23,14 +25,17 @@ remnux-python3-packages-capa-cleanup2:
     - require:
       - file: remnux-python3-packages-capa-cleanup1
 
+{%- endif %}
+
 remnux-python3-packages-capa:
   pip.installed:
     - name: flare-capa
     - bin_env: /usr/bin/python3
     - require:
       - file: remnux-python3-packages-capa-cleanup2
+      - sls: remnux.python3-packages.pip
 
-remnux-python3-packages-capa-cleanup3:
+remnux-python3-packages-capa-cleanup:
   pkg.removed:
     - name: capa
     - require:
@@ -43,4 +48,4 @@ remnux-python3-packages-capa-rules:
     - user: root
     - branch: master
     - require:
-      - pkg: remnux-python3-packages-capa-cleanup3
+      - pip: remnux-python3-packages-capa
