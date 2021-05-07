@@ -19,6 +19,7 @@ include:
   - remnux.config.binee
   - remnux.config.nginx
   - remnux.config.android-project-creator
+  - remnux.config.volatility3
 #  - remnux.config.viper-virtualenv
 
 remnux-config:
@@ -44,4 +45,5 @@ remnux-config:
       - sls: remnux.config.binee
       - sls: remnux.config.nginx
       - sls: remnux.config.android-project-creator
+      - sls: remnux.config.volatility3
 #      - sls: remnux.config.viper-virtualenv
