@@ -1,5 +1,5 @@
-{%- set source = "https://github.com/REMnux/remnux-cli/releases/download/v1.3.2/remnux-cli-linux" -%}		
-{%- set hash = "e335872b1026136102b6ca5d8b4fbf2f20cadd1ea5117955381c1520fd0843de" -%}		
+{%- set source = "https://github.com/REMnux/remnux-cli/releases/download/v1.3.3/remnux-cli-linux" -%}		
+{%- set hash = "8193df477c0e0f14b53d018db141b969ab48f8da550384ef6d6e51482ebdda9d" -%}		
 
 # Name: REMnux Installer
 # Website: https://github.com/REMnux/remnux-cli
