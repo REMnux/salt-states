@@ -25,7 +25,22 @@ remnux-python3-packages-capa-cleanup2:
     - require:
       - file: remnux-python3-packages-capa-cleanup1
 
-{%- endif %}
+remnux-python3-packages-capa:
+  pip.installed:
+    - name: flare-capa
+    - bin_env: /usr/bin/python3
+    - require:
+      - sls: remnux.python3-packages.pip
+      - file: remnux-python3-packages-capa-cleanup2
+
+remnux-python3-packages-capa-cleanup3:
+  pkg.installed:
+    - name: python3-yaml
+    - reinstall: True
+    - require:
+      - pip: remnux-python3-packages-capa
+
+{%- else %}
 
 remnux-python3-packages-capa:
   pip.installed:
@@ -33,6 +48,8 @@ remnux-python3-packages-capa:
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.python3-packages.pip
+
+{%- endif %}
 
 remnux-python3-packages-capa-cleanup:
   pkg.removed:

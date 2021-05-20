@@ -10,12 +10,44 @@ include:
   - remnux.packages.python2-pip
   - remnux.python3-packages.pip
 
+{%- if grains['oscodename'] == "focal" %}
+
+remnux-python3-packages-vivisect-cleanup1:
+  file.absent:
+    - name: /usr/lib/python3/dist-packages/PyYAML-5.3.1.egg-info
+
+remnux-python3-packages-vivisect-cleanup2:
+  file.absent:
+    - name: /usr/lib/python3/dist-packages/yaml
+    - require:
+      - file: remnux-python3-packages-vivisect-cleanup1
+
+
 remnux-python3-packages-vivisect:
   pip.installed:
     - bin_env: /usr/bin/python3
     - name: vivisect
     - require:
       - sls: remnux.python3-packages.pip
+      - file: remnux-python3-packages-vivisect-cleanup2
+
+remnux-python3-packages-vivisect-cleanup3:
+  pkg.installed:
+    - name: python3-yaml
+    - reinstall: True
+    - require:
+      - pip: remnux-python3-packages-vivisect
+
+{%- else %}
+
+remnux-python3-packages-vivisect:
+  pip.installed:
+    - bin_env: /usr/bin/python3
+    - name: vivisect
+    - require:
+      - sls: remnux.python3-packages.pip
+
+{%- endif %}
 
 remnux-python3-packages-vivisect-cleanup:
   pip.removed:
