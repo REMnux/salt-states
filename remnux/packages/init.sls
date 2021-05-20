@@ -129,7 +129,6 @@ include:
   - remnux.packages.python3-venv
   - remnux.packages.python3-virtualenv
   - remnux.packages.virtualenv
-  - remnux.packages.scdbg
   - remnux.packages.powershell
   - remnux.packages.cabextract
   - remnux.packages.baksmali
@@ -286,7 +285,6 @@ remnux-packages:
       - sls: remnux.packages.python3-venv
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.virtualenv
-      - sls: remnux.packages.scdbg
       - sls: remnux.packages.powershell
       - sls: remnux.packages.cabextract
       - sls: remnux.packages.baksmali
