@@ -18,35 +18,13 @@ remnux-python3-packages-vivisect-pyasn1-removal:
       - python3-pyasn1
       - python3-pyasn1-modules
 
-remnux-python3-packages-vivisect-cleanup1:
-  module.run:
-    - name: file.find
-    - path: "/usr/lib/python3/dist-packages"
-    - kwargs:
-        iname: "PyYAML-*.egg-info"
-        delete: "f"
-
-remnux-python3-packages-vivisect-cleanup2:
-  file.absent:
-    - name: /usr/lib/python3/dist-packages/yaml
-    - require:
-      - module: remnux-python3-packages-vivisect-cleanup1
-
-remnux-python3-packages-vivisect-cleanup3:
-  pip.installed:
-    - bin_env: /usr/bin/python3
-    - name: pyyaml
-    - require:
-      - sls: remnux.python3-packages.pip
-      - file: remnux-python3-packages-vivisect-cleanup2
-
 remnux-python3-packages-vivisect:
   pip.installed:
     - bin_env: /usr/bin/python3
     - name: vivisect
     - require:
       - sls: remnux.python3-packages.pip
-      - pip: remnux-python3-packages-vivisect-cleanup3
+      - pkg: remnux-python3-packages-vivisect-pyasn1-removal
 
 {%- else %}
 

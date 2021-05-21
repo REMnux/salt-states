@@ -13,30 +13,13 @@ include:
 
 {%- if grains['oscodename'] == "focal" %}
 
-
-remnux-python3-packages-capa-cleanup1:
-  module.run:
-    - name: file.find
-    - path: "/usr/lib/python3/dist-packages"
-    - kwargs:
-        iname: "PyYAML-*.egg-info"
-        delete: "f"
-    - require:
-      - sls: remnux.python3-packages.vivisect
-
-remnux-python3-packages-capa-cleanup2:
-  file.absent:
-    - name: /usr/lib/python3/dist-packages/yaml
-    - require:
-      - module: remnux-python3-packages-capa-cleanup1
-
-remnux-python3-packages-capa-cleanup3:
+remnux-python3-packages-capa-yaml:
   pip.installed:
     - bin_env: /usr/bin/python3
     - name: pyyaml
+    - ignore_installed: True
     - require:
       - sls: remnux.python3-packages.pip
-      - file: remnux-python3-packages-capa-cleanup2
 
 remnux-python3-packages-capa:
   pip.installed:
@@ -44,7 +27,7 @@ remnux-python3-packages-capa:
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.python3-packages.pip
-      - pip: remnux-python3-packages-capa-cleanup3
+      - pip: remnux-python3-packages-capa-yaml
 
 {%- else %}
 
