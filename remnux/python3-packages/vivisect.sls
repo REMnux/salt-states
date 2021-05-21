@@ -12,6 +12,12 @@ include:
 
 {%- if grains['oscodename'] == "focal" %}
 
+remnux-python3-packages-vivisect-pyasn1-removal:
+  pkg.removed:
+    - pkgs:
+      - python3-pyasn1
+      - python3-pyasn1-modules
+
 remnux-python3-packages-vivisect-cleanup1:
   module.run:
     - name: file.find
