@@ -153,6 +153,7 @@ include:
   - remnux.packages.tzdata
   - remnux.packages.binwalk
   - remnux.packages.nasm
+  - remnux.packages.scdbg
 
 remnux-packages:
   test.nop:
@@ -309,3 +310,4 @@ remnux-packages:
       - sls: remnux.packages.tzdata
       - sls: remnux.packages.binwalk
       - sls: remnux.packages.nasm
+      - sls: remnux.packages.scdbg
