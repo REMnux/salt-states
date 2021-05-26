@@ -19,6 +19,8 @@ include:
 
 remnux-packages-scdbg:
   pkg.installed:
+    - version: latest
+    - upgrade: True
     - name: scdbg
     - pkgrepo: remnux
 

@@ -13,5 +13,7 @@ include:
 edb-debugger:
   pkg.installed:
     - pkgrepo: remnux
+    - version: latest
+    - upgrade: True
     - require:
       - sls: remnux.packages.xterm

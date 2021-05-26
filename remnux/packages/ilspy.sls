@@ -12,4 +12,6 @@ include:
   
 ilspycmd:
   pkg.installed:
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux

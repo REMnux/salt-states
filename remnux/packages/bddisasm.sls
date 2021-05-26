@@ -11,4 +11,6 @@ include:
   
 bddisasm:
   pkg.installed:
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux

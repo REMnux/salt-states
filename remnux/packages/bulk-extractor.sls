@@ -12,6 +12,8 @@ include:
 
 bulk-extractor:
   pkg.installed:
+    - version: latest
+    - upgrade: True
     - require:
       - pkgrepo: sift-repo
       - pkgrepo: openjdk-repo

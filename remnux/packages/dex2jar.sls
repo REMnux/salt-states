@@ -11,4 +11,6 @@ include:
   
 dex2jar:
   pkg.installed:
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux

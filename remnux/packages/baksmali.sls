@@ -11,4 +11,6 @@ include:
 
 baksmali:
   pkg.installed:
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux

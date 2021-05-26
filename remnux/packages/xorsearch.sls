@@ -11,4 +11,6 @@ include:
   
 xorsearch:
   pkg.installed:
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux

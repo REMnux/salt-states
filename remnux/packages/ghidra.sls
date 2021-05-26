@@ -12,6 +12,8 @@ include:
 remnux-packages-ghidra:
   pkg.installed:
     - name: ghidra
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux
 
 remnux-packages-ghidra-cleanup1:
