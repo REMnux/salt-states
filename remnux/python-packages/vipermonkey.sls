@@ -11,6 +11,7 @@ include:
   - remnux.packages.git
   - remnux.packages.virtualenv
   - remnux.packages.python3-pip
+  - remnux.packages.python2-dev
 
 remnux-python-packages-vipermonkey-virtualenv:
   virtualenv.managed:
@@ -27,11 +28,12 @@ remnux-python-packages-vipermonkey-virtualenv:
 
 remnux-python-packages-vipermonkey-install:
   pip.installed:
-    - editable: git+https://github.com/decalage2/ViperMonkey.git#egg=ViperMonkey
+    - name: git+https://github.com/decalage2/ViperMonkey.git
     - bin_env: /opt/vipermonkey/bin/python
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python2-pip
+      - sls: remnux.packages.python2-dev
       - virtualenv: remnux-python-packages-vipermonkey-virtualenv
 
 remnux-python-packages-vipermonkey-symlink:
