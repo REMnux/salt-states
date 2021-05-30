@@ -12,7 +12,7 @@ include:
 
 remnux-python-packages-pefile:
   pip.installed:
-    - name: pefile
+    - name: pefile==2019.4.18
     - bin_env: /usr/bin/python2
     - upgrade: True
     - require:
