@@ -16,6 +16,7 @@ include:
   - remnux.tools.cyberchef
   - remnux.tools.networkminer
   - remnux.theme.gnome-config.remove-app-icons
+  - remnux.tools.detect-it-easy
 
 remnux-gnome-config-logo:
   file.managed:
