@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Detect-It-Easy
+Exec=die
+Icon=die
+Categories=Development;
+Comment=Determine types of files and examine file properties.

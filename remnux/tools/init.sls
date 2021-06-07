@@ -26,6 +26,7 @@ include:
   - remnux.tools.yara-rules
   - remnux.tools.captipper
   - remnux.tools.jadx
+  - remnux.tools.detect-it-easy
 
 remnux-tools:
   test.nop:
@@ -57,3 +58,4 @@ remnux-tools:
       - sls: remnux.tools.yara-rules
       - sls: remnux.tools.captipper
       - sls: remnux.tools.jadx
+      - sls: remnux.tools.detect-it-easy

@@ -200,3 +200,30 @@ remnux-theme-gnome-config:
   test.nop:
     - require:
       - sls: remnux.theme.gnome-config.remove-app-icons
+
+{%- if grains['oscodename'] == "focal" %}
+
+remnux-gnome-config-detect-it-easy-icon-file:
+  file.managed:
+    - replace: False
+    - name: /usr/share/icons/die.ico
+    - source: salt://remnux/theme/gnome-config/die.ico
+    - makedirs: True
+    - require:
+      - sls: remnux.tools.detect-it-easy
+
+remnux-gnome-config-detect-it-easy-icon:
+  file.managed:
+    - replace: False
+    - name: /usr/share/applications/die.desktop
+    - source: salt://remnux/theme/gnome-config/die.desktop
+    - makedirs: True
+    - watch:
+      - file: remnux-gnome-config-detect-it-easy-icon-file
+
+{%- elif grains['oscodename'] == "bionic" %}
+
+remnux-gnome-config-detect-it-easy-icon:
+  test.nop
+
+{%- endif %}
