@@ -207,8 +207,8 @@ remnux-theme-gnome-config:
 remnux-gnome-config-detect-it-easy-icon-file:
   file.managed:
     - replace: False
-    - name: /usr/share/icons/die.ico
-    - source: salt://remnux/theme/gnome-config/die.ico
+    - name: /usr/share/icons/die.png
+    - source: salt://remnux/theme/gnome-config/die.png
     - makedirs: True
     - require:
       - sls: remnux.tools.detect-it-easy
