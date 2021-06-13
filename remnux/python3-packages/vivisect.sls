@@ -10,6 +10,14 @@ include:
   - remnux.packages.python2-pip
   - remnux.python3-packages.pip
 
+remnux-python3-packages-vivisect-pyqt:
+  pip.installed:
+    - bin_env: /usr/bin/python3
+    - name: PyQtWebEngine
+    - ignore_installed: True
+    - require:
+      - sls: remnux.python3-packages.pip
+
 {%- if grains['oscodename'] == "focal" %}
 
 remnux-python3-packages-vivisect-pyasn1-removal:
@@ -23,7 +31,7 @@ remnux-python3-packages-vivisect:
     - bin_env: /usr/bin/python3
     - name: vivisect
     - require:
-      - sls: remnux.python3-packages.pip
+      - pip: remnux-python3-packages-vivisect-pyqt
       - pkg: remnux-python3-packages-vivisect-pyasn1-removal
 
 {%- else %}
@@ -33,7 +41,7 @@ remnux-python3-packages-vivisect:
     - bin_env: /usr/bin/python3
     - name: vivisect
     - require:
-      - sls: remnux.python3-packages.pip
+      - pip: remnux-python3-packages-vivisect-pyqt
 
 {%- endif %}
 
