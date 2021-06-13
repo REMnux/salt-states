@@ -46,7 +46,7 @@ remnux-python3-packages-capa-cleanup:
     - require:
       - pip: remnux-python3-packages-capa
 
-remnux-python3-packages-capa-rules:
+remnux-python3-packages-capa-rules1:
   git.cloned:
     - name: https://github.com/fireeye/capa-rules.git
     - target: /usr/local/share/capa-rules
@@ -54,3 +54,9 @@ remnux-python3-packages-capa-rules:
     - branch: master
     - require:
       - pip: remnux-python3-packages-capa
+
+remnux-python3-packages-capa-rules2:
+  file.absent:
+    - name: /usr/local/share/capa-rules/.git
+    - require:
+      - git: remnux-python3-packages-capa-rules1
