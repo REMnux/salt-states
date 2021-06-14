@@ -23,6 +23,8 @@ remnux-python3-packages-xlmmacrodeobfuscator:
     - require:
       - pip: remnux-python3-packages-xlmmacrodeobfuscator
 
+{%- if grains['oscodename'] == "focal" %}
+
 remnux-python3-packages-xlmmacrodeobfuscator-cleanup:
   file.line:
     - name: /usr/local/lib/python3.8/dist-packages/XLMMacroDeobfuscator/deobfuscator.py
@@ -30,3 +32,15 @@ remnux-python3-packages-xlmmacrodeobfuscator-cleanup:
     - content: "print('pywin32 is not installed (only is required if you want to use MS Excel)')"
     - require:
       - pip: remnux-python3-packages-xlmmacrodeobfuscator
+
+{%- elif grains['oscodename'] == "bionic" %}
+
+remnux-python3-packages-xlmmacrodeobfuscator-cleanup:
+  file.line:
+    - name: /usr/local/lib/python3.6/dist-packages/XLMMacroDeobfuscator/deobfuscator.py
+    - mode: delete
+    - content: "print('pywin32 is not installed (only is required if you want to use MS Excel)')"
+    - require:
+      - pip: remnux-python3-packages-xlmmacrodeobfuscator
+
+{%- endif %}
