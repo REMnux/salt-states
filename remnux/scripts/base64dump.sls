@@ -7,49 +7,39 @@
 # Notes: base64dump.py
 
 include:
-  - remnux.packages.python2
+  - remnux.packages.python3
 
 remnux-scripts-base64dump-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/base64dump_V0_0_13.zip
-    - source: https://didierstevens.com/files/software/base64dump_V0_0_13.zip
-    - source_hash: EE6527B4F558439916D9854980D6980EECA9F130F37BBF4034453ABBD8BF3260
+    - name: /usr/local/src/remnux/files/base64dump_V0_0_14.zip
+    - source: https://didierstevens.com/files/software/base64dump_V0_0_14.zip
+    - source_hash: sha256=2F58F630D9B12D2B70CECF35728096A247890808E44DAB9C94400A073D5E29BF
     - makedirs: True
     - require:
-      - sls: remnux.packages.python2
+      - sls: remnux.packages.python3
 
 remnux-scripts-base64dump-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/base64dump-0.0.13
-    - source: /usr/local/src/remnux/files/base64dump_V0_0_13.zip
+    - name: /usr/local/src/remnux/base64dump_V0_0_14
+    - source: /usr/local/src/remnux/files/base64dump_V0_0_14.zip
     - enforce_toplevel: False
-    - watch:
+    - require:
       - file: remnux-scripts-base64dump-source
 
 remnux-scripts-base64dump-binary:
   file.managed:
     - name: /usr/local/bin/base64dump.py
-    - source: /usr/local/src/remnux/base64dump-0.0.13/base64dump.py
+    - source: /usr/local/src/remnux/base64dump_V0_0_14/base64dump.py
     - mode: 755
-    - watch:
-      - archive: remnux-scripts-base64dump-archive
-
-remnux-scripts-base64dump-formatting:
-  file.replace:
-    - name: /usr/local/bin/base64dump.py
-    - pattern: '\r'
-    - repl: ''
-    - backup: False
-    - count: 1
     - require:
-      - file: remnux-scripts-base64dump-binary
+      - archive: remnux-scripts-base64dump-archive
 
 remnux-scripts-base64dump-shebang:
   file.replace:
     - name: /usr/local/bin/base64dump.py
     - pattern: '#!/usr/bin/env python\n'
-    - repl: '#!/usr/bin/env python2\n'
+    - repl: '#!/usr/bin/env python3\n'
     - backup: False
     - count: 1
     - require:
-      - file: remnux-scripts-base64dump-formatting
+      - file: remnux-scripts-base64dump-binary
