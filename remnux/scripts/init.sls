@@ -27,6 +27,7 @@ include:
   - remnux.scripts.mynic
   - remnux.scripts.translate
   - remnux.scripts.zipdump
+  - remnux.scripts.xmldump
   - remnux.scripts.pecheck
   - remnux.scripts.msoffcrypto-crack
   - remnux.scripts.unxor
@@ -38,6 +39,7 @@ include:
   - remnux.scripts.mbcscan
   - remnux.scripts.1768
   - remnux.scripts.re-search
+  - remnux.scripts.sets
 
 remnux-scripts:
   test.nop:
@@ -70,6 +72,7 @@ remnux-scripts:
       - sls: remnux.scripts.mynic
       - sls: remnux.scripts.translate
       - sls: remnux.scripts.zipdump
+      - sls: remnux.scripts.xmldump
       - sls: remnux.scripts.pecheck
       - sls: remnux.scripts.msoffcrypto-crack
       - sls: remnux.scripts.unxor
@@ -81,3 +84,4 @@ remnux-scripts:
       - sls: remnux.scripts.mbcscan
       - sls: remnux.scripts.1768
       - sls: remnux.scripts.re-search
+      - sls: remnux.scripts.sets
