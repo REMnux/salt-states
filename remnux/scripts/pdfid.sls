@@ -8,15 +8,15 @@
 
 remnux-scripts-pdfid-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/pdfid_v0_2_5.zip
-    - source: https://didierstevens.com/files/software/pdfid_v0_2_5.zip
-    - source_hash: sha256=4DD43D7BDA885C5A579FC1F797E93A536E1DB5A4AB52A9337759A69D3B0250E0
+    - name: /usr/local/src/remnux/files/pdfid_v0_2_7.zip
+    - source: https://didierstevens.com/files/software/pdfid_v0_2_7.zip
+    - source_hash: sha256=FE2B59FE458ECBC1F91A40095FB1536E036BDD4B7B480907AC4E387D9ADB6E60
     - makedirs: True
 
 remnux-scripts-pdfid-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/pdfid-0.2.5
-    - source: /usr/local/src/remnux/files/pdfid_v0_2_5.zip
+    - name: /usr/local/src/remnux/pdfid_v0_2_7
+    - source: /usr/local/src/remnux/files/pdfid_v0_2_7.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-pdfid-source
@@ -24,7 +24,7 @@ remnux-scripts-pdfid-archive:
 remnux-scripts-pdfid-binary:
   file.managed:
     - name: /usr/local/bin/pdfid.py
-    - source: /usr/local/src/remnux/pdfid-0.2.5/pdfid.py
+    - source: /usr/local/src/remnux/pdfid_v0_2_7/pdfid.py
     - mode: 755
     - watch:
       - archive: remnux-scripts-pdfid-archive
@@ -42,7 +42,7 @@ remnux-scripts-pdfid-shebang:
 remnux-scripts-pdfid-plugin-embeddedfile:
   file.managed:
     - name: /usr/local/share/pdfid/plugin_embeddedfile.py
-    - source: /usr/local/src/remnux/pdfid-0.2.5/plugin_embeddedfile.py
+    - source: /usr/local/src/remnux/pdfid_v0_2_7/plugin_embeddedfile.py
     - user:
     - root:
     - mode: 644
@@ -51,7 +51,7 @@ remnux-scripts-pdfid-plugin-embeddedfile:
 remnux-scripts-pdfid-plugin-nameobfuscation:
   file.managed:
     - name: /usr/local/share/pdfid/plugin_nameobfuscation.py
-    - source: /usr/local/src/remnux/pdfid-0.2.5/plugin_nameobfuscation.py
+    - source: /usr/local/src/remnux/pdfid_v0_2_7/plugin_nameobfuscation.py
     - user:
     - root:
     - mode: 644
@@ -60,7 +60,7 @@ remnux-scripts-pdfid-plugin-nameobfuscation:
 remnux-scripts-pdfid-plugin-triage:
   file.managed:
     - name: /usr/local/share/pdfid/plugin_triage.py
-    - source: /usr/local/src/remnux/pdfid-0.2.5/plugin_triage.py
+    - source: /usr/local/src/remnux/pdfid_v0_2_7/plugin_triage.py
     - user:
     - root:
     - mode: 644
