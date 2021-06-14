@@ -37,6 +37,7 @@ include:
   - remnux.scripts.dllcharacteristics
   - remnux.scripts.mbcscan
   - remnux.scripts.1768
+  - remnux.scripts.re-search
 
 remnux-scripts:
   test.nop:
@@ -79,3 +80,4 @@ remnux-scripts:
       - sls: remnux.scripts.dllcharacteristics
       - sls: remnux.scripts.mbcscan
       - sls: remnux.scripts.1768
+      - sls: remnux.scripts.re-search
