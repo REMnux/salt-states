@@ -22,3 +22,11 @@ remnux-python3-packages-xlmmacrodeobfuscator:
     - mode: 755
     - require:
       - pip: remnux-python3-packages-xlmmacrodeobfuscator
+
+remnux-python3-packages-xlmmacrodeobfuscator-cleanup:
+  file.line:
+    - name: /usr/local/lib/python3.8/dist-packages/XLMMacroDeobfuscator/deobfuscator.py
+    - mode: delete
+    - content: "print('pywin32 is not installed (only is required if you want to use MS Excel)')"
+    - require:
+      - pip: remnux-python3-packages-xlmmacrodeobfuscator
