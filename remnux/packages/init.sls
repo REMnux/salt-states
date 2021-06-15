@@ -155,6 +155,7 @@ include:
   - remnux.packages.nasm
   - remnux.packages.scdbg
   - remnux.packages.jq
+  - remnux.packages.runsc
 
 remnux-packages:
   test.nop:
@@ -313,3 +314,4 @@ remnux-packages:
       - sls: remnux.packages.nasm
       - sls: remnux.packages.scdbg
       - sls: remnux.packages.jq
+      - sls: remnux.packages.runsc
