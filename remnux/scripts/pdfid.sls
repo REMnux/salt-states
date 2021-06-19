@@ -18,7 +18,7 @@ remnux-scripts-pdfid-archive:
     - name: /usr/local/src/remnux/pdfid_v0_2_7
     - source: /usr/local/src/remnux/files/pdfid_v0_2_7.zip
     - enforce_toplevel: False
-    - watch:
+    - require:
       - file: remnux-scripts-pdfid-source
 
 remnux-scripts-pdfid-binary:
@@ -26,7 +26,7 @@ remnux-scripts-pdfid-binary:
     - name: /usr/local/bin/pdfid.py
     - source: /usr/local/src/remnux/pdfid_v0_2_7/pdfid.py
     - mode: 755
-    - watch:
+    - require:
       - archive: remnux-scripts-pdfid-archive
 
 remnux-scripts-pdfid-shebang:
@@ -39,6 +39,14 @@ remnux-scripts-pdfid-shebang:
     - require:
       - file: remnux-scripts-pdfid-binary
 
+remnux-scripts-pdfid-ini:
+  file.managed:
+    - name: /usr/local/bin/pdfid.ini
+    - source: /usr/local/src/remnux/pdfid_v0_2_7/pdfid.ini
+    - mode: 755
+    - require:
+      - file: remnux-scripts-pdfid-binary
+
 remnux-scripts-pdfid-plugin-embeddedfile:
   file.managed:
     - name: /usr/local/share/pdfid/plugin_embeddedfile.py
@@ -47,6 +55,8 @@ remnux-scripts-pdfid-plugin-embeddedfile:
     - root:
     - mode: 644
     - makedirs: True
+    - require:
+      - file: remnux-scripts-pdfid-ini
 
 remnux-scripts-pdfid-plugin-nameobfuscation:
   file.managed:
@@ -56,6 +66,8 @@ remnux-scripts-pdfid-plugin-nameobfuscation:
     - root:
     - mode: 644
     - makedirs: True
+    - require:
+      - file: remnux-scripts-pdfid-ini
 
 remnux-scripts-pdfid-plugin-triage:
   file.managed:
@@ -65,3 +77,5 @@ remnux-scripts-pdfid-plugin-triage:
     - root:
     - mode: 644
     - makedirs: True
+    - require:
+      - file: remnux-scripts-pdfid-ini
