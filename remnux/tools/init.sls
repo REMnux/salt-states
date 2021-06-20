@@ -13,7 +13,6 @@ include:
   - remnux.tools.remnux-cli
   - remnux.tools.fakedns
   - remnux.tools.shellcode2exe-bat
-  - remnux.tools.swf_mastah
   - remnux.tools.bytehist
   - remnux.tools.binnavi
   - remnux.tools.de4dot
@@ -44,7 +43,6 @@ remnux-tools:
       - sls: remnux.tools.remnux-cli
       - sls: remnux.tools.fakedns
       - sls: remnux.tools.shellcode2exe-bat
-      - sls: remnux.tools.swf_mastah
       - sls: remnux.tools.bytehist
       - sls: remnux.tools.binnavi
       - sls: remnux.tools.de4dot
