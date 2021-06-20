@@ -44,7 +44,7 @@ remnux-networkminer-wrapper:
         - file: /usr/local/NetworkMiner_2-7-1/NetworkMiner.exe
     - contents:
       - '#!/bin/bash'
-      - mono /usr/local/NetworkMiner_2-7-1/NetworkMiner.exe ${*}
+      - mono /usr/local/NetworkMiner_2-7-1/NetworkMiner.exe "$@"
 
 remnux-networkminer-cleanup:
   file.absent:
