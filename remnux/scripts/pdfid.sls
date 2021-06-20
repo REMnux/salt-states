@@ -1,4 +1,4 @@
-# Name: pdfid
+# Name: pdfid.py
 # Website: https://blog.didierstevens.com/programs/pdf-tools/
 # Description: Identify suspicious elements of the PDF file.
 # Category: Analyze Documents: PDF

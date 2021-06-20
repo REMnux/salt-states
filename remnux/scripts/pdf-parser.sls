@@ -1,4 +1,4 @@
-# Name: pdf-parser
+# Name: pdf-parser.py
 # Website: https://blog.didierstevens.com/programs/pdf-tools/
 # Description: Examine elements of the PDF file.
 # Category: Analyze Documents: PDF
