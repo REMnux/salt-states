@@ -18,8 +18,6 @@ remnux-python3-packages-vivisect-pyqt:
     - require:
       - sls: remnux.python3-packages.pip
 
-{%- if grains['oscodename'] == "focal" %}
-
 remnux-python3-packages-vivisect-pyasn1-removal:
   pkg.removed:
     - pkgs:
@@ -33,17 +31,6 @@ remnux-python3-packages-vivisect:
     - require:
       - pip: remnux-python3-packages-vivisect-pyqt
       - pkg: remnux-python3-packages-vivisect-pyasn1-removal
-
-{%- else %}
-
-remnux-python3-packages-vivisect:
-  pip.installed:
-    - bin_env: /usr/bin/python3
-    - name: vivisect
-    - require:
-      - pip: remnux-python3-packages-vivisect-pyqt
-
-{%- endif %}
 
 remnux-python3-packages-vivisect-cleanup:
   pip.removed:
