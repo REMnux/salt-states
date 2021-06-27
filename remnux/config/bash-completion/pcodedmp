@@ -1,6 +1,6 @@
 . /etc/bash_completion.d/remnuxlib
 
-_pdfid() 
+_pcodedmp() 
 {
 	local cur
 	cur="${COMP_WORDS[COMP_CWORD]}"
