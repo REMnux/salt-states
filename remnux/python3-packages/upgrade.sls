@@ -44,10 +44,11 @@ include:
   - remnux.python3-packages.vivisect
   - remnux.python3-packages.capa
   - remnux.python3-packages.pcode2code
+  - remnux.python3-packages.mail-parser
 
 remnux-python3-packages-pypi-upgrade:
   cmd.run:
-    - name: /usr/bin/python3 -m pip install --upgrade androguard cffi chepy chepy[extras] colorama mwcp docker-compose droidlysis fakemail frida-tools hachoir ipwhois jsbeautifier msoffcrypto-tool olefile oletools pcodedmp pe_tree pefile protobuf pyelftools pygraphviz pylzma pyperclip pytesseract pyzipper qiling r2pipe malwareconfig setuptools setuptools_rust stringsifter thug time-decode unicode wheel peframe-ds xlmmacrodeobfuscator xortool yara-python vivisect flare-capa pcode2code
+    - name: /usr/bin/python3 -m pip install --upgrade androguard cffi chepy chepy[extras] colorama mwcp docker-compose droidlysis fakemail frida-tools hachoir ipwhois jsbeautifier msoffcrypto-tool olefile oletools pcodedmp pe_tree pefile protobuf pyelftools pygraphviz pylzma pyperclip pytesseract pyzipper qiling r2pipe malwareconfig setuptools setuptools_rust stringsifter thug time-decode unicode wheel peframe-ds xlmmacrodeobfuscator xortool yara-python vivisect flare-capa pcode2code mail-parser
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.python3-packages.androguard
@@ -93,6 +94,8 @@ remnux-python3-packages-pypi-upgrade:
       - sls: remnux.python3-packages.yara-python3
       - sls: remnux.python3-packages.vivisect
       - sls: remnux.python3-packages.capa
+      - sls: remnux.python3-packages.pcode2code
+      - sls: remnux.python3-packages.mail-parser
 
 remnux-python3-packages-malwoverview-upgrade:
   cmd.run:
