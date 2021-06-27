@@ -28,6 +28,7 @@ remnux-packages-oledump-shebang:
     - name: /opt/oledump-files/oledump.py
     - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/env python3'
+    - backup: false
     - prepend_if_not_found: False
     - count: 1
     - require:
