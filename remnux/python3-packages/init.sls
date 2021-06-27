@@ -46,6 +46,7 @@ include:
   - remnux.python3-packages.malchive
   - remnux.python3-packages.vivisect
   - remnux.python3-packages.capa
+  - remnux.python3-packages.pcode2code
 
 remnux-python3-packages:
   test.nop:
@@ -97,3 +98,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.malchive
       - sls: remnux.python3-packages.vivisect
       - sls: remnux.python3-packages.capa
+      - sls: remnux.python3-packages.pcode2code
