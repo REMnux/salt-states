@@ -39,6 +39,7 @@ include:
   - remnux.scripts.1768
   - remnux.scripts.re-search
   - remnux.scripts.sets
+  - remnux.scripts.format-bytes
 
 remnux-scripts:
   test.nop:
@@ -83,3 +84,4 @@ remnux-scripts:
       - sls: remnux.scripts.1768
       - sls: remnux.scripts.re-search
       - sls: remnux.scripts.sets
+      - sls: remnux.scripts.format-bytes
