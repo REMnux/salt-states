@@ -14,6 +14,7 @@ remnux-python3-packages-mail-parser:
   pip.installed:
     - name: mail-parser
     - bin_env: /usr/bin/python3
+    - ignore_installed: True
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.libemail-outlook-message-perl
