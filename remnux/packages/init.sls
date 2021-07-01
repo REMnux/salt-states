@@ -157,6 +157,7 @@ include:
   - remnux.packages.jq
   - remnux.packages.runsc
   - remnux.packages.evilclippy
+  - remnux.packages.rar
 
 remnux-packages:
   test.nop:
@@ -317,3 +318,4 @@ remnux-packages:
       - sls: remnux.packages.jq
       - sls: remnux.packages.runsc
       - sls: remnux.packages.evilclippy
+      - sls: remnux.packages.rar
