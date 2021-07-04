@@ -11,24 +11,24 @@ include:
 
 remnux-scripts-xmldump-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/xmldump_V0_0_7_pre.zip
-    - source: https://github.com/REMnux/distro/raw/master/files/xmldump_V0_0_7_pre.zip
-    - source_hash: fe1766afd89dcfcf7005ad17e0833a9708beb80bd18afad954c7a4643132bc09
+    - name: /usr/local/src/remnux/files/xmldump_V0_0_7.zip
+    - source: https://didierstevens.com/files/software/xmldump_V0_0_7.zip
+    - source_hash: 0d7850ceedeb7efd9e8645cf8dd59f1912e9eb3c135346f98af3e3a7baae2b68
     - makedirs: True
     - require:
       - sls: remnux.packages.python3
 
 remnux-scripts-xmldump-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/xmldump_V0_0_7_pre
-    - source: /usr/local/src/remnux/files/xmldump_V0_0_7_pre.zip
+    - name: /usr/local/src/remnux/xmldump_V0_0_7
+    - source: /usr/local/src/remnux/files/xmldump_V0_0_7.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-xmldump-source
 
 remnux-scripts-xmldump-shebang:
   file.replace:
-    - name: /usr/local/src/remnux/xmldump_V0_0_7_pre/xmldump.py
+    - name: /usr/local/src/remnux/xmldump_V0_0_7/xmldump.py
     - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/env python3'
     - prepend_if_not_found: False
@@ -40,7 +40,7 @@ remnux-scripts-xmldump-shebang:
 remnux-scripts-xmldump-binary:
   file.managed:
     - name: /usr/local/bin/xmldump.py
-    - source: /usr/local/src/remnux/xmldump_V0_0_7_pre/xmldump.py
+    - source: /usr/local/src/remnux/xmldump_V0_0_7/xmldump.py
     - mode: 755
     - watch:
       - file: remnux-scripts-xmldump-shebang

@@ -40,6 +40,7 @@ include:
   - remnux.scripts.re-search
   - remnux.scripts.sets
   - remnux.scripts.format-bytes
+  - remnux.scripts.texteditor
 
 remnux-scripts:
   test.nop:
@@ -85,3 +86,4 @@ remnux-scripts:
       - sls: remnux.scripts.re-search
       - sls: remnux.scripts.sets
       - sls: remnux.scripts.format-bytes
+      - sls: remnux.scripts.texteditor
