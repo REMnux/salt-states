@@ -1,5 +1,5 @@
 # Name: texteditor.py
-# Website: https://github.com/DidierStevens/DidierStevensSuite/blob/master/texteditor.py
+# Website: https://blog.didierstevens.com/2021/07/05/new-tool-texteditor-py/
 # Description: Edit text files from the command line using search-and-replace commands.
 # Category: General Utilities
 # Author: Didier Stevens: https://twitter.com/DidierStevens
