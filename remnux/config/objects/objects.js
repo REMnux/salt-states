@@ -1,9 +1,9 @@
+// Define objects, functions, and methods commonly used by malicious JavaScript
+// scripts. You'll probably need to adjust these or add your own, depending on the
+// script you're decoding; in this case, use the definitions below as templates.
 //
-// Define objects, functions, and methods commonly used by
-// malicious browser and Adobe Reader PDF JavaScript scripts.
-//
-// By Lenny Zeltser
-//
+// Author: Lenny Zeltser
+// License: Public Domain
 
 // The following definitions are specific to webpages.
 
@@ -13,10 +13,15 @@ eval = function(input_string) {
 	original_eval(input_string);
 }
 
+location = {
+	// If necessary, set "href" to the proper value
+	href:"https://www.example.com/page"
+}
+
 window = {
 	location: {
 		// If necessary, set "href" to the proper value
-		href:"http://www.example.com/page"
+		href:"https://www.example.com/page"
 	},
 	navigate: function(input_string) {
 		print("// window.navigate(" + input_string + ")");
@@ -25,12 +30,6 @@ window = {
 		eval(input_string);
 	}
 }
-
-location = {
-	// If necessary, set "href" to the proper value
-	href:"http://www.example.com/page"
-}
-
 document = {
 	write:print,
 	writeln:print,
@@ -51,7 +50,7 @@ document = {
 	referrer:"http://www.google.com/search?hl=en&q=web&aq=f&oq=&aqi=g1",
 	
 	// If necessary, set "lastModified" to the proper value
-	lastModified:"Thu, 24 Dec 2016 11:08:12 GMT"
+	lastModified:"Thu, 24 Dec 2020 11:08:12 GMT"
 }
 
 navigator = {
@@ -85,4 +84,8 @@ Collab = {
 
 close = function() {
 	print("// close()");
+}
+
+ActiveXObject = function(arg1) {
+    print("// ActiveXObject(" + arg1 + ")");
 }
