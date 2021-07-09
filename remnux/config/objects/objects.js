@@ -14,13 +14,11 @@ eval = function(input_string) {
 }
 
 location = {
-	// If necessary, set "href" to the proper value
 	href:"https://www.example.com/page"
 }
 
 window = {
 	location: {
-		// If necessary, set "href" to the proper value
 		href:"https://www.example.com/page"
 	},
 	navigate: function(input_string) {
@@ -46,11 +44,9 @@ document = {
 			print(input_string.text);
 		}
 	},
-	// If necessary, set "referrer" to the proper value
 	referrer:"http://www.google.com/search?hl=en&q=web&aq=f&oq=&aqi=g1",
 	
-	// If necessary, set "lastModified" to the proper value
-	lastModified:"Thu, 24 Dec 2020 11:08:12 GMT"
+	lastModified:"Thu, 8 Jul 2021 11:08:12 GMT"
 }
 
 navigator = {
