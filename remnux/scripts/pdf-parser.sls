@@ -48,7 +48,7 @@ remnux-scripts-pdf-parser-python-version:
   file.replace:
     - name: /usr/local/bin/pdf-parser.py
     - pattern: '^__maximum_python_version__ = \(3, 7, 5\)$'
-    - repl: '__maximum_python_version__ = (3, 8, 5)'
+    - repl: '__maximum_python_version__ = (3, 8, 10)'
     - backup: False
     - count: 1
     - require:
