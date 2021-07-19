@@ -11,17 +11,17 @@ include:
 
 remnux-scripts-base64dump-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/base64dump_V0_0_14.zip
-    - source: https://didierstevens.com/files/software/base64dump_V0_0_14.zip
-    - source_hash: sha256=2F58F630D9B12D2B70CECF35728096A247890808E44DAB9C94400A073D5E29BF
+    - name: /usr/local/src/remnux/files/base64dump_V0_0_16.zip
+    - source: https://didierstevens.com/files/software/base64dump_V0_0_16.zip
+    - source_hash: sha256=E85345971D209559ED6602F16C6DBBF526816848B2F15B44C06A7DE7B28F2F8C
     - makedirs: True
     - require:
       - sls: remnux.packages.python3
 
 remnux-scripts-base64dump-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/base64dump_V0_0_14
-    - source: /usr/local/src/remnux/files/base64dump_V0_0_14.zip
+    - name: /usr/local/src/remnux/base64dump_V0_0_16
+    - source: /usr/local/src/remnux/files/base64dump_V0_0_16.zip
     - enforce_toplevel: False
     - require:
       - file: remnux-scripts-base64dump-source
@@ -29,7 +29,7 @@ remnux-scripts-base64dump-archive:
 remnux-scripts-base64dump-binary:
   file.managed:
     - name: /usr/local/bin/base64dump.py
-    - source: /usr/local/src/remnux/base64dump_V0_0_14/base64dump.py
+    - source: /usr/local/src/remnux/base64dump_V0_0_16/base64dump.py
     - mode: 755
     - require:
       - archive: remnux-scripts-base64dump-archive
