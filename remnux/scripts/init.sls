@@ -41,6 +41,7 @@ include:
   - remnux.scripts.sets
   - remnux.scripts.format-bytes
   - remnux.scripts.texteditor
+  - remnux.scripts.dnsresolver
 
 remnux-scripts:
   test.nop:
@@ -87,3 +88,4 @@ remnux-scripts:
       - sls: remnux.scripts.sets
       - sls: remnux.scripts.format-bytes
       - sls: remnux.scripts.texteditor
+      - sls: remnux.scripts.dnsresolver
