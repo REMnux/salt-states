@@ -1,6 +1,6 @@
 # Name: Detect-It-Easy
 # Website: https://github.com/horsicq/Detect-It-Easy
-# Description: Determine types of files and examine file properties. Available in the REMnux distro based on Ubuntu 20.04 (Focal); not available on Ubuntu 18.04 (Bionic).
+# Description: Determine types of files and examine file properties.
 # Category: Examine Static Properties: General
 # Author: hors: https://twitter.com/horsicq
 # License: MIT License: https://github.com/horsicq/Detect-It-Easy/blob/master/LICENSE
