@@ -35,7 +35,6 @@ include:
   - remnux.scripts.anomy
   - remnux.scripts.shcode2exe
   - remnux.scripts.dllcharacteristics
-  - remnux.scripts.mbcscan
   - remnux.scripts.1768
   - remnux.scripts.re-search
   - remnux.scripts.sets
@@ -82,7 +81,6 @@ remnux-scripts:
       - sls: remnux.scripts.anomy
       - sls: remnux.scripts.shcode2exe
       - sls: remnux.scripts.dllcharacteristics
-      - sls: remnux.scripts.mbcscan
       - sls: remnux.scripts.1768
       - sls: remnux.scripts.re-search
       - sls: remnux.scripts.sets
