@@ -10,7 +10,7 @@ include:
   - remnux.packages.git
   - remnux.packages.python3
   - remnux.python3-packages.pip
-  - remnux.python3-packages.capa
+  - remnux.tools.capa
 
 remnux-scripts-mbcscan-requirements:
   pip.installed:
@@ -18,7 +18,7 @@ remnux-scripts-mbcscan-requirements:
     - requirements: https://raw.githubusercontent.com/accidentalrebel/mbcscan/master/requirements.txt
     - require:
       - sls: remnux.python3-packages.pip
-      - sls: remnux.python3-packages.capa
+      - sls: remnux.tools.capa
 
 remnux-scripts-mbcscan-source:
   file.managed:
@@ -29,6 +29,6 @@ remnux-scripts-mbcscan-source:
     - mode: 755
     - require:
       - sls: remnux.packages.python3
-      - sls: remnux.python3-packages.pip
+      - sls: remnux.tools.pip
       - sls: remnux.packages.git
       - pip: remnux-scripts-mbcscan-requirements
