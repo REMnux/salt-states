@@ -10,7 +10,7 @@ remnux-pyinstaller-source:
   file.managed:
     - name: /usr/local/bin/pyinstxtractor.py
     - source: https://github.com/extremecoders-re/pyinstxtractor/raw/master/pyinstxtractor.py
-    - source_hash: sha256=ccb70101fe5597b13123bd350a930de13a6d3cc6601fbb35a2105c6c36eb707d
+    - source_hash: sha256=67176a13c9180f6deb17cfdafc1b97054639bcfff66c226dfdf805e9921b6caa
     - mode: 755
     - makedirs: false
 

@@ -18,7 +18,7 @@ remnux-tools-capa-archive:
     - name: /usr/local/src/remnux/capa-v2.0.0-linux
     - source: /usr/local/src/remnux/files/capa-v2.0.0-linux.zip
     - enforce_toplevel: False
-    - watch:
+    - require:
       - file: remnux-tools-capa-source
 
 remnux-tools-capa-binary:
@@ -26,9 +26,11 @@ remnux-tools-capa-binary:
     - name: /usr/local/bin/capa
     - source: /usr/local/src/remnux/capa-v2.0.0-linux/capa
     - mode: 755
-    - watch:
+    - require:
       - archive: remnux-tools-capa-archive
 
-remnux-tools-capa-cleanup:
+remnux-tools-capa-cleanup1:
   file.absent:
     - name: /usr/local/share/capa-rules
+    - require:
+      - file: remnux-tools-capa-binary
