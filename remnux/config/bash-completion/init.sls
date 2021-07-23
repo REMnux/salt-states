@@ -30,7 +30,7 @@ include:
   - remnux.scripts.zipdump
   - remnux.scripts.pecheck
   - remnux.python3-packages.unfurl
-  - remnux.python3-packages.capa
+  - remnux.tools.capa
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -358,4 +358,4 @@ remnux-config-bash-completion-capa:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.python3-packages.capa
+      - sls: remnux.tools.capa
