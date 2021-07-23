@@ -44,10 +44,6 @@ function apt {
   sudo /usr/bin/apt ${*}
 }
 
-function capa {
-  /usr/local/bin/capa -r /usr/local/share/capa-rules ${*}
-}
-
 # Useful for hard-coding a specific IP address until the next reboot
 function set-static-ip {
   NIC_NAME=$( ip link | egrep '^2\:'| awk '{print $2}' | sed 's/.$//' )

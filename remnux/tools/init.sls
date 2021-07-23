@@ -25,6 +25,7 @@ include:
   - remnux.tools.captipper
   - remnux.tools.jadx
   - remnux.tools.detect-it-easy
+  - remnux.tools.capa
 
 remnux-tools:
   test.nop:
@@ -55,3 +56,4 @@ remnux-tools:
       - sls: remnux.tools.captipper
       - sls: remnux.tools.jadx
       - sls: remnux.tools.detect-it-easy
+      - sls: remnux.tools.capa
