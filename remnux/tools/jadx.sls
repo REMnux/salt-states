@@ -13,7 +13,7 @@ remnux-tools-jadx-source:
   file.managed:
     - name: /usr/local/src/remnux/files/jadx-1.2.0.zip
     - source: https://github.com/skylot/jadx/releases/download/v1.2.0/jadx-1.2.0.zip
-    - source_hash: sha256=91948067a60feee36512e043b288f726678ddd760aa11a01496b53df95465b16
+    - source_hash: sha256=e6ae92be16edae2098b1a9951533feba4278bb18f00fbab54eb23a427b98d425
     - makedirs: true
     - require:
       - sls: remnux.packages.default-jdk
