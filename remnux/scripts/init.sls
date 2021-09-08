@@ -41,6 +41,7 @@ include:
   - remnux.scripts.format-bytes
   - remnux.scripts.texteditor
   - remnux.scripts.dnsresolver
+  - remnux.scripts.decode-vbe
 
 remnux-scripts:
   test.nop:
@@ -87,3 +88,4 @@ remnux-scripts:
       - sls: remnux.scripts.format-bytes
       - sls: remnux.scripts.texteditor
       - sls: remnux.scripts.dnsresolver
+      - sls: remnux.scripts.decode-vbe

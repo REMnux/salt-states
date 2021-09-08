@@ -1,0 +1,2 @@
+sharutils:
+  pkg.installed
