@@ -38,6 +38,14 @@ remnux-python-packages-vipermonkey-virtualenv:
       - sls: remnux.packages.python2-pip
       - sls: remnux.packages.virtualenv
 
+remnux-python-packages-vipermonkey-unidecode:
+  pip.installed:
+    - name: unidecode==1.2.0
+    - bin_env: /opt/vipermonkey/bin/python
+    - require:
+      - sls: remnux.packages.python2-pip
+      - sls: remnux.packages.python2-dev
+
 {%- if grains['oscodename'] == "focal" %}
 
 remnux-python-packages-vipermonkey-install:
@@ -48,6 +56,7 @@ remnux-python-packages-vipermonkey-install:
       - sls: remnux.packages.git
       - sls: remnux.packages.python2-pip
       - sls: remnux.packages.python2-dev
+      - pip: remnux-python-packages-vipermonkey-unidecode
       - virtualenv: remnux-python-packages-vipermonkey-virtualenv
 
 {%- else %}
@@ -59,6 +68,7 @@ remnux-python-packages-vipermonkey-install:
     - require:
       - sls: remnux.packages.git
       - sls: remnux.packages.python2-pip
+      - pip: remnux-python-packages-vipermonkey-unidecode
       - virtualenv: remnux-python-packages-vipermonkey-virtualenv
 
 {%- endif %}
