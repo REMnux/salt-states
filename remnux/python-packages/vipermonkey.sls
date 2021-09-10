@@ -38,6 +38,8 @@ remnux-python-packages-vipermonkey-virtualenv:
       - sls: remnux.packages.python2-pip
       - sls: remnux.packages.virtualenv
 
+{%- if grains['oscodename'] == "focal" %}
+
 remnux-python-packages-vipermonkey-unidecode:
   pip.installed:
     - name: unidecode==1.2.0
@@ -45,8 +47,6 @@ remnux-python-packages-vipermonkey-unidecode:
     - require:
       - sls: remnux.packages.python2-pip
       - sls: remnux.packages.python2-dev
-
-{%- if grains['oscodename'] == "focal" %}
 
 remnux-python-packages-vipermonkey-install:
   pip.installed:
@@ -60,6 +60,13 @@ remnux-python-packages-vipermonkey-install:
       - virtualenv: remnux-python-packages-vipermonkey-virtualenv
 
 {%- else %}
+
+remnux-python-packages-vipermonkey-unidecode:
+  pip.installed:
+    - name: unidecode==1.2.0
+    - bin_env: /opt/vipermonkey/bin/python
+    - require:
+      - sls: remnux.packages.python2-pip
 
 remnux-python-packages-vipermonkey-install:
   pip.installed:
