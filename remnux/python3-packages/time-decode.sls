@@ -4,7 +4,7 @@
 # Category: Gather and Analyze Data
 # Author: Corey Forman
 # License: MIT License: https://github.com/digitalsleuth/time_decode/blob/master/LICENSE
-# Notes: time_decode.py
+# Notes: time-decode
 
 include:
   - remnux.python3-packages.pip
