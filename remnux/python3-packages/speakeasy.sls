@@ -13,14 +13,14 @@ include:
 remnux-python3-packages-speakeasy-requirements:
   pip.installed:
     - bin_env: /usr/bin/python3
-    - requirements: https://raw.githubusercontent.com/fireeye/speakeasy/master/requirements.txt
+    - requirements: https://raw.githubusercontent.com/mandiant/speakeasy/master/requirements.txt
     - require:
       - sls: remnux.python3-packages.pip
 
 remnux-python3-packages-speakeasy:
   pip.installed:
     - bin_env: /usr/bin/python3
-    - name: git+https://github.com/fireeye/speakeasy.git@master
+    - name: git+https://github.com/mandiant/speakeasy.git@master
     - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
@@ -30,8 +30,8 @@ remnux-python3-packages-speakeasy:
 remnux-python3-packages-speakeasy-wrapper:
   file.managed:
     - name: /usr/local/bin/run_speakeasy.py
-    - source: https://raw.githubusercontent.com/fireeye/speakeasy/master/run_speakeasy.py
-    - source_hash: sha256=9629dcb1c478fdacc89aaea87c1420ab878133855d0c51987b498159233c4b0e
+    - source: https://raw.githubusercontent.com/mandiant/speakeasy/master/speakeasy/speakeasy.py
+    - source_hash: sha256=6a5a3a9914f75bd53685664dd62a0c629c72685a3b2fbfebf45f00eb1bc0bced
     - makedirs: false
     - mode: 755
     - require:
@@ -47,7 +47,7 @@ remnux-python3-packages-speakeasy-wrapper-shebang:
 remnux-python3-packages-speakeasy-emuexe:
   file.managed:
     - name: /usr/local/bin/emu_exe.py
-    - source: https://github.com/fireeye/speakeasy/raw/master/examples/emu_exe.py
+    - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_exe.py
     - source_hash: sha256=a02d5729e321426b1f5b1b199a82bc3b379af3e6839d017b8d06b0e85ee590da
     - makedirs: false
     - mode: 755
@@ -64,7 +64,7 @@ remnux-python3-packages-speakeasy-emuexe-shebang:
 remnux-python3-packages-speakeasy-emudll:
   file.managed:
     - name: /usr/local/bin/emu_dll.py
-    - source: https://github.com/fireeye/speakeasy/raw/master/examples/emu_dll.py
+    - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_dll.py
     - source_hash: sha256=49c8bc0e85585985e01ea2f94111e6312455f22a286fc3fe6218badf10531f1f
     - makedirs: false
     - mode: 755
