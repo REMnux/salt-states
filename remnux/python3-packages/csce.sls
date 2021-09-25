@@ -3,7 +3,7 @@
 # Description: Analyze Cobalt Stike beacons.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Aon / Stroz Friedberg
-# License: Apache License 2.0
+# License: Apache License 2.0: https://github.com/strozfriedberg/cobaltstrike-config-extractor/blob/master/LICENSE
 # Notes: csce, list-cs-settings
 
 include:
