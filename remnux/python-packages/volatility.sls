@@ -132,3 +132,13 @@ remnux-python-packages-volatility-pstotal-init:
     - watch:
       - file: remnux-python-packages-volatility-pstotal
 
+remnux-python-packages-volatility-chromehistory-plugin-update:
+  file.managed:
+    - name: /usr/local/lib/python2.7/dist-packages/volatility/plugins/community/DaveLasalle/chromehistory.py
+    - source: https://github.com/superponible/volatility-plugins/raw/master/chromehistory.py
+    - source_hash: sha256=6d4f76ae380f7b581fb2a3d2c1620623461d5c0975a21c76d2f40948f7f68b4a
+    - mode: 644
+    - replace: True
+    - watch:
+      - git: remnux-python-packages-volatility-community-plugins
+      - pip: remnux-python-packages-volatility
