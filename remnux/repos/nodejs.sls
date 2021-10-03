@@ -6,3 +6,7 @@ nodejs-repo:
     - key_url: http://deb.nodesource.com/gpgkey/nodesource.gpg.key
     - gpgcheck: 1
     - refresh: true
+
+nodejs-repo-cleanup:
+  pkgrepo.absent:
+    - name: deb https://deb.nodesource.com/node_14.x {{ grains['lsb_distrib_codename'] }} main
