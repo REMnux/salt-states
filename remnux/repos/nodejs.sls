@@ -2,6 +2,7 @@
 nodejs-repo-cleanup:
   pkgrepo.absent:
     - name: deb https://deb.nodesource.com/node_14.x {{ grains['lsb_distrib_codename'] }} main
+    - refresh: true
 
 nodejs-repo:
   pkgrepo.managed:
