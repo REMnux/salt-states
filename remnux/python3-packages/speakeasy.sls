@@ -4,7 +4,7 @@
 # Category: Statically Analyze Code: PE Files, Dynamically Reverse-Engineer Code: Shellcode
 # Author: FireEye Inc, Andrew Davis
 # License: MIT License: https://github.com/fireeye/speakeasy/blob/master/LICENSE.txt
-# Notes: run_speakeasy.py, emu_exe.py, emu_dll.py
+# Notes: To run the tool, use `speakeasy`, `emu_exe.py`, and `emu_dll.py` commands.
 
 include:
   - remnux.python3-packages.pip
@@ -26,23 +26,6 @@ remnux-python3-packages-speakeasy:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git
       - pip: remnux-python3-packages-speakeasy-requirements
-
-remnux-python3-packages-speakeasy-wrapper:
-  file.managed:
-    - name: /usr/local/bin/run_speakeasy.py
-    - source: https://raw.githubusercontent.com/mandiant/speakeasy/master/speakeasy/speakeasy.py
-    - source_hash: sha256=6a5a3a9914f75bd53685664dd62a0c629c72685a3b2fbfebf45f00eb1bc0bced
-    - makedirs: false
-    - mode: 755
-    - require:
-      - pip: remnux-python3-packages-speakeasy
-
-remnux-python3-packages-speakeasy-wrapper-shebang:
-  file.prepend:
-    - name: /usr/local/bin/run_speakeasy.py
-    - text: '#!/usr/bin/env python3'
-    - require:
-      - file: remnux-python3-packages-speakeasy-wrapper
 
 remnux-python3-packages-speakeasy-emuexe:
   file.managed:
@@ -77,3 +60,9 @@ remnux-python3-packages-speakeasy-emudll-shebang:
     - text: '#!/usr/bin/env python3'
     - require:
       - file: remnux-python3-packages-speakeasy-emuexe
+
+remnux-python3-packages-old-speakeasy-wrapper:
+  file.absent:
+    - name: /usr/local/bin/run_speakeasy.py
+    - require:
+      - pip: remnux-python3-packages-speakeasy
