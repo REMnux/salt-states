@@ -6,8 +6,8 @@ include:
 
 remnux-config-rename-networkminer-assembledfiles:
   file.rename:
-    - name: /usr/local/NetworkMiner_2-7-1/AssembledFiles.original
-    - source: /usr/local/NetworkMiner_2-7-1/AssembledFiles
+    - name: /usr/local/NetworkMiner_2-7-2/AssembledFiles.original
+    - source: /usr/local/NetworkMiner_2-7-2/AssembledFiles
     - force: true
     - makedirs: True
     - require:
