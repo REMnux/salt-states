@@ -27,15 +27,15 @@ remnux-config-create-networkminer-assembledfiles:
 
 remnux-config-networkminer-assembledfiles-link:
   file.symlink:
-    - name: /usr/local/NetworkMiner_2-7-1/AssembledFiles
+    - name: /usr/local/NetworkMiner_2-7-2/AssembledFiles
     - target: /var/log/networkminer/AssembledFiles
     - watch:
       - file: remnux-config-create-networkminer-assembledfiles
 
 remnux-config-rename-networkminer-captures:
   file.rename:
-    - name: /usr/local/NetworkMiner_2-7-1/Captures.original
-    - source: /usr/local/NetworkMiner_2-7-1/Captures
+    - name: /usr/local/NetworkMiner_2-7-2/Captures.original
+    - source: /usr/local/NetworkMiner_2-7-2/Captures
     - force: true
     - makedirs: True
     - require:
@@ -55,7 +55,7 @@ remnux-config-create-networkminer-captures:
 
 remnux-config-networkminer-captures-link:
   file.symlink:
-    - name: /usr/local/NetworkMiner_2-7-1/Captures
+    - name: /usr/local/NetworkMiner_2-7-2/Captures
     - target: /var/log/networkminer/Captures
     - watch:
       - file: remnux-config-create-networkminer-captures
