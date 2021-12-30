@@ -9,5 +9,9 @@
 include:
   - remnux.repos.remnux
 
-burpsuite-community:
-  pkg.installed
+remnux-packages-burpsuite-community:
+  pkg.installed:
+    - name: burpsuite-community
+    - version: latest
+    - upgrade: True
+    - pkgrepo: remnux
