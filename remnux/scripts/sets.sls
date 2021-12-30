@@ -1,6 +1,6 @@
 # Name: sets.py
 # Website: https://blog.didierstevens.com/2017/03/05/new-tool-sets-py/
-# Description: Perform sets uperations on lines or bytes in text files.
+# Description: Perform set operations on lines or bytes in text files.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
