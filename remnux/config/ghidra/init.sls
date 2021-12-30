@@ -33,7 +33,7 @@ remnux-config-ghidra-gdt-archive:
 
 remnux-config-ghidra-file-preferences:
   file.managed:
-    - name: {{ home }}/.ghidra/.ghidra_10.0_PUBLIC/preferences 
+    - name: {{ home }}/.ghidra/.ghidra_10.1.1_PUBLIC/preferences 
     - source: salt://remnux/config/ghidra/preferences
     - replace: False
     - user: {{ user }}
@@ -46,7 +46,7 @@ remnux-config-ghidra-file-preferences:
 
 remnux-config-ghidra-file-tool-code-browser:
   file.managed:
-    - name: {{ home }}/.ghidra/.ghidra_10.0_PUBLIC/tools/_code_browser.tcd
+    - name: {{ home }}/.ghidra/.ghidra_10.1.1_PUBLIC/tools/_code_browser.tcd
     - source: salt://remnux/config/ghidra/tool-code-browser.tcd
     - replace: False
     - user: {{ user }}
@@ -59,7 +59,7 @@ remnux-config-ghidra-file-tool-code-browser:
 
 remnux-config-ghidra-file-tool-version-tracking:
   file.managed:
-    - name: {{ home }}/.ghidra/.ghidra_10.0_PUBLIC/tools/_version _tracking.tcd
+    - name: {{ home }}/.ghidra/.ghidra_10.1.1_PUBLIC/tools/_version _tracking.tcd
     - source: salt://remnux/config/ghidra/tool-version-tracking.tcd
     - replace: False
     - user: {{ user }}
