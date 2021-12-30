@@ -1,6 +1,6 @@
 # Name: 1768.py
 # Website: https://blog.didierstevens.com/2021/05/22/update-1768-py-version-0-0-6/
-# Description: Analyze Cobalt Stike beacons.
+# Description: Analyze Cobalt Strike beacons.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
@@ -11,17 +11,17 @@ include:
 
 remnux-scripts-1768-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/1768_v0_0_7.zip
-    - source: https://didierstevens.com/files/software/1768_v0_0_7.zip
-    - source_hash: B417790451681643B2269AC516A99F3CEE9F7F374AB529FD53D5702A70F79409
+    - name: /usr/local/src/remnux/files/1768_v0_0_11.zip
+    - source: https://didierstevens.com/files/software/1768_v0_0_11.zip
+    - source_hash: F6939ACB105FE848F084A7E916AE9E2CC0BC173B92D7BBBA95637CC355657E09
     - makedirs: True
     - require:
       - sls: remnux.python3-packages.pefile
 
 remnux-scripts-1768-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/1768_v0_0_7
-    - source: /usr/local/src/remnux/files/1768_v0_0_7.zip
+    - name: /usr/local/src/remnux/1768_v0_0_11
+    - source: /usr/local/src/remnux/files/1768_v0_0_11.zip
     - enforce_toplevel: False
     - require:
       - file: remnux-scripts-1768-source
@@ -29,7 +29,7 @@ remnux-scripts-1768-archive:
 remnux-scripts-1768-binary:
   file.managed:
     - name: /usr/local/bin/1768.py
-    - source: /usr/local/src/remnux/1768_v0_0_7/1768.py
+    - source: /usr/local/src/remnux/1768_v0_0_11/1768.py
     - mode: 755
     - require:
       - archive: remnux-scripts-1768-archive
