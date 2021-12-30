@@ -43,6 +43,7 @@ include:
   - remnux.scripts.dnsresolver
   - remnux.scripts.decode-vbe
   - remnux.scripts.cs-decrypt-metadata
+  - remnux.scripts.cs-extract-key
 
 remnux-scripts:
   test.nop:
@@ -91,3 +92,4 @@ remnux-scripts:
       - sls: remnux.scripts.dnsresolver
       - sls: remnux.scripts.decode-vbe
       - sls: remnux.scripts.cs-decrypt-metadata
+      - sls: remnux.scripts.cs-extract-key

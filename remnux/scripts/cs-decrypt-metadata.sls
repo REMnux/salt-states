@@ -18,7 +18,7 @@ remnux-scripts-cs-decrypt-metadata-source:
   file.managed:
     - name: /usr/local/src/remnux/files/{{ archivename }}
     - source: {{ url }}
-    - source_hash: CAFCCE9A8897C257AE39259D3F444E0F40473BF0D9590DC1A035316EBDDBBC84
+    - source_hash: {{ hash }}
     - makedirs: True
     - require:
       - sls: remnux.python3-packages.pycryptodome
