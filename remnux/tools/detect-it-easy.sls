@@ -10,45 +10,37 @@
 
 include:
   - remnux.packages.libglib2
+  - remnux.packages.qt5-default
+  - remnux.packages.libqt5scripttools5
 
 remnux-tools-detect-it-easy-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/die_lin64_portable_3.01.tar.gz
-    - source: https://github.com/horsicq/DIE-engine/releases/download/3.01/die_lin64_portable_3.01.tar.gz
-    - source_hash: sha256=65e8881ce8bc14d376d909976f739e0cd9ca0ad846906518e0297dbb56f62662
+    - name: /usr/local/src/remnux/files/die_3.03_Ubuntu_20.04_amd64.deb
+    - source: https://github.com/horsicq/DIE-engine/releases/download/3.03/die_3.03_Ubuntu_20.04_amd64.deb
+    - source_hash: sha256=d18e6cc828df3adf77e2186aaf29f53af67516eb99925c63cc7644812f10e6d0
     - makedirs: true
-    - require:
-      - sls: remnux.packages.libglib2
 
-remnux-tools-detect-it-easy-archive:
-  archive.extracted:
-    - name: /usr/local
-    - source: /usr/local/src/remnux/files/die_lin64_portable_3.01.tar.gz
-    - enforce_toplevel: false
-    - watch:
+remnux-tools-detect-it-easy-cleanup1:
+  file.absent:
+    - name: /usr/local/bin/die
+    - require:
       - file: remnux-tools-detect-it-easy-source
 
-remnux-tools-detect-it-easy-wrapper1:
-  file.managed:
-    - name: /usr/local/bin/die
-    - mode: 755
-    - replace: False
-    - watch:
-        - archive: remnux-tools-detect-it-easy-archive
-    - contents:
-      - '#!/bin/bash'
-      - LD_LIBRARY_PATH=/usr/local/die_lin64_portable/base:$LD_LIBRARY_PATH /usr/local/die_lin64_portable/base/die "$@"
-
-remnux-tools-detect-it-easy-wrapper2:
-  file.managed:
+remnux-tools-detect-it-easy-cleanup2:
+  file.absent:
     - name: /usr/local/bin/diec
-    - mode: 755
-    - replace: False
-    - watch:
-        - archive: remnux-tools-detect-it-easy-archive
-    - contents:
-      - '#!/bin/bash'
-      - LD_LIBRARY_PATH=/usr/local/die_lin64_portable/base:$LD_LIBRARY_PATH /usr/local/die_lin64_portable/base/diec "$@"
+    - require:
+      - file: remnux-tools-detect-it-easy-cleanup1
+
+remnux-tools-detect-it-easy-install:
+  pkg.installed:
+    - sources:
+      - detectiteasy: /usr/local/src/remnux/files/die_3.03_Ubuntu_20.04_amd64.deb
+    - require:
+      - file: remnux-tools-detect-it-easy-cleanup2
+      - sls: remnux.packages.libglib2
+      - sls: remnux.packages.qt5-default
+      - sls: remnux.packages.libqt5scripttools5
 
 {%- elif grains['oscodename'] == "bionic" %}
 
