@@ -40,6 +40,14 @@ remnux-python-packages-vipermonkey-virtualenv:
 
 {%- if grains['oscodename'] == "focal" %}
 
+remnux-python-packages-vipermonkey-regex:
+  pip.installed:
+    - name: regex<2022.1.18
+    - bin_env: /opt/vipermonkey/bin/python
+    - require:
+      - sls: remnux.packages.python2-pip
+      - sls: remnux.packages.python2-dev
+
 remnux-python-packages-vipermonkey-unidecode:
   pip.installed:
     - name: unidecode==1.2.0
@@ -47,6 +55,7 @@ remnux-python-packages-vipermonkey-unidecode:
     - require:
       - sls: remnux.packages.python2-pip
       - sls: remnux.packages.python2-dev
+      - pip: remnux-python-packages-vipermonkey-regex
 
 remnux-python-packages-vipermonkey-install:
   pip.installed:
