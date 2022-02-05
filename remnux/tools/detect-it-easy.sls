@@ -15,9 +15,9 @@ include:
 
 remnux-tools-detect-it-easy-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/die_3.03_Ubuntu_20.04_amd64.deb
-    - source: https://github.com/horsicq/DIE-engine/releases/download/3.03/die_3.03_Ubuntu_20.04_amd64.deb
-    - source_hash: sha256=d18e6cc828df3adf77e2186aaf29f53af67516eb99925c63cc7644812f10e6d0
+    - name: /usr/local/src/remnux/files/die_3.04_Ubuntu_20.04_amd64.deb
+    - source: https://github.com/horsicq/DIE-engine/releases/download/3.04/die_3.04_Ubuntu_20.04_amd64.deb
+    - source_hash: sha256=12b76ea8e4a871ecb3b27015f6733c383cc460f4e01451949cf44bb2e2feb497
     - makedirs: true
 
 remnux-tools-detect-it-easy-cleanup1:
@@ -35,7 +35,7 @@ remnux-tools-detect-it-easy-cleanup2:
 remnux-tools-detect-it-easy-install:
   pkg.installed:
     - sources:
-      - detectiteasy: /usr/local/src/remnux/files/die_3.03_Ubuntu_20.04_amd64.deb
+      - detectiteasy: /usr/local/src/remnux/files/die_3.04_Ubuntu_20.04_amd64.deb
     - require:
       - file: remnux-tools-detect-it-easy-cleanup2
       - sls: remnux.packages.libglib2
