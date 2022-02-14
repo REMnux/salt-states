@@ -160,6 +160,7 @@ include:
   - remnux.packages.rar
   - remnux.packages.sharutils
   - remnux.packages.burpsuite-community
+  - remnux.packages.msitools
 
 remnux-packages:
   test.nop:
@@ -323,3 +324,4 @@ remnux-packages:
       - sls: remnux.packages.rar
       - sls: remnux.packages.sharutils
       - sls: remnux.packages.burpsuite-community
+      - sls: remnux.packages.msitools
