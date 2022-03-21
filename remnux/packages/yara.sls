@@ -6,9 +6,9 @@
 # License: BSD 3-Clause "New" or "Revised" License: https://github.com/VirusTotal/yara/blob/master/COPYING
 # Notes: yara
 
-include:
-  - remnux.repos.remnux
-
-yara:
+remnux-packages-yara:
   pkg.installed:
+    - name: yara
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux
