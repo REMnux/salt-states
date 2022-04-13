@@ -10,6 +10,6 @@ remnux-scripts-extract_swf-source:
   file.managed:
     - name: /usr/local/bin/extract_swf.py
     - source: https://raw.githubusercontent.com/digitalsleuth/extract_swf/master/extract_swf.py
-    - source_hash: 665358926164eb2eccfa246ec4ea0b6b59409d90f0086f7e12559586d2195ac9
+    - source_hash: 474b4e296be86c245fec8e28e435398c5d6ada736de1552ff21950419ccb282b
     - mode: 755
 
