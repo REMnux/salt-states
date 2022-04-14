@@ -13,5 +13,6 @@ remnux-python3-packages-pcode2code:
   pip.installed:
     - name: pcode2code
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip

@@ -7,6 +7,7 @@ remnux-python3-packages-pygraphviz:
   pip.installed:
     - name: pygraphviz
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.graphviz
