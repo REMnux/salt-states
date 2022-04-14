@@ -12,8 +12,9 @@ include:
 
 remnux-python3-packages-vivisect-pyqt:
   pip.installed:
-    - bin_env: /usr/bin/python3
     - name: PyQtWebEngine
+    - bin_env: /usr/bin/python3
+    - upgrade: True
     - ignore_installed: True
     - require:
       - sls: remnux.python3-packages.pip
@@ -26,8 +27,9 @@ remnux-python3-packages-vivisect-pyasn1-removal:
 
 remnux-python3-packages-vivisect:
   pip.installed:
-    - bin_env: /usr/bin/python3
     - name: vivisect
+    - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - pip: remnux-python3-packages-vivisect-pyqt
       - pkg: remnux-python3-packages-vivisect-pyasn1-removal

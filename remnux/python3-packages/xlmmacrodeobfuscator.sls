@@ -5,6 +5,11 @@
 # Author: https://twitter.com/DissectMalware
 # License: Apache License 2.0: https://github.com/DissectMalware/XLMMacroDeobfuscator/blob/master/LICENSE
 # Notes: xlmdeobfuscator
+{%- if grains['oscodename'] == "focal" %}
+  {% set python = "python3.8" %}
+{%- elif grains['oscodename'] == "bionic" %}
+  {% set python = "python3.6" %}
+{% endif %}
 
 include:
   - remnux.python3-packages.pip
@@ -13,6 +18,7 @@ remnux-python3-packages-xlmmacrodeobfuscator:
   pip.installed:
     - name: xlmmacrodeobfuscator
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
 
@@ -23,24 +29,10 @@ remnux-python3-packages-xlmmacrodeobfuscator:
     - require:
       - pip: remnux-python3-packages-xlmmacrodeobfuscator
 
-{%- if grains['oscodename'] == "focal" %}
-
 remnux-python3-packages-xlmmacrodeobfuscator-cleanup:
   file.line:
-    - name: /usr/local/lib/python3.8/dist-packages/XLMMacroDeobfuscator/deobfuscator.py
+    - name: /usr/local/lib/{{ python }}/dist-packages/XLMMacroDeobfuscator/deobfuscator.py
     - mode: delete
     - content: "print('pywin32 is not installed (only is required if you want to use MS Excel)')"
     - require:
       - pip: remnux-python3-packages-xlmmacrodeobfuscator
-
-{%- elif grains['oscodename'] == "bionic" %}
-
-remnux-python3-packages-xlmmacrodeobfuscator-cleanup:
-  file.line:
-    - name: /usr/local/lib/python3.6/dist-packages/XLMMacroDeobfuscator/deobfuscator.py
-    - mode: delete
-    - content: "print('pywin32 is not installed (only is required if you want to use MS Excel)')"
-    - require:
-      - pip: remnux-python3-packages-xlmmacrodeobfuscator
-
-{%- endif %}

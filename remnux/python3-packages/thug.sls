@@ -31,6 +31,7 @@ remnux-python3-packages-thug:
   pip.installed:
     - name: thug
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
     - watch:

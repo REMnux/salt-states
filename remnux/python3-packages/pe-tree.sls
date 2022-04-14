@@ -13,6 +13,7 @@ remnux-python3-packages-pe-tree:
   pip.installed:
     - name: pe_tree
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - extra_args:
       - --only-binary
       - pyqt5

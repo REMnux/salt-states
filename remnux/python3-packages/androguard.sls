@@ -15,6 +15,7 @@ remnux-python3-packages-androguard:
   pip.installed:
     - name: androguard
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.python3-pyqt5
       - sls: remnux.python3-packages.pip

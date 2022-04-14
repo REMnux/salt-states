@@ -14,6 +14,7 @@ remnux-python3-packages-hachoir:
   pip.installed:
     - name: hachoir
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.python3-urwid

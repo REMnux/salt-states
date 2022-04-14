@@ -22,6 +22,7 @@ remnux-python3-packages-peframe:
   pip.installed:
     - name: peframe-ds
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.packages.libssl-dev
       - sls: remnux.packages.swig

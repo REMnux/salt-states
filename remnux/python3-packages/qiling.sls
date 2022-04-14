@@ -10,16 +10,18 @@ include:
   - remnux.python3-packages.pip
 
 remnux-python3-packages-qiling-yaml:
-   pip.installed:
-     - bin_env: /usr/bin/python3
-     - name: pyyaml
-     - ignore_installed: True
-     - require:
-       - sls: remnux.python3-packages.pip
+  pip.installed:
+    - bin_env: /usr/bin/python3
+    - upgrade: True
+    - name: pyyaml
+    - ignore_installed: True
+    - require:
+      - sls: remnux.python3-packages.pip
 
 remnux-python3-packages-qiling:
   pip.installed:
     - name: qiling
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - pip: remnux-python3-packages-qiling-yaml
