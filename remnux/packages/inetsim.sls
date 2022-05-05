@@ -9,6 +9,9 @@
 include:
   - remnux.repos.inetsim
 
-inetsim:
+emnux-packages-inetsim-repo:
   pkg.installed:
-    - pkgrepo: inetsim-repo
+    - name: inetsim
+    - version: latest
+    - upgrade: True
+    - pkgrepo: inetsim
