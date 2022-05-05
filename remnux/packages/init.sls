@@ -161,7 +161,6 @@ include:
   - remnux.packages.sharutils
   - remnux.packages.burpsuite-community
   - remnux.packages.msitools
-  - remnux.packages.salt-common
 
 remnux-packages:
   test.nop:
@@ -326,4 +325,3 @@ remnux-packages:
       - sls: remnux.packages.sharutils
       - sls: remnux.packages.burpsuite-community
       - sls: remnux.packages.msitools
-      - sls: remnux.packages.salt-common
