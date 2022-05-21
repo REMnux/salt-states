@@ -55,13 +55,13 @@ remnux-makedirs-thug:
 
 remnux-copy-rules-thug:
   cmd.run:
-    - name: cp -R /usr/local/src/thug/thug/Classifier/rules/* /etc/thug/rules
+    - name: cp -R /usr/local/src/thug/conf/rules/* /etc/thug/rules
     - watch:
       - file: remnux-makedirs-thug
 
 remnux-copy-personalities-thug:
   cmd.run:
-    - name: cp -R /usr/local/src/thug/thug/DOM/personalities/* /etc/thug/personalities
+    - name: cp -R /usr/local/src/thug/conf/personalities/* /etc/thug/personalities
     - watch:
       - cmd: remnux-copy-rules-thug
 
