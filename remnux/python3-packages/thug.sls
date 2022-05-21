@@ -23,9 +23,11 @@ include:
   - remnux.python3-packages.pytesseract
 
 remnux-python3-packages-git-thug:
-  git.cloned:
+  git.latest:
     - name: https://github.com/buffer/thug
     - target: /usr/local/src/thug
+    - force_reset: True
+    - force_checkout: True
 
 remnux-python3-packages-thug:
   pip.installed:
