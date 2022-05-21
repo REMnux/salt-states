@@ -5,7 +5,7 @@
 # Author: Area1 Security
 # License: Apache License 2.0: https://github.com/area1/stpyv8/blob/master/LICENSE.txt
 # Notes:
-{%- set version="v8.8.278.17" %}
+{%- set version="v10.1.124.12" %}
 {%- if grains['oscodename'] == "bionic" %} 
   {%- set release="stpyv8-ubuntu-18.04-python-3.6.zip" %}
   {%- set hash="f4644f87379458d00bc019f89a4a480f1ac85b84c5c74f4fa0732f631907b951" %}
