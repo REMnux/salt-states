@@ -22,6 +22,7 @@ include:
   - remnux.packages.sudo
   - remnux.packages.libboost-python-dev
   - remnux.packages.libboost-system-dev
+  - remnux.packages.libboost-iostreams-dev
   - remnux.packages.libboost-dev
   - remnux.packages.build-essential
   - remnux.python3-packages.pip
@@ -52,5 +53,5 @@ remnux-pip3-stpyv8:
       - sls: remnux.packages.libboost-python-dev
       - sls: remnux.packages.libboost-system-dev
       - sls: remnux.packages.libboost-dev
+      - sls: remnux.packages.libboost-iostreams-dev
       - sls: remnux.python3-packages.setuptools
-
