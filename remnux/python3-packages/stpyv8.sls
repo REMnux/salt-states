@@ -14,7 +14,7 @@
 {% elif grains['oscodename'] == "focal" %} 
   {%- set release="stpyv8-ubuntu-20.04-python-3.8.zip" %}
   {%- set hash="660bb8dc558d6546deee5c6de12c18336247794c06ee3e784641bbefdb44d679" %}
-  {%- set wheel="stpyv8-8.8.278.17-cp38-cp38-linux_x86_64.whl" %}
+  {%- set wheel="stpyv8-10.1.124.12-cp38-cp38-linux_x86_64.whl" %}
   {%- set folder="stpyv8-ubuntu-20.04-3.8" %}
 {%- endif %}
 
