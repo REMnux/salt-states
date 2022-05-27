@@ -11,17 +11,17 @@ include:
 
 remnux-scripts-1768-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/1768_v0_0_11.zip
-    - source: https://didierstevens.com/files/software/1768_v0_0_11.zip
-    - source_hash: F6939ACB105FE848F084A7E916AE9E2CC0BC173B92D7BBBA95637CC355657E09
+    - name: /usr/local/src/remnux/files/1768_v0_0_14.zip
+    - source: https://didierstevens.com/files/software/1768_v0_0_14.zip
+    - source_hash: D8CFCC735666D90BB160E30C7AD7100B0520FAC2929277E7B1DAD1CFFD0B3EC8
     - makedirs: True
     - require:
       - sls: remnux.python3-packages.pefile
 
 remnux-scripts-1768-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/1768_v0_0_11
-    - source: /usr/local/src/remnux/files/1768_v0_0_11.zip
+    - name: /usr/local/src/remnux/1768_v0_0_14
+    - source: /usr/local/src/remnux/files/1768_v0_0_14.zip
     - enforce_toplevel: False
     - require:
       - file: remnux-scripts-1768-source
@@ -29,7 +29,7 @@ remnux-scripts-1768-archive:
 remnux-scripts-1768-binary:
   file.managed:
     - name: /usr/local/bin/1768.py
-    - source: /usr/local/src/remnux/1768_v0_0_11/1768.py
+    - source: /usr/local/src/remnux/1768_v0_0_14/1768.py
     - mode: 755
     - require:
       - archive: remnux-scripts-1768-archive
