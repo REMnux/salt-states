@@ -16,7 +16,7 @@ remnux-scripts-anomy-source:
   file.managed:
     - name: /usr/local/bin/anomy
     - source: https://github.com/izm1chael/Anomy/raw/main/anomy.sh
-    - source_hash: sha256=76b7f5cdd5edb7b2947f76fd0e63754f85cbbf7614ad4fa524dd716d19a7d3cb
+    - source_hash: sha256=2f2c3de8daff692878b2b351e33794179181ebd1faa3396aebfd1e79ec2c970d
     - makedirs: false
     - mode: 755
     - require:
