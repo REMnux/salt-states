@@ -8,16 +8,16 @@
 
 remnux-polarproxy-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/PolarProxy_0-9-0_linux-x64.tar.gz
+    - name: /usr/local/src/remnux/files/PolarProxy_0-9-6_linux-x64.tar.gz
     - source: https://www.netresec.com/?download=PolarProxy
-    - source_hash: sha256=7018ed331bed230fc1c3cf6accece2e925968361a7dcc8fe8725890636b57a21
+    - source_hash: sha256=0e910d0e53b6f7d8fbd706c7ea3bedca6f4b0d1f529c4c9a6c2976b128077038
     - makedirs: True
     - replace: False
 
 remnux-polarproxy-archive:
   archive.extracted:
     - name: /usr/local/polarproxy/
-    - source: /usr/local/src/remnux/files/PolarProxy_0-9-0_linux-x64.tar.gz
+    - source: /usr/local/src/remnux/files/PolarProxy_0-9-6_linux-x64.tar.gz
     - enforce_toplevel: False
     - force: true
     - watch:
