@@ -9,14 +9,14 @@
 remnux-tools-cutter-source:
   file.managed:
     - name: /usr/local/bin/cutter
-    - source: https://github.com/rizinorg/cutter/releases/download/v2.0.5/Cutter-v2.0.5-x64.Linux.AppImage
-    - source_hash: 453b0d1247f0eab0b87d903ce4995ff54216584c5fd5480be82da7b71eb2ed3d
+    - source: https://github.com/rizinorg/cutter/releases/download/v2.1.0/Cutter-v2.1.0-Linux-x86_64.AppImage
+    - source_hash: 9ca1e0dbd1e8e2a16167a1e261b9977ceb8cf127ab52d8e3de84a41dce099017
     - mode: 755
 
 remnux-tools-cutter-icon:
   file.managed:
     - name: /usr/share/icons/cutter.svg
-    - source: https://raw.githubusercontent.com/rizinorg/cutter/v2.0.5/src/img/cutter.svg
+    - source: https://raw.githubusercontent.com/rizinorg/cutter/v2.1.0/src/img/cutter.svg
     - source_hash: 4ad117f6d8fc9fffc1359d1eef7f3f1c68db0f74eebebc998fa47b89bab81832
     - mode: 644
     - makedirs: True
