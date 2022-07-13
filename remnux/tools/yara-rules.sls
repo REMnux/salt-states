@@ -27,4 +27,4 @@ remnux-tools-yara-rules-wrapper:
       - git: remnux-tools-yara-rules
     - contents:
       - '#!/bin/bash'
-      - yara -w /usr/local/yara-rules/index.yar ${*}
+      - yara -w /usr/local/yara-rules/index.yar "${*}"
