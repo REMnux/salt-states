@@ -11,17 +11,17 @@ include:
 
 remnux-scripts-re-search-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/re-search_V0_0_20.zip
-    - source: https://didierstevens.com/files/software/re-search_V0_0_20.zip
-    - source_hash: sha256=78290F2D06D29514C2BAF95BFE9EF95AF4DDE9798EA0EE27EB800DCF4D99786A
+    - name: /usr/local/src/remnux/files/re-search_V0_0_21.zip
+    - source: https://didierstevens.com/files/software/re-search_V0_0_21.zip
+    - source_hash: sha256=B818CE4F7E217B381128550A3A36B40B6D07CC687CE4CF5AFF3C70EC0D3EEAD2
     - makedirs: True
     - require:
       - sls: remnux.packages.python3
 
 remnux-scripts-re-search-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/re-search_V0_0_20
-    - source: /usr/local/src/remnux/files/re-search_V0_0_20.zip
+    - name: /usr/local/src/remnux/re-search_V0_0_21
+    - source: /usr/local/src/remnux/files/re-search_V0_0_21.zip
     - enforce_toplevel: False
     - require:
       - file: remnux-scripts-re-search-source
@@ -29,7 +29,7 @@ remnux-scripts-re-search-archive:
 remnux-scripts-re-search-binary:
   file.managed:
     - name: /usr/local/bin/re-search.py
-    - source: /usr/local/src/remnux/re-search_V0_0_20/re-search.py
+    - source: /usr/local/src/remnux/re-search_V0_0_21/re-search.py
     - mode: 755
     - require:
       - archive: remnux-scripts-re-search-archive
@@ -47,7 +47,7 @@ remnux-scripts-re-search-shebang:
 remnux-scripts-re-search-reextra:
   file.managed:
     - name: /usr/local/bin/reextra.py
-    - source: /usr/local/src/remnux/re-search_V0_0_20/reextra.py
+    - source: /usr/local/src/remnux/re-search_V0_0_21/reextra.py
     - mode: 644
     - require:
       - archive: remnux-scripts-re-search-archive
