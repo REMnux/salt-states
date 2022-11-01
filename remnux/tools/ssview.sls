@@ -13,7 +13,7 @@ remnux-tools-ssview-source:
   file.managed:
     - name: /usr/local/src/remnux/files/SSView.zip
     - source: https://www.mitec.cz/Downloads/SSView.zip
-    - source_hash: 8ceb003a88ed985b772accb81551577ce363f268fe14ef23ec47f912b1abe111
+    - source_hash: 4b9ffce3bfb53013b860cbf2af97b847cb3f259d5bb8633106caa94ac006a483
     - makedirs: True
     - require:
       - sls: remnux.packages.wine
