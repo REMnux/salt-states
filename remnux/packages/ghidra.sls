@@ -8,6 +8,7 @@
 
 include:
   - remnux.repos.remnux
+  - remnux.repos.openjdk
 
 remnux-packages-ghidra:
   pkg.installed:
@@ -15,6 +16,8 @@ remnux-packages-ghidra:
     - version: latest
     - upgrade: True
     - pkgrepo: remnux
+    - require:
+      - pkgrepo: openjdk-repo
 
 remnux-packages-ghidra-cleanup1:
   file.absent:
