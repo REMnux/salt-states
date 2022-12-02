@@ -48,6 +48,7 @@ include:
   - remnux.python3-packages.mail-parser
   - remnux.python3-packages.csce
   - remnux.python3-packages.jinja2
+  - remnux.python3-packages.dnfile
 
 remnux-python3-packages:
   test.nop:
@@ -101,3 +102,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.mail-parser
       - sls: remnux.python3-packages.csce
       - sls: remnux.python3-packages.jinja2
+      - sls: remnux.python3-packages.dnfile
