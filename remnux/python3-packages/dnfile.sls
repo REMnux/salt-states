@@ -1,7 +1,7 @@
 # Name: dnfile
 # Website: https://github.com/malwarefrank/dnfile
-# Description: Parse .NET executable files.
-# Category: Statically Analyze Code: .NET
+# Description: Analyze static properties of .NET files.
+# Category: Examine Static Properties: .NET
 # Author: MalwareFrank
 # License: MIT License: https://github.com/malwarefrank/dnfile/blob/master/LICENSE
 # Notes: To use this library, create a Python program that imports it and loads the .NET file, as described in https://github.com/malwarefrank/dnfile/blob/master/README.rst.
