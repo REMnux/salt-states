@@ -4,7 +4,7 @@
 # Category: Examine Static Properties: .NET
 # Author: Palo Alto Networks Unit 42
 # License: MIT License: https://github.com/pan-unit42/dotnetfile/blob/main/LICENSE
-# Notes: You can use the command-line tool dotnetfile_dump.py. Alternatively, to use this library, create a Python program that imports it and loads the .NET file, as described in https://github.com/pan-unit42/dotnetfile/blob/main/readme.md.
+# Notes: You can use the command-line tool `dotnetfile_dump.py`. Alternatively, to use this library, create a Python program that imports it and loads the .NET file, as described in https://github.com/pan-unit42/dotnetfile/blob/main/readme.md.
 
 include:
   - remnux.python3-packages.pip
