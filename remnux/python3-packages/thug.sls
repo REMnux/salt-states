@@ -22,14 +22,14 @@ include:
   - remnux.python3-packages.stpyv8
   - remnux.python3-packages.pytesseract
 
-remnux-python3-packages-git-thug:
+remnux-python3-packages-thug-git:
   git.latest:
     - name: https://github.com/buffer/thug
     - target: /usr/local/src/thug
     - force_reset: True
     - force_checkout: True
 
-remnux-python3-packages-thug:
+remnux-python3-packages-thug-packages:
   pip.installed:
     - name: thug
     - bin_env: /usr/bin/python3
@@ -37,9 +37,9 @@ remnux-python3-packages-thug:
     - require:
       - sls: remnux.python3-packages.pip
     - watch:
-      - git: remnux-python3-packages-git-thug
+      - git: remnux-python3-packages-thug-git
 
-remnux-makedirs-thug:
+remnux-python3-packages-thug-makedir:
   file.directory:
     - user: root
     - group: root
@@ -47,43 +47,11 @@ remnux-makedirs-thug:
     - makedirs: True
     - names:
       - /etc/thug
-      - /etc/thug/rules
-      - /etc/thug/personalities
-      - /etc/thug/scripts
-      - /etc/thug/plugins
-      - /etc/thug/hooks
     - watch:
-      - pip: remnux-python3-packages-thug
+      - pip: remnux-python3-packages-thug-packages
 
-remnux-copy-rules-thug:
+emnux-python3-packages-thug-conf:
   cmd.run:
-    - name: cp -R /usr/local/src/thug/conf/rules/* /etc/thug/rules
+    - name: cp -R /usr/local/src/thug/conf/* /etc/thug
     - watch:
-      - file: remnux-makedirs-thug
-
-remnux-copy-personalities-thug:
-  cmd.run:
-    - name: cp -R /usr/local/src/thug/conf/personalities/* /etc/thug/personalities
-    - watch:
-      - cmd: remnux-copy-rules-thug
-
-remnux-copy-files-thug:
-  file.managed:
-    - user: root
-    - group: root
-    - mode: 755
-    - names:
-      - /etc/thug/scripts/thug.js:
-        - source: /usr/local/src/thug/thug/DOM/thug.js
-      - /etc/thug/scripts/storage.js:
-        - source: /usr/local/src/thug/thug/DOM/storage.js
-      - /etc/thug/scripts/date.js:
-        - source: /usr/local/src/thug/thug/DOM/date.js
-      - /etc/thug/scripts/eval.js:
-        - source: /usr/local/src/thug/thug/DOM/eval.js
-      - /etc/thug/scripts/write.js:
-        - source: /usr/local/src/thug/thug/DOM/write.js
-      - /etc/thug/thug.conf:
-        - source: /usr/local/src/thug/conf/thug.conf
-    - watch:
-      - cmd: remnux-copy-personalities-thug
+      - file: remnux-python3-packages-thug-makedir
