@@ -46,3 +46,11 @@ remnux-scripts-file-magic-binary:
     - mode: 755
     - watch:
       - file: remnux-scripts-file-magic-shebang
+
+remnux-scripts-file-magic-definitions:
+  file.managed:
+    - name: /usr/local/bin/file-magic.def
+    - source: /usr/local/src/remnux/file-magic_V0_0_5/file-magic.def
+    - mode: 644
+    - watch:
+      - file: remnux-scripts-file-magic-binary
