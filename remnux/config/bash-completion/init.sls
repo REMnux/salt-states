@@ -13,7 +13,7 @@ include:
   - remnux.packages.oledump
   - remnux.python3-packages.oletools
   - remnux.python3-packages.peframe
-  - remnux.python3-packages.thug
+#  - remnux.python3-packages.thug
   - remnux.python-packages.volatility
   - remnux.packages.pev
   - remnux.rubygems.pedump
@@ -200,15 +200,15 @@ remnux-config-bash-completion-peframe:
     - require:
       - sls: remnux.python3-packages.peframe
 
-remnux-config-bash-completion-thug:
-  file.managed:
-    - name: /etc/bash_completion.d/thug
-    - source: salt://remnux/config/bash-completion/thug
-    - replace: False
-    - makedirs: True
-    - mode: 644
-    - require:
-      - sls: remnux.python3-packages.thug
+# remnux-config-bash-completion-thug:
+#   file.managed:
+#     - name: /etc/bash_completion.d/thug
+#     - source: salt://remnux/config/bash-completion/thug
+#     - replace: False
+#     - makedirs: True
+#     - mode: 644
+#     - require:
+#       - sls: remnux.python3-packages.thug
 
 remnux-config-bash-completion-volatility:
   file.managed:
