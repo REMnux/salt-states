@@ -13,7 +13,7 @@ include:
   - remnux.python3-packages.virustotal-api
   - remnux.python3-packages.xortool
   - remnux.python3-packages.xxxswf
-  - remnux.python3-packages.thug
+#  - remnux.python3-packages.thug
   - remnux.python3-packages.xlmmacrodeobfuscator
   - remnux.python3-packages.unicode
   - remnux.python3-packages.volatility3
@@ -68,7 +68,7 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.virustotal-api
       - sls: remnux.python3-packages.xortool
       - sls: remnux.python3-packages.xxxswf
-      - sls: remnux.python3-packages.thug
+#      - sls: remnux.python3-packages.thug
       - sls: remnux.python3-packages.xlmmacrodeobfuscator
       - sls: remnux.python3-packages.unicode
       - sls: remnux.python3-packages.volatility3
