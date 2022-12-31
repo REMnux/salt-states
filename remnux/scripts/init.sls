@@ -47,6 +47,7 @@ include:
   - remnux.scripts.file-magic
   - remnux.scripts.myjson-filter
   - remnux.scripts.strings
+  - remnux.scripts.sortcanon
 
 remnux-scripts:
   test.nop:
@@ -99,3 +100,4 @@ remnux-scripts:
       - sls: remnux.scripts.file-magic
       - sls: remnux.scripts.myjson-filter
       - sls: remnux.scripts.strings
+      - sls: remnux.scripts.sortcanon
