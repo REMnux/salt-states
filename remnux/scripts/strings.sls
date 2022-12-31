@@ -1,6 +1,6 @@
 # Name: strings.py
 # Website: https://blog.didierstevens.com/2018/12/09/release-strings-py/
-# Description: Extract strings
+# Description: Extract strings.
 # Category: Analyze Documents: Microsoft Office, Examine Static Properties: General
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain
