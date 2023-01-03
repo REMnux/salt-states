@@ -52,6 +52,6 @@ remnux-python3-packages-thug-makedir:
 
 emnux-python3-packages-thug-conf:
   cmd.run:
-    - name: cp -R /usr/local/src/thug/conf/* /etc/thug
+    - name: cp -R /usr/local/src/thug/thug/conf/* /etc/thug
     - watch:
       - file: remnux-python3-packages-thug-makedir
