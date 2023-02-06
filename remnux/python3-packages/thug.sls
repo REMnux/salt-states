@@ -26,8 +26,10 @@ remnux-python3-packages-thug-git:
   git.latest:
     - name: https://github.com/buffer/thug
     - target: /usr/local/src/thug
+    - branch: master
     - force_reset: True
     - force_checkout: True
+    - force_fetch: True
 
 remnux-python3-packages-thug-packages:
   pip.installed:
