@@ -101,10 +101,13 @@ remnux-python3-packages-viper-directory:
       - user: remnux-user-{{ user }}
 
 remnux-python3-packages-viper-modules-git:
-  git.cloned:
+  git.latest:
     - name: https://github.com/viper-framework/viper-modules.git
     - target: {{ home }}/.viper/modules
     - user: {{ user }}
+    - force_reset: True
+    - force_checkout: True
+    - force_fetch: True
     - require:
       - file: remnux-python3-packages-viper-directory
 

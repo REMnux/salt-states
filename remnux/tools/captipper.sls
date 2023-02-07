@@ -17,6 +17,7 @@ remnux-tools-captipper:
     - target: /usr/local/CapTipper
     - force_reset: True
     - force_checkout: True
+    - force_fetch: True
     - user: root
     - require:
       - sls: remnux.packages.python3

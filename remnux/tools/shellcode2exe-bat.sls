@@ -11,11 +11,14 @@ include:
   - remnux.packages.wine
 
 remnux-tools-shellcode2exe-bat:
-  git.cloned:
+  git.latest:
     - name: https://github.com/repnz/shellcode2exe.git
     - target: /usr/local/shellcode2exe-bat
     - user: root
     - branch: master
+    - force_fetch: True
+    - force_reset: True
+    - force_checkout: True
     - require:
       - sls: remnux.packages.wine
 

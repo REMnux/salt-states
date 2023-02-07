@@ -12,11 +12,14 @@ include:
   - remnux.python-packages.certifi
 
 remnux-tools-automater:
-  git.cloned:
+  git.latest:
     - name: https://github.com/1aN0rmus/TekDefense-Automater
     - target: /usr/local/automater
     - user: root
     - branch: master
+    - force_fetch: True
+    - force_reset: True
+    - force_checkout: True
 
 remnux-tools-automater-binary:
   file.managed:
