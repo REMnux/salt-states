@@ -1,0 +1,2 @@
+gnutls-bin:
+  pkg.installed
