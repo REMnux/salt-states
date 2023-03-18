@@ -1,7 +1,16 @@
+remnux-gift-key:
+  file.managed:
+    - name: /usr/share/keyrings/GIFT-GPG-KEY.asc
+    - source: salt://remnux/repos/files/GIFT-GPG-KEY.asc
+    - skip_verify: True
+    - makedirs: True
+
 gift-repo:
   pkgrepo.managed:
-    - ppa: gift/stable
-    - refresh: true
-    # Source - https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3ED1EAECE81894B171D7DA5B5E80511B10C598B8
-    - key_url: salt://remnux/repos/files/GIFT-GPG-KEY.asc
-    - gpgcheck: 1
+    - name: deb [arch=amd64 signed-by=/usr/share/keyrings/GIFT-GPG-KEY.asc] http://ppa.launchpad.net/gift/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
+    - dist: {{ grains['lsb_distrib_codename'] }}
+    - file: /etc/apt/sources.list.d/gift-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.list
+    - refresh: True
+    - clean_file: True
+    - require:
+      - file: remnux-gift-key

@@ -1,3 +1,9 @@
+remnux-nodejs-key:
+  file.managed:
+    - name: /usr/share/keyrings/NODESOURCE-GPG.KEY
+    - source: http://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    - skip_verify: True
+    - makedirs: True
 
 nodejs-repo-cleanup:
   pkgrepo.absent:
@@ -7,10 +13,10 @@ nodejs-repo-cleanup:
 nodejs-repo:
   pkgrepo.managed:
     - humanname: nodejs
-    - name: deb http://deb.nodesource.com/node_14.x {{ grains['lsb_distrib_codename'] }} main
+    - name: deb [signed-by=/usr/share/keyrings/NODESOURCE-GPG.KEY] http://deb.nodesource.com/node_14.x {{ grains['lsb_distrib_codename'] }} main
     - file: /etc/apt/sources.list.d/nodesource.list
-    - key_url: http://deb.nodesource.com/gpgkey/nodesource.gpg.key
-    - gpgcheck: 1
-    - refresh: true
+    - refresh: True
+    - clean_file: True
     - require:
       - pkgrepo: nodejs-repo-cleanup
+      - file: remnux-nodejs-key
