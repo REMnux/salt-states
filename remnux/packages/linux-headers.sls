@@ -1,3 +1,3 @@
 remnux-linux-headers:
   pkg.installed:
-      - name: linux-headers-generic
+      - name: linux-headers-{{ grains['kernelrelease'] }}
