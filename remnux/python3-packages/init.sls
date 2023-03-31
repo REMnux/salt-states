@@ -1,5 +1,6 @@
 include:
   - remnux.python3-packages.pip
+  - remnux.python3-packages.cryptography
   - remnux.python3-packages.androguard
   - remnux.python3-packages.docker-compose
   - remnux.python3-packages.ioc-parser
@@ -55,6 +56,7 @@ remnux-python3-packages:
   test.nop:
     - require:
       - sls: remnux.python3-packages.pip
+      - sls: remnux.python3-packages.cryptography
       - sls: remnux.python3-packages.androguard
       - sls: remnux.python3-packages.docker-compose
       - sls: remnux.python3-packages.ioc-parser
