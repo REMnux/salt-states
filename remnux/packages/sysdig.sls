@@ -15,4 +15,4 @@ remnux-sysdig:
     - name: sysdig
     - require:
       - pkgrepo: draios
-      - pkg: remnux-linux-headers
+      - sls: remnux.packages.linux-headers
