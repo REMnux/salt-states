@@ -13,6 +13,7 @@ remnux-dc3-mwcp-install:
   pip.installed:
     - name: mwcp
     - bin_env: /usr/bin/python3
+    - ignore_installed: True
     - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
