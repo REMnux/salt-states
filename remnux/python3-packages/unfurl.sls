@@ -15,6 +15,7 @@ remnux-python3-packages-unfurl-requirements:
   pip.installed:
     - bin_env: /usr/bin/python3
     - requirements: https://raw.githubusercontent.com/obsidianforensics/unfurl/main/requirements.txt
+    - ignore_installed: True
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.python3-packages.protobuf
@@ -23,6 +24,7 @@ remnux-python3-packages-unfurl:
   pip.installed:
     - bin_env: /usr/bin/python3
     - name: git+https://github.com/obsidianforensics/unfurl.git
+    - ignore_installed: True
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git

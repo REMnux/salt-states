@@ -13,6 +13,7 @@
 
 include:
   - remnux.python3-packages.pip
+  - remnux.python3-packages.typing-extensions
   - remnux.tools.apktool
   - remnux.packages.baksmali
   - remnux.packages.dex2jar
@@ -31,12 +32,13 @@ remnux-python-packages-droidlysis:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.procyon-decompiler
       - sls: remnux.packages.unzip
+      - sls: remnux.python3-packages.typing-extensions
 
 remnux-python-packages-droidlysis-droidconfig-set1:
   file.replace:
-    - name: /usr/local/lib/{{ python3_version }}/dist-packages/droidconfig.py
-    - pattern: '^APKTOOL_JAR.*$'
-    - repl: 'APKTOOL_JAR = os.path.join(os.path.expanduser("/usr/local/apktool"), "apktool_2.4.1.jar")'
+    - name: /usr/local/lib/{{ python3_version }}/dist-packages/conf/general.conf
+    - pattern: '^apktool =.*$'
+    - repl: 'apktool = /usr/local/apktool/apktool_2.7.0.jar'
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -44,9 +46,9 @@ remnux-python-packages-droidlysis-droidconfig-set1:
 
 remnux-python-packages-droidlysis-droidconfig-set2:
   file.replace:
-    - name: /usr/local/lib/{{ python3_version }}/dist-packages/droidconfig.py
-    - pattern: '^BAKSMALI_JAR.*$'
-    - repl: 'BAKSMALI_JAR = os.path.join(os.path.expanduser("/opt/baksmali"), "baksmali-2.4.0.jar")'
+    - name: /usr/local/lib/{{ python3_version }}/dist-packages/conf/general.conf
+    - pattern: '^baksmali =.*$'
+    - repl: 'baksmali = /opt/baksmali/baksmali-2.4.0.jar'
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -54,9 +56,9 @@ remnux-python-packages-droidlysis-droidconfig-set2:
 
 remnux-python-packages-droidlysis-droidconfig-set3:
   file.replace:
-    - name: /usr/local/lib/{{ python3_version }}/dist-packages/droidconfig.py
-    - pattern: '^DEX2JAR_CMD.*$'
-    - repl: 'DEX2JAR_CMD = os.path.join(os.path.expanduser("/usr/bin"), "d2j-dex2jar")'
+    - name: /usr/local/lib/{{ python3_version }}/dist-packages/conf/general.conf
+    - pattern: '^dex2jar =.*$'
+    - repl: 'dex2jar = /usr/bin/d2j-dex2jar'
     - prepend_if_not_found: False
     - count: 1
     - require:
@@ -64,9 +66,9 @@ remnux-python-packages-droidlysis-droidconfig-set3:
 
 remnux-python-packages-droidlysis-droidconfig-set4:
   file.replace:
-    - name: /usr/local/lib/{{ python3_version }}/dist-packages/droidconfig.py
-    - pattern: '^PROCYON_JAR.*$'
-    - repl: 'PROCYON_JAR = os.path.join(os.path.expanduser("/usr/share/java"), "procyon-decompiler-0.5.32.jar")'
+    - name: /usr/local/lib/{{ python3_version }}/dist-packages/conf/general.conf
+    - pattern: '^procyon =.*$'
+    - repl: 'procyon = /usr/share/java/procyon-decompiler-0.5.32.jar'
     - prepend_if_not_found: False
     - count: 1
     - require:

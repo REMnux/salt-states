@@ -13,6 +13,7 @@ include:
   - remnux.tools
   - remnux.node-packages
   - remnux.perl-packages
+  - remnux.python3-packages.importlib-metadata
 
 remnux-addon-version-file:
   file.managed:
@@ -31,3 +32,4 @@ remnux-addon-version-file:
       - sls: remnux.tools
       - sls: remnux.node-packages
       - sls: remnux.perl-packages
+      - sls: remnux.python3-packages.importlib-metadata
