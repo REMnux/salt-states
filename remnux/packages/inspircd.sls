@@ -8,7 +8,10 @@
 
 
 {% set version = '3.15.0' %}
-{%- if grains['oscodename'] == "focal" %}
+{%- if grains['oscodename'] == "jammy" %}
+  {% set os_rel = '22.04.3' %}
+  {% set hash = 'fc0440c23ffcc131444d14eabda72a0b0d528c6c0da757f2f8486785b4219a6c' %}
+{%- elif grains['oscodename'] == "focal" %}
   {% set os_rel = '20.04.3' %}
   {% set hash = '2d98e442c4a2a9a59bda10729eb8aac31444f5fedb58fcc65d23d415e03e7c2f' %}
 {% elif grains['oscodename'] == "bionic" %}
