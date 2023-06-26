@@ -47,6 +47,7 @@ remnux-python3-packages-malwoverview-install:
     - name: malwoverview
     - bin_env: /opt/malwoverview/bin/python3
     - upgrade: True
+    - user: root
     - require:
       - sls: remnux.python3-packages.pip
       - virtualenv: remnux-python3-packages-malwoverview-virtualenv
@@ -56,7 +57,7 @@ remnux-python3-packages-malwoverview-install:
 remnux-python3-packages-malwoverview-config-file:
   file.managed:
     - name: {{ home }}/.malwapi.conf
-    - source: /opt/malwoverview/lib/{{ python3_version }}/site-packages/home/remnux/.malwapi.conf
+    - source: /opt/malwoverview/lib/{{ python3_version }}/site-packages/root/.malwapi.conf
     - user: {{ user }}
     - group: {{ user }}
     - makedirs: False
