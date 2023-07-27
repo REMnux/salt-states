@@ -9,6 +9,7 @@
 include:
   - remnux.python3-packages.pip
   - remnux.packages.git
+  - remnux.packages.libsqlite3-dev
   - remnux.python3-packages.cffi
 
 remnux-python3-packages-malchive:
@@ -18,4 +19,5 @@ remnux-python3-packages-malchive:
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git
+      - sls: remnux.packages.libsqlite3-dev
       - sls: remnux.python3-packages.cffi
