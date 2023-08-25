@@ -3,7 +3,7 @@ include:
   - remnux.python3-packages.cryptography
   - remnux.python3-packages.androguard
   - remnux.python3-packages.docker-compose
-  - remnux.python3-packages.ioc-parser
+#  - remnux.python3-packages.ioc-parser
   - remnux.python3-packages.ipwhois
   - remnux.python3-packages.jsbeautifier
   - remnux.python3-packages.mitmproxy
@@ -11,7 +11,7 @@ include:
   - remnux.python3-packages.peframe
   - remnux.python3-packages.pyelftools
   - remnux.python3-packages.r2pipe
-  - remnux.python3-packages.virustotal-api
+#  - remnux.python3-packages.virustotal-api
   - remnux.python3-packages.xortool
   - remnux.python3-packages.xxxswf
   - remnux.python3-packages.thug
@@ -59,7 +59,7 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.cryptography
       - sls: remnux.python3-packages.androguard
       - sls: remnux.python3-packages.docker-compose
-      - sls: remnux.python3-packages.ioc-parser
+#      - sls: remnux.python3-packages.ioc-parser
       - sls: remnux.python3-packages.ipwhois
       - sls: remnux.python3-packages.jsbeautifier
       - sls: remnux.python3-packages.mitmproxy
@@ -67,7 +67,7 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.peframe
       - sls: remnux.python3-packages.pyelftools
       - sls: remnux.python3-packages.r2pipe
-      - sls: remnux.python3-packages.virustotal-api
+#      - sls: remnux.python3-packages.virustotal-api
       - sls: remnux.python3-packages.xortool
       - sls: remnux.python3-packages.xxxswf
       - sls: remnux.python3-packages.thug
