@@ -24,7 +24,7 @@ saltstack-repo-file-absent:
 saltstack-repo:
   pkgrepo.managed:
     - humanname: saltstack
-    - name: deb [arch={{ grains['osarch'] }} signed-by=/usr/share/keyrings/salt-archive-keyring-2023.gpg] https://repo.saltproject.io/salt/py3/ubuntu/{{ grains['lsb_distrib_release'] }}/{{ grains['osarch'] }}/3006 focal main
+    - name: deb [signed-by=/usr/share/keyrings/salt-archive-keyring-2023.gpg arch={{ grains['osarch'] }}] https://repo.saltproject.io/salt/py3/ubuntu/{{ grains['lsb_distrib_release'] }}/{{ grains['osarch'] }}/3006 focal main
     - file: /etc/apt/sources.list.d/saltstack.list
     - refresh: True
     - clean_file: True
