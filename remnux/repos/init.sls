@@ -1,5 +1,5 @@
 include:
-  - remnux.repos.saltstack
+#  - remnux.repos.saltstack
   - remnux.repos.docker
   - remnux.repos.draios
   - remnux.repos.inetsim
@@ -17,7 +17,7 @@ include:
 remnux-repos:
   test.nop:
     - require:
-      - sls: remnux.repos.saltstack
+#      - sls: remnux.repos.saltstack
       - sls: remnux.repos.docker
       - sls: remnux.repos.draios
       - sls: remnux.repos.inetsim
