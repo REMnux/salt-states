@@ -1,7 +1,7 @@
 include:
   - remnux.python3-packages.pip
 
-importlib-metadata<5.0.0:
+importlib-metadata==4.13.0:
   pip.installed:
     - bin_env: /usr/bin/python3
     - upgrade: False
