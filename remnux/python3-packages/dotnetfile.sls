@@ -22,7 +22,7 @@ remnux-python3-packages-dotnetfile-dump:
   file.managed:
     - name: /usr/local/bin/dotnetfile_dump.py
     - source: https://raw.githubusercontent.com/pan-unit42/dotnetfile/main/examples/dotnetfile_dump.py
-    - source_hash: sha256=714f141fe8e072ae38fb684fc072d89bc634a28a5f2cef9487c5d71ef159c282
+    - source_hash: sha256=2c0cc300a51c6035a3c90c9c515ae8572207ed97be6a49d15dfc9a758df02eea
     - makedirs: false
     - mode: 755
     - require:
