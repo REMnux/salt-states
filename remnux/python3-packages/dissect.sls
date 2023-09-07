@@ -8,23 +8,31 @@
 # License: Affero General Public License v3: https://github.com/fox-it/dissect/blob/main/LICENSE
 # Notes: target-query, target-shell, target-dump, target-info, target-reg, target-dd, target-mount
 
+{%- if grains['oscodename'] == "focal" %}
+  {%- set python3_version="python3.9" %}
+  {%- set python3_dependency="python39" %} 
+{%- else %}
+  {%- set python3_version="python3" %}
+  {%- set python3_dependency="python3" %} 
+{% endif %}
+
 include:
   - remnux.python3-packages.pip
   - remnux.packages.python3-virtualenv
-  - remnux.packages.python39
+  - remnux.packages.{{ python3_dependency }}
   - remnux.packages.libfuse2
 
 # Create a virtualenv for dissect
 remnux-python3-packages-dissect-virtualenv:
   virtualenv.managed:
     - name: /opt/dissect
-    - python: /usr/bin/python3.9
+    - python: /usr/bin/{{ python3_version }}
     - pip_pkgs:
       - pip
       - setuptools
       - wheel
     - require:
-      - sls: remnux.packages.python39
+      - sls: remnux.packages.{{ python3_dependency }}
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.python3-virtualenv
 
