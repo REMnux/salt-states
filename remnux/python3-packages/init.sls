@@ -52,6 +52,7 @@ include:
   - remnux.python3-packages.dnfile
   - remnux.python3-packages.dotnetfile
   - remnux.python3-packages.debloat
+  - remnux.python3-packages.peepdf-3
 
 remnux-python3-packages:
   test.nop:
@@ -109,3 +110,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.dnfile
       - sls: remnux.python3-packages.dotnetfile
       - sls: remnux.python3-packages.debloat
+      - sls: remnux.python3-packages.peepdf-3
