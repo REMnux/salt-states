@@ -3,7 +3,7 @@ include:
 
 remnux-python3-packages-wheel:
   pip.installed:
-    - name: wheel==0.36.2
+    - name: wheel
     - bin_env: /usr/bin/python3
     - upgrade: True
     - require:
