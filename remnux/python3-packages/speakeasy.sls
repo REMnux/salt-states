@@ -20,7 +20,8 @@ remnux-python3-packages-speakeasy-requirements:
 remnux-python3-packages-speakeasy:
   pip.installed:
     - bin_env: /usr/bin/python3
-    - name: git+https://github.com/mandiant/speakeasy.git@master
+    - name: git+https://github.com/mandiant/speakeasy.git
+    - branch: master
     - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
