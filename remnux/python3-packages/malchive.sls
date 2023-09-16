@@ -15,7 +15,8 @@ include:
 remnux-python3-packages-malchive:
   pip.installed:
     - bin_env: /usr/bin/python3
-    - name: git+https://github.com/MITRECND/malchive.git@main
+    - name: git+https://github.com/MITRECND/malchive.git
+    - branch: main
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git

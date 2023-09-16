@@ -7,7 +7,7 @@ remnux-repo-key:
 
 remnux-repo:
   pkgrepo.managed:
-    - name: deb [signed-by=/usr/share/keyrings/REMNUX-GPG-KEY.asc] http://ppa.launchpad.net/remnux/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
+    - name: deb [signed-by=/usr/share/keyrings/REMNUX-GPG-KEY.asc] https://ppa.launchpadcontent.net/remnux/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
     - file: /etc/apt/sources.list.d/remnux-stable-{{ grains['lsb_distrib_codename'] }}.list
     - refresh: True
     - clean_file: True

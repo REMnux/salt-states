@@ -23,7 +23,7 @@ sift-repo-key:
 
 sift-repo:
   pkgrepo.managed:
-    - name: deb [signed-by=/usr/share/keyrings/SIFT-GPG-KEY.asc] http://ppa.launchpad.net/sift/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
+    - name: deb [signed-by=/usr/share/keyrings/SIFT-GPG-KEY.asc] https://ppa.launchpadcontent.net/sift/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
     - file: /etc/apt/sources.list.d/sift-stable-{{ grains['lsb_distrib_codename'] }}.list
     - refresh: True
     - clean_file: True
