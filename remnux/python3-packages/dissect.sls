@@ -1,9 +1,9 @@
 # Name: dissect
 # Website: https://github.com/fox-it/dissect
-# Description: Digital forensics & incident response framework and toolset.
+# Description: Perform a variety of forensics and incident response tasks using this DFIR framework and toolset.
 # Category: Gather and Analyze Data
 # Author: Dissect Team: dissect@fox-it.com
-# License: Affero General Public License v3 (https://github.com/fox-it/dissect/blob/main/LICENSE)
+# License: GNU Affero General Public License v3: https://github.com/fox-it/dissect/blob/main/LICENSE
 # Notes: acquire, target-fs, rdump, rgeoip, target-query, target-shell, target-dump, target-info, target-reg, target-dd, target-mount
 
 {% set tools = ['acquire','target-query','target-shell','target-fs','target-reg','target-dump','target-dd','target-mount','rdump','rgeoip'] %}
