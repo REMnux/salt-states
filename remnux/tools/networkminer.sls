@@ -13,7 +13,7 @@ remnux-networkminer-source:
   file.managed:
     - name: /usr/local/src/remnux/files/networkminer-2.8.1.zip
     - source: https://www.netresec.com/?download=NetworkMiner
-    - source_hash: sha256=13dc519e24a44485554be6e3651bf9381b9ea13a0376cdf958508c75e3b1bb7a
+    - source_hash: sha256=34e8ba09d6bb47463c0e154b7a8eef26922b8dd61000e95d1880aa8c175507e1
     - makedirs: True
     - replace: False
     - require:
