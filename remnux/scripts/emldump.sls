@@ -11,15 +11,15 @@ include:
 
 remnux-scripts-emldump-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/emldump_V0_0_11.zip
-    - source: https://didierstevens.com/files/software/emldump_V0_0_11.zip
-    - source_hash: sha256=01B3543CCBAE806E1536BF55E62DF7D30885737909DB4322348AC521138660CC
+    - name: /usr/local/src/remnux/files/emldump_V0_0_13.zip
+    - source: https://didierstevens.com/files/software/emldump_V0_0_13.zip
+    - source_hash: sha256=2812EFFCBD9BDCA2634210678C1F2508216E099D94531E5FF29BFE32B3B12B65
     - makedirs: True
 
 remnux-scripts-emldump-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/emldump-0.0.11
-    - source: /usr/local/src/remnux/files/emldump_V0_0_11.zip
+    - name: /usr/local/src/remnux/emldump-0.0.13
+    - source: /usr/local/src/remnux/files/emldump_V0_0_13.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-emldump-source
@@ -27,7 +27,7 @@ remnux-scripts-emldump-archive:
 remnux-scripts-emldump-binary:
   file.managed:
     - name: /usr/local/bin/emldump.py
-    - source: /usr/local/src/remnux/emldump-0.0.11/emldump.py
+    - source: /usr/local/src/remnux/emldump-0.0.13/emldump.py
     - mode: 755
     - require:
       - sls: remnux.python3-packages.yara-python3
