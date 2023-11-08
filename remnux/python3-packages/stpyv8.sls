@@ -1,22 +1,19 @@
 # Name: STPyV8
-# Website: https://github.com/area1/stpyv8
+# Website: https://github.com/cloudflare/stpyv8
 # Description: Python3 and JavaScript interop engine, fork of the original PyV8 project
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Area1 Security
-# License: Apache License 2.0: https://github.com/area1/stpyv8/blob/master/LICENSE.txt
+# License: Apache License 2.0: https://github.com/cloudflare/stpyv8/blob/master/LICENSE.txt
 # Notes:
-{%- set version="v10.1.124.12" %}
+{%- set version="11.7.439.19" %}
 {%- if grains['oscodename'] == "bionic" %} 
-  {%- set release="stpyv8-ubuntu-18.04-python-3.6.zip" %}
-  {%- set hash="f4644f87379458d00bc019f89a4a480f1ac85b84c5c74f4fa0732f631907b951" %}
-  {%- set wheel="stpyv8-8.8.278.17-cp36-cp36m-linux_x86_64.whl" %}
-  {%- set folder="stpyv8-ubuntu-18.04-3.6" %}
+Ubuntu Bionic is no longer supported:
+  test.nop
 {% elif grains['oscodename'] == "focal" %} 
   {%- set release="stpyv8-ubuntu-20.04-python-3.8.zip" %}
-  {%- set hash="444a62c69e2259611c0804d3fd29e99726160f29e0aed6a49cb5179ce8e0d85a" %}
-  {%- set wheel="stpyv8-10.1.124.12-cp38-cp38-linux_x86_64.whl" %}
+  {%- set hash="bf6821faf6669e07057478edf22c0e02351e7922494dbff377f216920235d8b7" %}
+  {%- set wheel="stpyv8-" + version + "-cp38-cp38-linux_x86_64.whl" %}
   {%- set folder="stpyv8-ubuntu-20.04-3.8" %}
-{%- endif %}
 
 include:
   - remnux.packages.sudo
@@ -31,7 +28,7 @@ include:
 remnux-python3-packages-stpyv8-source:
   file.managed:
     - name: /usr/local/src/remnux/files/{{ release }}
-    - source: https://github.com/area1/stpyv8/releases/download/{{ version }}/{{ release }}
+    - source: https://github.com/cloudflare/stpyv8/releases/download/v{{ version }}/{{ release }}
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
@@ -55,3 +52,4 @@ remnux-pip3-stpyv8:
       - sls: remnux.packages.libboost-dev
       - sls: remnux.packages.libboost-iostreams-dev
       - sls: remnux.python3-packages.setuptools
+{%- endif %}
