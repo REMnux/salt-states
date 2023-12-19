@@ -9,6 +9,11 @@
 include:
   - remnux.packages.perl
   - remnux.packages.build-essential
+  - remnux.packages.liblzma-dev
+  - remnux.packages.libssl-dev
+  - remnux.packages.zlib1g-dev
+  - remnux.packages.unzip
+  - remnux.perl-packages.net-ssleay
 
 remnux-perl-packages-exiftool:
   cmd.run:
@@ -18,3 +23,8 @@ remnux-perl-packages-exiftool:
     - require:
       - sls: remnux.packages.perl
       - sls: remnux.packages.build-essential
+      - sls: remnux.packages.liblzma-dev
+      - sls: remnux.packages.libssl-dev
+      - sls: remnux.packages.zlib1g-dev
+      - sls: remnux.packages.unzip
+      - sls: remnux.perl-packages.net-ssleay
