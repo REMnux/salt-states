@@ -40,7 +40,7 @@ include:
   - remnux.packages.libfuzzy-dev
   - remnux.packages.libjpeg-dev
   - remnux.packages.libjpeg8-dev
-  - remnux.packages.spidermonkey
+  - remnux.packages.liblzma-dev
   - remnux.packages.libncurses
   - remnux.packages.libsqlite3-dev
   - remnux.packages.libssl-dev
@@ -106,6 +106,7 @@ include:
   - remnux.packages.pdftk-java
   - remnux.packages.net-tools
   - remnux.packages.wine
+  - remnux.packages.spidermonkey
   - remnux.packages.galculator
   - remnux.packages.libjavassist-java
   - remnux.packages.vim
@@ -204,6 +205,7 @@ remnux-packages:
       - sls: remnux.packages.libfuzzy-dev
       - sls: remnux.packages.libjpeg-dev
       - sls: remnux.packages.libjpeg8-dev
+      - sls: remnux.packages.liblzma-dev
       - sls: remnux.packages.libncurses
       - sls: remnux.packages.libsqlite3-dev
       - sls: remnux.packages.libssl-dev
