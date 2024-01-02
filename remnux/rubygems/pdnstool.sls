@@ -12,10 +12,17 @@ include:
   - remnux.packages.build-essential
   - remnux.packages.libsqlite3-dev
 
+sqlite3-gem:
+  gem.installed:
+    - name: sqlite3
+    - version: 1.6.0
+    - require:
+      - pkg: ruby
+
 passivedns-client:
   gem.installed:
     - require:
-      - pkg: ruby
+      - gem: sqlite3-gem
       - pkg: ruby-dev
       - pkg: build-essential
       - pkg: libsqlite3-dev
