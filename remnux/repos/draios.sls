@@ -1,7 +1,7 @@
 remnux-draios-key:
   file.managed:
     - name: /usr/share/keyrings/DRAIOS-GPG-KEY.asc
-    - source: https://download.sysdig.com/DRAIOS-GPG-KEY.public
+    - source: https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public
     - skip_verify: True
     - makedirs: True
 
