@@ -1,5 +1,5 @@
-# Name: peepdf
-# Website: https://eternal-todo.com/tools/peepdf-pdf-analysis-tool
+# Name: peepdf-3
+# Website: https://github.com/digitalsleuth/peepdf-3
 # Description: Examine elements of the PDF file.
 # Category: Analyze Documents: PDF
 # Author: Jose Miguel Esparza and Corey Forman
@@ -13,10 +13,11 @@ include:
   - remnux.packages.zlib1g-dev
   - remnux.packages.git
   - remnux.python3-packages.stpyv8
+  - remnux.python3-packages.pylibemu
 
 remnux-tools-peepdf-3-source:
   pip.installed:
-    - name: git+https://github.com/digitalsleuth/peepdf-3.git
+    - name: peepdf-3
     - bin_env: /usr/bin/python3
     - upgrade: True
     - require:
@@ -26,3 +27,4 @@ remnux-tools-peepdf-3-source:
       - sls: remnux.packages.zlib1g-dev
       - sls: remnux.packages.git
       - sls: remnux.python3-packages.stpyv8
+      - sls: remnux.python3-packages.pylibemu
