@@ -8,6 +8,7 @@
 
 include:
   - remnux.repos.docker
+  - remnux.tools.docker-compose
 
 docker-docker-engine:
   pkg.removed:
@@ -19,3 +20,4 @@ docker-docker-ce:
     - require:
       - pkg: docker-docker-engine
       - sls: remnux.repos.docker
+      - sls: remnux.tools.docker-compose
