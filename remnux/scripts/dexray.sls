@@ -1,6 +1,6 @@
 # Name: DeXRAY
 # Website: http://www.hexacorn.com/blog/category/software-releases/dexray/
-# Description: Extract and decode data fro antivirus quarantine files.
+# Description: Extract and decode data from antivirus quarantine files.
 # Category: Gather and Analyze Data
 # Author: Hexacorn
 # License: Free; copyright by Hexacorn.com: http://hexacorn.com/d/DeXRAY.pl

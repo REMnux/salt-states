@@ -4,7 +4,7 @@
 # Category: General Utilities, Examine Static Properties: General
 # Author: Igor Pavlov
 # License: GNU Lesser General Public License (LGPL)
-# Notes: 7-Zip standard: 7z, 7za, 7zr. For latest alpha verison, use 7zz instead of 7z.
+# Notes: 7-Zip standard: 7z, 7za, 7zr. For latest alpha version, use 7zz instead of 7z.
 
 include:
   - remnux.repos.remnux
