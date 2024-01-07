@@ -5,7 +5,6 @@ include:
   - remnux.python3-packages.requests
   - remnux.python3-packages.cryptography
   - remnux.python3-packages.androguard
-  - remnux.python3-packages.docker-compose
   - remnux.python3-packages.ioc-parser
   - remnux.python3-packages.ipwhois
   - remnux.python3-packages.jsbeautifier
@@ -66,7 +65,6 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.requests
       - sls: remnux.python3-packages.cryptography
       - sls: remnux.python3-packages.androguard
-      - sls: remnux.python3-packages.docker-compose
       - sls: remnux.python3-packages.ioc-parser
       - sls: remnux.python3-packages.ipwhois
       - sls: remnux.python3-packages.jsbeautifier

@@ -24,6 +24,7 @@ include:
   - remnux.tools.jadx
   - remnux.tools.detect-it-easy
   - remnux.tools.capa
+  - remnux.tools.docker-compose
 
 remnux-tools:
   test.nop:
@@ -53,3 +54,4 @@ remnux-tools:
       - sls: remnux.tools.jadx
       - sls: remnux.tools.detect-it-easy
       - sls: remnux.tools.capa
+      - sls: remnux.tools.docker-compose
