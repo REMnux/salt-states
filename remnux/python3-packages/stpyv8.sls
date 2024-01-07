@@ -5,6 +5,7 @@
 # Author: Area1 Security
 # License: Apache License 2.0: https://github.com/cloudflare/stpyv8/blob/master/LICENSE.txt
 # Notes:
+
 {%- set version="11.7.439.19" %}
 {%- if grains['oscodename'] == "bionic" %} 
 Ubuntu Bionic is no longer supported:
@@ -14,6 +15,7 @@ Ubuntu Bionic is no longer supported:
   {%- set hash="bf6821faf6669e07057478edf22c0e02351e7922494dbff377f216920235d8b7" %}
   {%- set wheel="stpyv8-" + version + "-cp38-cp38-linux_x86_64.whl" %}
   {%- set folder="stpyv8-ubuntu-20.04-3.8" %}
+{%- endif %}
 
 include:
   - remnux.packages.sudo
@@ -52,4 +54,3 @@ remnux-pip3-stpyv8:
       - sls: remnux.packages.libboost-dev
       - sls: remnux.packages.libboost-iostreams-dev
       - sls: remnux.python3-packages.setuptools
-{%- endif %}
