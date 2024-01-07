@@ -19,6 +19,7 @@
 include:
   - remnux.python3-packages.pip
   - remnux.packages.python3-virtualenv
+  - remnux.packages.virtualenv
   - remnux.packages.{{ py3_dependency }}
   - remnux.packages.libfuse2
 
