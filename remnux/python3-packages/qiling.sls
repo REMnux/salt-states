@@ -10,6 +10,11 @@ include:
   - remnux.packages.virtualenv
   - remnux.python3-packages.pip
 
+remnux-python3-packages-remove-qiling:
+  pip.removed:
+    - name: qiling
+    - bin_env: /usr/bin/python3
+
 remnux-python3-packages-qiling-virtualenv:
   virtualenv.managed:
     - name: /opt/qiling
@@ -24,6 +29,7 @@ remnux-python3-packages-qiling-virtualenv:
     - require:
       - sls: remnux.packages.virtualenv
       - sls: remnux.packages.python3-pip
+      - pip: remnux-python3-packages-remove-qiling
 
 remnux-python3-packages-qiling:
   pip.installed:
@@ -38,5 +44,6 @@ remnux-python3-packages-qiling-symlink:
     - name: /usr/local/bin/qltool
     - target: /opt/qiling/bin/qltool
     - makedirs: False
+    - force: True
     - require:
       - pip: remnux-python3-packages-qiling
