@@ -10,6 +10,11 @@ include:
   - remnux.python3-packages.pip
   - remnux.packages.virtualenv
 
+remnux-python3-packages-remove-name-that-hash:
+  pip.removed:
+    - name: name-that-hash
+    - bin_env: /usr/bin/python3
+
 remnux-python3-packages-name-that-hash-virtualenv:
   virtualenv.managed:
     - name: /opt/nth
@@ -21,6 +26,7 @@ remnux-python3-packages-name-that-hash-virtualenv:
     - require:
       - sls: remnux.packages.virtualenv
       - sls: remnux.python3-packages.pip
+      - pip: remnux-python3-packages-remove-name-that-hash
 
 remnux-python3-packages-name-that-hash-install:
   pip.installed:
@@ -35,5 +41,6 @@ remnux-python3-packages-name-that-hash-symlink:
     - name: /usr/local/bin/nth
     - target: /opt/nth/bin/nth
     - makedirs: False
+    - force: True
     - require:
       - pip: remnux-python3-packages-name-that-hash-install

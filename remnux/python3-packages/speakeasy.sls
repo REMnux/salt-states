@@ -13,6 +13,11 @@ include:
   - remnux.packages.git
   - remnux.packages.virtualenv
 
+remnux-python3-packages-remove-speakeasy:
+  pip.removed:
+    - name: speakeasy
+    - bin_env: /usr/bin/python3
+
 remnux-python3-packages-speakeasy-virtualenv:
   virtualenv.managed:
     - name: /opt/speakeasy
@@ -25,6 +30,7 @@ remnux-python3-packages-speakeasy-virtualenv:
     - require:
       - sls: remnux.packages.virtualenv
       - sls: remnux.packages.python3-pip
+      - pip: remnux-python3-packages-remove-speakeasy
 
 remnux-python3-packages-speakeasy-requirements:
   pip.installed:
@@ -90,6 +96,7 @@ remnux-python3-packages-speakeasy-{{ tool }}-symlink:
     - name: /usr/local/bin/{{ tool }}
     - target: /opt/speakeasy/bin/{{ tool }}
     - makedirs: False
+    - force: True
     - require:
       - pip: remnux-python3-packages-speakeasy
 {% endfor %}

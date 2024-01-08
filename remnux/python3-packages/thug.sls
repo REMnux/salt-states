@@ -48,6 +48,11 @@ include:
   - remnux.packages.libboost-dev
   - remnux.packages.build-essential
 
+remnux-python3-packages-remove-thug:
+  pip.removed:
+    - name: thug
+    - bin_env: /usr/bin/python3
+
 remnux-python3-packages-thug-virtualenv:
   virtualenv.managed:
     - name: /opt/thug
@@ -62,6 +67,7 @@ remnux-python3-packages-thug-virtualenv:
       - sls: remnux.packages.{{ py3_dependency }}
       - sls: remnux.packages.virtualenv
       - sls: remnux.packages.{{ py3_dependency }}-dev
+      - pip: remnux-python3-packages-remove-thug
 
 remnux-python3-packages-thug-venv-stpyv8-source:
   file.managed:
@@ -138,5 +144,6 @@ remnux-python3-packages-thug-symlink:
     - name: /usr/local/bin/thug
     - target: /opt/thug/bin/thug
     - makedirs: False
+    - force: True
     - require:
       - pip: remnux-python3-packages-thug-packages
