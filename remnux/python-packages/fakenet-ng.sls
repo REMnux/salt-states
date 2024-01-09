@@ -20,45 +20,22 @@ include:
   - remnux.packages.python2-dev
 {% endif %}
 
-pydivert:
+remnux-python-packages-fakenet-requirements:
   pip.installed:
-    - bin_env: /usr/bin/python2
-    - require:
-      - sls: remnux.packages.python2-pip
-
-dnslib:
-  pip.installed:
-    - bin_env: /usr/bin/python2
-    - require:
-      - sls: remnux.packages.python2-pip
-
-dpkt:
-  pip.installed:
-    - bin_env: /usr/bin/python2
-    - require:
-      - sls: remnux.packages.python2-pip
-
-netfilterqueue:
-  pip.installed:
-    - bin_env: /usr/bin/python2
-    - require:
-      - sls: remnux.packages.python2-pip
-
-pyftpdlib:
-  pip.installed:
-    - bin_env: /usr/bin/python2
-    - require:
-      - sls: remnux.packages.python2-pip
-
-pyopenssl:
-  pip.installed:
+    - names:
+      - pydivert
+      - dnslib
+      - dpkt
+      - netfilterqueue
+      - pyftpdlib
+      - pyopenssl
     - bin_env: /usr/bin/python2
     - require:
       - sls: remnux.packages.python2-pip
 
 fakenet-ng:
   pip.installed:
-    - name: git+https://github.com/fireeye/flare-fakenet-ng
+    - name: git+https://github.com/fireeye/flare-fakenet-ng.git
     - bin_env: /usr/bin/python2
     - require:
       - sls: remnux.packages.git

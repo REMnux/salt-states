@@ -121,7 +121,6 @@ include:
   - remnux.packages.dex2jar
   - remnux.packages.netcat
   - remnux.packages.python3-pyqt5
-  - remnux.packages.fakenet-ng
   - remnux.packages.vscode
   - remnux.packages.bearparser
   - remnux.packages.signsrch
@@ -286,7 +285,6 @@ remnux-packages:
       - sls: remnux.packages.dex2jar
       - sls: remnux.packages.netcat
       - sls: remnux.packages.python3-pyqt5
-      - sls: remnux.packages.fakenet-ng
       - sls: remnux.packages.vscode
       - sls: remnux.packages.bearparser
       - sls: remnux.packages.signsrch

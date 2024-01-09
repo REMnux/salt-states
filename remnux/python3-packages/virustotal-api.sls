@@ -8,13 +8,10 @@
 
 include:
   - remnux.python3-packages.pip
-  - remnux.packages.git
 
 remnux-python3-package-virustotal-api:
   pip.installed:
-    - name: git+https://github.com/doomedraven/VirusTotalApi
+    - name: vt-py
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.git
-

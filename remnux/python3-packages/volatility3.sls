@@ -8,17 +8,20 @@
 
 include:
   - remnux.packages.git
-  - remnux.python3-packages.pefile
   - remnux.python3-packages.pip
+
+remnux-python3-packages-volatility3-requirements:
+  pip.installed:
+    - requirements: https://raw.githubusercontent.com/volatilityfoundation/volatility3/develop/requirements.txt
+    - bin_env: /usr/bin/python3
 
 remnux-python3-packages-volatility3:
   pip.installed:
-    - name: git+https://github.com/volatilityfoundation/volatility3.git
+    - name: volatility3
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.packages.git
       - sls: remnux.python3-packages.pip
-      - sls: remnux.python3-packages.pefile
 
 remnux-python3-packages-volatility-rename-vol:
   file.rename:

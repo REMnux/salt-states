@@ -8,15 +8,13 @@
 
 include:
   - remnux.python3-packages.pip
-  - remnux.packages.git
 
 remnux-python3-packages-dotnetfile:
   pip.installed:
-    - name: git+https://github.com/pan-unit42/dotnetfile
+    - name: dotnetfile
     - bin_env: /usr/bin/python3
     - require:
       - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.git
 
 remnux-python3-packages-dotnetfile-dump:
   file.managed:
