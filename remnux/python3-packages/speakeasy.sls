@@ -32,23 +32,15 @@ remnux-python3-packages-speakeasy-virtualenv:
       - sls: remnux.packages.python3-pip
       - pip: remnux-python3-packages-remove-speakeasy
 
-remnux-python3-packages-speakeasy-requirements:
-  pip.installed:
-    - bin_env: /opt/speakeasy/bin/python3
-    - requirements: https://raw.githubusercontent.com/mandiant/speakeasy/master/requirements.txt
-    - require:
-      - virtualenv: remnux-python3-packages-speakeasy-virtualenv
-
 remnux-python3-packages-speakeasy:
   pip.installed:
     - bin_env: /opt/speakeasy/bin/python3
-    - name: git+https://github.com/mandiant/speakeasy.git
+    - name: speakeasy-emulator
     - branch: master
     - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git
-      - pip: remnux-python3-packages-speakeasy-requirements
 
 remnux-python3-packages-speakeasy-emuexe:
   file.managed:
