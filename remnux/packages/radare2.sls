@@ -5,11 +5,18 @@
 # Author: https://github.com/radareorg/radare2/blob/master/AUTHORS.md
 # License: GNU Lesser General Public License (LGPL) v3: https://github.com/radareorg/radare2/blob/master/COPYING
 # Notes: r2, rasm2, rabin2, rahash2, rafind2
-{% set version = '5.6.8' %}
-{% set hash = '7af2fa605f00e1ae740db7dba2c0b8bc6c44e2eea3027cc7795ec46bf0292d2e' %}
+
+{% set version = '5.8.8' %}
+{% set hash = '691e510a900852d0b818f026bc111d0da24563ea414d569fa83737db57944e2e' %}
+{% set installed_version = salt['cmd.shell']("dpkg -l | grep radare2 | awk '{print $3}'") %}
 
 include:
   - remnux.packages.git
+
+{% if installed_version != '' and installed_version > version %}
+Installed Version {{ installed_version }} is higher than intended version:
+  test.nop
+{% else %}
 
 remnux-radare2-source:
   file.managed:
@@ -43,3 +50,5 @@ remnux-radare2-update:
     - name: r2pm update
     - watch:
       - cmd: remnux-radare2-init
+
+{% endif %}
