@@ -8,15 +8,15 @@
 
 remnux-tools-capa-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/capa-v3.2.0-linux.zip
-    - source: https://github.com/mandiant/capa/releases/download/v3.2.0/capa-v3.2.0-linux.zip
-    - source_hash: 8d180d0abd75033bdce1071747a54bb6d16f558e15e0d39d443e421c81163e9f
+    - name: /usr/local/src/remnux/files/capa-v7.0.1-linux.zip
+    - source: https://github.com/mandiant/capa/releases/download/v7.0.1/capa-v7.0.1-linux.zip
+    - source_hash: 0edbcc9d7c98f167fb3040a4158091098bba2c01455594c3cc8dc905494a7915
     - makedirs: True
 
 remnux-tools-capa-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/capa-v3.2.0-linux
-    - source: /usr/local/src/remnux/files/capa-v3.2.0-linux.zip
+    - name: /usr/local/src/remnux/capa-v7.0.1-linux
+    - source: /usr/local/src/remnux/files/capa-v7.0.1-linux.zip
     - enforce_toplevel: False
     - require:
       - file: remnux-tools-capa-source
@@ -24,7 +24,7 @@ remnux-tools-capa-archive:
 remnux-tools-capa-binary:
   file.managed:
     - name: /usr/local/bin/capa
-    - source: /usr/local/src/remnux/capa-v3.2.0-linux/capa
+    - source: /usr/local/src/remnux/capa-v7.0.1-linux/capa
     - mode: 755
     - require:
       - archive: remnux-tools-capa-archive
