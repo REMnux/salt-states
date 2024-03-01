@@ -7,7 +7,7 @@ include:
 
 remnux-python-packages-m2crypto:
   pip.installed:
-    - name: m2crypto
+    - name: m2crypto==0.40.1
     - bin_env: /usr/bin/python2
     - upgrade: True
     - require:
@@ -25,7 +25,7 @@ include:
 
 remnux-python-packages-m2crypto:
   pip.installed:
-    - name: m2crypto
+    - name: m2crypto==0.40.1
     - bin_env: /usr/bin/python2
     - upgrade: True
     - require:
