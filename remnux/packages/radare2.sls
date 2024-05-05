@@ -6,8 +6,8 @@
 # License: GNU Lesser General Public License (LGPL) v3: https://github.com/radareorg/radare2/blob/master/COPYING
 # Notes: r2, rasm2, rabin2, rahash2, rafind2
 
-{% set version = '5.8.8' %}
-{% set hash = '691e510a900852d0b818f026bc111d0da24563ea414d569fa83737db57944e2e' %}
+{% set version = '5.9.0' %}
+{% set hash = '7164ab19c7c44dc47e3a3546b6a5335fa4e1713631afd8da916f921f9b7c0716' %}
 {% set installed_version = salt['cmd.shell']("dpkg -l | grep radare2 | awk '{print $3}'") %}
 
 include:
