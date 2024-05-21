@@ -12,8 +12,8 @@
   {% set os_rel = '20.04.3' %}
   {% set hash = '2d98e442c4a2a9a59bda10729eb8aac31444f5fedb58fcc65d23d415e03e7c2f' %}
 {% elif grains['oscodename'] == "bionic" %}
-  {% set os_rel = '18.04.3' %}
-  {% set hash = 'b3dec6e276446dbf17dde874433f73bfec1e45a3e601835dab6aeef17c94c380' %}
+  Ubuntu Bionic is no longer supported:
+    test.nop
 {% endif %}
 
 include:
@@ -21,13 +21,6 @@ include:
   - remnux.packages.libre2
   - remnux.packages.libtre5
   - remnux.packages.gnutls-bin
-{% if grains['oscodename'] == "bionic" %}
-  - remnux.packages.perl
-  - remnux.packages.libargon2-0
-  - remnux.packages.libmysqlclient20
-  - remnux.packages.libpcre2-8-0
-  - remnux.packages.libio-socket-ssl-perl
-{% endif %}
 
 remnux-packages-inspircd-source:
   file.managed:
@@ -44,13 +37,6 @@ remnux-packages-inspircd-install:
       - sls: remnux.packages.libre2
       - sls: remnux.packages.libtre5
       - sls: remnux.packages.gnutls-bin
-{% if grains['oscodename'] == "bionic" %}
-      - sls: remnux.packages.perl
-      - sls: remnux.packages.libargon2-0
-      - sls: remnux.packages.libmysqlclient20
-      - sls: remnux.packages.libpcre2-8-0
-      - sls: remnux.packages.libio-socket-ssl-perl
-{% endif %}
     - watch:
       - file: remnux-packages-inspircd-source
 
