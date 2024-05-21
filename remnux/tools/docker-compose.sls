@@ -1,5 +1,5 @@
-{% set version = "2.23.3" %}
-{% set hash = "a836e807951db448f991f303cddcc9a4ec69f4a49d58bc7d536cb91c77c04c33" %}
+{% set version = "2.27.0" %}
+{% set hash = "f3ba3bf1e4ab18e96c2d36526a075a02a78fb5f8e80d3e3ca9c5bf256d81d0a0" %}
 
 include:
   - remnux.python3-packages.pip

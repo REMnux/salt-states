@@ -6,10 +6,10 @@
 # License: MIT License: https://github.com/horsicq/Detect-It-Easy/blob/master/LICENSE
 # Notes: GUI tool: `die`, command-line tool: `diec`.
 
-{% set version = '3.08' %}
+{% set version = '3.09' %}
 {%- if grains['oscodename'] == "focal" %}
 {% set release = '20.04' %}
-{% set hash = 'd02e79da976501dc665af07c53ad5501dc4ce0d606277bc5108456de3238c777' %}
+{% set hash = '198e154da31cc202e0a32b9dfb2a3ca99b5870404fc4023bf000217bd750fd5c' %}
 include:
   - remnux.packages.libglib2
   - remnux.packages.qt5-default
