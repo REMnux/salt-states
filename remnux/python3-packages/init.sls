@@ -55,6 +55,7 @@ include:
   - remnux.python3-packages.pylibemu
   - remnux.python3-packages.peepdf-3
   - remnux.python3-packages.dissect
+  - remnux.python3-packages.magika
 
 remnux-python3-packages:
   test.nop:
@@ -115,3 +116,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.pylibemu
       - sls: remnux.python3-packages.peepdf-3
       - sls: remnux.python3-packages.dissect
+      - sls: remnux.python3-packages.magika
