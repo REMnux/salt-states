@@ -1,7 +1,7 @@
 # Name: Magika
-# Website: https://google.github.io/magika/
-# Description: File type detection and analysis
-# Category: Examine Static Properties
+# Website: https://google.github.io/magika
+# Description: Identify file type using signatures.
+# Category: Examine Static Properties: General
 # Author: Google
 # License: Apache License 2.0 (https://github.com/google/magika/blob/main/LICENSE)
 # Notes:
