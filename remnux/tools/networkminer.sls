@@ -12,7 +12,7 @@ include:
 remnux-networkminer-source:
   file.managed:
     - name: /usr/local/src/remnux/files/networkminer-2.9.zip
-    - source: https://www.netresec.com/?download=NetworkMiner
+    - source: https://download.netresec.com/networkminer/NetworkMiner_2-9.zip
     - source_hash: sha256=c610f6ba647ddd9c718e87018ee40595a4d72a52a6b3b7ceb53caf4fa8de6f05
     - makedirs: True
     - replace: False
