@@ -57,7 +57,7 @@ remnux-python3-packages-malwoverview-install:
 remnux-python3-packages-malwoverview-config-file:
   file.managed:
     - name: {{ home }}/.malwapi.conf
-    - source: /opt/malwoverview/lib/{{ python3_version }}/site-packages/root/.malwapi.conf
+    - source: /opt/malwoverview/lib/{{ python3_version }}/site-packages/home/aborges/.malwapi.conf
     - user: {{ user }}
     - group: {{ user }}
     - makedirs: False
@@ -73,4 +73,4 @@ remnux-python3-packages-malwoverview-symlink:
     - target: /opt/malwoverview/bin/malwoverview.py
     - force: true
     - require:
-      - pip: remnux-python3-packages-malwoverview-install
+      - file: remnux-python3-packages-malwoverview-config-file
