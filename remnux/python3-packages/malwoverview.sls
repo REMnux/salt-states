@@ -4,7 +4,7 @@
 # Category: Gather and Analyze Data
 # Author: Alexandre Borges
 # License: GNU General Public License v3: https://github.com/alexandreborges/malwoverview/blob/master/LICENSE
-# Notes: malwoverview.py, add API keys to ~/.malwapi.conf
+# Notes: malwoverview, add API keys to ~/.malwapi.conf
 {%- if grains['oscodename'] == "bionic" %}
   {%- set python3_version="python3.6" %}
 {%- else %}
@@ -69,8 +69,8 @@ remnux-python3-packages-malwoverview-config-file:
 
 remnux-python3-packages-malwoverview-symlink:
   file.symlink:
-    - name: /usr/local/bin/malwoverview.py
-    - target: /opt/malwoverview/bin/malwoverview.py
+    - name: /usr/local/bin/malwoverview
+    - target: /opt/malwoverview/bin/malwoverview
     - force: true
     - require:
       - file: remnux-python3-packages-malwoverview-config-file
