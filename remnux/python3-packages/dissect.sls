@@ -18,7 +18,7 @@
 
 include:
   - remnux.python3-packages.pip
-  - remnux.packages.python3-virtualenv
+#  - remnux.packages.python3-virtualenv
   - remnux.packages.virtualenv
   - remnux.packages.{{ py3_dependency }}
   - remnux.packages.libfuse2
@@ -28,6 +28,7 @@ remnux-python3-packages-dissect-virtualenv:
   virtualenv.managed:
     - name: /opt/dissect
     - python: /usr/bin/{{ py3_version }}
+    - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
       - pip>=23.1.2
       - setuptools==67.7.2

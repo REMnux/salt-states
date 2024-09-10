@@ -28,8 +28,6 @@ include:
   - remnux.packages.git
   - remnux.packages.virtualenv
   - remnux.python3-packages.pip
-  - remnux.packages.python3-virtualenv
-  - remnux.packages.python3-venv
   - remnux.packages.build-essential
   - remnux.packages.libffi-dev
   - remnux.packages.unrar
@@ -44,15 +42,12 @@ remnux-python3-packages-viper-virtualenv:
   virtualenv.managed:
     - name: /opt/viper
     - venv_bin: /usr/bin/virtualenv
-    - python: /usr/bin/python3
     - pip_pkgs:
       - pip
       - setuptools
       - wheel
     - require:
       - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.python3-virtualenv
-      - sls: remnux.packages.python3-venv
       - sls: remnux.packages.virtualenv
 
 remnux-python3-packages-viper-install:
