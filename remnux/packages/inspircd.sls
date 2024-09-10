@@ -7,10 +7,10 @@
 # Notes: 
 
 
-{% set version = '3.15.0' %}
+{% set version = '3.17.1' %}
 {%- if grains['oscodename'] == "focal" %}
-  {% set os_rel = '20.04.3' %}
-  {% set hash = '2d98e442c4a2a9a59bda10729eb8aac31444f5fedb58fcc65d23d415e03e7c2f' %}
+  {% set os_rel = '20.04.1' %}
+  {% set hash = '02ff2aae8bc5f970b3f5e1de6676bf288baa9db0ffe7a2af5d5a0d6f065c6a57' %}
 {% elif grains['oscodename'] == "bionic" %}
   Ubuntu Bionic is no longer supported:
     test.nop
@@ -21,6 +21,7 @@ include:
   - remnux.packages.libre2
   - remnux.packages.libtre5
   - remnux.packages.gnutls-bin
+  - remnux.packages.libmysqlclient21
 
 remnux-packages-inspircd-source:
   file.managed:
@@ -37,6 +38,7 @@ remnux-packages-inspircd-install:
       - sls: remnux.packages.libre2
       - sls: remnux.packages.libtre5
       - sls: remnux.packages.gnutls-bin
+      - sls: remnux.packages.libmysqlclient21
     - watch:
       - file: remnux-packages-inspircd-source
 

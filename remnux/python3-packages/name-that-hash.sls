@@ -18,7 +18,7 @@ remnux-python3-packages-remove-name-that-hash:
 remnux-python3-packages-name-that-hash-virtualenv:
   virtualenv.managed:
     - name: /opt/nth
-    - python: /usr/bin/python3
+    - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
       - pip>=23.1.2
       - setuptools==67.7.2

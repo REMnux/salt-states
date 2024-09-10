@@ -22,8 +22,6 @@ include:
   - remnux.python3-packages.pip
   - remnux.packages.git
   - remnux.config.user
-  - remnux.packages.python3-virtualenv
-  - remnux.packages.python3-venv
   - remnux.packages.virtualenv
   - remnux.packages.build-essential
 
@@ -31,15 +29,12 @@ remnux-python3-packages-malwoverview-virtualenv:
   virtualenv.managed:
     - name: /opt/malwoverview
     - venv_bin: /usr/bin/virtualenv
-    - python: /usr/bin/python3
     - pip_pkgs:
       - pip
       - setuptools
       - wheel
     - require:
       - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.python3-virtualenv
-      - sls: remnux.packages.python3-venv
       - sls: remnux.packages.virtualenv
 
 remnux-python3-packages-malwoverview-install:

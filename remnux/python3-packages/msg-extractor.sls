@@ -20,7 +20,6 @@ remnux-python3-packages-extract-msg-virtualenv:
   virtualenv.managed:
     - name: /opt/extract-msg
     - venv_bin: /usr/bin/virtualenv
-    - python: /usr/bin/python3
     - pip_pkgs:
       - pip>=23.1.2
       - setuptools==67.7.2

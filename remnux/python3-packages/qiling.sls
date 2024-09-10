@@ -19,7 +19,6 @@ remnux-python3-packages-qiling-virtualenv:
   virtualenv.managed:
     - name: /opt/qiling
     - venv_bin: /usr/bin/virtualenv
-    - python: /usr/bin/python3
     - pip_pkgs:
       - pip>=23.1.2
       - setuptools==67.7.2
