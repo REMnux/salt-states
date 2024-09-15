@@ -18,10 +18,11 @@
 
 include:
   - remnux.python3-packages.pip
-#  - remnux.packages.python3-virtualenv
   - remnux.packages.virtualenv
   - remnux.packages.{{ py3_dependency }}
+  - remnux.packages.{{ py3_dependency }}-dev
   - remnux.packages.libfuse2
+  - remnux.packages.liblzo2-dev
 
 # Create a virtualenv for dissect
 remnux-python3-packages-dissect-virtualenv:
@@ -36,8 +37,10 @@ remnux-python3-packages-dissect-virtualenv:
       - tzdata
     - require:
       - sls: remnux.packages.{{ py3_dependency }}
+      - sls: remnux.packages.{{ py3_dependency }}-dev
       - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.python3-virtualenv
+      - sls: remnux.packages.virtualenv
+      - sls: remnux.packages.liblzo2-dev
 
 # Install dissect inside the virtualenv
 remnux-python3-packages-dissect-install:

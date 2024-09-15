@@ -22,7 +22,7 @@ include:
   - remnux.python-packages.ioc-writer
   - remnux.python-packages.balbuzard
   - remnux.python-packages.poster
-  - remnux.python-packages.fakenet-ng
+#  - remnux.python-packages.fakenet-ng
 
 remnux-python-packages:
   test.nop:
@@ -50,4 +50,4 @@ remnux-python-packages:
       - sls: remnux.python-packages.ioc-writer
       - sls: remnux.python-packages.balbuzard
       - sls: remnux.python-packages.poster
-      - sls: remnux.python-packages.fakenet-ng
+#      - sls: remnux.python-packages.fakenet-ng
