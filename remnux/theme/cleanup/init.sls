@@ -23,6 +23,11 @@ remnux-theme-cleanup-disable-auto-upgrades:
 # trying to control  services
 {%- if salt['file.file_exists']('/sbin/runlevel') %}
 
+remnux-theme-cleanup-service-systemd-timesyncd:
+  service.dead:
+    - name: systemd-timesyncd
+    - enable: False
+
 remnux-theme-cleanup-service-bluetooth:
   service.dead:
     - name: bluetooth
