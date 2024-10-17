@@ -5,7 +5,6 @@ include:
   - remnux.perl-packages.crypt-blowfish
   - remnux.perl-packages.digest-crc
   - remnux.perl-packages.ole-storagelite
-  - remnux.perl-packages.net-ssleay
 
 remnux-perl-packages:
   test.nop:
@@ -16,4 +15,3 @@ remnux-perl-packages:
       - sls: remnux.perl-packages.crypt-blowfish
       - sls: remnux.perl-packages.digest-crc
       - sls: remnux.perl-packages.ole-storagelite
-      - sls: remnux.perl-packages.net-ssleay
