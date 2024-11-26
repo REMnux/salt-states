@@ -19,7 +19,7 @@ remnux-python3-package-vipermonkey-venv:
     - pip_pkgs:
       - pip>=20.3.4
       - setuptools>=44.1.1
-      - wheel>=0.38.4
+      - wheel>=0.37.1
     - require:
       - sls: remnux.packages.python3-virtualenv
 
