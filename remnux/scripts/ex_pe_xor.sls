@@ -7,14 +7,14 @@
 # Notes: 
 
 include:
-  - remnux.python-packages.pefile
+  - remnux.python3-packages.pefile
 
 remnux-scripts-ex_pe_xor-source:
   file.managed:
     - name: /usr/local/bin/ex_pe_xor.py
     - source: https://github.com/digitalsleuth/ex_pe_xor/raw/master/ex_pe_xor.py
-    - source_hash: sha256=be4abb09fd239c18f726ef17fed3df7c0458256ce1cd0f25ec989e304af2739e
+    - source_hash: sha256=0bd20c4dd899a457d3625cb37397c6341582a4d1e71b76bf05b62cd830e40570
     - makedirs: false
     - mode: 755
     - require:
-      - sls: remnux.python-packages.pefile
+      - sls: remnux.python3-packages.pefile

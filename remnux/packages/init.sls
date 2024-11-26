@@ -63,10 +63,8 @@ include:
   - remnux.packages.python-magic
   - remnux.packages.python-numpy
   - remnux.packages.python-pil
-  - remnux.packages.python2-pip
   - remnux.packages.python-pyasn1
   - remnux.packages.software-properties-common
-  - remnux.packages.python2
   - remnux.packages.python3
   - remnux.packages.python3-pip
   - remnux.packages.qpdf
@@ -161,6 +159,7 @@ include:
   - remnux.packages.sharutils
   - remnux.packages.burpsuite-community
   - remnux.packages.msitools
+  - remnux.packages.python3-ssdeep
 
 remnux-packages:
   test.nop:
@@ -227,10 +226,8 @@ remnux-packages:
       - sls: remnux.packages.python-magic
       - sls: remnux.packages.python-numpy
       - sls: remnux.packages.python-pil
-      - sls: remnux.packages.python2-pip
       - sls: remnux.packages.python-pyasn1
       - sls: remnux.packages.software-properties-common
-      - sls: remnux.packages.python2
       - sls: remnux.packages.python3
       - sls: remnux.packages.python3-pip
       - sls: remnux.packages.qpdf
@@ -325,3 +322,4 @@ remnux-packages:
       - sls: remnux.packages.sharutils
       - sls: remnux.packages.burpsuite-community
       - sls: remnux.packages.msitools
+      - sls: remnux.packages.python3-ssdeep

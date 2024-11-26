@@ -6,37 +6,37 @@
 # License: Apache License 2.0: https://github.com/vivisect/vivisect/blob/master/LICENSE.txt
 # Notes: vivbin, vdbbin
 
+{% set files = ['vivbin','vdbbin'] %}
+
 include:
-  - remnux.packages.python2-pip
-  - remnux.python3-packages.pip
+  - remnux.packages.python3-virtualenv
 
-remnux-python3-packages-vivisect-pyqt:
-  pip.installed:
-    - name: PyQtWebEngine
-    - bin_env: /usr/bin/python3
-    - upgrade: True
-    - ignore_installed: True
+remnux-python3-package-vivisect-venv:
+  virtualenv.managed:
+    - name: /opt/vivisect
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
     - require:
-      - sls: remnux.python3-packages.pip
+      - sls: remnux.packages.python3-virtualenv
 
-remnux-python3-packages-vivisect-pyasn1-removal:
-  pkg.removed:
-    - pkgs:
-      - python3-pyasn1
-      - python3-pyasn1-modules
-
-remnux-python3-packages-vivisect:
+remnux-python3-package-vivisect:
   pip.installed:
-    - name: vivisect
-    - bin_env: /usr/bin/python3
+    - name: vivisect[gui]
+    - bin_env: /opt/vivisect/bin/python3
     - upgrade: True
     - require:
-      - pip: remnux-python3-packages-vivisect-pyqt
-      - pkg: remnux-python3-packages-vivisect-pyasn1-removal
+      - virtualenv: remnux-python3-package-vivisect-venv
 
-remnux-python3-packages-vivisect-cleanup:
-  pip.removed:
-    - bin_env: /usr/bin/python2
-    - name: vivisect
+{% for file in files %}
+remnux-python3-package-vivisect-symlink-{{ file }}:
+  file.symlink:
+    - name: /usr/local/bin/{{ file }}
+    - target: /opt/vivisect/bin/{{ file }}
+    - force: True
+    - makedirs: False
     - require:
-      - sls: remnux.packages.python2-pip
+      - pip: remnux-python3-package-vivisect
+{% endfor %}

@@ -6,20 +6,22 @@
 # License: Public Domain
 # Notes:
 
+{% set version = '0_7_10' %}
+{% set hash = '17f9ea0b4cadf0143aa52e1406eec7769da1b860375440d8492adc113300cdfd' %}
 include:
-  - remnux.python-packages.yara-python
+  - remnux.python3-packages.yara-python3
 
 remnux-scripts-pdf-parser-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/pdf-parser_V0_7_6.zip
-    - source: https://didierstevens.com/files/software/pdf-parser_V0_7_6.zip
-    - source_hash: sha256=34379A9987B2286706AF4C43AC72C93611AE3E9C0C571DD729EBB09C7A707A0D
+    - name: /usr/local/src/remnux/files/pdf-parser_V{{ version }}.zip
+    - source: https://didierstevens.com/files/software/pdf-parser_V{{ version }}.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 remnux-scripts-pdf-parser-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/pdf-parser_V0_7_6
-    - source: /usr/local/src/remnux/files/pdf-parser_V0_7_6.zip
+    - name: /usr/local/src/remnux/pdf-parser_V{{ version }}
+    - source: /usr/local/src/remnux/files/pdf-parser_V{{ version }}.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-pdf-parser-source
@@ -27,10 +29,10 @@ remnux-scripts-pdf-parser-archive:
 remnux-scripts-pdf-parser-binary:
   file.managed:
     - name: /usr/local/bin/pdf-parser.py
-    - source: /usr/local/src/remnux/pdf-parser_V0_7_6/pdf-parser.py
+    - source: /usr/local/src/remnux/pdf-parser_V{{ version }}/pdf-parser.py
     - mode: 755
     - require:
-      - sls: remnux.python-packages.yara-python
+      - sls: remnux.python3-packages.yara-python3
     - watch:
       - archive: remnux-scripts-pdf-parser-archive
 
@@ -43,13 +45,3 @@ remnux-scripts-pdf-parser-shebang:
     - count: 1
     - require:
       - file: remnux-scripts-pdf-parser-binary
-
-remnux-scripts-pdf-parser-python-version:
-  file.replace:
-    - name: /usr/local/bin/pdf-parser.py
-    - pattern: '^__maximum_python_version__ = \(3, 7, 5\)$'
-    - repl: '__maximum_python_version__ = (3, 8, 10)'
-    - backup: False
-    - count: 1
-    - require:
-      - file: remnux-scripts-pdf-parser-shebang
