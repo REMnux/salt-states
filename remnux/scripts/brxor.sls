@@ -4,31 +4,45 @@
 # Category: Examine Static Properties: Deobfuscation
 # Author: Alexander Hanel, Trenton Tait
 # License: Free, unknown license
-# Notes: 
+# Notes:
 
 include:
+  - remnux.packages.python3-virtualenv
   - remnux.packages.enchant
-  - remnux.python-packages.pyenchant
+
+remnux-scripts-brxor-venv:
+  virtualenv.managed:
+    - name: /opt/brxor
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+    - require:
+      - sls: remnux.packages.python3-virtualenv
+
+remnux-scripts-brxor-requirements:
+  pip.installed:
+    - name: pyenchant
+    - bin_env: /opt/brxor/bin/python3
+    - upgrade: True
+    - require:
+      - virtualenv: remnux-scripts-brxor-venv
 
 remnux-scripts-brxor-source:
   file.managed:
-    - name: /usr/local/bin/brxor.py
-    - source: https://github.com/REMnux/distro/raw/master/files/brxor.py
-    - source_hash: sha256=f9973f999a01dc7ab3f7f6a4a21df4224d4068b6dcdd8de2aaab4fe1be200d18
+    - name: /opt/brxor/bin/brxor.py
+    - source: salt://remnux/scripts/files/brxor.py
     - makedirs: false
     - mode: 755
     - require:
-      - sls: remnux.packages.enchant
-      - sls: remnux.python-packages.pyenchant
+      - pip: remnux-scripts-brxor-requirements
 
-remnux-scripts-brxor-shebang:
-  file.replace:
+remnux-scripts-brxor-symlink:
+  file.symlink:
     - name: /usr/local/bin/brxor.py
-    - pattern: '#!/usr/bin/python'
-    - repl: '#!/usr/bin/env python2'
-    - count: 1
-    - backup: False
-    - prepend_if_not_found: False
-    - watch:
+    - target: /opt/brxor/bin/brxor.py
+    - force: True
+    - makedirs: False
+    - require:
       - file: remnux-scripts-brxor-source
-

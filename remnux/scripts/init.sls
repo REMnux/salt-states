@@ -7,7 +7,7 @@ include:
   - remnux.scripts.java_idx_parser
   - remnux.scripts.ex_pe_xor
   - remnux.scripts.extract_swf
-#  - remnux.scripts.brxor
+  - remnux.scripts.brxor
   - remnux.scripts.nomorexor
   - remnux.scripts.strdeob
   - remnux.scripts.pyinstaller-extractor
@@ -55,7 +55,7 @@ remnux-scripts:
       - sls: remnux.scripts.java_idx_parser
       - sls: remnux.scripts.ex_pe_xor
       - sls: remnux.scripts.extract_swf
-#      - sls: remnux.scripts.brxor
+      - sls: remnux.scripts.brxor
       - sls: remnux.scripts.nomorexor
       - sls: remnux.scripts.strdeob
       - sls: remnux.scripts.pyinstaller-extractor
