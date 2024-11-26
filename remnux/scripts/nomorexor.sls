@@ -1,5 +1,5 @@
 # Name: NoMoreXOR.py
-# Website: https://github.com/hiddenillusion/NoMoreXOR
+# Website: https://github.com/digitalsleuth/NoMoreXOR
 # Description: Help guess a file's 256-byte XOR by using frequency analysis.
 # Category: Examine Static Properties: Deobfuscation
 # Author: Glenn P. Edwards Jr.
@@ -7,24 +7,14 @@
 # Notes:
 
 include:
-  - remnux.python-packages.yara-python
+  - remnux.python3-packages.yara-python3
 
 remnux-scripts-nomorexor-source:
   file.managed:
   - name: /usr/local/bin/nomorexor.py
-  - source: https://github.com/hiddenillusion/NoMoreXOR/raw/master/NoMoreXOR.py
-  - source_hash: sha256=328719f484fac96ffe368fb375b82fea8ec5f341d656ac457fe4186dcc60ec3b
+  - source: https://github.com/digitalsleuth/NoMoreXOR/raw/master/nomorexor.py
+  - source_hash: sha256=597fccfa5983f50bd50539e1d451e32144e4adf9027a577125263d4e28b402c5
   - mode: 755
   - makedirs: false
   - require:
-    - sls: remnux.python-packages.yara-python
-
-remnux-scripts-nomorexor-shebang:
-  file.replace:
-    - name: /usr/local/bin/nomorexor.py
-    - pattern: '#!/usr/bin/env python\n'
-    - repl: '#!/usr/bin/env python2\n'
-    - backup: False
-    - count: 1
-    - require:
-      - file: remnux-scripts-nomorexor-source
+    - sls: remnux.python3-packages.yara-python3

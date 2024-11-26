@@ -17,4 +17,4 @@ remnux-config-volatility3-permissions:
     - require:
       - user: remnux-user-{{ user }}
     - watch:
-      - pip: remnux-python3-packages-volatility3
+      - pip: remnux-python3-package-volatility3

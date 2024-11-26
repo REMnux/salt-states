@@ -2,20 +2,19 @@ include:
   - remnux.scripts.pdf-parser
   - remnux.scripts.pdfid
   - remnux.scripts.emldump
-  - remnux.scripts.extractscripts
+#  - remnux.scripts.extractscripts
   - remnux.scripts.virustotal-search
   - remnux.scripts.base64dump
   - remnux.scripts.java_idx_parser
   - remnux.scripts.ex_pe_xor
   - remnux.scripts.extract_swf
-  - remnux.scripts.brxor
-  - remnux.scripts.nomorexor
-  - remnux.scripts.xorbruteforcer
+#  - remnux.scripts.brxor
+#  - remnux.scripts.nomorexor
+#  - remnux.scripts.xorbruteforcer
   - remnux.scripts.strdeob
   - remnux.scripts.pyinstaller-extractor
-  - remnux.scripts.linuxmemdiff
   - remnux.scripts.rtfdump
-  - remnux.scripts.virustotal-submit
+#  - remnux.scripts.virustotal-submit
   - remnux.scripts.hash-identifier
   - remnux.scripts.disitool
   - remnux.scripts.cut-bytes
@@ -29,7 +28,7 @@ include:
   - remnux.scripts.xmldump
   - remnux.scripts.pecheck
   - remnux.scripts.msoffcrypto-crack
-  - remnux.scripts.unxor
+#  - remnux.scripts.unxor
   - remnux.scripts.numbers-to-string
   - remnux.scripts.pdftool
   - remnux.scripts.anomy
@@ -55,20 +54,19 @@ remnux-scripts:
       - sls: remnux.scripts.pdf-parser
       - sls: remnux.scripts.pdfid
       - sls: remnux.scripts.emldump
-      - sls: remnux.scripts.extractscripts
+#      - sls: remnux.scripts.extractscripts
       - sls: remnux.scripts.virustotal-search
       - sls: remnux.scripts.base64dump
       - sls: remnux.scripts.java_idx_parser
       - sls: remnux.scripts.ex_pe_xor
       - sls: remnux.scripts.extract_swf
-      - sls: remnux.scripts.brxor
-      - sls: remnux.scripts.nomorexor
-      - sls: remnux.scripts.xorbruteforcer
+#      - sls: remnux.scripts.brxor
+#      - sls: remnux.scripts.nomorexor
+#      - sls: remnux.scripts.xorbruteforcer
       - sls: remnux.scripts.strdeob
       - sls: remnux.scripts.pyinstaller-extractor
-      - sls: remnux.scripts.linuxmemdiff
       - sls: remnux.scripts.rtfdump
-      - sls: remnux.scripts.virustotal-submit
+#      - sls: remnux.scripts.virustotal-submit
       - sls: remnux.scripts.hash-identifier
       - sls: remnux.scripts.disitool
       - sls: remnux.scripts.cut-bytes
@@ -82,7 +80,7 @@ remnux-scripts:
       - sls: remnux.scripts.xmldump
       - sls: remnux.scripts.pecheck
       - sls: remnux.scripts.msoffcrypto-crack
-      - sls: remnux.scripts.unxor
+#      - sls: remnux.scripts.unxor
       - sls: remnux.scripts.numbers-to-string
       - sls: remnux.scripts.pdftool
       - sls: remnux.scripts.anomy

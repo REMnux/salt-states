@@ -3,10 +3,8 @@ include:
   - remnux.scripts.pdfid
   - remnux.scripts.rtfdump
   - remnux.python3-packages.xxxswf
-  - remnux.python-packages.balbuzard
   - remnux.scripts.base64dump
   - remnux.node-packages.box-js
-  - remnux.scripts.brxor
   - remnux.packages.clamav-daemon
   - remnux.packages.flare-floss
   - remnux.packages.spidermonkey
@@ -14,7 +12,6 @@ include:
   - remnux.python3-packages.oletools
   - remnux.python3-packages.peframe
   - remnux.python3-packages.thug
-  - remnux.python-packages.volatility
   - remnux.packages.pev
   - remnux.rubygems.pedump
   - remnux.packages.swftools
@@ -80,16 +77,6 @@ remnux-config-bash-completion-xxxswf:
     - require:
       - sls: remnux.python3-packages.xxxswf
 
-remnux-config-bash-completion-balbuzard:
-  file.managed:
-    - name: /etc/bash_completion.d/balbuzard
-    - source: salt://remnux/config/bash-completion/balbuzard
-    - replace: False
-    - makedirs: True
-    - mode: 644
-    - require:
-      - sls: remnux.python-packages.balbuzard
-
 remnux-config-bash-completion-base64dump:
   file.managed:
     - name: /etc/bash_completion.d/base64dump
@@ -109,16 +96,6 @@ remnux-config-bash-completion-box-js:
     - mode: 644
     - require:
       - sls: remnux.node-packages.box-js
-
-remnux-config-bash-completion-brxor:
-  file.managed:
-    - name: /etc/bash_completion.d/brxor
-    - source: salt://remnux/config/bash-completion/brxor
-    - replace: False
-    - makedirs: True
-    - mode: 644
-    - require:
-      - sls: remnux.scripts.brxor
 
 remnux-config-bash-completion-clamav:
   file.managed:
@@ -209,16 +186,6 @@ remnux-config-bash-completion-thug:
     - mode: 644
     - require:
       - sls: remnux.python3-packages.thug
-
-remnux-config-bash-completion-volatility:
-  file.managed:
-    - name: /etc/bash_completion.d/volatility
-    - source: salt://remnux/config/bash-completion/volatility
-    - replace: False
-    - makedirs: True
-    - mode: 644
-    - require:
-      - sls: remnux.python-packages.volatility
 
 remnux-config-bash-completion-pev:
   file.managed:

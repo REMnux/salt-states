@@ -1,0 +1,20 @@
+release:
+  github:
+    owner: remnux
+    repo: salt-states
+manifest:
+  version: 2
+  name: remnux
+  base_dir: remnux
+  modes:
+    - name: addon
+      state: remnux.addon
+    - name: dedicated
+      state: remnux.dedicated
+      default: true
+  supported_os:
+    - id: ubuntu
+      release: 20.04
+  saltstack:
+    pillars:
+      remnux_user_template: "{{ .User }}"

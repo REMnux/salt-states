@@ -1,3 +1,11 @@
+# Name:
+# Website: https://github.com/decalage2/olefile
+# Description:
+# Category:
+# Author:
+# License:
+# Notes:
+
 include:
   - remnux.python3-packages.pip
 
