@@ -17,7 +17,7 @@ remnux-python3-package-vipermonkey-venv:
     - name: /opt/vipermonkey
     - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
-      - pip>=24.1.3
+      - pip>=20.3.4
       - setuptools>=70.0.0
       - wheel>=0.38.4
     - require:
