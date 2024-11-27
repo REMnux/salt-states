@@ -12,16 +12,21 @@ include:
   - remnux.packages.python3-virtualenv
   - remnux.packages.git
 
+remnux-remove-previous-vipermonkey-venv:
+  file.absent:
+    - name: /opt/vipermonkey
+
 remnux-python3-package-vipermonkey-venv:
   virtualenv.managed:
     - name: /opt/vipermonkey
     - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
-      - pip>=20.3.4
-      - setuptools>=44.1.1
-      - wheel>=0.37.1
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
     - require:
       - sls: remnux.packages.python3-virtualenv
+      - file: remnux-remove-previous-vipermonkey-venv
 
 remnux-python3-package-vipermonkey:
   pip.installed:
