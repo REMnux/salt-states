@@ -1,4 +1,4 @@
-release:
+.cast.yml release:
   github:
     owner: remnux
     repo: salt-states
