@@ -4,7 +4,7 @@
 # Category: Explore Network Interactions: Services
 # Author: FireEye Inc, Peter Kacherginsky, Michael Bailey: https://github.com/mandiant/flare-fakenet-ng/blob/master/AUTHORS
 # License: Apache License 2.0: https://github.com/mandiant/flare-fakenet-ng/blob/master/LICENSE.txt
-# Notes: Run the tool using `sudo fakenet`. First, edit `/opt/fakenet-ng/lib/python<py_version>/site-packages/fakenet/configs/default.ini`, changing the `LinuxRestrictInterface` parameter to your Ethernet network interface name, such as `ens33`.
+# Notes: Run the tool using `sudo fakenet`. First, edit `/usr/local/lib/python2.7/dist-packages/fakenet/configs/default.ini`, changing the `LinuxRestrictInterface` parameter to your Ethernet network interface name, such as `ens33`.
 
 {% set files = ['fakenet','ftpbench'] %}
 include:
