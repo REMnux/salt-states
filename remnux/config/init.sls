@@ -20,7 +20,7 @@ include:
   - remnux.config.nginx
   - remnux.config.android-project-creator
   - remnux.config.volatility3
-#  - remnux.config.viper-virtualenv
+  - remnux.config.vscode
 
 remnux-config:
   test.nop:
@@ -46,4 +46,4 @@ remnux-config:
       - sls: remnux.config.nginx
       - sls: remnux.config.android-project-creator
       - sls: remnux.config.volatility3
-#      - sls: remnux.config.viper-virtualenv
+      - sls: remnux.config.vscode

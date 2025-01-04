@@ -1,3 +1,6 @@
+include:
+  - remnux.repos.nodejs
+
 remnux-microsoft-vscode-key:
   file.managed:
     - name: /usr/share/keyrings/MICROSOFT.asc
