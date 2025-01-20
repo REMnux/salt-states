@@ -60,6 +60,7 @@ include:
 #  - remnux.python3-packages.fakenet-ng
   - remnux.python3-packages.pyenchant
   - remnux.python3-packages.vipermonkey
+  - remnux.python3-packages.balbuzard
 
 remnux-python3-packages:
   test.nop:
@@ -125,4 +126,4 @@ remnux-python3-packages:
 #      - sls: remnux.python3-packages.fakenet-ng
       - sls: remnux.python3-packages.pyenchant
       - sls: remnux.python3-packages.vipermonkey
-
+      - sls: remnux.python3-packages.balbuzard
