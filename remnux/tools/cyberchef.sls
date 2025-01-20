@@ -6,8 +6,8 @@
 # License: Apache License 2.0: https://github.com/gchq/CyberChef/blob/master/LICENSE
 # Notes: cyberchef
 
-{% set version = "10.19.2" -%}
-{% set hash = "7838f713f69335fbdfd402764daf6c05f7848cf651f4b9e1a208c7993da1ec9e" -%}
+{% set version = "10.19.4" -%}
+{% set hash = "3788b29ffb54f5784968fcf998286f0f75670be8a92e40eb683743ebaab97510" -%}
 
 include:
   - remnux.packages.firefox
