@@ -36,6 +36,7 @@ remnux-python3-packages-dissect-{{ tool }}-symlink:
   file.symlink:
     - name: /usr/local/bin/{{ tool }}
     - target: /opt/balbuzard/bin/{{ tool }}
+    - force: True
     - makedirs: False
     - require:
       - pip: remnux-python3-packages-balbuzard-install
