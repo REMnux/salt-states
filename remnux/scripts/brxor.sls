@@ -32,7 +32,8 @@ remnux-scripts-brxor-requirements:
 remnux-scripts-brxor-source:
   file.managed:
     - name: /opt/brxor/bin/brxor.py
-    - source: salt://remnux/scripts/files/brxor.py
+    - source: https://github.com/REMnux/distro/raw/master/files/brxor.py
+    - source_hash: sha256=30660b241220382fd599befa7f38c999a5bdb93c0a2730d775e33ce4c7722db2
     - makedirs: false
     - mode: 755
     - require:
