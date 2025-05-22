@@ -13,7 +13,7 @@ remnux-networkminer-source:
   file.managed:
     - name: /usr/local/src/remnux/files/networkminer-3.0.zip
     - source: https://download.netresec.com/networkminer/NetworkMiner_3-0.zip
-    - source_hash: sha256=c610f6ba647ddd9c718e87018ee40595a4d72a52a6b3b7ceb53caf4fa8de6f05
+    - source_hash: sha256=5d074a54e2f2f26d0a2cf5a2833ab08345f1a0eeba2bdf746835545ec23e3032
     - makedirs: True
     - replace: False
     - require:
@@ -28,7 +28,7 @@ remnux-networkminer-archive:
     - watch:
       - file: remnux-networkminer-source
 
-/usr/local/NetworkMiner_2-9/NetworkMiner.exe:
+/usr/local/NetworkMiner_3-0/NetworkMiner.exe:
   file.managed:
     - mode: 755
     - replace: False
