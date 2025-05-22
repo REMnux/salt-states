@@ -57,7 +57,7 @@ include:
   - remnux.python3-packages.dissect
   - remnux.python3-packages.magika
   - remnux.python3-packages.thefuzz
-#  - remnux.python3-packages.fakenet-ng
+  - remnux.python3-packages.fakenet-ng
   - remnux.python3-packages.pyenchant
   - remnux.python3-packages.vipermonkey
   - remnux.python3-packages.balbuzard
@@ -123,7 +123,7 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.dissect
       - sls: remnux.python3-packages.magika
       - sls: remnux.python3-packages.thefuzz
-#      - sls: remnux.python3-packages.fakenet-ng
+      - sls: remnux.python3-packages.fakenet-ng
       - sls: remnux.python3-packages.pyenchant
       - sls: remnux.python3-packages.vipermonkey
       - sls: remnux.python3-packages.balbuzard
