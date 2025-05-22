@@ -7,7 +7,6 @@ include:
   - remnux.config.bash-rc
   - remnux.config.bash-history
   - remnux.config.thug
-  - remnux.config.networkminer
   - remnux.config.salt-minion
   - remnux.config.dot-local
   - remnux.config.dot-config
@@ -33,7 +32,6 @@ remnux-config:
       - sls: remnux.config.bash-rc
       - sls: remnux.config.bash-history
       - sls: remnux.config.thug
-      - sls: remnux.config.networkminer
       - sls: remnux.config.salt-minion
       - sls: remnux.config.dot-local
       - sls: remnux.config.dot-cache
