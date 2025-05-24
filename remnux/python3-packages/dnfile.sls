@@ -7,14 +7,24 @@
 # Notes: To use this library, create a Python program that imports it and loads the .NET file, as described in https://github.com/malwarefrank/dnfile/blob/master/README.rst.
 
 include:
-  - remnux.python3-packages.pip
-  - remnux.python3-packages.pefile
+  - remnux.packages.python3-virtualenv
+
+remnux-python3-packages-dnfile-venv:
+  virtualenv.managed:
+    - name: /opt/dnfile
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - pefile
+    - require:
+      - sls: remnux.packages.python3-virtualenv
 
 remnux-python3-packages-dnfile:
   pip.installed:
     - name: dnfile
-    - bin_env: /usr/bin/python3
+    - bin_env: /opt/dnfile/bin/python3
     - upgrade: True
     - require:
-      - sls: remnux.python3-packages.pip
-      - sls: remnux.python3-packages.pefile
+      - virtualenv: remnux-python3-packages-dnfile-venv

@@ -34,6 +34,7 @@ remnux-python3-package-automater-symlink:
   file.symlink:
     - name: /usr/local/bin/automater
     - target: /opt/automater/bin/automater
+    - force: True
     - makedirs: False
     - require:
       - pip: remnux-python3-package-automater

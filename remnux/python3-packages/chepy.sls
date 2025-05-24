@@ -7,22 +7,41 @@
 # Notes: chepy
 
 include:
-  - remnux.python3-packages.pip
-  - remnux.python3-packages.pycryptodome
+  - remnux.packages.python3-virtualenv
+
+remnux-python3-packages-chepy-venv:
+  virtualenv.managed:
+    - name: /opt/chepy
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip<25.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - pycryptodome
+    - require:
+      - sls: remnux.packages.python3-virtualenv
 
 remnux-python3-packages-chepy:
   pip.installed:
     - name: chepy
-    - bin_env: /usr/bin/python3
+    - bin_env: /opt/chepy/bin/python3
     - upgrade: True
     - require:
-      - sls: remnux.python3-packages.pip    
-      - sls: remnux.python3-packages.pycryptodome
+      - virtualenv: remnux-python3-packages-chepy-venv
 
 remnux-python3-packages-chepy-extras:
   pip.installed:
     - name: chepy[extras]
-    - bin_env: /usr/bin/python3
+    - bin_env: /opt/chepy/bin/python3
     - upgrade: True
-    - watch:
+    - require:
+      - virtualenv: remnux-python3-packages-chepy-venv
+
+remnux-python3-packages-chepy-symlink:
+  file.symlink:
+    - name: /usr/local/bin/chepy
+    - target: /opt/chepy/bin/chepy
+    - force: True
+    - makedirs: False
+    - require:
       - pip: remnux-python3-packages-chepy

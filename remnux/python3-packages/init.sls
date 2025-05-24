@@ -1,9 +1,9 @@
 include:
-  - remnux.python3-packages.pip
-  - remnux.python3-packages.setuptools
-  - remnux.python3-packages.wheel
-  - remnux.python3-packages.requests
-  - remnux.python3-packages.cryptography
+#  - remnux.python3-packages.pip
+#  - remnux.python3-packages.setuptools
+#  - remnux.python3-packages.wheel
+#  - remnux.python3-packages.requests
+#  - remnux.python3-packages.cryptography
   - remnux.python3-packages.androguard
   - remnux.python3-packages.ioc-parser
   - remnux.python3-packages.ipwhois
@@ -65,11 +65,11 @@ include:
 remnux-python3-packages:
   test.nop:
     - require:
-      - sls: remnux.python3-packages.pip
-      - sls: remnux.python3-packages.setuptools
-      - sls: remnux.python3-packages.wheel
-      - sls: remnux.python3-packages.requests
-      - sls: remnux.python3-packages.cryptography
+#      - sls: remnux.python3-packages.pip
+#      - sls: remnux.python3-packages.setuptools
+#      - sls: remnux.python3-packages.wheel
+#      - sls: remnux.python3-packages.requests
+#      - sls: remnux.python3-packages.cryptography
       - sls: remnux.python3-packages.androguard
       - sls: remnux.python3-packages.ioc-parser
       - sls: remnux.python3-packages.ipwhois
