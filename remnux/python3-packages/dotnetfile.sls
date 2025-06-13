@@ -45,5 +45,5 @@ remnux-python3-packages-dotnetfile-symlink:
     - force: True
     - makedirs: False
     - require:
-      - pip: remnux-python3-packages-dotnetfile
+      - file: remnux-python3-packages-dotnetfile-dump
 
