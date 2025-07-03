@@ -7,7 +7,7 @@ include:
   - remnux.python3-packages.olefile
   - remnux.python3-packages.peframe
   - remnux.python3-packages.pyelftools
-##  - remnux.python3-packages.r2pipe - unused by any tool, not installing library globally
+  - remnux.python3-packages.r2pipe
 ##  - remnux.python3-packages.virustotal-api - no application to use, should it be installed? How will user access library?
   - remnux.python3-packages.xortool
   - remnux.python3-packages.xxxswf
@@ -64,7 +64,8 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.olefile
       - sls: remnux.python3-packages.peframe
       - sls: remnux.python3-packages.pyelftools
-##      - sls: remnux.python3-packages.r2pipe - unused by any tool, not installing library globally
+      - sls: remnux.python3-packages.r2pipe
+      ## r2pipe - unused by any tool, not installing library globally in Noble
 ##      - sls: remnux.python3-packages.virustotal-api - no application to use, should it be installed? How will user access library?
       - sls: remnux.python3-packages.xortool
       - sls: remnux.python3-packages.xxxswf
