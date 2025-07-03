@@ -1,8 +1,5 @@
-{% set version = "2.27.0" %}
-{% set hash = "f3ba3bf1e4ab18e96c2d36526a075a02a78fb5f8e80d3e3ca9c5bf256d81d0a0" %}
-
-include:
-  - remnux.python3-packages.pip
+{% set version = "2.37.3" %}
+{% set hash = "522181c447d831fb23134201d9cdc5cf365f913408124c678089ea62d6a2334c" %}
 
 docker-compose-source:
   file.managed:
@@ -11,6 +8,4 @@ docker-compose-source:
     - source_hash: sha256={{ hash }}
     - makedirs: False
     - mode: 755
-    - require:
-      - sls: remnux.python3-packages.pip
 

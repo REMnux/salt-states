@@ -6,5 +6,5 @@
 # License: Public Domain
 # Notes: nc
 
-netcat:
+netcat-traditional:
   pkg.installed

@@ -3,6 +3,7 @@ i386-arch:
     - name: dpkg --add-architecture i386 && apt-get update
     - unless: dpkg --print-foreign-architectures | grep i386
 
+# {% if grains['oscodename'] == "focal" %}
 libc6:
   pkg.installed:
     - name: libc6
@@ -26,3 +27,5 @@ zlib1g:i386:
     - name: zlib1g:i386
     - require:
       - cmd: i386-arch
+
+# {% endif %}

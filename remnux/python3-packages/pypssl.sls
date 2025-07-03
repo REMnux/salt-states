@@ -4,7 +4,7 @@
 # Category: 
 # Author: Alexandre Dulaunoy
 # License: Copyright / All Rights Reserved (https://github.com/adulau/crl-monitor/blob/master/client/LICENSE)
-# Notes: 
+# Notes: pssl
 
 include:
   - remnux.packages.python3-virtualenv
@@ -17,6 +17,7 @@ remnux-python3-package-pypssl-venv:
       - pip>=24.1.3
       - setuptools>=70.0.0
       - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
     - require:
       - sls: remnux.packages.python3-virtualenv
 
@@ -30,8 +31,8 @@ remnux-python3-package-pypssl:
 
 remnux-python3-package-pypssl-symlink:
   file.symlink:
-    - name: /usr/local/bin/pypssl
-    - target: /opt/pypssl/bin/pypssl
+    - name: /usr/local/bin/pssl
+    - target: /opt/pypssl/bin/pssl
     - force: True
     - makedirs: False
     - require:

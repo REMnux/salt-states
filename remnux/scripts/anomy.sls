@@ -6,6 +6,8 @@
 # License: Free, unknown license
 # Notes: anomy
 
+{% set hash = 'e31ada5e8cf6048c1068512432111a244768d3474e1c1bd02201193be6342e90' %}
+
 include:
   - remnux.packages.tor
   - remnux.packages.sudo
@@ -16,7 +18,7 @@ remnux-scripts-anomy-source:
   file.managed:
     - name: /usr/local/bin/anomy
     - source: https://github.com/izm1chael/Anomy/raw/main/anomy.sh
-    - source_hash: sha256=2f2c3de8daff692878b2b351e33794179181ebd1faa3396aebfd1e79ec2c970d
+    - source_hash: sha256={{ hash }}
     - makedirs: false
     - mode: 755
     - require:

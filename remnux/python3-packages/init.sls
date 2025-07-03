@@ -1,9 +1,4 @@
 include:
-#  - remnux.python3-packages.pip
-#  - remnux.python3-packages.setuptools
-#  - remnux.python3-packages.wheel
-#  - remnux.python3-packages.requests
-#  - remnux.python3-packages.cryptography
   - remnux.python3-packages.androguard
   - remnux.python3-packages.ioc-parser
   - remnux.python3-packages.ipwhois
@@ -13,7 +8,7 @@ include:
   - remnux.python3-packages.peframe
   - remnux.python3-packages.pyelftools
   - remnux.python3-packages.r2pipe
-  - remnux.python3-packages.virustotal-api
+##  - remnux.python3-packages.virustotal-api - no application to use, should it be installed? How will user access library?
   - remnux.python3-packages.xortool
   - remnux.python3-packages.xxxswf
   - remnux.python3-packages.thug
@@ -21,11 +16,8 @@ include:
   - remnux.python3-packages.unicode
   - remnux.python3-packages.volatility3
   - remnux.python3-packages.fakemail
-  - remnux.python3-packages.pyperclip
   - remnux.python3-packages.dc3-mwcp
-  - remnux.python3-packages.yara-python3
-  - remnux.python3-packages.ratdecoders
-  - remnux.python3-packages.pylzma
+##  - remnux.python3-packages.ratdecoders - not working with most recent release of androguard
   - remnux.python3-packages.time-decode
   - remnux.python3-packages.pcodedmp
   - remnux.python3-packages.droidlysis
@@ -34,7 +26,6 @@ include:
   - remnux.python3-packages.frida
   - remnux.python3-packages.stringsifter
   - remnux.python3-packages.oletools
-  - remnux.python3-packages.pycryptodomex
   - remnux.python3-packages.unfurl
   - remnux.python3-packages.speakeasy
   - remnux.python3-packages.msoffcrypto-tool
@@ -48,28 +39,23 @@ include:
   - remnux.python3-packages.pcode2code
   - remnux.python3-packages.mail-parser
   - remnux.python3-packages.csce
-  - remnux.python3-packages.jinja2
   - remnux.python3-packages.dnfile
   - remnux.python3-packages.dotnetfile
   - remnux.python3-packages.debloat
-  - remnux.python3-packages.pylibemu
   - remnux.python3-packages.peepdf-3
   - remnux.python3-packages.dissect
   - remnux.python3-packages.magika
   - remnux.python3-packages.thefuzz
   - remnux.python3-packages.fakenet-ng
-  - remnux.python3-packages.pyenchant
   - remnux.python3-packages.vipermonkey
+  ## Vipermonkey - cannot import name 'Iterable' from 'collections' - needs to be from collections.abc import Iterable
   - remnux.python3-packages.balbuzard
+  - remnux.python3-packages.brxor
+##  - remnux.python3-packages.viper-framework - completely deprecated - may move to viper2
 
 remnux-python3-packages:
   test.nop:
     - require:
-#      - sls: remnux.python3-packages.pip
-#      - sls: remnux.python3-packages.setuptools
-#      - sls: remnux.python3-packages.wheel
-#      - sls: remnux.python3-packages.requests
-#      - sls: remnux.python3-packages.cryptography
       - sls: remnux.python3-packages.androguard
       - sls: remnux.python3-packages.ioc-parser
       - sls: remnux.python3-packages.ipwhois
@@ -79,19 +65,18 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.peframe
       - sls: remnux.python3-packages.pyelftools
       - sls: remnux.python3-packages.r2pipe
-      - sls: remnux.python3-packages.virustotal-api
+      ## r2pipe - unused by any tool, not installing library globally in Noble
+##      - sls: remnux.python3-packages.virustotal-api - no application to use, should it be installed? How will user access library?
       - sls: remnux.python3-packages.xortool
       - sls: remnux.python3-packages.xxxswf
+      ## xxxswf - contains deprecated functions for py3 in noble
       - sls: remnux.python3-packages.thug
       - sls: remnux.python3-packages.xlmmacrodeobfuscator
       - sls: remnux.python3-packages.unicode
       - sls: remnux.python3-packages.volatility3
       - sls: remnux.python3-packages.fakemail
-      - sls: remnux.python3-packages.pyperclip
       - sls: remnux.python3-packages.dc3-mwcp
-      - sls: remnux.python3-packages.yara-python3
-      - sls: remnux.python3-packages.ratdecoders
-      - sls: remnux.python3-packages.pylzma
+##      - sls: remnux.python3-packages.ratdecoders - not working with most recent release of androguard
       - sls: remnux.python3-packages.time-decode
       - sls: remnux.python3-packages.pcodedmp
       - sls: remnux.python3-packages.droidlysis
@@ -99,8 +84,8 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.chepy
       - sls: remnux.python3-packages.frida
       - sls: remnux.python3-packages.stringsifter
+      ## stringsifter - pyproject.toml pins numpy at 1.24.4 but is not compatible with noble
       - sls: remnux.python3-packages.oletools
-      - sls: remnux.python3-packages.pycryptodomex
       - sls: remnux.python3-packages.unfurl
       - sls: remnux.python3-packages.speakeasy
       - sls: remnux.python3-packages.msoffcrypto-tool
@@ -114,16 +99,15 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.pcode2code
       - sls: remnux.python3-packages.mail-parser
       - sls: remnux.python3-packages.csce
-      - sls: remnux.python3-packages.jinja2
       - sls: remnux.python3-packages.dnfile
       - sls: remnux.python3-packages.dotnetfile
       - sls: remnux.python3-packages.debloat
-      - sls: remnux.python3-packages.pylibemu
       - sls: remnux.python3-packages.peepdf-3
       - sls: remnux.python3-packages.dissect
       - sls: remnux.python3-packages.magika
       - sls: remnux.python3-packages.thefuzz
       - sls: remnux.python3-packages.fakenet-ng
-      - sls: remnux.python3-packages.pyenchant
       - sls: remnux.python3-packages.vipermonkey
       - sls: remnux.python3-packages.balbuzard
+      - sls: remnux.python3-packages.brxor
+##      - sls: remnux.python3-packages.viper-framework - completely deprecated - may move to viper2

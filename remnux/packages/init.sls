@@ -1,4 +1,5 @@
 include:
+  - remnux.packages.apt-utils
   - remnux.packages.dialog
   - remnux.packages.iputils-ping
   - remnux.packages.aeskeyfind
@@ -57,16 +58,19 @@ include:
   - remnux.packages.7zip
   - remnux.packages.pdfresurrect
   - remnux.packages.pkg-config
-  - remnux.packages.python-crypto
-  - remnux.packages.python-dnspython
+  - remnux.packages.python3-dnspython
   - remnux.packages.enchant
-  - remnux.packages.python-magic
-  - remnux.packages.python-numpy
-  - remnux.packages.python-pil
-  - remnux.packages.python-pyasn1
+  - remnux.packages.python3-magic
+  - remnux.packages.python3-numpy
+  - remnux.packages.python3-pil
+  - remnux.packages.python3-pyasn1
   - remnux.packages.software-properties-common
   - remnux.packages.python3
   - remnux.packages.python3-pip
+  - remnux.packages.python3-requests
+  - remnux.packages.python3-cryptography
+  - remnux.packages.python3-setuptools
+  - remnux.packages.python3-wheel
   - remnux.packages.qpdf
   - remnux.packages.radare2
   - remnux.packages.rhino
@@ -126,7 +130,6 @@ include:
   - remnux.packages.libusb-1
   - remnux.packages.python3-venv
   - remnux.packages.python3-virtualenv
-  - remnux.packages.virtualenv
   - remnux.packages.powershell
   - remnux.packages.cabextract
   - remnux.packages.baksmali
@@ -138,7 +141,6 @@ include:
   - remnux.packages.nsrllookup
   - remnux.packages.binee
   - remnux.packages.xorsearch
-  - remnux.packages.oledump
   - remnux.packages.nano
   - remnux.packages.file
   - remnux.packages.android-project-creator
@@ -164,6 +166,9 @@ include:
 remnux-packages:
   test.nop:
     - require:
+      - sls: remnux.packages.apt-utils
+      - sls: remnux.packages.dialog
+      - sls: remnux.packages.iputils-ping
       - sls: remnux.packages.aeskeyfind
       - sls: remnux.packages.apt-transport-https
       - sls: remnux.packages.autoconf
@@ -220,16 +225,19 @@ remnux-packages:
       - sls: remnux.packages.7zip
       - sls: remnux.packages.pdfresurrect
       - sls: remnux.packages.pkg-config
-      - sls: remnux.packages.python-crypto
-      - sls: remnux.packages.python-dnspython
+      - sls: remnux.packages.python3-dnspython
       - sls: remnux.packages.enchant
-      - sls: remnux.packages.python-magic
-      - sls: remnux.packages.python-numpy
-      - sls: remnux.packages.python-pil
-      - sls: remnux.packages.python-pyasn1
+      - sls: remnux.packages.python3-magic
+      - sls: remnux.packages.python3-numpy
+      - sls: remnux.packages.python3-pil
+      - sls: remnux.packages.python3-pyasn1
       - sls: remnux.packages.software-properties-common
       - sls: remnux.packages.python3
       - sls: remnux.packages.python3-pip
+      - sls: remnux.packages.python3-requests
+      - sls: remnux.packages.python3-cryptography
+      - sls: remnux.packages.python3-setuptools
+      - sls: remnux.packages.python3-wheel
       - sls: remnux.packages.qpdf
       - sls: remnux.packages.radare2
       - sls: remnux.packages.rhino
@@ -289,7 +297,6 @@ remnux-packages:
       - sls: remnux.packages.libusb-1
       - sls: remnux.packages.python3-venv
       - sls: remnux.packages.python3-virtualenv
-      - sls: remnux.packages.virtualenv
       - sls: remnux.packages.powershell
       - sls: remnux.packages.cabextract
       - sls: remnux.packages.baksmali
@@ -301,7 +308,6 @@ remnux-packages:
       - sls: remnux.packages.nsrllookup
       - sls: remnux.packages.binee
       - sls: remnux.packages.xorsearch
-      - sls: remnux.packages.oledump
       - sls: remnux.packages.nano
       - sls: remnux.packages.file
       - sls: remnux.packages.android-project-creator

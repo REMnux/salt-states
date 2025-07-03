@@ -6,13 +6,15 @@
 # License: BSD 3-Clause License: https://github.com/viper-framework/viper/blob/master/LICENSE
 # Notes: Viper is temporarily excluded from the REMnux distro due to dependency issues. Instead, use the remnux/viper Docker image: https://docs.remnux.org/run-tools-in-containers/remnux-containers#viper-binary-analysis-and-management-framework
 
-{%- if grains['oscodename'] == "bionic" %}
-  {%- set python3_version="python3.6" %}
-{%- elif grains['oscodename'] == "focal" %}
-  {%- set python3_version="python3.8" %}
+{% if grains['oscodename'] == "focal" %}
+  {% set python3_version = "python3.9" %}
+  {% set python3_dependency = "python39" %}
+{% elif grains['oscodename'] == "noble" %}
+  {% set python3_version = "python3.12" %}
+  {% set python3_dependency = "python3" %}
 {% endif %}
-{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}
 
+{%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}
 {%- if user == "root" -%}
   {%- set home = "/root" -%}
 {%- else -%}
@@ -26,8 +28,9 @@ include:
   - remnux.packages.libusb-1
   - remnux.packages.libfuzzy-dev
   - remnux.packages.git
-  - remnux.packages.virtualenv
-  - remnux.python3-packages.pip
+  - remnux.packages.python3-virtualenv
+  - remnux.packages.{{ python3_dependency }}
+  - remnux.packages.{{ python3_dependency }}-dev
   - remnux.packages.build-essential
   - remnux.packages.libffi-dev
   - remnux.packages.unrar
@@ -42,13 +45,16 @@ remnux-python3-packages-viper-virtualenv:
   virtualenv.managed:
     - name: /opt/viper
     - venv_bin: /usr/bin/virtualenv
+    - python: /usr/bin/{{ python3_version }}
     - pip_pkgs:
-      - pip
-      - setuptools
-      - wheel
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
     - require:
-      - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.virtualenv
+      - sls: remnux.packages.python3-virtualenv
+      - sls: remnux.packages.{{ python3_dependency }}
+      - sls: remnux.packages.{{ python3_dependency }}-dev
 
 remnux-python3-packages-viper-install:
   pip.installed:
@@ -60,7 +66,6 @@ remnux-python3-packages-viper-install:
       - sls: remnux.packages.libusb-1
       - sls: remnux.packages.libfuzzy-dev
       - sls: remnux.packages.git
-      - sls: remnux.python3-packages.pip
       - sls: remnux.packages.build-essential
       - sls: remnux.packages.libffi-dev
       - sls: remnux.packages.unrar
@@ -78,6 +83,7 @@ remnux-python3-packages-viper-update-fix:
     - pattern: '"pip3", "install"'
     - repl: '"/opt/viper/bin/pip3", "install"'
     - count: 1
+    - backup: False
     - prepend_if_not_found: False
     - require:
       - pip: remnux-python3-packages-viper-install
@@ -106,12 +112,22 @@ remnux-python3-packages-viper-modules-git:
     - require:
       - file: remnux-python3-packages-viper-directory
 
+#remnux-python3-packages-viper-modules-git-safe:
+#  git.config_set:
+#    - name: safe.directory
+#    - value: {{ home }}/.viper/modules
+#    - repo: {{ home }}/.viper/modules
+#    - user: {{ user }}
+#    - require:
+#      - git: remnux-python3-packages-viper-modules-git
+
 remnux-python3-packages-viper-modules-verify-sigs:
   file.replace:
     - name: {{ home }}/.viper/modules/requirements.txt
     - pattern: 'verify-sigs @ '
     - repl: ''
     - count: 1
+    - backup: False
     - prepend_if_not_found: False
     - require:
       - git: remnux-python3-packages-viper-modules-git
@@ -122,6 +138,7 @@ remnux-python3-packages-viper-modules-pymispgalaxies:
     - pattern: 'PyMISPGalaxies @ '
     - repl: ''
     - count: 1
+    - backup: False
     - prepend_if_not_found: False
     - require:
       - git: remnux-python3-packages-viper-modules-git

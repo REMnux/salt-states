@@ -8,6 +8,8 @@
 
 include:
   - remnux.packages.python3-virtualenv
+  - remnux.packages.libxml2-dev
+  - remnux.packages.libxslt1-dev
 
 remnux-python3-packages-chepy-venv:
   virtualenv.managed:
@@ -18,8 +20,11 @@ remnux-python3-packages-chepy-venv:
       - setuptools>=70.0.0
       - wheel>=0.38.4
       - pycryptodome
+      - importlib-metadata>=8.0.0
     - require:
       - sls: remnux.packages.python3-virtualenv
+      - sls: remnux.packages.libxml2-dev
+      - sls: remnux.packages.libxslt1-dev
 
 remnux-python3-packages-chepy:
   pip.installed:

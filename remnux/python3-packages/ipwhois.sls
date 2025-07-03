@@ -4,39 +4,52 @@
 # Category: Gather and Analyze Data
 # Author: Philip Hane
 # License: BSD 2-Clause "Simplified" License: https://github.com/secynic/ipwhois/blob/master/LICENSE.txt
-# Notes: ipwhois_cli.py, ipwhois_utils_cli.py
+# Notes: ipwhois_cli, ipwhois_utils_cli
+
+{% set tools = ['ipwhois_cli','ipwhois_utils_cli'] %}
 
 include:
-  - remnux.python3-packages.pip
+  - remnux.packages.python3-virtualenv
+
+remnux-python3-packages-ipwhois-venv:
+  virtualenv.managed:
+    - name: /opt/ipwhois
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
+    - require:
+      - sls: remnux.packages.python3-virtualenv
 
 remnux-python3-packages-ipwhois:
   pip.installed:
     - name: ipwhois
-    - bin_env: /usr/bin/python3
+    - bin_env: /opt/ipwhois/bin/python3
     - upgrade: True
     - require:
-      - sls: remnux.python3-packages.pip
+      - virtualenv: remnux-python3-packages-ipwhois-venv
 
-remnux-python3-packages-ipwhois_cli-shebang:
-  file.prepend:
-    - name: /usr/local/bin/ipwhois_cli.py
-    - text: '#!/usr/bin/env python3'
+{% for tool in tools %}
+remnux-python3-packages-ipwhois-{{ tool }}-symlink:
+  file.symlink:
+    - name: /usr/local/bin/{{ tool }}
+    - target: /opt/ipwhois/bin/{{ tool }}
+    - force: True
+    - makedirs: False
     - require:
       - pip: remnux-python3-packages-ipwhois
 
-remnux-python3-packages-ipwhois_utils-shebang:
+remnux-python3-packages-ipwhois-{{ tool }}-shebang:
   file.prepend:
-    - name: /usr/local/bin/ipwhois_utils_cli.py
-    - text: '#!/usr/bin/env python3'
+    - name: /opt/ipwhois/bin/{{ tool }}
+    - text: '#!/opt/ipwhois/bin/python3'
     - require:
       - pip: remnux-python3-packages-ipwhois
-    - watch:
-      - file: remnux-python3-packages-ipwhois_cli-shebang
 
-/usr/local/bin/ipwhois_cli.py:
+remnux-python3-packages-ipwhois-{{ tool }}-perms:
   file.managed:
+    - name: /opt/ipwhois/bin/{{ tool }}
     - mode: 755
-
-/usr/local/bin/ipwhois_utils_cli.py:
-  file.managed:
-    - mode: 755
+{% endfor %}

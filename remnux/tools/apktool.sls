@@ -6,8 +6,8 @@
 # License: Apache License 2.0: https://github.com/iBotPeaches/Apktool/blob/master/LICENSE
 # Notes: 
 
-{% set hash = '7956eb04194300ce0d0a84ad18771eebc94b89fb8d1ddcce8ea4c056818646f4' %}
-{% set version = '2.9.3' %}
+{% set hash = '56d59c524fc764263ba8d345754d8daf55b1887818b15cd3b594f555d249e2db' %}
+{% set version = '2.11.1' %}
 
 include:
   - remnux.packages.default-jre

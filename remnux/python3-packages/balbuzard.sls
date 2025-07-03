@@ -9,7 +9,7 @@
 {% set tools = ['balbuzard','bbcrack','bbharvest','bbtrans'] %}
 
 include:
-  - remnux.packages.virtualenv
+  - remnux.packages.python3-virtualenv
 
 remnux-python3-packages-balbuzard-virtualenv:
   virtualenv.managed:
@@ -17,11 +17,12 @@ remnux-python3-packages-balbuzard-virtualenv:
     - python: /usr/bin/python3
     - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
-      - pip>=23.1.2
+      - pip>=24.1.3
       - setuptools>=70.0.0
       - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
     - require:
-      - sls: remnux.packages.virtualenv
+      - sls: remnux.packages.python3-virtualenv
 
 remnux-python3-packages-balbuzard-install:
   pip.installed:

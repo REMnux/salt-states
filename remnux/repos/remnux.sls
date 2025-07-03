@@ -1,3 +1,4 @@
+{% from "remnux/osarch.sls" import osarch with context %}
 remnux-repo-key:
   file.managed:
     - name: /usr/share/keyrings/REMNUX-GPG-KEY.asc
@@ -7,7 +8,7 @@ remnux-repo-key:
 
 remnux-repo:
   pkgrepo.managed:
-    - name: deb [signed-by=/usr/share/keyrings/REMNUX-GPG-KEY.asc] https://ppa.launchpadcontent.net/remnux/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
+    - name: deb [arch={{ osarch}} signed-by=/usr/share/keyrings/REMNUX-GPG-KEY.asc] https://ppa.launchpadcontent.net/remnux/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
     - file: /etc/apt/sources.list.d/remnux-stable-{{ grains['lsb_distrib_codename'] }}.list
     - refresh: True
     - clean_file: True

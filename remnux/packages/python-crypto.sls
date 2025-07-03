@@ -1,2 +1,0 @@
-python-crypto:
-  pkg.installed

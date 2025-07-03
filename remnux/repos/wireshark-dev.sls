@@ -1,3 +1,4 @@
+{% from "remnux/osarch.sls" import osarch with context %}
 include:
   - remnux.packages.software-properties-common
 
@@ -10,7 +11,7 @@ wireshark-dev-repo-key:
 
 wireshark-dev:
   pkgrepo.managed:
-    - name: deb [arch=amd64 signed-by=/usr/share/keyrings/WIRESHARK-DEV-PGP-KEY.asc] https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
+    - name: deb [arch={{ osarch }} signed-by=/usr/share/keyrings/WIRESHARK-DEV-PGP-KEY.asc] https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
     - file: /etc/apt/sources.list.d/wireshark-dev-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.list
     - refresh: true
     - clean_file: True

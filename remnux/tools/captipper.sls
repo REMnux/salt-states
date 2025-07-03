@@ -7,30 +7,70 @@
 # Notes: CapTipper.py
 
 include:
+  - remnux.packages.python3-virtualenv
   - remnux.packages.git
-  - remnux.packages.python3
+
+remnux-tools-captipper-venv:
+  virtualenv.managed:
+    - name: /opt/captipper
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
+    - require:
+      - sls: remnux.packages.python3-virtualenv
 
 remnux-tools-captipper:
   git.latest:
     - name: https://github.com/omriher/CapTipper.git
     - rev: python3_support
-    - target: /usr/local/CapTipper
+    - target: /opt/captipper/bin/captipper_git
     - force_reset: True
     - force_checkout: True
     - force_fetch: True
     - user: root
     - require:
-      - sls: remnux.packages.python3
+      - virtualenv: remnux-tools-captipper-venv
+
+remnux-tools-captipper-copy:
+  cmd.run:
+    - name: cp -rf /opt/captipper/bin/captipper_git/* /opt/captipper/bin/
+    - shell: /bin/bash
+    - require:
+      - git: remnux-tools-captipper
+
+remnux-tools-captipper-delete-git:
+  file.absent:
+    - name: /opt/captipper/bin/captipper_git
+    - require:
+      - cmd: remnux-tools-captipper-copy
 
 remnux-tools-captipper-permissions:
   file.managed:
-    - name: /usr/local/CapTipper/CapTipper.py
+    - name: /opt/captipper/bin/CapTipper.py
     - mode: 755
     - watch:
       - git: remnux-tools-captipper
+    - require:
+      - file: remnux-tools-captipper-delete-git
 
-/usr/local/bin/CapTipper.py:
+remnux-tools-captipper-symlink:
   file.symlink:
-  - target: /usr/local/CapTipper/CapTipper.py
-  - watch:
-      - file: remnux-tools-captipper-permissions
+    - name: /usr/local/bin/CapTipper.py
+    - target: /opt/captipper/bin/CapTipper.py
+    - force: True
+    - makedirs: False
+    - require:
+      - git: remnux-tools-captipper
+
+remnux-tools-captipper-shebang:
+  file.replace:
+    - name: /opt/captipper/bin/CapTipper.py
+    - pattern: '#!/usr/bin/env python3\n'
+    - repl: '#!/opt/captipper/bin/python3\n'
+    - backup: False
+    - count: 1
+    - require:
+      - file: remnux-tools-captipper-symlink

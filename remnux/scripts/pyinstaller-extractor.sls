@@ -6,37 +6,45 @@
 # License: GNU General Public License (GPL) v3: https://github.com/extremecoders-re/pyinstxtractor/blob/master/LICENSE
 # Notes: pyinstxtractor.py
 
+{% set commit = '9f005ddf2222f2c3cd2eac1115ff5d6c4f357800' %}
+{% set hash = 'e90a782c5759e81b79f874579aee09959e3d5545adea96b37ebca015d19fed58' %}
+
 include:
-  - remnux.packages.python3
+  - remnux.packages.python3-virtualenv
 
-remnux-scripts-pyinstxtractor-source:
+remnux-scripts-pyinstaller-extractor-venv:
+  virtualenv.managed:
+    - name: /opt/pyinstaller-extractor
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
+    - require:
+      - sls: remnux.packages.python3-virtualenv
+
+remnux-scripts-pyinstaller-extractor:
   file.managed:
-    - name: /usr/local/src/remnux/files/pyinstxtractor-2022.4.zip
-    - source: https://github.com/extremecoders-re/pyinstxtractor/archive/refs/tags/2022.4.zip
-    - source_hash: sha256=14ea2fdcf6f847d44abe1895457fad2622a1bfc75ae163a193eb9127841d52e4
-    - makedirs: True
-
-remnux-scripts-pyinstxtractor-archive:
-  archive.extracted:
-    - name: /usr/local/src/remnux/pyinstxtractor-2022.4
-    - source: /usr/local/src/remnux/files/pyinstxtractor-2022.4.zip
-    - enforce_toplevel: False
-    - watch:
-      - file: remnux-scripts-pyinstxtractor-source
-
-remnux-scripts-pyinstxtractor-binary:
-  file.managed:
-    - name: /usr/local/bin/pyinstxtractor.py
-    - source: /usr/local/src/remnux/pyinstxtractor-2022.4/pyinstxtractor-2022.4/pyinstxtractor.py
+    - name: /opt/pyinstaller-extractor/bin/pyinstxtractor.py
+    - source: https://github.com/extremecoders-re/pyinstxtractor/raw/{{ commit }}/pyinstxtractor.py
+    - source_hash: sha256={{ hash }}
     - mode: 755
     - require:
-      - sls: remnux.packages.python3
-    - watch:
-      - archive: remnux-scripts-pyinstxtractor-archive
+      - virtualenv: remnux-scripts-pyinstaller-extractor-venv
 
-remnux-scripts-pyinstxtractor-shebang:
-  file.prepend:
+remnux-scripts-pyinstaller-extractor-symlink:
+  file.symlink:
     - name: /usr/local/bin/pyinstxtractor.py
-    - text: '#!/usr/bin/env python3'
+    - target: /opt/pyinstaller-extractor/bin/pyinstxtractor.py
+    - force: True
+    - makedirs: False
     - require:
-      - file: remnux-scripts-pyinstxtractor-binary
+      - file: remnux-scripts-pyinstaller-extractor
+
+remnux-scripts-pyinstaller-extractor-shebang:
+  file.prepend:
+    - name: /opt/pyinstaller-extractor/bin/pyinstxtractor.py
+    - text: '#!/opt/pyinstaller-extractor/bin/python3'
+    - require:
+      - file: remnux-scripts-pyinstaller-extractor-symlink

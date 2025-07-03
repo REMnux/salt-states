@@ -1,2 +1,0 @@
-python-magic:
-  pkg.installed

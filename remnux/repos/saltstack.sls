@@ -1,3 +1,4 @@
+{% from "remnux/osarch.sls" import osarch with context %}
 remnux-saltstack-key:
   file.managed:
     - name: /usr/share/keyrings/salt-archive-keyring.pgp
@@ -7,19 +8,19 @@ remnux-saltstack-key:
 
 saltstack-repo-cleanup1:
   pkgrepo.absent:
-    - name: deb [arch={{ grains['osarch'] }}] https://repo.saltproject.io/py3/ubuntu/{{ grains['lsb_distrib_release'] }}/{{ grains['osarch'] }}/3001 focal main
+    - name: deb [arch={{ osarch }}] https://repo.saltproject.io/py3/ubuntu/{{ grains['lsb_distrib_release'] }}/{{ osarch }}/3001 focal main
     - refresh: true
 
 saltstack-repo-cleanup2:
   pkgrepo.absent:
-    - name: deb [arch={{ grains['osarch'] }}] https://repo.saltproject.io/py3/ubuntu/{{ grains['lsb_distrib_release'] }}/{{ grains['osarch'] }}/3004 focal main
+    - name: deb [arch={{ osarch }}] https://repo.saltproject.io/py3/ubuntu/{{ grains['lsb_distrib_release'] }}/{{ osarch }}/3004 focal main
     - refresh: true
     - require:
       - pkgrepo: saltstack-repo-cleanup1
 
 saltstack-repo-cleanup3:
   pkgrepo.absent:
-    - name: deb [arch={{ grains['osarch'] }}] https://repo.saltproject.io/py3/ubuntu/{{ grains['lsb_distrib_release'] }}/{{ grains['osarch'] }}/3006 focal main
+    - name: deb [arch={{ osarch }}] https://repo.saltproject.io/py3/ubuntu/{{ grains['lsb_distrib_release'] }}/{{ osarch }}/3006 focal main
     - refresh: true
     - require:
       - pkgrepo: saltstack-repo-cleanup1
@@ -42,7 +43,7 @@ saltstack-repo-pin-version-3006:
 saltstack-repo:
   pkgrepo.managed:
     - humanname: saltstack
-    - name: deb [signed-by=/usr/share/keyrings/salt-archive-keyring.pgp arch={{ grains['osarch'] }}] https://packages.broadcom.com/artifactory/saltproject-deb/ stable main
+    - name: deb [signed-by=/usr/share/keyrings/salt-archive-keyring.pgp arch={{ osarch }}] https://packages.broadcom.com/artifactory/saltproject-deb/ stable main
     - file: /etc/apt/sources.list.d/saltstack.list
     - refresh: True
     - clean_file: True

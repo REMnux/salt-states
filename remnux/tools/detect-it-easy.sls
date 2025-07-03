@@ -6,13 +6,20 @@
 # License: MIT License: https://github.com/horsicq/Detect-It-Easy/blob/master/LICENSE
 # Notes: GUI tool: `die`, command-line tool: `diec`.
 
-{% set version = '3.09' %}
-{%- if grains['oscodename'] == "focal" %}
+{% set version = '3.10' %}
+{% if grains['oscodename'] == "focal" %}
 {% set release = '20.04' %}
-{% set hash = '198e154da31cc202e0a32b9dfb2a3ca99b5870404fc4023bf000217bd750fd5c' %}
+{% set hash = 'b555c8b20ef126dce75bce9b9a0615594b7864d1c2de9fd3cc6ea5b1fcc6e7e8' %}
+{% set qtpkg = "qt5-default" %}
+{% elif grains['oscodename'] == "noble" %}
+{% set release = '24.04' %}
+{% set hash = 'a64d32fcd95ab5c25cfb01f2e0355f67737eff93d6ae34c80b2b3dbdee721b1b' %}
+{% set qtpkg = "qtbase5-dev" %}
+{% endif %}
+
 include:
   - remnux.packages.libglib2
-  - remnux.packages.qt5-default
+  - remnux.packages.{{ qtpkg }}
   - remnux.packages.libqt5scripttools5
 
 remnux-tools-detect-it-easy-source:
@@ -41,12 +48,5 @@ remnux-tools-detect-it-easy-install:
     - require:
       - file: remnux-tools-detect-it-easy-cleanup2
       - sls: remnux.packages.libglib2
-      - sls: remnux.packages.qt5-default
+      - sls: remnux.packages.{{ qtpkg }}
       - sls: remnux.packages.libqt5scripttools5
-
-{%- elif grains['oscodename'] == "bionic" %}
-
-remnux-tools-detect-it-easy-source:
-  test.nop
-
-{%- endif %}

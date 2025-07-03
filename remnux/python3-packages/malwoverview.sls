@@ -5,10 +5,11 @@
 # Author: Alexandre Borges
 # License: GNU General Public License v3: https://github.com/alexandreborges/malwoverview/blob/master/LICENSE
 # Notes: malwoverview, add API keys to ~/.malwapi.conf
-{%- if grains['oscodename'] == "bionic" %}
-  {%- set python3_version="python3.6" %}
-{%- else %}
+
+{%- if grains['oscodename'] == "focal" %}
   {%- set python3_version="python3.8" %}
+{%- else %}
+  {%- set python3_version="python3.12" %}
 {% endif %}
 {%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}       
 
@@ -19,23 +20,23 @@
 {% endif %}
 
 include:
-  - remnux.python3-packages.pip
   - remnux.packages.git
   - remnux.config.user
-  - remnux.packages.virtualenv
+  - remnux.packages.python3-virtualenv
   - remnux.packages.build-essential
+  - remnux.packages.libmagic-dev
 
 remnux-python3-packages-malwoverview-virtualenv:
   virtualenv.managed:
     - name: /opt/malwoverview
     - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
-      - pip
-      - setuptools
-      - wheel
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib_metadata>=8.0.0
     - require:
-      - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.virtualenv
+      - sls: remnux.packages.python3-virtualenv
 
 remnux-python3-packages-malwoverview-install:
   pip.installed:
@@ -44,10 +45,10 @@ remnux-python3-packages-malwoverview-install:
     - upgrade: True
     - user: root
     - require:
-      - sls: remnux.python3-packages.pip
       - virtualenv: remnux-python3-packages-malwoverview-virtualenv
       - sls: remnux.packages.git
       - sls: remnux.config.user
+      - sls: remnux.packages.libmagic-dev
 
 remnux-python3-packages-malwoverview-config-file:
   file.managed:

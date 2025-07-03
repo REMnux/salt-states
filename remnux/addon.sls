@@ -4,8 +4,8 @@
 
 include:
   - remnux.repos
-  - remnux.packages
   - remnux.python3-packages
+  - remnux.packages
   - remnux.rubygems
   - remnux.scripts
   - remnux.config
@@ -22,8 +22,8 @@ remnux-addon-version-file:
     - group: root
     - require:
       - sls: remnux.repos
-      - sls: remnux.packages
       - sls: remnux.python3-packages
+      - sls: remnux.packages
       - sls: remnux.rubygems
       - sls: remnux.scripts
       - sls: remnux.config
