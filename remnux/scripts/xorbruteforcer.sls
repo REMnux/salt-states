@@ -4,7 +4,7 @@
 # Category: Examine Static Properties: Deobfuscation
 # Author: Jose Miguel Esparza
 # License: Free, unknown license
-# Notes: 
+# Notes: Not added as it is still python 2
 
 remnux-scripts-xorbruteforcer-source:
   file.managed:

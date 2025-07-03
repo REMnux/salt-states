@@ -1,14 +1,9 @@
 include:
-  - remnux.scripts.pdf-parser
-  - remnux.scripts.pdfid
-  - remnux.scripts.rtfdump
   - remnux.python3-packages.xxxswf
-  - remnux.scripts.base64dump
   - remnux.node-packages.box-js
   - remnux.packages.clamav-daemon
   - remnux.packages.flare-floss
   - remnux.packages.spidermonkey
-  - remnux.packages.oledump
   - remnux.python3-packages.oletools
   - remnux.python3-packages.peframe
   - remnux.python3-packages.thug
@@ -17,17 +12,13 @@ include:
   - remnux.packages.swftools
   - remnux.packages.upx-ucl
   - remnux.python3-packages.xortool
-  - remnux.scripts.virustotal-search
   - remnux.tools.remnux-cli
   - remnux.python3-packages.pcodedmp
-  - remnux.scripts.xor-kpa
   - remnux.packages.msoffice-crypt
   - remnux.packages.binee
-  - remnux.scripts.translate
-  - remnux.scripts.zipdump
-  - remnux.scripts.pecheck
   - remnux.python3-packages.unfurl
   - remnux.tools.capa
+  - remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-remnuxlib:
   file.managed:
@@ -45,7 +36,7 @@ remnux-config-bash-completion-pdf-parser:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.pdf-parser
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-pdfid:
   file.managed:
@@ -55,7 +46,7 @@ remnux-config-bash-completion-pdfid:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.pdfid
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-rtfdump:
   file.managed:
@@ -65,7 +56,7 @@ remnux-config-bash-completion-rtfdump:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.rtfdump
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-xxxswf:
   file.managed:
@@ -85,7 +76,7 @@ remnux-config-bash-completion-base64dump:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.base64dump
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-box-js:
   file.managed:
@@ -135,7 +126,7 @@ remnux-config-bash-completion-oledump:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.packages.oledump
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-zipdump:
   file.managed:
@@ -145,7 +136,7 @@ remnux-config-bash-completion-zipdump:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.zipdump
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-pecheck:
   file.managed:
@@ -155,7 +146,7 @@ remnux-config-bash-completion-pecheck:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.pecheck
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-olevba:
   file.managed:
@@ -237,16 +228,6 @@ remnux-config-bash-completion-xortool:
     - require:
       - sls: remnux.python3-packages.xortool
 
-remnux-config-bash-completion-virustotal-search:
-  file.managed:
-    - name: /etc/bash_completion.d/virustotal-search
-    - source: salt://remnux/config/bash-completion/virustotal-search
-    - replace: False
-    - makedirs: True
-    - mode: 644
-    - require:
-      - sls: remnux.scripts.virustotal-search
-
 remnux-config-bash-completion-remnux-cli:
   file.managed:
     - name: /etc/bash_completion.d/remnix-cli
@@ -275,7 +256,7 @@ remnux-config-bash-completion-xor-kpa:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.xor-kpa
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-msoffice-crypt:
   file.managed:
@@ -305,7 +286,7 @@ remnux-config-bash-completion-translate:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.scripts.translate
+      - sls: remnux.scripts.didier-stevens-scripts
 
 remnux-config-bash-completion-unfurl:
   file.managed:

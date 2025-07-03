@@ -6,6 +6,6 @@
 # License: GNU General Public License (GPL) v2+
 # Notes: unrar
 
-remnux-unrar:
+remnux-packages-unrar:
   pkg.installed:
     - name: unrar-free

@@ -24,7 +24,7 @@ remnux-tools-binnavi-source:
   file.managed:
     - name: /usr/local/binnavi/binnavi-all.jar
     - source: https://github.com/google/binnavi/releases/download/v6.1.0/binnavi-all.jar
-    - source_hash: 0a5d27548a76c5dfb396ded86c103c35070ceffec97e63c16742dac55f1e6284
+    - source_hash: sha256=0a5d27548a76c5dfb396ded86c103c35070ceffec97e63c16742dac55f1e6284
     - mode: 755
     - watch:
       - file: remnux-tools-binnavi-directory

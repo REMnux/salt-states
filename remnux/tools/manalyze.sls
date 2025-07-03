@@ -12,20 +12,7 @@ include:
   - remnux.packages.libboost-filesystem-dev
   - remnux.packages.libboost-program-options-dev
 
-{%- if grains['oscodename'] == "bionic" %}
-remnux-tools-manalyze-source:
-  file.managed:
-    - name: /usr/local/src/remnux/files/manalyze-0.9.tgz
-    - source: https://github.com/REMnux/distro/raw/master/files/manalyze-0.9-bionic.tgz
-    - source_hash: sha256=8a29949fbd4fd536f4822aec477861e730336a034af9f61376ecfce7dae7bfaa
-    - makedirs: true
-    - require:
-      - sls: remnux.packages.libboost-regex-dev
-      - sls: remnux.packages.libboost-system-dev
-      - sls: remnux.packages.libboost-filesystem-dev
-      - sls: remnux.packages.libboost-program-options-dev
-
-{%- elif grains['oscodename'] == "focal" %}
+{%- if grains['oscodename'] == "focal" %}
 remnux-tools-manalyze-source:
   file.managed:
     - name: /usr/local/src/remnux/files/manalyze-0.9.tgz
@@ -37,8 +24,6 @@ remnux-tools-manalyze-source:
       - sls: remnux.packages.libboost-system-dev
       - sls: remnux.packages.libboost-filesystem-dev
       - sls: remnux.packages.libboost-program-options-dev
-
-{%- endif %}
 
 remnux-tools-manalyze-archive:
   archive.extracted:
@@ -58,3 +43,8 @@ remnux-tools-manalyze-wrapper:
     - contents:
       - '#!/bin/bash'
       - LD_LIBRARY_PATH=/usr/local/manalyze:$LD_LIBRARY_PATH /usr/local/manalyze/manalyze ${*}
+
+{% else %}
+Manalyze is currently not available for Noble:
+  test.nop
+{% endif %}

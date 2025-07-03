@@ -1,18 +1,13 @@
 {% set kernel = grains['kernelrelease'] %}
 
-{% if "-WSL" in kernel %}
-
-linux-headers-generic:
-  pkg.installed
-
-{% elif "-linuxkit" in kernel %}
+{% if "-WSL" or "-linuxkit" in kernel %}
 
 linux-headers-generic:
   pkg.installed
 
 {% else %}
 
-remnux-linux-headers:
+remnux-packages-linux-headers:
   pkg.installed:
       - name: linux-headers-{{ kernel }}
 

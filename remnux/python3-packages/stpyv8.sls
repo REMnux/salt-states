@@ -6,51 +6,52 @@
 # License: Apache License 2.0: https://github.com/cloudflare/stpyv8/blob/master/LICENSE.txt
 # Notes:
 
-{%- set version="11.7.439.19" %}
-{%- if grains['oscodename'] == "bionic" %} 
-Ubuntu Bionic is no longer supported:
-  test.nop
-{% elif grains['oscodename'] == "focal" %} 
-  {%- set release="stpyv8-ubuntu-20.04-python-3.8.zip" %}
-  {%- set hash="bf6821faf6669e07057478edf22c0e02351e7922494dbff377f216920235d8b7" %}
-  {%- set wheel="stpyv8-" + version + "-cp38-cp38-linux_x86_64.whl" %}
-  {%- set folder="stpyv8-ubuntu-20.04-3.8" %}
-{%- endif %}
+{% macro install_stpyv8(version, hash, pyenv, py_ver) %}
+{% if grains['oscodename'] == 'focal' %}
+  {%- set rel = grains['osrelease'] %}
+  {%- set py = py_ver.replace(".","") %}
+  {%- set wheel = "stpyv8-" + version + "-cp" + py + "-cp" + py + "-linux_x86_64.whl" %}
+  {%- set release = "stpyv8-ubuntu-" + rel + "-python-" + py_ver + ".zip" %}
+  {%- set folder = "stpyv8-ubuntu-" + rel + "-" + py_ver %}
+{% else %}
+  {% set py = py_ver.replace(".","") %}
+  {%- set release = "stpyv8-" + version + "-cp" + py + "-cp" + py + "-manylinux_2_31_x86_64.whl" %}
+{% endif %}
 
-include:
-  - remnux.packages.sudo
-  - remnux.packages.libboost-python-dev
-  - remnux.packages.libboost-system-dev
-  - remnux.packages.libboost-iostreams-dev
-  - remnux.packages.libboost-dev
-  - remnux.packages.build-essential
-  - remnux.python3-packages.pip
-  - remnux.python3-packages.setuptools
+stpyv8-requirements-{{ pyenv }}:
+  pkg.installed:
+    - names:
+      - libboost-python-dev
+      - libboost-system-dev
+      - libboost-iostreams-dev
+      - libboost-dev
+      - build-essential
 
-remnux-python3-packages-stpyv8-source:
+remnux-python3-packages-stpyv8-source-{{ pyenv }}:
   file.managed:
     - name: /usr/local/src/remnux/files/{{ release }}
     - source: https://github.com/cloudflare/stpyv8/releases/download/v{{ version }}/{{ release }}
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-remnux-python3-packages-stpyv8-archive:
+{% if grains['oscodename'] == 'focal' %}
+remnux-python3-packages-stpyv8-archive-{{ pyenv }}:
   archive.extracted:
     - name: /usr/local/src/remnux/
     - source: /usr/local/src/remnux/files/{{ release }}
     - enforce_toplevel: False
     - watch:
-      - file: remnux-python3-packages-stpyv8-source
+      - file: remnux-python3-packages-stpyv8-source-{{ pyenv }}
 
-remnux-pip3-stpyv8:
+remnux-python3-packages-stpyv8-focal-{{ pyenv }}:
   pip.installed:
     - name: /usr/local/src/remnux/{{ folder }}/{{ wheel }}
-    - bin_env: /usr/bin/python3
-    - require:
-      - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.sudo
-      - sls: remnux.packages.libboost-python-dev
-      - sls: remnux.packages.libboost-system-dev
-      - sls: remnux.packages.libboost-dev
-      - sls: remnux.packages.libboost-iostreams-dev
-      - sls: remnux.python3-packages.setuptools
+    - bin_env: {{ pyenv }}
+
+{% else %}
+remnux-python3-packages-stpyv8-{{ pyenv }}:
+  pip.installed:
+    - name: /usr/local/src/remnux/files/{{ release }}
+    - bin_env: {{ pyenv }}
+{% endif %}
+{% endmacro %}

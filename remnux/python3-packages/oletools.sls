@@ -5,35 +5,43 @@
 # Author: Philippe Lagadec: https://twitter.com/decalage2
 # License: Free, custom license: https://github.com/decalage2/oletools/blob/master/LICENSE.md
 # Notes: mraptor, msodde, olebrowse, oledir, oleid, olemap, olemeta, oleobj, oletimes, olevba, pyxswf, rtfobj, ezhexviewer
-{% if grains['oscodename'] == "focal" %}
-  {% set python = "python3.8" %}
-{% elif grains['oscodename'] == "bionic" %}
-  {% set python = "python3.6" %}
-{% endif %}
+
+{% set tools = ['mraptor','msodde','olebrowse','oledir','oleid','olemap','olemeta','oleobj','oletimes','olevba','pyxswf','rtfobj','ezhexviewer'] %}
 
 include:
-  - remnux.python3-packages.pip
+  - remnux.packages.python3-virtualenv
   - remnux.packages.python3-tk
   - remnux.packages.libssl-dev
   - remnux.packages.libffi-dev
   - remnux.python3-packages.xlmmacrodeobfuscator
 
+remnux-python3-packages-oletools-venv:
+  virtualenv.managed:
+    - name: /opt/oletools
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
+    - require:
+      - sls: remnux.packages.python3-virtualenv
+
 remnux-python3-packages-oletools:
   pip.installed:
     - name: oletools
-    - bin_env: /usr/bin/python3
+    - bin_env: /opt/oletools/bin/python3
     - upgrade: True
     - require:
-      - sls: remnux.python3-packages.pip
-      - sls: remnux.packages.python3-tk
-      - sls: remnux.packages.libssl-dev
-      - sls: remnux.packages.libffi-dev
-      - sls: remnux.python3-packages.xlmmacrodeobfuscator
+      - virtualenv: remnux-python3-packages-oletools-venv
 
-remnux-python3-packages-oletools-cleanup:
-  file.line:
-    - name: /usr/local/lib/{{ python }}/dist-packages/oletools/olevba.py
-    - mode: delete
-    - content: "log.warning('For now, VBA stomping cannot be detected for files in memory')"
+{% for tool in tools %}
+remnux-python3-packages-oletools-symlink-{{ tool }}:
+  file.symlink:
+    - name: /usr/local/bin/{{ tool }}
+    - target: /opt/oletools/bin/{{ tool }}
+    - force: True
+    - makedirs: False
     - require:
       - pip: remnux-python3-packages-oletools
+{% endfor %}

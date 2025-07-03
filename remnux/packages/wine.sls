@@ -8,9 +8,11 @@
 
 include:
   - remnux.packages.i386-architecture
+  - remnux.repos.winehq
 
 remnux-packages-wine:
   pkg.installed:
-    - name: wine-stable  
+    - name: winehq-stable
     - require:
       - sls: remnux.packages.i386-architecture
+      - sls: remnux.repos.winehq

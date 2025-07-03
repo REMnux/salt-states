@@ -7,14 +7,33 @@
 # Notes: 
 
 include:
-  - remnux.python3-packages.pip
-  - remnux.python3-packages.setuptools-rust
+  - remnux.packages.python3-virtualenv
 
-remnux-python3-packages-msoffcrypto-tool-install:
+remnux-python3-packages-msoffcrypto-tool-venv:
+  virtualenv.managed:
+    - name: /opt/msoffcrypto-tool
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
+    - require:
+      - sls: remnux.packages.python3-virtualenv
+
+remnux-python3-packages-msoffcrypto-tool:
   pip.installed:
     - name: msoffcrypto-tool
-    - bin_env: /usr/bin/python3
+    - bin_env: /opt/msoffcrypto-tool/bin/python3
     - upgrade: True
     - require:
-      - sls: remnux.python3-packages.pip
-      - sls: remnux.python3-packages.setuptools-rust
+      - virtualenv: remnux-python3-packages-msoffcrypto-tool-venv
+
+remnux-python3-packages-msoffcrypto-tool-symlink:
+  file.symlink:
+    - name: /usr/local/bin/msoffcrypto-tool
+    - target: /opt/msoffcrypto-tool/bin/msoffcrypto-tool
+    - force: True
+    - makedirs: False
+    - require:
+      - pip: remnux-python3-packages-msoffcrypto-tool

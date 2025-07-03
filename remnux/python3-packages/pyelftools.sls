@@ -7,12 +7,33 @@
 # Notes: readelf.py
 
 include:
-  - remnux.python3-packages.pip
+  - remnux.packages.python3-virtualenv
+
+remnux-python3-packages-pyelftools-venv:
+  virtualenv.managed:
+    - name: /opt/pyelftools
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
+    - require:
+      - sls: remnux.packages.python3-virtualenv
 
 remnux-python3-packages-pyelftools:
   pip.installed:
     - name: pyelftools
-    - bin_env: /usr/bin/python3
+    - bin_env: /opt/pyelftools/bin/python3
     - upgrade: True
     - require:
-      - sls: remnux.python3-packages.pip
+      - virtualenv: remnux-python3-packages-pyelftools-venv
+
+remnux-python3-packages-pyelftools-symlink:
+  file.symlink:
+    - name: /usr/local/bin/readelf.py
+    - target: /opt/pyelftools/bin/readelf.py
+    - force: True
+    - makedirs: False
+    - require:
+      - pip: remnux-python3-packages-pyelftools

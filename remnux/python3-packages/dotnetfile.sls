@@ -18,6 +18,7 @@ remnux-python3-packages-dotnetfile-venv:
       - setuptools>=70.0.0
       - wheel>=0.38.4
       - dotnetfile
+      - importlib-metadata>=8.0.0
     - require:
       - sls: remnux.packages.python3-virtualenv
 

@@ -7,26 +7,19 @@
 # Notes: nth
 
 include:
-  - remnux.python3-packages.pip
-  - remnux.packages.virtualenv
-
-remnux-python3-packages-remove-name-that-hash:
-  pip.removed:
-    - name: name-that-hash
-    - bin_env: /usr/bin/python3
+  - remnux.packages.python3-virtualenv
 
 remnux-python3-packages-name-that-hash-virtualenv:
   virtualenv.managed:
     - name: /opt/nth
     - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
-      - pip>=23.1.2
-      - setuptools==67.7.2
-      - wheel==0.38.4
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+      - importlib_metadata>=8.0.0
     - require:
-      - sls: remnux.packages.virtualenv
-      - sls: remnux.python3-packages.pip
-      - pip: remnux-python3-packages-remove-name-that-hash
+      - sls: remnux.packages.python3-virtualenv
 
 remnux-python3-packages-name-that-hash-install:
   pip.installed:

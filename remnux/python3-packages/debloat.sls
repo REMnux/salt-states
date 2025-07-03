@@ -20,6 +20,7 @@ remnux-python3-packages-debloat-venv:
       - pip>=24.1.3
       - setuptools>=70.0.0
       - wheel>=0.38.4
+      - importlib-metadata>=8.0.0
     - require:
       - sls: remnux.packages.python3-virtualenv
 

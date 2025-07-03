@@ -4,7 +4,7 @@
 # Category: Examine Static Properties: Deobfuscation
 # Author: Thomas Chopitea
 # License: Apache License 2.0: https://github.com/tomchop/unxor/blob/master/LICENSE
-# Notes: 
+# Notes: Being converted to python 3
 
 remnux-scripts-unxor-source:
   file.managed:

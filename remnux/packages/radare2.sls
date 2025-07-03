@@ -5,7 +5,7 @@
 # Author: https://github.com/radareorg/radare2/blob/master/AUTHORS.md
 # License: GNU Lesser General Public License (LGPL) v3: https://github.com/radareorg/radare2/blob/master/COPYING
 # Notes: r2, rasm2, rabin2, rahash2, rafind2
-
+{% from "remnux/osarch.sls" import osarch with context %}
 {% set version = '5.9.0' %}
 {% set hash = '7164ab19c7c44dc47e3a3546b6a5335fa4e1713631afd8da916f921f9b7c0716' %}
 {% set installed_version = salt['cmd.shell']("dpkg -l | grep radare2 | awk '{print $3}'") %}
@@ -20,14 +20,14 @@ Installed Version {{ installed_version }} is higher than intended version:
 
 remnux-radare2-source:
   file.managed:
-    - name: /usr/local/src/radare2_{{ version }}_amd64.deb
-    - source: https://github.com/radareorg/radare2/releases/download/{{ version }}/radare2_{{ version }}_amd64.deb
+    - name: /usr/local/src/radare2_{{ version }}_{{ osarch }}.deb
+    - source: https://github.com/radareorg/radare2/releases/download/{{ version }}/radare2_{{ version }}_{{ osarch }}.deb
     - source_hash: sha256={{ hash }}
 
 remnux-radare2:
   pkg.installed:
     - sources:
-      - radare2: /usr/local/src/radare2_{{ version }}_amd64.deb
+      - radare2: /usr/local/src/radare2_{{ version }}_{{ osarch }}.deb
     - watch:
       - file: remnux-radare2-source
     - require:

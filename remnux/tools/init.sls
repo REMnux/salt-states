@@ -12,6 +12,7 @@ include:
   - remnux.tools.shellcode2exe-bat
   - remnux.tools.bytehist
   - remnux.tools.binnavi
+  ## binnavi - issue with pgadmin4 on Ubuntu Noble - https://github.com/pgadmin-org/pgadmin4/issues/7928
   - remnux.tools.de4dot
   - remnux.tools.trid
   - remnux.tools.manalyze
@@ -20,6 +21,7 @@ include:
   - remnux.tools.ssview
   - remnux.tools.yara-rules
   - remnux.tools.captipper
+  ## captipper - Python 3.12 does not support the 'imp' module required for CapTipper
   - remnux.tools.jadx
   - remnux.tools.detect-it-easy
   - remnux.tools.capa

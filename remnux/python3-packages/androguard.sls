@@ -19,6 +19,7 @@ remnux-python3-packages-androguard-virtualenv:
       - setuptools>=70.0.0
       - wheel>=0.38.4
       - pyperclip
+      - importlib-metadata>=8.0.0
     - require:
       - sls: remnux.packages.python3-virtualenv
 
@@ -31,7 +32,7 @@ remnux-python3-packages-androguard:
       - virtualenv: remnux-python3-packages-androguard-virtualenv
       - sls: remnux.packages.python3-pyqt5
 
-remnux-python3-packages-androguard-androguard-symlink:
+remnux-python3-packages-androguard-symlink:
   file.symlink:
     - name: /usr/local/bin/androguard
     - target: /opt/androguard/bin/androguard

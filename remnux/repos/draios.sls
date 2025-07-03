@@ -1,3 +1,4 @@
+{% from "remnux/osarch.sls" import osarch with context %}
 remnux-draios-key:
   file.managed:
     - name: /usr/share/keyrings/DRAIOS-GPG-KEY.asc
@@ -8,7 +9,7 @@ remnux-draios-key:
 draios:
   pkgrepo.managed:
     - humanname: Draios
-    - name: deb [arch={{ grains['osarch'] }} signed-by=/usr/share/keyrings/DRAIOS-GPG-KEY.asc] https://download.sysdig.com/stable/deb stable-{{ grains['osarch'] }}/
+    - name: deb [arch={{ osarch }} signed-by=/usr/share/keyrings/DRAIOS-GPG-KEY.asc] https://download.sysdig.com/stable/deb stable-{{ osarch }}/
     - file: /etc/apt/sources.list.d/draios.list
     - refresh: true
     - clean_file: true
