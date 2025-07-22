@@ -35,6 +35,7 @@ remnux-python3-packages-dissect-virtualenv:
       - wheel>=0.38.4
       - tzdata
       - importlib-metadata>=8.0.0
+      - six
     - require:
       - sls: remnux.packages.{{ py3_dependency }}
       - sls: remnux.packages.{{ py3_dependency }}-dev

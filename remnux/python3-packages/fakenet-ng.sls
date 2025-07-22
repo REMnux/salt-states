@@ -7,6 +7,8 @@
 # Notes: Run the tool using `sudo fakenet`. First, edit `/opt/fakenet-ng/lib/python3.x/site-packages/fakenet/configs/default.ini`, changing the `LinuxRestrictInterface` parameter to your Ethernet network interface name, such as `ens33`.
 
 {% set files = ['fakenet','ftpbench'] %}
+{% set commit = '82c01b00f8da2f29fc4ae77c6f5546bb26dd8904' %}
+
 include:
   - remnux.packages.python3-dev
   - remnux.packages.libssl-dev
@@ -32,7 +34,7 @@ remnux-python3-package-fakenet-ng-venv:
 
 remnux-python3-package-fakenet-ng:
   pip.installed:
-    - name: git+https://github.com/mandiant/flare-fakenet-ng.git
+    - name: git+https://github.com/mandiant/flare-fakenet-ng.git@{{ commit }}
     - bin_env: /opt/fakenet-ng/bin/python3
     - upgrade: True
     - require:
@@ -52,6 +54,7 @@ remnux-python3-package-fakenet-ng-symlink-{{ file }}:
     - name: /usr/local/bin/{{ file }}
     - target: /opt/fakenet-ng/bin/{{ file }}
     - makedirs: False
+    - force: True
     - require:
       - pip: remnux-python3-package-fakenet-ng
 {% endfor %}
