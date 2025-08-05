@@ -10,6 +10,7 @@
 
 include:
   - remnux.packages.python3-virtualenv
+  - remnux.packages.python3-pip
 
 remnux-python3-packages-remove-speakeasy:
   pip.removed:
