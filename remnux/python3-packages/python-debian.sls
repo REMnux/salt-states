@@ -1,0 +1,2 @@
+python-debian:
+  pkg.removed
