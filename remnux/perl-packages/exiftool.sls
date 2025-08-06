@@ -6,7 +6,7 @@
 # License: "This is free software; you can redistribute it and/or modify it under the same terms as Perl itself": https://exiftool.org/#license
 # Notes: exiftool
 
-{% set version = "13.33" %}
+{% set version = salt['cmd.shell']('curl -fsL https://exiftool.org/ver.txt || echo -n 13.33') %}
 
 include:
   - remnux.packages.perl
