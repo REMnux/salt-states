@@ -25,13 +25,14 @@ remnux-perl-packages-exiftool-download:
   file.managed:
     - name: /usr/local/src/remnux/files/Image-ExifTool-{{ version }}.tar.gz
     - source: https://exiftool.org/Image-ExifTool-{{ version }}.tar.gz
-    - skip_verify: True
+    - source_hash: sha256={{ ns.hash }}
     - makedirs: True
 
 remnux-perl-packages-exiftool-extract:
   archive.extracted:
     - name: /usr/local/src/remnux/exiftool
     - source: /usr/local/src/remnux/files/Image-ExifTool-{{ version }}.tar.gz
+    - source_hash: sha256={{ ns.hash }}
     - enforce_toplevel: False
     - force: True
     - require:
