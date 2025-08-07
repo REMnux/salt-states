@@ -6,7 +6,16 @@
 # License: "This is free software; you can redistribute it and/or modify it under the same terms as Perl itself": https://exiftool.org/#license
 # Notes: exiftool
 
-{% set version = salt['cmd.shell']('curl -fsL https://exiftool.org/ver.txt || echo -n 13.33') %}
+{% set version_query = salt['http.query']('https://exiftool.org/ver.txt', backend='requests', verify_ssl=True) %}
+{% set version = version_query.get('body').strip() %}
+{% set hash_query = salt['http.query']('https://exiftool.org/checksums.txt', backend='requests', verify_ssl=True) %}
+{% set hash_content = hash_query.get('body').splitlines() %}
+{% set ns = namespace(hash='') %}
+{% for line in hash_content %}
+{% if 'SHA2-256(Image-ExifTool-' ~ version ~ '.tar.gz)' in line %}
+{% set ns.hash = line.split()[-1].strip() %}
+{% endif %}
+{% endfor %}
 
 include:
   - remnux.packages.perl
