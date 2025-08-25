@@ -6,7 +6,7 @@
 # License: "This is free software; you can redistribute it and/or modify it under the same terms as Perl itself": https://exiftool.org/#license
 # Notes: exiftool
 
-{% set version = "13.33" %}
+{% set version = "13.34" %}
 
 include:
   - remnux.packages.perl
