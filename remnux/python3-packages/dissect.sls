@@ -42,6 +42,14 @@ remnux-python3-packages-dissect-virtualenv:
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.liblzo2-dev
 
+remnux-python3-packages-dissect-fusepy-prereq:
+  pip.installed:
+    - name: setuptools==68.2.0
+    - bin_env: /opt/dissect/bin/python3
+    - user: root
+    - require:
+      - virtualenv: remnux-python3-packages-dissect-virtualenv
+
 remnux-python3-packages-dissect-install:
   pip.installed:
     - names:
@@ -52,7 +60,7 @@ remnux-python3-packages-dissect-install:
     - upgrade: True
     - user: root
     - require:
-      - virtualenv: remnux-python3-packages-dissect-virtualenv
+      - pip: remnux-python3-packages-dissect-fusepy-prereq
 
 remnux-python3-packages-dissect-venv-shortcut:
   file.managed:
