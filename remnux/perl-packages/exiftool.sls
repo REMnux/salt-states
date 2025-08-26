@@ -6,7 +6,16 @@
 # License: "This is free software; you can redistribute it and/or modify it under the same terms as Perl itself": https://exiftool.org/#license
 # Notes: exiftool
 
-{% set version = "13.34" %}
+{% set version_query = salt['http.query']('https://exiftool.org/ver.txt', backend='requests', verify_ssl=True) %}
+{% set version = version_query.get('body').strip() %}
+{% set hash_query = salt['http.query']('https://exiftool.org/checksums.txt', backend='requests', verify_ssl=True) %}
+{% set hash_content = hash_query.get('body').splitlines() %}
+{% set ns = namespace(hash='') %}
+{% for line in hash_content %}
+{% if 'SHA2-256(Image-ExifTool-' ~ version ~ '.tar.gz)' in line %}
+{% set ns.hash = line.split()[-1].strip() %}
+{% endif %}
+{% endfor %}
 
 include:
   - remnux.packages.perl
@@ -16,13 +25,14 @@ remnux-perl-packages-exiftool-download:
   file.managed:
     - name: /usr/local/src/remnux/files/Image-ExifTool-{{ version }}.tar.gz
     - source: https://exiftool.org/Image-ExifTool-{{ version }}.tar.gz
-    - skip_verify: True
+    - source_hash: sha256={{ ns.hash }}
     - makedirs: True
 
 remnux-perl-packages-exiftool-extract:
   archive.extracted:
     - name: /usr/local/src/remnux/exiftool
     - source: /usr/local/src/remnux/files/Image-ExifTool-{{ version }}.tar.gz
+    - source_hash: sha256={{ ns.hash }}
     - enforce_toplevel: False
     - force: True
     - require:
