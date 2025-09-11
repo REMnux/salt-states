@@ -6,6 +6,8 @@
 # License: MIT License: https://github.com/pan-unit42/dotnetfile/blob/main/LICENSE
 # Notes: You can use the command-line tool `dotnetfile_dump.py`. Alternatively, to use this library, create a Python program that imports it and loads the .NET file, as described in https://github.com/pan-unit42/dotnetfile/blob/main/readme.md.
 
+{% set hash = 'aff85a4e399c2b6c6fff5eb8d5957aa9960843c5d1c34d2d82e9195cda6b90b3' %}
+
 include:
   - remnux.packages.python3-virtualenv
 
@@ -25,8 +27,8 @@ remnux-python3-packages-dotnetfile-venv:
 remnux-python3-packages-dotnetfile-dump:
   file.managed:
     - name: /opt/dotnetfile/bin/dotnetfile_dump.py
-    - source: https://raw.githubusercontent.com/pan-unit42/dotnetfile/main/examples/dotnetfile_dump.py
-    - source_hash: sha256=2c0cc300a51c6035a3c90c9c515ae8572207ed97be6a49d15dfc9a758df02eea
+    - source: https://raw.githubusercontent.com/pan-unit42/dotnetfile/refs/heads/main/tools/dotnetfile_dump.py
+    - source_hash: sha256={{ hash }}
     - makedirs: false
     - mode: 755
     - require:
@@ -35,7 +37,7 @@ remnux-python3-packages-dotnetfile-dump:
 remnux-python3-packages-dotnetfile-dump-shebang:
   file.prepend:
     - name: /opt/dotnetfile/bin/dotnetfile_dump.py
-    - text: '#!/usr/bin/env python3'
+    - text: '#!/opt/dotnetfile/bin/python3'
     - require:
       - file: remnux-python3-packages-dotnetfile-dump
 
