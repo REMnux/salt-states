@@ -6,8 +6,5 @@
 # License: GNU General Public License (GPL) v3: https://github.com/simsong/tcpflow/blob/master/COPYING
 # Notes: 
 
-include:
-  - remnux.repos.remnux
-
 tcpflow:
   pkg.installed

@@ -1,2 +1,0 @@
-usbmount:
-  pkg.installed

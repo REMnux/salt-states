@@ -6,8 +6,5 @@
 # License: Apache License 2.0: https://github.com/qpdf/qpdf/blob/master/LICENSE.txt
 # Notes: 
 
-include:
-  - remnux.repos.remnux
-
 qpdf:
   pkg.installed
