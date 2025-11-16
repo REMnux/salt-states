@@ -6,6 +6,13 @@
 # License: BSD 3-Clause License: https://github.com/viper-framework/viper/blob/master/LICENSE
 # Notes: Viper is temporarily excluded from the REMnux distro due to dependency issues. Instead, use the remnux/viper Docker image: https://docs.remnux.org/run-tools-in-containers/remnux-containers#viper-binary-analysis-and-management-framework
 
+{% if grains['oscodename'] == 'noble'%}
+
+viper-framework not yet available in Noble:
+  test.nop
+
+{% else %}
+
 {% if grains['oscodename'] == "focal" %}
   {% set python3_version = "python3.9" %}
   {% set python3_dependency = "python39" %}
@@ -112,15 +119,6 @@ remnux-python3-packages-viper-modules-git:
     - require:
       - file: remnux-python3-packages-viper-directory
 
-#remnux-python3-packages-viper-modules-git-safe:
-#  git.config_set:
-#    - name: safe.directory
-#    - value: {{ home }}/.viper/modules
-#    - repo: {{ home }}/.viper/modules
-#    - user: {{ user }}
-#    - require:
-#      - git: remnux-python3-packages-viper-modules-git
-
 remnux-python3-packages-viper-modules-verify-sigs:
   file.replace:
     - name: {{ home }}/.viper/modules/requirements.txt
@@ -184,3 +182,4 @@ remnux-python3-packages-viper-venv-directory:
       - group
     - require:
       - pip: remnux-python3-packages-viper-install
+{% endif %}

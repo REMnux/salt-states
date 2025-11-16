@@ -6,6 +6,13 @@
 # License: GNU General Public License v3.0: https://github.com/omriher/CapTipper/blob/python3_support/LICENSE
 # Notes: CapTipper.py
 
+{% if grains['oscodename'] == 'noble'%}
+
+captipper not yet available in Noble:
+  test.nop
+
+{% else %}
+
 include:
   - remnux.packages.python3-virtualenv
   - remnux.packages.git
@@ -74,3 +81,4 @@ remnux-tools-captipper-shebang:
     - count: 1
     - require:
       - file: remnux-tools-captipper-symlink
+{% endif %}
