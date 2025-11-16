@@ -116,7 +116,6 @@ include:
   - remnux.packages.nodejs
   - remnux.packages.python3-tk
   - remnux.packages.nautilus
-  - remnux.packages.postgresql
   - remnux.packages.libolecf
   - remnux.packages.dex2jar
   - remnux.packages.netcat
@@ -146,7 +145,7 @@ include:
   - remnux.packages.sleuthkit
   - remnux.packages.ilspy
   - remnux.packages.ghidra
-  - remnux.packages.bddisasm
+#  - remnux.packages.bddisasm
   - remnux.packages.tzdata
   - remnux.packages.binwalk
   - remnux.packages.nasm
@@ -280,7 +279,6 @@ remnux-packages:
       - sls: remnux.packages.nodejs
       - sls: remnux.packages.python3-tk
       - sls: remnux.packages.nautilus
-      - sls: remnux.packages.postgresql
       - sls: remnux.packages.libolecf
       - sls: remnux.packages.dex2jar
       - sls: remnux.packages.netcat
@@ -310,7 +308,7 @@ remnux-packages:
       - sls: remnux.packages.sleuthkit
       - sls: remnux.packages.ilspy
       - sls: remnux.packages.ghidra
-      - sls: remnux.packages.bddisasm
+#      - sls: remnux.packages.bddisasm
       - sls: remnux.packages.tzdata
       - sls: remnux.packages.binwalk
       - sls: remnux.packages.nasm

@@ -10,7 +10,7 @@ include:
   - remnux.python3-packages.r2pipe
 ##  - remnux.python3-packages.virustotal-api - no application to use, should it be installed? How will user access library?
   - remnux.python3-packages.xortool
-  - remnux.python3-packages.xxxswf
+##  - remnux.python3-packages.xxxswf
   - remnux.python3-packages.thug
   - remnux.python3-packages.xlmmacrodeobfuscator
   - remnux.python3-packages.unicode
@@ -24,7 +24,7 @@ include:
   - remnux.python3-packages.malwoverview
   - remnux.python3-packages.chepy
   - remnux.python3-packages.frida
-  - remnux.python3-packages.stringsifter
+##  - remnux.python3-packages.stringsifter
   - remnux.python3-packages.oletools
   - remnux.python3-packages.unfurl
   - remnux.python3-packages.speakeasy
@@ -68,7 +68,7 @@ remnux-python3-packages:
       ## r2pipe - unused by any tool, not installing library globally in Noble
 ##      - sls: remnux.python3-packages.virustotal-api - no application to use, should it be installed? How will user access library?
       - sls: remnux.python3-packages.xortool
-      - sls: remnux.python3-packages.xxxswf
+##      - sls: remnux.python3-packages.xxxswf
       ## xxxswf - contains deprecated functions for py3 in noble
       - sls: remnux.python3-packages.thug
       - sls: remnux.python3-packages.xlmmacrodeobfuscator
@@ -83,7 +83,7 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.malwoverview
       - sls: remnux.python3-packages.chepy
       - sls: remnux.python3-packages.frida
-      - sls: remnux.python3-packages.stringsifter
+##      - sls: remnux.python3-packages.stringsifter
       ## stringsifter - pyproject.toml pins numpy at 1.24.4 but is not compatible with noble
       - sls: remnux.python3-packages.oletools
       - sls: remnux.python3-packages.unfurl

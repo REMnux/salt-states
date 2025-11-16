@@ -10,11 +10,17 @@
 
 include:
   - remnux.packages.python3-virtualenv
+  - remnux.packages.python3-pip
 
+{% if grains['oscodename'] != 'noble' %}
 remnux-python3-packages-remove-speakeasy:
   pip.removed:
     - name: speakeasy
     - bin_env: /usr/bin/python3
+    - require:
+      - sls: remnux.packages.python3-pip
+
+{% endif %}
 
 remnux-python3-packages-speakeasy-virtualenv:
   virtualenv.managed:
@@ -28,7 +34,9 @@ remnux-python3-packages-speakeasy-virtualenv:
     - require:
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.python3-pip
+{% if grains['oscodename'] != 'noble' %}
       - pip: remnux-python3-packages-remove-speakeasy
+{% endif %}
 
 remnux-python3-packages-speakeasy:
   pip.installed:

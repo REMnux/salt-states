@@ -11,7 +11,7 @@ include:
   - remnux.tools.fakedns
   - remnux.tools.shellcode2exe-bat
   - remnux.tools.bytehist
-  - remnux.tools.binnavi
+##  - remnux.tools.binnavi
   ## binnavi - issue with pgadmin4 on Ubuntu Noble - https://github.com/pgadmin-org/pgadmin4/issues/7928
   - remnux.tools.de4dot
   - remnux.tools.trid
@@ -20,7 +20,7 @@ include:
   - remnux.tools.polarproxy
   - remnux.tools.ssview
   - remnux.tools.yara-rules
-  - remnux.tools.captipper
+##  - remnux.tools.captipper
   ## captipper - Python 3.12 does not support the 'imp' module required for CapTipper
   - remnux.tools.jadx
   - remnux.tools.detect-it-easy
@@ -42,7 +42,7 @@ remnux-tools:
       - sls: remnux.tools.fakedns
       - sls: remnux.tools.shellcode2exe-bat
       - sls: remnux.tools.bytehist
-      - sls: remnux.tools.binnavi
+##      - sls: remnux.tools.binnavi
       - sls: remnux.tools.de4dot
       - sls: remnux.tools.trid
       - sls: remnux.tools.manalyze
@@ -50,7 +50,7 @@ remnux-tools:
       - sls: remnux.tools.polarproxy
       - sls: remnux.tools.ssview
       - sls: remnux.tools.yara-rules
-      - sls: remnux.tools.captipper
+##      - sls: remnux.tools.captipper
       - sls: remnux.tools.jadx
       - sls: remnux.tools.detect-it-easy
       - sls: remnux.tools.capa
