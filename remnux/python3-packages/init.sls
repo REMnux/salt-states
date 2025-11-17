@@ -1,4 +1,6 @@
 include:
+  - remnux.python3-packages.distro-info
+  - remnux.python3-packages.python-debian
   - remnux.python3-packages.androguard
   - remnux.python3-packages.ioc-parser
   - remnux.python3-packages.ipwhois
@@ -24,7 +26,7 @@ include:
   - remnux.python3-packages.malwoverview
   - remnux.python3-packages.chepy
   - remnux.python3-packages.frida
-  - remnux.python3-packages.stringsifter
+##  - remnux.python3-packages.stringsifter
   - remnux.python3-packages.oletools
   - remnux.python3-packages.unfurl
   - remnux.python3-packages.speakeasy
@@ -55,6 +57,8 @@ include:
 remnux-python3-packages:
   test.nop:
     - require:
+      - sls: remnux.python3-packages.distro-info
+      - sls: remnux.python3-packages.python-debian
       - sls: remnux.python3-packages.androguard
       - sls: remnux.python3-packages.ioc-parser
       - sls: remnux.python3-packages.ipwhois
@@ -80,7 +84,8 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.malwoverview
       - sls: remnux.python3-packages.chepy
       - sls: remnux.python3-packages.frida
-      - sls: remnux.python3-packages.stringsifter
+##      - sls: remnux.python3-packages.stringsifter
+      ## stringsifter - pyproject.toml pins numpy at 1.24.4 but is not compatible with noble
       - sls: remnux.python3-packages.oletools
       - sls: remnux.python3-packages.unfurl
       - sls: remnux.python3-packages.speakeasy
