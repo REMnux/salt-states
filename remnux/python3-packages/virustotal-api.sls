@@ -5,7 +5,12 @@
 # Author: VirusTotal
 # License: Apache 2.0 (https://github.com/VirusTotal/vt-py/blob/master/LICENSE)
 # Notes:
+{% if grains['oscodename'] == 'noble'%}
 
+virustotal-api not yet available in Noble:
+  test.nop
+
+{% else %}
 include:
   - remnux.packages.python3-virtualenv
 
@@ -28,3 +33,4 @@ remnux-python3-packages-vt-py:
     - upgrade: True
     - require:
       - virtualenv: remnux-python3-packages-vt-py-venv
+{% endif %}

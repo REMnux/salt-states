@@ -5,6 +5,12 @@
 # Author: Philippe Lagadec: https://twitter.com/decalage2
 # License: Free, custom license: https://github.com/decalage2/ViperMonkey#license
 # Notes: vmonkey
+{% if grains['oscodename'] == 'noble'%}
+
+vipermonkey not yet available in Noble:
+  test.nop
+
+{% else %}
 
 {% set files = ['vmonkey','vbashell'] %}
 
@@ -48,3 +54,4 @@ remnux-python3-package-vipermonkey-symlink-{{ file }}:
     - require:
       - pip: remnux-python3-package-vipermonkey
 {% endfor %}
+{% endif %}

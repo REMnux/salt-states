@@ -6,6 +6,13 @@
 # License: GNU General Public License (GPL) v3.0: https://github.com/viper-framework/xxxswf/blob/master/LICENSE.txt
 # Notes: 
 
+{% if grains['oscodename'] == 'noble'%}
+
+xxxswf not yet available in Noble:
+  test.nop
+
+{% else %}
+
 include:
   - remnux.packages.python3-virtualenv
   - remnux.packages.python3-dev
@@ -45,3 +52,4 @@ remnux-python3-packages-xxxswf-symlink:
     - makedirs: False
     - require:
       - pip: remnux-python3-packages-xxxswf
+{% endif %}

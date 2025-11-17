@@ -92,7 +92,6 @@ include:
   - remnux.packages.unhide
   - remnux.packages.unrar
   - remnux.packages.upx-ucl
-  - remnux.packages.usbmount
   - remnux.packages.vbindiff
   - remnux.packages.wget
   - remnux.packages.wireshark
@@ -117,9 +116,7 @@ include:
   - remnux.packages.nodejs
   - remnux.packages.python3-tk
   - remnux.packages.nautilus
-  - remnux.packages.postgresql
   - remnux.packages.libolecf
-  - remnux.packages.procdot
   - remnux.packages.dex2jar
   - remnux.packages.netcat
   - remnux.packages.python3-pyqt5
@@ -138,7 +135,6 @@ include:
   - remnux.packages.msoffice-crypt
   - remnux.packages.flare-floss
   - remnux.packages.sqlite
-  - remnux.packages.nsrllookup
   - remnux.packages.binee
   - remnux.packages.xorsearch
   - remnux.packages.nano
@@ -149,7 +145,7 @@ include:
   - remnux.packages.sleuthkit
   - remnux.packages.ilspy
   - remnux.packages.ghidra
-  - remnux.packages.bddisasm
+#  - remnux.packages.bddisasm
   - remnux.packages.tzdata
   - remnux.packages.binwalk
   - remnux.packages.nasm
@@ -259,7 +255,6 @@ remnux-packages:
       - sls: remnux.packages.unhide
       - sls: remnux.packages.unrar
       - sls: remnux.packages.upx-ucl
-      - sls: remnux.packages.usbmount
       - sls: remnux.packages.vbindiff
       - sls: remnux.packages.wget
       - sls: remnux.packages.wireshark
@@ -284,9 +279,7 @@ remnux-packages:
       - sls: remnux.packages.nodejs
       - sls: remnux.packages.python3-tk
       - sls: remnux.packages.nautilus
-      - sls: remnux.packages.postgresql
       - sls: remnux.packages.libolecf
-      - sls: remnux.packages.procdot
       - sls: remnux.packages.dex2jar
       - sls: remnux.packages.netcat
       - sls: remnux.packages.python3-pyqt5
@@ -305,7 +298,6 @@ remnux-packages:
       - sls: remnux.packages.msoffice-crypt
       - sls: remnux.packages.flare-floss
       - sls: remnux.packages.sqlite
-      - sls: remnux.packages.nsrllookup
       - sls: remnux.packages.binee
       - sls: remnux.packages.xorsearch
       - sls: remnux.packages.nano
@@ -316,7 +308,7 @@ remnux-packages:
       - sls: remnux.packages.sleuthkit
       - sls: remnux.packages.ilspy
       - sls: remnux.packages.ghidra
-      - sls: remnux.packages.bddisasm
+#      - sls: remnux.packages.bddisasm
       - sls: remnux.packages.tzdata
       - sls: remnux.packages.binwalk
       - sls: remnux.packages.nasm

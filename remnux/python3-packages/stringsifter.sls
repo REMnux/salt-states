@@ -6,6 +6,13 @@
 # License: Apache License 2.0: https://github.com/mandiant/stringsifter/blob/master/LICENSE
 # Notes: flarestrings
 
+{% if grains['oscodename'] == 'noble'%}
+
+stringsifter not yet available in Noble:
+  test.nop
+
+{% else %}
+
 include:
   - remnux.packages.python3-virtualenv
   - remnux.packages.python3-dev
@@ -39,3 +46,4 @@ remnux-python3-packages-stringsifter-symlink:
     - makedirs: False
     - require:
       - pip: remnux-python3-packages-stringsifter
+{% endif %}

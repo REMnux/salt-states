@@ -6,6 +6,13 @@
 # License: Apache License 2.0: https://github.com/google/binnavi/blob/master/LICENSE
 # Notes: binnavi
 
+{% if grains['oscodename'] == 'noble'%}
+
+binnavi not yet available in Noble:
+  test.nop
+
+{% else %}
+
 include:
   - remnux.packages.default-jre
   - remnux.packages.postgresql
@@ -42,3 +49,4 @@ remnux-tools-binnavi-wrapper:
       - sudo systemctl start postgresql;
       - java --illegal-access=warn -jar /usr/local/binnavi/binnavi-all.jar ${*}
 
+{% endif %}

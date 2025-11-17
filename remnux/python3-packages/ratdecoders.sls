@@ -6,6 +6,13 @@
 # License: MIT License: https://github.com/kevthehermit/RATDecoders/blob/master/LICENSE
 # Notes: malconf
 
+{% if grains['oscodename'] == 'noble'%}
+
+ratdecoders not yet available in Noble:
+  test.nop
+
+{% else %}
+
 include:
   - remnux.packages.python3-virtualenv
 
@@ -40,3 +47,4 @@ remnux-python3-packages-ratdecoders-symlink:
     - makedirs: False
     - require:
       - pip: remnux-python3-packages-ratdecoders
+{% endif %}
