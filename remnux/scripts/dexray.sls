@@ -1,9 +1,9 @@
 # Name: DeXRAY
-# Website: http://www.hexacorn.com/blog/category/software-releases/dexray/
+# Website: https://www.hexacorn.com/blog/category/software-releases/dexray/
 # Description: Extract and decode data from antivirus quarantine files.
 # Category: Gather and Analyze Data
 # Author: Hexacorn
-# License: Free; copyright by Hexacorn.com: http://hexacorn.com/d/DeXRAY.pl
+# License: Free; copyright by Hexacorn.com: https://hexacorn.com/d/DeXRAY.pl
 # Notes: dexray
 
 include:
@@ -18,7 +18,7 @@ remnux-scripts-dexray-source:
   file.managed:
     - name: /usr/local/bin/dexray
     - source: https://hexacorn.com/d/DeXRAY.pl
-    - source_hash: sha256=6b11902badba2e0c2a811bdc9fe4e32a8654eb61fbb66f9e65c14b7d18b9e6fc
+    - source_hash: sha256=fa566a68f364b6f31a7ef7b903baca489211d991620f3f0000d75e4640566078
     - mode: 755
     - requires:
       - sls: remnux.packages.perl
