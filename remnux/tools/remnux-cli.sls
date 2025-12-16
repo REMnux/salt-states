@@ -7,8 +7,8 @@
 # Notes: remnux
 
 {%- set source = "https://github.com/REMnux/remnux-cli/releases/download/v" -%}		
-{% set hash = "16761c36ae437e0020346c026c4e6a78299993f496699d7a4b5a44d6946d03a9" %}		
-{% set version = "1.5.0" %}
+{% set hash = "c46c732f5ab8f33ce957db8b6f0827554bf100b8a26b4765410b252429a26380" %}		
+{% set version = "1.5.1" %}
 
 remnux-tool-remnux-cli:
   file.managed:
