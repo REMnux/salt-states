@@ -12,6 +12,8 @@ manifest:
     - name: dedicated
       state: remnux.dedicated
       default: true
+    - name: cloud
+      state: remnux.cloud
   supported_os:
     - id: ubuntu
       release: "20.04"
