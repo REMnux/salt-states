@@ -1,0 +1,46 @@
+version: 2
+name: remnux
+base_dir: remnux
+modes:
+  - name: addon
+    state: remnux.addon
+  - name: dedicated
+    state: remnux.dedicated
+    default: true
+  - name: cloud
+    state: remnux.cloud
+supported_os:
+  - id: ubuntu
+    release: "20.04"
+  - id: ubuntu
+    release: "24.04"
+saltstack:
+  pillars:
+    remnux_user_template: "{{ .User }}"
+success_message: |
+  REMnux installation completed successfully!
+
+  Please reboot to make sure all settings take effect.
+failure_message: |
+  REMnux installation encountered errors.
+
+  Try rebooting your system and trying the operation again.
+
+  Sometimes problems occur due to network or server issues when
+  downloading packages, in which case retrying your operation
+  a bit later might lead to a better result.
+
+  Additionally, if you are operating behind a proxy, you may
+  need to configure your environment to allow access through
+  the proxy.
+
+  To determine the nature of the issue, review the log files at:
+
+    /var/cache/cast/installer/logs/saltstack.log
+    /var/cache/cast/installer/logs/results.yaml
+
+  In saltstack.log, look for lines containing [ERROR] or states
+  marked with "result: false". The first failure is usually the
+  root cause.
+
+  For assistance go to https://github.com/REMnux/salt-states/issues

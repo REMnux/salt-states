@@ -70,6 +70,12 @@ curl -XPOST -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" -H "Content-Type: t
 echo "==> Uploading remnux-salt-states-$TAG_NAME.tar.gz.asc"
 curl -XPOST -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" -H "Content-Type: text/plain" -q "https://uploads.github.com/repos/remnux/salt-states/releases/${RELEASE_ID}/assets?name=remnux-salt-states-${TAG_NAME}.tar.gz.asc" --data-binary @/tmp/remnux-salt-states-$TAG_NAME.tar.gz.asc
 
+echo "==> Uploading manifest.yml"
+curl -XPOST -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" \
+  -H "Content-Type: text/plain" \
+  -q "https://uploads.github.com/repos/remnux/salt-states/releases/${RELEASE_ID}/assets?name=manifest.yml" \
+  --data-binary @.ci/manifest.yml
+
 rm /tmp/remnux-salt-states-${TAG_NAME}.tar.gz
 rm /tmp/remnux-salt-states-$TAG_NAME.tar.gz.sha256
 rm /tmp/remnux-salt-states-$TAG_NAME.tar.gz.sha256.asc
