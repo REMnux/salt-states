@@ -4,7 +4,7 @@
 # Category: Statically Analyze Code: General
 # Author: Google/Zynamics
 # License: Apache License 2.0: https://github.com/google/binnavi/blob/master/LICENSE
-# Notes: binnavi
+# Notes: Only available on older version of REMnux based on Ubuntu 20.04 (Focal). binnavi
 
 {% if grains['oscodename'] == 'noble'%}
 

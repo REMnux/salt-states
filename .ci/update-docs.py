@@ -409,10 +409,13 @@ def find_tool_in_content(content: str, tool_name: str, case_sensitive: bool = Tr
     actual_name = ""
     
     for i, line in enumerate(lines):
-        # Check if this is a tool heading
-        heading_match = re.match(r"^## (.+?)\s*$", line)
-        if heading_match:
-            found_name = heading_match.group(1)
+        # Check if this is a tool heading (## ToolName or ## ToolName <a href...>)
+        if line.startswith("## "):
+            # Extract tool name, handling potential anchor links
+            found_name = line[3:].strip()
+            # Remove anchor links like <a href="#numbers-to-string" id="numbers-to-string"></a>
+            found_name = re.sub(r'\s*<a\s+[^>]*>.*?</a>\s*$', '', found_name).strip()
+            
             # Compare names (case-sensitive or insensitive)
             if case_sensitive:
                 matches = (found_name == tool_name)
@@ -426,8 +429,8 @@ def find_tool_in_content(content: str, tool_name: str, case_sensitive: bool = Tr
         
         if start_line >= 0:
             # Look for the next heading or end of file
-            if re.match(r"^## ", line) or i == len(lines) - 1:
-                end_line = i if re.match(r"^## ", line) else i + 1
+            if line.startswith("## ") or i == len(lines) - 1:
+                end_line = i if line.startswith("## ") else i + 1
                 break
     
     if start_line == -1:

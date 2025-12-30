@@ -4,7 +4,7 @@
 # Category: Explore Network Interactions: Monitoring
 # Author: Omri Herscovici: https://twitter.com/omriher
 # License: GNU General Public License v3.0: https://github.com/omriher/CapTipper/blob/python3_support/LICENSE
-# Notes: CapTipper.py
+# Notes: Only available on older version of REMnux based on Ubuntu 20.04 (Focal). CapTipper.py
 
 {% if grains['oscodename'] == 'noble'%}
 

@@ -4,7 +4,7 @@
 # Category: Gather and Analyze Data
 # Author: VirusTotal
 # License: Apache 2.0 (https://github.com/VirusTotal/vt-py/blob/master/LICENSE)
-# Notes:
+# Notes: Only available on older version of REMnux based on Ubuntu 20.04 (Focal).
 {% if grains['oscodename'] == 'noble'%}
 
 virustotal-api not yet available in Noble:

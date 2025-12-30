@@ -4,7 +4,7 @@
 # Category: Examine Static Properties: Deobfuscation
 # Author: Kevin Breen: https://twitter.com/KevTheHermit
 # License: MIT License: https://github.com/kevthehermit/RATDecoders/blob/master/LICENSE
-# Notes: malconf
+# Notes: Only available on older version of REMnux based on Ubuntu 20.04 (Focal). malconf
 
 {% if grains['oscodename'] == 'noble'%}
 

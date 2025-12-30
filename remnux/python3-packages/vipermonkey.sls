@@ -4,7 +4,7 @@
 # Category: Analyze Documents: Microsoft Office
 # Author: Philippe Lagadec: https://twitter.com/decalage2
 # License: Free, custom license: https://github.com/decalage2/ViperMonkey#license
-# Notes: vmonkey
+# Notes: Only available on older version of REMnux based on Ubuntu 20.04 (Focal). vmonkey
 {% if grains['oscodename'] == 'noble'%}
 
 vipermonkey not yet available in Noble:
