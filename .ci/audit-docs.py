@@ -304,9 +304,17 @@ def find_all_state_files(base_path: str) -> list[str]:
         # Check if it has front matter
         try:
             with open(sls_file, "r") as f:
-                first_line = f.readline()
-                if first_line.startswith("# Name:"):
-                    state_files.append(str(sls_file))
+                # Read first few lines to find "# Name:"
+                for _ in range(5):
+                    line = f.readline()
+                    if not line:
+                        break
+                    if line.strip().startswith("# Name:"):
+                        state_files.append(str(sls_file))
+                        break
+                    if line.strip() and not line.strip().startswith("#"):
+                        # Stop if we hit non-comment content (ignoring whitespace)
+                        break
         except Exception:
             pass
     return state_files
