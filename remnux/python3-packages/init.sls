@@ -26,7 +26,6 @@ include:
   - remnux.python3-packages.malwoverview
   - remnux.python3-packages.chepy
   - remnux.python3-packages.frida
-##  - remnux.python3-packages.stringsifter
   - remnux.python3-packages.oletools
   - remnux.python3-packages.unfurl
   - remnux.python3-packages.speakeasy
@@ -83,8 +82,6 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.malwoverview
       - sls: remnux.python3-packages.chepy
       - sls: remnux.python3-packages.frida
-##      - sls: remnux.python3-packages.stringsifter
-      ## stringsifter - pyproject.toml pins numpy at 1.24.4 but is not compatible with noble
       - sls: remnux.python3-packages.oletools
       - sls: remnux.python3-packages.unfurl
       - sls: remnux.python3-packages.speakeasy

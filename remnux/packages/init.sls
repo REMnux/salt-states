@@ -83,7 +83,6 @@ include:
   - remnux.packages.strace
   - remnux.packages.subversion
   - remnux.packages.swftools
-#  - remnux.packages.sysdig
   - remnux.packages.tcpdump
   - remnux.packages.tcpflow
   - remnux.packages.tcpick
@@ -145,7 +144,6 @@ include:
   - remnux.packages.sleuthkit
   - remnux.packages.ilspy
   - remnux.packages.ghidra
-#  - remnux.packages.bddisasm
   - remnux.packages.tzdata
   - remnux.packages.binwalk
   - remnux.packages.nasm
@@ -246,7 +244,6 @@ remnux-packages:
       - sls: remnux.packages.strace
       - sls: remnux.packages.subversion
       - sls: remnux.packages.swftools
-#      - sls: remnux.packages.sysdig
       - sls: remnux.packages.tcpdump
       - sls: remnux.packages.tcpflow
       - sls: remnux.packages.tcpick
@@ -308,7 +305,6 @@ remnux-packages:
       - sls: remnux.packages.sleuthkit
       - sls: remnux.packages.ilspy
       - sls: remnux.packages.ghidra
-#      - sls: remnux.packages.bddisasm
       - sls: remnux.packages.tzdata
       - sls: remnux.packages.binwalk
       - sls: remnux.packages.nasm

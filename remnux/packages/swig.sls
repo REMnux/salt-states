@@ -1,2 +1,0 @@
-swig:
-  pkg.installed
