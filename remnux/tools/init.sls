@@ -13,7 +13,6 @@ include:
   - remnux.tools.bytehist
   - remnux.tools.binnavi
   ## binnavi - issue with pgadmin4 on Ubuntu Noble - https://github.com/pgadmin-org/pgadmin4/issues/7928
-  - remnux.tools.de4dot
   - remnux.tools.trid
   - remnux.tools.manalyze
   - remnux.tools.apktool
@@ -43,7 +42,6 @@ remnux-tools:
       - sls: remnux.tools.shellcode2exe-bat
       - sls: remnux.tools.bytehist
       - sls: remnux.tools.binnavi
-      - sls: remnux.tools.de4dot
       - sls: remnux.tools.trid
       - sls: remnux.tools.manalyze
       - sls: remnux.tools.apktool
