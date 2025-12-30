@@ -1,6 +1,6 @@
 # Name: Didier Stevens Scripts
 # Website: https://blog.didierstevens.com
-# Description: 
+# Description: A collection of Python scripts for analyzing suspicious files and data from Didier Stevens.
 # Category: Examine Static Properties: Deobfuscation, Analyze Documents: General
 # Author: Didier Stevens: https://twitter.com/DidierStevens
 # License: Public Domain

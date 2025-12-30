@@ -1,4 +1,4 @@
-# Name: Volatility 3
+# Name: Volatility Framework
 # Website: https://github.com/volatilityfoundation/volatility3
 # Description: Memory forensics tool and framework
 # Category: Perform Memory Forensics
