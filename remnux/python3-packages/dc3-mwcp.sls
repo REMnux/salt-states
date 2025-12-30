@@ -1,4 +1,4 @@
-# Name: DC3-mwcp
+# Name: DC3-MWCP
 # Website: https://github.com/Defense-Cyber-Crime-Center/DC3-mwcp
 # Description: Parsing configuration information from malware.
 # Category: Examine Static Properties: Deobfuscation

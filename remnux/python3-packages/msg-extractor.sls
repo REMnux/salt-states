@@ -1,7 +1,7 @@
 # Name: msg-extractor
 # Website: https://github.com/TeamMsgExtractor/msg-extractor
 # Description: Extract emails and attachments from MSG files.
-# Category: Analyze Documents: Email messages
+# Category: Analyze Documents: Email Messages
 # Author: https://github.com/TeamMsgExtractor/msg-extractor#credits
 # License: GNU General Public License v3.0: https://github.com/TeamMsgExtractor/msg-extractor/blob/master/LICENSE.txt
 # Notes: extract_msg
