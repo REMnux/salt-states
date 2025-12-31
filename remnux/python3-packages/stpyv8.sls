@@ -1,6 +1,6 @@
 # Name: STPyV8
 # Website: https://github.com/cloudflare/stpyv8
-# Description: Python3 and JavaScript interop engine, fork of the original PyV8 project
+# Description: Python3 and JavaScript interop engine, fork of the original PyV8 project.
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Area1 Security
 # License: Apache License 2.0: https://github.com/cloudflare/stpyv8/blob/master/LICENSE.txt

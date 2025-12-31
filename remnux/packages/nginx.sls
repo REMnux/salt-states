@@ -1,6 +1,6 @@
 # Name: Nginx
 # Website: https://nginx.org
-# Description: Web server
+# Description: Web server.
 # Category: Explore Network Interactions: Services
 # Author: Igor Sysoev, Nginx Inc.
 # License: Free, custom license: https://nginx.org/LICENSE

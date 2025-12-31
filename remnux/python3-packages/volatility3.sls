@@ -1,6 +1,6 @@
 # Name: Volatility Framework
 # Website: https://github.com/volatilityfoundation/volatility3
-# Description: Memory forensics tool and framework
+# Description: Memory forensics tool and framework.
 # Category: Perform Memory Forensics
 # Author: The Volatility Foundation
 # License: Volatility Software License: https://github.com/volatilityfoundation/volatility3/blob/master/LICENSE.txt

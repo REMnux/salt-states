@@ -1,6 +1,6 @@
 # Name: pcode2code
 # Website: https://github.com/Big5-sec/pcode2code
-# Description: Decompile VBA macro p-code from Microsoft Office documents
+# Description: Decompile VBA macro p-code from Microsoft Office documents.
 # Category: Analyze Documents: Microsoft Office
 # Author: Nicolas Zilio: https://twitter.com/Big5_sec
 # License: GNU General Public License (GPL) v3: https://github.com/Big5-sec/pcode2code/blob/master/LICENSE

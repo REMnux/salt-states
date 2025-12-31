@@ -1,6 +1,6 @@
 # Name: cfr
 # Website: https://www.benf.org/other/cfr/
-# Description: Java decompiler
+# Description: Java decompiler.
 # Category: Statically Analyze Code: Java
 # Author: Lee Benfield
 # License: MIT License: https://github.com/leibnitz27/cfr/blob/master/LICENSE

@@ -1,6 +1,6 @@
 # Name: thefuzz
 # Website: https://github.com/seatgeek/thefuzz
-# Description: Fuzzy String Matching in Python
+# Description: Fuzzy String Matching in Python.
 # Category: Examine Static Properties: General
 # Author: SeatGeek
 # License: MIT License (https://github.com/seatgeek/thefuzz/blob/master/LICENSE.txt)

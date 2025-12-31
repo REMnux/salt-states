@@ -1,6 +1,6 @@
 # Name: PostgreSQL
 # Website: https://www.postgresql.org
-# Description: Relational Database
+# Description: Relational Database.
 # Category: General Utilities
 # Author: PostgreSQL Global Development Group
 # License: PostgreSQL Licence: https://www.postgresql.org/about/licence/

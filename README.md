@@ -10,6 +10,7 @@ SaltStack state files for building and maintaining the [REMnux](https://remnux.o
 - [Adding or Updating a Tool](#adding-or-updating-a-tool)
 - [Removing a Tool](#removing-a-tool)
 - [Documentation Management](#documentation-management)
+- [Releasing](#releasing)
 - [CI Scripts](#ci-scripts)
 
 ## Repository Structure
@@ -168,6 +169,16 @@ The audit identifies:
 - **Errors**: Tools in state files missing from docs
 - **Warnings**: Tools in docs missing from state files, description/URL mismatches
 - **Info**: Tools without categories (expected for dependencies)
+
+## Releasing
+
+For the REMnux installer to apply state file changes, you must issue a new salt-states release. Releases are signed with the REMnux PGP key. Use `tag-and-sign.sh` to create, sign, and push a release:
+
+```bash
+.ci/tag-and-sign.sh v2026.6.2
+```
+
+Version format: `vYYYY.W.R` where `YYYY` is the year, `W` is the week number, and `R` is the release number for that week (starting from `1`).
 
 ## CI Scripts
 

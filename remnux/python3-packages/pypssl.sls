@@ -1,6 +1,6 @@
 # Name: pypssl
 # Website: https://github.com/adulau/crl-monitor/tree/master/client
-# Description: Client API for PSSL
+# Description: Client API for PSSL.
 # Category: 
 # Author: Alexandre Dulaunoy
 # License: Copyright / All Rights Reserved (https://github.com/adulau/crl-monitor/blob/master/client/LICENSE)

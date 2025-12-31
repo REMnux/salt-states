@@ -1,6 +1,6 @@
 # Name: JADX
 # Website: https://github.com/skylot/jadx
-# Description: Generate Java source code from Dalvik Executable (dex) and Android APK files
+# Description: Generate Java source code from Dalvik Executable (dex) and Android APK files.
 # Category: Statically Analyze Code: Android
 # Author: Skylot
 # License: Apache License 2.0: https://github.com/skylot/jadx/blob/master/LICENSE, also see https://github.com/skylot/jadx/blob/master/NOTICE

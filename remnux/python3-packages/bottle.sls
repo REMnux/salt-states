@@ -1,6 +1,6 @@
 # Name: bottle
 # Website: https://bottlepy.org/docs/dev/
-# Description: Python Web Framework
+# Description: Python Web Framework.
 # Category: 
 # Author: https://github.com/bottlepy/bottle/blob/master/AUTHORS
 # License: MIT (https://github.com/bottlepy/bottle/blob/master/LICENSE)

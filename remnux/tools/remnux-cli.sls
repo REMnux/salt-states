@@ -1,6 +1,6 @@
 # Name: REMnux Installer
 # Website: https://github.com/REMnux/remnux-cli
-# Description: Install and upgrade the REMnux distro. 
+# Description: Install and upgrade the REMnux distro.
 # Category: General Utilities
 # Author: Harbingers LLC, Erik Kristensen, revisions by Lenny Zeltser
 # License: MIT License: https://github.com/REMnux/remnux-cli/blob/master/LICENSE

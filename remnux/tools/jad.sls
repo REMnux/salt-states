@@ -1,6 +1,6 @@
 # Name: JAD Java Decompiler
 # Website: Unknown
-# Description: Java decompiler and analysis tool
+# Description: Java decompiler and analysis tool.
 # Category: Statically Analyze Code: Java
 # Author: Pavel Kouznetsov
 # License: Free, unknown license

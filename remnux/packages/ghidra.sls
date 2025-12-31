@@ -1,6 +1,6 @@
 # Name: Ghidra
 # Website: https://ghidra-sre.org
-# Description: Software reverse engineering tool suite
+# Description: Software reverse engineering tool suite.
 # Category: Statically Analyze Code: General
 # Author: National Security Agency
 # License: Apache License 2.0: https://github.com/NationalSecurityAgency/ghidra/blob/master/LICENSE

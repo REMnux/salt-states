@@ -1,6 +1,6 @@
 # Name: PyPDNS
 # Website: https://github.com/CIRCL/PyPDNS
-# Description: Client API to query any Passive DNS implementation
+# Description: Client API to query any Passive DNS implementation.
 # Category: 
 # Author: CIRCL - Computer Incident Response Center Luxembourg
 # License: Copyright / All Rights Reserved (https://github.com/CIRCL/PyPDNS/blob/main/LICENSE) 

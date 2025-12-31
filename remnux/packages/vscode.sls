@@ -1,6 +1,6 @@
 # Name: Visual Studio Code
 # Website: https://code.visualstudio.com/
-# Description: Powerful source code editor
+# Description: Powerful source code editor.
 # Category: View or Edit Files
 # Author: Microsoft Corporation
 # License: Custom license: https://code.visualstudio.com/License/

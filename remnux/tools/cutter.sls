@@ -1,6 +1,6 @@
 # Name: Cutter
 # Website: https://cutter.re
-# Description: Reverse engineering platform powered by Rizin
+# Description: Reverse engineering platform powered by Rizin.
 # Category: Statically Analyze Code: General
 # Author: https://github.com/rizinorg/cutter/graphs/contributors
 # License: GNU General Public License (GPL) v3.0: https://github.com/rizinorg/cutter/blob/master/COPYING

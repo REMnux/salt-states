@@ -1,6 +1,6 @@
 # Name: libemu
 # Website: https://github.com/buffer/libemu
-# Description: A library for x86 code emulation and shellcode detection
+# Description: A library for x86 code emulation and shellcode detection.
 # Category: Dynamically Reverse-Engineer Code: Shellcode
 # Author: https://github.com/buffer/libemu/blob/master/AUTHORS
 # License: Free, unknown license
