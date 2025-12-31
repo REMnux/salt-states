@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.*.sw?
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# Salt
+*.pyc
+
