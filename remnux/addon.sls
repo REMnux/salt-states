@@ -12,7 +12,7 @@ include:
   - remnux.tools
   - remnux.node-packages
   - remnux.perl-packages
-  - remnux.tools.remnux-cli
+  - remnux.tools.remnux-installer
 
 remnux-addon-version-file:
   file.managed:
@@ -30,4 +30,4 @@ remnux-addon-version-file:
       - sls: remnux.tools
       - sls: remnux.node-packages
       - sls: remnux.perl-packages
-      - sls: remnux.tools.remnux-cli
+      - sls: remnux.tools.remnux-installer

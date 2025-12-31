@@ -128,6 +128,7 @@ include:
   - remnux.packages.python3-virtualenv
   - remnux.packages.powershell
   - remnux.packages.cabextract
+  - remnux.packages.cast
   - remnux.packages.baksmali
   - remnux.packages.procyon-decompiler
   - remnux.packages.portex
@@ -289,6 +290,7 @@ remnux-packages:
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.powershell
       - sls: remnux.packages.cabextract
+      - sls: remnux.packages.cast
       - sls: remnux.packages.baksmali
       - sls: remnux.packages.procyon-decompiler
       - sls: remnux.packages.portex

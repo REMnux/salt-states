@@ -10,9 +10,10 @@
 {% set hash = "c46c732f5ab8f33ce957db8b6f0827554bf100b8a26b4765410b252429a26380" %}		
 {% set version = "1.5.1" %}
 
-remnux-tool-remnux-cli:
+remnux-tool-remnux-installer:
   file.managed:
     - name: /usr/local/bin/remnux
     - source: {{ source }}{{ version }}/remnux-cli-linux
     - source_hash: sha256={{ hash }}
     - mode: 755
+

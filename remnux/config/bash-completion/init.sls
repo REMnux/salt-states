@@ -12,7 +12,7 @@ include:
   - remnux.packages.swftools
   - remnux.packages.upx-ucl
   - remnux.python3-packages.xortool
-  - remnux.tools.remnux-cli
+  - remnux.tools.remnux-installer
   - remnux.python3-packages.pcodedmp
   - remnux.packages.msoffice-crypt
   - remnux.packages.binee
@@ -236,7 +236,7 @@ remnux-config-bash-completion-remnux-cli:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.tools.remnux-cli
+      - sls: remnux.tools.remnux-installer
 
 remnux-config-bash-completion-pcodedmp:
   file.managed:
