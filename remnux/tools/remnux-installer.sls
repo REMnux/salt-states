@@ -10,7 +10,7 @@
 {% set hash = "c46c732f5ab8f33ce957db8b6f0827554bf100b8a26b4765410b252429a26380" %}		
 {% set version = "1.5.1" %}
 
-{% set remnux_ng_hash = "53810731a2605a44120553a1057703812f2f9f207d5aa0d4c7f6f116767779c2" %}
+{% set remnux_ng_hash = "6ca531e274f0e50a9e9ba85ae6a575b2970a801ef72e05e5c5a0139a77433804" %}
 
 include:
   - remnux.packages.cast
