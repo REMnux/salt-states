@@ -11,6 +11,7 @@
 {% set version = "1.5.1" %}
 
 {% set remnux_ng_hash = "6ca531e274f0e50a9e9ba85ae6a575b2970a801ef72e05e5c5a0139a77433804" %}
+{% set remnux_diag_hash = "539d38e9d1ecaec5448c7eda7c7d4259ad4ac740adbbe6828a5ff3095d5a3887" %}
 
 include:
   - remnux.packages.cast
@@ -30,4 +31,11 @@ remnux-tool-remnux-ng-installer:
     - mode: 755
     - require:
       - sls: remnux.packages.cast
+
+remnux-tool-remnux-diag:
+  file.managed:
+    - name: /usr/local/bin/remnux-diag
+    - source: https://raw.githubusercontent.com/REMnux/distro/refs/heads/master/files/remnux-diag.py
+    - source_hash: sha256={{ remnux_diag_hash }}
+    - mode: 755
 
