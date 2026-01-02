@@ -205,16 +205,16 @@ fi
 
 # Create temp directory for artifacts
 TEMP_DIR=$(mktemp -d)
-trap "rm -rf $TEMP_DIR" EXIT
+trap "rm -rf $TEMP_DIR; rm -f /tmp/remnux-salt-states-${TAG}.tar.gz" EXIT
 
-# Download the tarball from GitHub
+# Download the tarball from GitHub (to /tmp to match legacy format)
 echo_info "    Downloading tarball..."
-curl -sL -o "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz" \
+curl -sL -o "/tmp/remnux-salt-states-${TAG}.tar.gz" \
     "https://github.com/REMnux/salt-states/archive/${TAG}.tar.gz"
 
-# Generate SHA256 checksum
+# Generate SHA256 checksum (with /tmp path to match remnux-cli expectations)
 echo_info "    Generating SHA256 checksum..."
-(cd "$TEMP_DIR" && shasum -a 256 "remnux-salt-states-${TAG}.tar.gz" > "remnux-salt-states-${TAG}.tar.gz.sha256")
+shasum -a 256 "/tmp/remnux-salt-states-${TAG}.tar.gz" > "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256"
 
 # GPG sign the checksum (clearsign)
 echo_info "    GPG signing checksum..."
@@ -226,7 +226,10 @@ gpg --batch --yes --passphrase "$PGP_PASSWORD" --pinentry-mode loopback \
 echo_info "    GPG signing tarball..."
 gpg --batch --yes --passphrase "$PGP_PASSWORD" --pinentry-mode loopback \
     --armor --detach-sign -u "$PGP_KEY_ID" \
-    "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz"
+    "/tmp/remnux-salt-states-${TAG}.tar.gz"
+
+# Move the tarball signature to temp dir
+mv "/tmp/remnux-salt-states-${TAG}.tar.gz.asc" "${TEMP_DIR}/"
 
 # Upload the SHA256 checksum
 echo_info "    Uploading SHA256 checksum..."
