@@ -26,6 +26,5 @@ ENV/
 ._*
 Thumbs.db
 
-# Salt
-*.pyc
-
+# Signing keys (private keys must not be committed)
+*.key
