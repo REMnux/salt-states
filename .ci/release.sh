@@ -39,6 +39,25 @@ echo_error() { echo -e "${RED}ERROR: $1${NC}" >&2; }
 echo_success() { echo -e "${GREEN}$1${NC}"; }
 echo_info() { echo -e "${YELLOW}$1${NC}"; }
 
+# Upload a file to a GitHub release, with error checking
+upload_asset() {
+    local file_path="$1"
+    local asset_name="$2"
+    local response
+    
+    response=$(curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
+        -H "Content-Type: application/octet-stream" \
+        "https://uploads.github.com/repos/REMnux/salt-states/releases/${RELEASE_ID}/assets?name=${asset_name}" \
+        --data-binary "@${file_path}")
+    
+    if echo "$response" | jq -e '.id' > /dev/null 2>&1; then
+        return 0
+    else
+        echo_error "Failed to upload ${asset_name}: $(echo "$response" | jq -r '.message // "Unknown error"')"
+        return 1
+    fi
+}
+
 # Step 1: Check required binaries
 echo_info "==> Checking required binaries..."
 
@@ -85,8 +104,8 @@ if [ -z "${PGP_PASSWORD+x}" ]; then
     exit 1
 fi
 
-if [ -z "$GITHUB_TOKEN" ]; then
-    echo_error "GITHUB_TOKEN environment variable is not set"
+if [ -z "${GITHUB_TOKEN+x}" ] || [ -z "$GITHUB_TOKEN" ]; then
+    echo_error "GITHUB_TOKEN environment variable is not set or empty"
     echo "Create a token at: https://github.com/settings/tokens"
     echo "Required scope: repo (or public_repo)"
     echo "Usage:"
@@ -176,7 +195,16 @@ TAG="v${YEAR}.${WEEK}.${RELEASE_NUM}"
 
 echo_success "Next version tag: $TAG"
 
-# Step 7: Create and push tag
+# Step 7: Update VERSION file and create tag
+VERSION_FILE="remnux/VERSION"
+if [ -f "$VERSION_FILE" ] && [ "$(cat "$VERSION_FILE")" != "$TAG" ]; then
+    echo_info "==> Updating VERSION file..."
+    echo "$TAG" > "$VERSION_FILE"
+    git add "$VERSION_FILE"
+    git commit -m "Updating VERSION to $TAG"
+    git push origin master
+fi
+
 echo_info "==> Creating git tag..."
 git tag "$TAG"
 
@@ -233,24 +261,15 @@ mv "/tmp/remnux-salt-states-${TAG}.tar.gz.asc" "${TEMP_DIR}/"
 
 # Upload the SHA256 checksum
 echo_info "    Uploading SHA256 checksum..."
-curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
-    -H "Content-Type: text/plain" \
-    "https://uploads.github.com/repos/REMnux/salt-states/releases/${RELEASE_ID}/assets?name=remnux-salt-states-${TAG}.tar.gz.sha256" \
-    --data-binary "@${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256" > /dev/null
+upload_asset "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256" "remnux-salt-states-${TAG}.tar.gz.sha256"
 
 # Upload the signed checksum (.asc)
 echo_info "    Uploading signed checksum..."
-curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
-    -H "Content-Type: text/plain" \
-    "https://uploads.github.com/repos/REMnux/salt-states/releases/${RELEASE_ID}/assets?name=remnux-salt-states-${TAG}.tar.gz.sha256.asc" \
-    --data-binary "@${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256.asc" > /dev/null
+upload_asset "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256.asc" "remnux-salt-states-${TAG}.tar.gz.sha256.asc"
 
 # Upload the tarball signature (.asc)
 echo_info "    Uploading tarball signature..."
-curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
-    -H "Content-Type: text/plain" \
-    "https://uploads.github.com/repos/REMnux/salt-states/releases/${RELEASE_ID}/assets?name=remnux-salt-states-${TAG}.tar.gz.asc" \
-    --data-binary "@${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.asc" > /dev/null
+upload_asset "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.asc" "remnux-salt-states-${TAG}.tar.gz.asc"
 
 echo_success "Legacy GPG files uploaded"
 
