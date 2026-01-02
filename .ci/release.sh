@@ -9,8 +9,7 @@
 # Requirements:
 #   - cast v1.0.0+
 #   - cosign v2.x or v3.x (script auto-detects; Cast v1.0.0 may need updating for v3.x)
-#   - gpg
-#   - git
+#   - gpg, git, jq, curl, shasum
 #
 # This script:
 #   1. Checks that required binaries are installed
@@ -19,7 +18,8 @@
 #   4. Tests that the signing passwords are correct
 #   5. Computes the next version tag (vYYYY.W.R format)
 #   6. Creates and pushes the git tag
-#   7. Runs cast release
+#   7. Runs cast release (for Cast users)
+#   8. Uploads legacy GPG-signed files (for remnux-cli users)
 #
 
 set -e
@@ -42,7 +42,7 @@ echo_info() { echo -e "${YELLOW}$1${NC}"; }
 # Step 1: Check required binaries
 echo_info "==> Checking required binaries..."
 
-for cmd in cast cosign gpg git; do
+for cmd in cast cosign gpg git jq curl shasum; do
     if ! command -v "$cmd" &> /dev/null; then
         echo_error "$cmd is not installed or not in PATH"
         exit 1
@@ -189,8 +189,74 @@ echo_success "Tag $TAG pushed to origin"
 echo_info "==> Running cast release..."
 cast release
 
+echo_success "Cast release completed"
+
+# Step 9: Upload legacy GPG-signed files for remnux-cli compatibility
+echo_info "==> Uploading legacy GPG-signed files for remnux-cli..."
+
+# Get the release ID
+RELEASE_ID=$(curl -s -H "Authorization: token ${GITHUB_TOKEN}" \
+    "https://api.github.com/repos/REMnux/salt-states/releases/tags/${TAG}" | jq -r '.id')
+
+if [ "$RELEASE_ID" == "null" ] || [ -z "$RELEASE_ID" ]; then
+    echo_error "Could not find release ID for tag $TAG"
+    exit 1
+fi
+
+# Create temp directory for artifacts
+TEMP_DIR=$(mktemp -d)
+trap "rm -rf $TEMP_DIR" EXIT
+
+# Download the tarball from GitHub
+echo_info "    Downloading tarball..."
+curl -sL -o "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz" \
+    "https://github.com/REMnux/salt-states/archive/${TAG}.tar.gz"
+
+# Generate SHA256 checksum
+echo_info "    Generating SHA256 checksum..."
+(cd "$TEMP_DIR" && shasum -a 256 "remnux-salt-states-${TAG}.tar.gz" > "remnux-salt-states-${TAG}.tar.gz.sha256")
+
+# GPG sign the checksum (clearsign)
+echo_info "    GPG signing checksum..."
+gpg --batch --yes --passphrase "$PGP_PASSWORD" --pinentry-mode loopback \
+    --armor --clearsign --digest-algo SHA256 -u "$PGP_KEY_ID" \
+    "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256"
+
+# GPG sign the tarball (detached signature)
+echo_info "    GPG signing tarball..."
+gpg --batch --yes --passphrase "$PGP_PASSWORD" --pinentry-mode loopback \
+    --armor --detach-sign -u "$PGP_KEY_ID" \
+    "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz"
+
+# Upload the SHA256 checksum
+echo_info "    Uploading SHA256 checksum..."
+curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
+    -H "Content-Type: text/plain" \
+    "https://uploads.github.com/repos/REMnux/salt-states/releases/${RELEASE_ID}/assets?name=remnux-salt-states-${TAG}.tar.gz.sha256" \
+    --data-binary "@${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256" > /dev/null
+
+# Upload the signed checksum (.asc)
+echo_info "    Uploading signed checksum..."
+curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
+    -H "Content-Type: text/plain" \
+    "https://uploads.github.com/repos/REMnux/salt-states/releases/${RELEASE_ID}/assets?name=remnux-salt-states-${TAG}.tar.gz.sha256.asc" \
+    --data-binary "@${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256.asc" > /dev/null
+
+# Upload the tarball signature (.asc)
+echo_info "    Uploading tarball signature..."
+curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
+    -H "Content-Type: text/plain" \
+    "https://uploads.github.com/repos/REMnux/salt-states/releases/${RELEASE_ID}/assets?name=remnux-salt-states-${TAG}.tar.gz.asc" \
+    --data-binary "@${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.asc" > /dev/null
+
+echo_success "Legacy GPG files uploaded"
+
 echo ""
 echo_success "============================================"
 echo_success "Release $TAG completed successfully!"
 echo_success "============================================"
+echo ""
+echo "Release includes:"
+echo "  - Cast/Cosign signed artifacts (for Cast users)"
+echo "  - GPG signed artifacts (for remnux-cli users)"
 
