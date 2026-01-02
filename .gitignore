@@ -28,3 +28,6 @@ Thumbs.db
 
 # Signing keys (private keys must not be committed)
 *.key
+
+# Cast release artifacts
+dist/
