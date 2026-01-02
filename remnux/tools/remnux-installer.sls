@@ -10,7 +10,7 @@
 {% set hash = "c46c732f5ab8f33ce957db8b6f0827554bf100b8a26b4765410b252429a26380" %}		
 {% set version = "1.5.1" %}
 
-{% set remnux_ng_hash = "6ca531e274f0e50a9e9ba85ae6a575b2970a801ef72e05e5c5a0139a77433804" %}
+{% set remnux_ng_hash = "bf15770f60302755459bb6d0db39f891459600e7102ccfcf0760b41af472ee67" %}
 {% set remnux_diag_hash = "59bd342b3fb7e7c1e0569284c07e2aca84e7b3d5283066f7c84b12ef644c23f2" %}
 
 include:
