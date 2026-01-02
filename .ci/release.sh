@@ -6,6 +6,12 @@
 #   export COSIGN_PASSWORD="..." PGP_PASSWORD="..." GITHUB_TOKEN="..."
 #   .ci/release.sh
 #
+# Requirements:
+#   - cast v1.0.0+
+#   - cosign v2.x or v3.x (script auto-detects; Cast v1.0.0 may need updating for v3.x)
+#   - gpg
+#   - git
+#
 # This script:
 #   1. Checks that required binaries are installed
 #   2. Validates that required environment variables are set
@@ -43,7 +49,21 @@ for cmd in cast cosign gpg git; do
     fi
 done
 
-echo_success "Required binaries found"
+# Detect Cosign version
+COSIGN_VERSION=$(cosign version 2>&1 | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+COSIGN_MAJOR=$(echo "$COSIGN_VERSION" | cut -d. -f1 | tr -d 'v')
+
+# Warn about Cast compatibility with Cosign v3.x
+if [ "$COSIGN_MAJOR" -ge 3 ] 2>/dev/null; then
+    echo -e "${YELLOW}WARNING: Cosign $COSIGN_VERSION detected.${NC}"
+    echo -e "${YELLOW}Cast v1.0.0 may be incompatible with Cosign v3.x.${NC}"
+    echo -e "${YELLOW}If cast release fails, downgrade to Cosign v2.4.1:${NC}"
+    echo "  curl -Lo /usr/local/bin/cosign https://github.com/sigstore/cosign/releases/download/v2.4.1/cosign-darwin-amd64"
+    echo "  chmod +x /usr/local/bin/cosign"
+    echo ""
+fi
+
+echo_success "Required binaries found (Cosign $COSIGN_VERSION)"
 
 # Step 2: Check required environment variables
 echo_info "==> Checking environment variables..."
@@ -95,13 +115,23 @@ echo_success "Required key files found"
 # Step 4: Validate Cosign password
 echo_info "==> Validating Cosign password..."
 
-COSIGN_TEST_BUNDLE=$(mktemp)
-if ! echo "test" | cosign sign-blob --key cosign.key --yes --bundle "$COSIGN_TEST_BUNDLE" - > /dev/null 2>&1; then
+# Use version-appropriate syntax for Cosign password validation
+if [ "$COSIGN_MAJOR" -ge 3 ] 2>/dev/null; then
+    # Cosign v3.x: Use --bundle flag (new bundle format)
+    COSIGN_TEST_BUNDLE=$(mktemp)
+    if ! echo "test" | cosign sign-blob --key cosign.key --yes --bundle "$COSIGN_TEST_BUNDLE" - > /dev/null 2>&1; then
+        rm -f "$COSIGN_TEST_BUNDLE"
+        echo_error "Cosign password is incorrect or cosign.key is invalid"
+        exit 1
+    fi
     rm -f "$COSIGN_TEST_BUNDLE"
-    echo_error "Cosign password is incorrect or cosign.key is invalid"
-    exit 1
+else
+    # Cosign v2.x: Use --output-signature and --tlog-upload=false
+    if ! echo "test" | cosign sign-blob --key cosign.key --yes --output-signature /dev/null --tlog-upload=false - > /dev/null 2>&1; then
+        echo_error "Cosign password is incorrect or cosign.key is invalid"
+        exit 1
+    fi
 fi
-rm -f "$COSIGN_TEST_BUNDLE"
 
 echo_success "Cosign password validated"
 
