@@ -187,7 +187,7 @@ echo_success "Tag $TAG pushed to origin"
 
 # Step 8: Run cast release
 echo_info "==> Running cast release..."
-cast release
+cast release --rm-dist
 
 echo_success "Cast release completed"
 
