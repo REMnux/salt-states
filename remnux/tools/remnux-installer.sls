@@ -11,7 +11,7 @@
 {% set version = "1.5.1" %}
 
 {% set remnux_ng_hash = "6ca531e274f0e50a9e9ba85ae6a575b2970a801ef72e05e5c5a0139a77433804" %}
-{% set remnux_diag_hash = "539d38e9d1ecaec5448c7eda7c7d4259ad4ac740adbbe6828a5ff3095d5a3887" %}
+{% set remnux_diag_hash = "59bd342b3fb7e7c1e0569284c07e2aca84e7b3d5283066f7c84b12ef644c23f2" %}
 
 include:
   - remnux.packages.cast
