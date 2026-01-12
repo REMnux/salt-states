@@ -4,12 +4,13 @@
 #
 # Usage:
 #   export COSIGN_PASSWORD="..." PGP_PASSWORD="..." GITHUB_TOKEN="..."
+#   export CLOUDFLARE_API_TOKEN="..." CLOUDFLARE_ACCOUNT_ID="..."
 #   .ci/release.sh
 #
 # Requirements:
 #   - cast v1.0.0+
 #   - cosign v2.x or v3.x (script auto-detects; Cast v1.0.0 may need updating for v3.x)
-#   - gpg, git, jq, curl, shasum
+#   - gpg, git, jq, curl, shasum, python3, npx
 #
 # This script:
 #   1. Checks that required binaries are installed
@@ -61,7 +62,7 @@ upload_asset() {
 # Step 1: Check required binaries
 echo_info "==> Checking required binaries..."
 
-for cmd in cast cosign gpg git jq curl shasum; do
+for cmd in cast cosign gpg git jq curl shasum python3 npx; do
     if ! command -v "$cmd" &> /dev/null; then
         echo_error "$cmd is not installed or not in PATH"
         exit 1
@@ -233,7 +234,7 @@ fi
 
 # Create temp directory for artifacts
 TEMP_DIR=$(mktemp -d)
-trap "rm -rf $TEMP_DIR; rm -f /tmp/remnux-salt-states-${TAG}.tar.gz" EXIT
+trap 'rm -rf "$TEMP_DIR"; rm -f "/tmp/remnux-salt-states-${TAG}.tar.gz"' EXIT
 
 # Download the tarball from GitHub (to /tmp to match legacy format)
 echo_info "    Downloading tarball..."
@@ -273,6 +274,42 @@ upload_asset "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.asc" "remnux-salt-sta
 
 echo_success "Legacy GPG files uploaded"
 
+# =============================================================================
+# Step: Generate and upload MCP search index (optional)
+# =============================================================================
+echo ""
+echo_info "==> Generating MCP search index..."
+
+# Generate the index
+python3 "${SCRIPT_DIR}/generate-mcp-index.py" \
+    --states-dir="${REPO_ROOT}" \
+    --output="${TEMP_DIR}/search-index.json" \
+    --site-name="REMnux Documentation" \
+    --site-domain="docs.remnux.org" \
+    --site-description="Searchable documentation for REMnux malware analysis tools" \
+    --tool-prefix="remnux"
+
+if [ -f "${TEMP_DIR}/search-index.json" ]; then
+    echo_success "MCP search index generated"
+
+    # Upload to R2 bucket (if Cloudflare credentials are configured)
+    if [ -n "${CLOUDFLARE_API_TOKEN:-}" ] && [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+        echo_info "    Uploading to R2..."
+        CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" \
+        CLOUDFLARE_ACCOUNT_ID="$CLOUDFLARE_ACCOUNT_ID" \
+        npx wrangler r2 object put remnux-docs-mcp-data/search-index.json \
+            --file="${TEMP_DIR}/search-index.json" \
+            --content-type=application/json \
+            --remote
+        echo_success "MCP search index uploaded to R2"
+    else
+        echo_info "    CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID not set, skipping R2 upload"
+        echo_info "    To upload manually, set these environment variables and re-run"
+    fi
+else
+    echo_info "    MCP index generation skipped or failed"
+fi
+
 echo ""
 echo_success "============================================"
 echo_success "Release $TAG completed successfully!"
@@ -281,4 +318,5 @@ echo ""
 echo "Release includes:"
 echo "  - Cast/Cosign signed artifacts (for Cast users)"
 echo "  - GPG signed artifacts (for remnux-cli users)"
+echo "  - MCP search index (if Cloudflare credentials were set)"
 
