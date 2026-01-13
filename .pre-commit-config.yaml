@@ -1,0 +1,17 @@
+# REMnux salt-states pre-commit hooks
+# See https://pre-commit.com for more information
+#
+# Install: pip install pre-commit && pre-commit install
+# Manual run: pre-commit run --all-files
+
+repos:
+  - repo: local
+    hooks:
+      - id: lint-frontmatter
+        name: Lint SLS Frontmatter
+        description: Validate frontmatter in .sls files (Name, Website, Description, Category, Author, License)
+        entry: python3 .ci/lint-frontmatter.py
+        language: python
+        files: ^remnux/.*\.sls$
+        exclude: ^remnux/.*/init\.sls$
+        pass_filenames: true
