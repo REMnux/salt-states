@@ -176,7 +176,6 @@ For the REMnux installer to apply state file changes, a new salt-states release 
 
 ```bash
 export COSIGN_PASSWORD="..." PGP_PASSWORD="..." GITHUB_TOKEN="..."
-export CLOUDFLARE_API_TOKEN="..." CLOUDFLARE_ACCOUNT_ID="..."
 .ci/release.sh
 ```
 
@@ -186,11 +185,8 @@ The script:
 3. Creates and pushes the git tag
 4. Runs Cast release with Cosign signatures
 5. Uploads GPG-signed artifacts for remnux-cli compatibility
-6. Generates and uploads MCP search index to Cloudflare R2
 
 Version format: `vYYYY.W.R` where `YYYY` is the year, `W` is the week number, and `R` is the release number for that week (starting from `1`).
-
-The Cloudflare credentials are optional - if not set, the MCP index upload is skipped.
 
 ## CI Scripts
 
@@ -199,8 +195,7 @@ Scripts and configuration in the `.ci/` directory:
 | File | Purpose |
 |------|---------|
 | `manifest.yml` | [Cast](https://github.com/ekristen/cast) distro config: defines modes, supported OSes, messages |
-| `release.sh` | Full release automation: tag, sign, upload, and MCP index generation |
-| `generate-mcp-index.py` | Generate MCP search index from state file frontmatter |
+| `release.sh` | Full release automation: tag, sign, and upload |
 | `update-docs.py` | Sync state file frontmatter to documentation |
 | `audit-docs.py` | Compare state files against documentation |
 | `dev-state.sh` | Launch a minimal container for interactive state testing |

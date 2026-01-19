@@ -274,42 +274,6 @@ upload_asset "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.asc" "remnux-salt-sta
 
 echo_success "Legacy GPG files uploaded"
 
-# =============================================================================
-# Step: Generate and upload MCP search index (optional)
-# =============================================================================
-echo ""
-echo_info "==> Generating MCP search index..."
-
-# Generate the index
-python3 "${SCRIPT_DIR}/generate-mcp-index.py" \
-    --states-dir="${REPO_ROOT}" \
-    --output="${TEMP_DIR}/search-index.json" \
-    --site-name="REMnux Documentation" \
-    --site-domain="docs.remnux.org" \
-    --site-description="Searchable documentation for REMnux malware analysis tools" \
-    --tool-prefix="remnux"
-
-if [ -f "${TEMP_DIR}/search-index.json" ]; then
-    echo_success "MCP search index generated"
-
-    # Upload to R2 bucket (if Cloudflare credentials are configured)
-    if [ -n "${CLOUDFLARE_API_TOKEN:-}" ] && [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
-        echo_info "    Uploading to R2..."
-        CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" \
-        CLOUDFLARE_ACCOUNT_ID="$CLOUDFLARE_ACCOUNT_ID" \
-        npx wrangler r2 object put remnux-docs-mcp-data/search-index.json \
-            --file="${TEMP_DIR}/search-index.json" \
-            --content-type=application/json \
-            --remote
-        echo_success "MCP search index uploaded to R2"
-    else
-        echo_info "    CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID not set, skipping R2 upload"
-        echo_info "    To upload manually, set these environment variables and re-run"
-    fi
-else
-    echo_info "    MCP index generation skipped or failed"
-fi
-
 echo ""
 echo_success "============================================"
 echo_success "Release $TAG completed successfully!"
@@ -318,5 +282,4 @@ echo ""
 echo "Release includes:"
 echo "  - Cast/Cosign signed artifacts (for Cast users)"
 echo "  - GPG signed artifacts (for remnux-cli users)"
-echo "  - MCP search index (if Cloudflare credentials were set)"
 
