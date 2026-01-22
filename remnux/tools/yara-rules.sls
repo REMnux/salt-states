@@ -16,6 +16,7 @@ remnux-tools-yara-rules:
     - target: /usr/local/yara-rules
     - user: root
     - branch: master
+    - force_clone: True
     - force_fetch: True
     - force_reset: True
     - force_checkout: True
