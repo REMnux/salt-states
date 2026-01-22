@@ -6,11 +6,6 @@
 # License: GNU General Public License v3: https://github.com/alexandreborges/malwoverview/blob/master/LICENSE
 # Notes: malwoverview, add API keys to ~/.malwapi.conf
 
-{%- if grains['oscodename'] == "focal" %}
-  {%- set python3_version="python3.8" %}
-{%- else %}
-  {%- set python3_version="python3.12" %}
-{% endif %}
 {%- set user = salt['pillar.get']('remnux_user', 'remnux') -%}       
 
 {% if user == "root" %}
@@ -53,10 +48,48 @@ remnux-python3-packages-malwoverview-install:
 remnux-python3-packages-malwoverview-config-file:
   file.managed:
     - name: {{ home }}/.malwapi.conf
-    - source: /opt/malwoverview/lib/{{ python3_version }}/site-packages/root/.malwapi.conf
     - user: {{ user }}
     - group: {{ user }}
     - makedirs: False
+    - contents: |
+        [VIRUSTOTAL]
+        VTAPI =
+
+        [HYBRID-ANALYSIS]
+        HAAPI =
+
+        [MALSHARE]
+        MALSHAREAPI =
+
+        [POLYSWARM]
+        POLYAPI =
+
+        [ALIENVAULT]
+        ALIENAPI =
+
+        [MALPEDIA]
+        MALPEDIAAPI =
+
+        [TRIAGE]
+        TRIAGEAPI =
+
+        [INQUEST]
+        INQUESTAPI =
+
+        [VIRUSEXCHANGE]
+        VXAPI =
+
+        [IPINFO]
+        IPINFOAPI =
+
+        [BAZAAR]
+        BAZAARAPI =
+
+        [THREATFOX]
+        THREATFOXAPI =
+
+        [URLHAUS]
+        URLHAUSAPI =
     - require:
       - sls: remnux.config.user
       - user: remnux-user-{{ user }}
