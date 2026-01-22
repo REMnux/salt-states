@@ -33,6 +33,37 @@ remnux-theme-cleanup-service-bluetooth:
     - name: bluetooth
     - enable: False
 
+# Disable services that generate outbound network traffic
+remnux-theme-cleanup-service-apt-daily-timer:
+  service.dead:
+    - name: apt-daily.timer
+    - enable: False
+
+remnux-theme-cleanup-service-apt-daily-upgrade-timer:
+  service.dead:
+    - name: apt-daily-upgrade.timer
+    - enable: False
+
+remnux-theme-cleanup-service-motd-news-timer:
+  service.dead:
+    - name: motd-news.timer
+    - enable: False
+
+remnux-theme-cleanup-service-fwupd-refresh-timer:
+  service.dead:
+    - name: fwupd-refresh.timer
+    - enable: False
+
+remnux-theme-cleanup-service-snapd:
+  service.dead:
+    - name: snapd
+    - enable: False
+
+remnux-theme-cleanup-service-apport:
+  service.dead:
+    - name: apport
+    - enable: False
+
 remnux-theme-cleanup-service-docker:
   service.dead:
     - name: docker
