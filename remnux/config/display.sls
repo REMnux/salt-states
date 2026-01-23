@@ -1,108 +1,19 @@
 # Name: REMnux Display Configuration
 # Website: https://remnux.org/
-# Description: VMware display fixes for Ubuntu 24.04 - forces X11, bypasses slow checks, adds set-scaling tool.
+# Description: Optional display enhancements for VMware guests.
 # Author: REMnux Project
 # License: MIT License: https://github.com/REMnux/salt-states/blob/master/LICENSE
 #
-# Fixes VMware display issues on Ubuntu 24.04 (Noble)
-# - Forces X11 (Wayland incompatible with VMware)
-# - Bypasses slow GNOME acceleration checks
-# - Disables slow accessibility services
-# - Sets proper display scaling
-#
-# Once X11 is forced, the built-in vmware-user.desktop autostart
-# handles dynamic resize, clipboard, and drag-drop automatically.
-#
-# NOTE: These fixes only apply to Noble. Focal works as-is.
+# NOTE: Wayland works out of the box with kernel 6.8.0-90+ and open-vm-tools 12.5.0+.
+# These are optional nice-to-haves, not required fixes.
 
-{% if grains['oscodename'] == "noble" %}
-
-{% set set_scaling_hash = "eab121028871fa4a8ae9ddb663fa73eddb65533db05374084aba5064e4143101" %}
+{% set set_scaling_hash = "a8b726f7a501389e3052832b03e8c28603336d731e30237d12692dbb67cb319e" %}
 
 # ============================================================
-# ENVIRONMENT VARIABLES (affects both X11 and Wayland sessions)
+# DISPLAY SCALING TOOL (all versions)
 # ============================================================
 
-# Fix Mutter black screen bug and disable slow accessibility
-remnux-display-environment-vmware-fixes:
-  file.append:
-    - name: /etc/environment
-    - text: |
-
-        # VMware/GNOME fixes for REMnux
-        MUTTER_DEBUG_FORCE_KMS_MODE=simple
-        NO_AT_BRIDGE=1
-
-# ============================================================
-# GNOME ACCELERATION CHECK BYPASS (X11 and Wayland)
-# ============================================================
-
-# Bypass GNOME acceleration check (fixes 33-second GL timeout)
-remnux-display-gnome-accel-check-bypass:
-  file.managed:
-    - name: /usr/libexec/gnome-session-check-accelerated
-    - contents: |
-        #!/bin/bash
-        # Bypass acceleration check for VMware guest - immediate success
-        exit 0
-    - mode: 755
-
-remnux-display-gnome-accel-gl-helper-bypass:
-  file.managed:
-    - name: /usr/libexec/gnome-session-check-accelerated-gl-helper
-    - contents: |
-        #!/bin/bash
-        exit 0
-    - mode: 755
-
-remnux-display-gnome-accel-gles-helper-bypass:
-  file.managed:
-    - name: /usr/libexec/gnome-session-check-accelerated-gles-helper
-    - contents: |
-        #!/bin/bash
-        exit 0
-    - mode: 755
-
-# ============================================================
-# GDM CONFIGURATION (Force X11 instead of Wayland)
-# ============================================================
-
-# Force X11 for VMware compatibility
-remnux-display-gdm-wayland-disable:
-  file.replace:
-    - name: /etc/gdm3/custom.conf
-    - pattern: '#?WaylandEnable=.*'
-    - repl: 'WaylandEnable=false'
-    - append_if_not_found: True
-
-remnux-display-gdm-default-session:
-  file.replace:
-    - name: /etc/gdm3/custom.conf
-    - pattern: '#?DefaultSession=.*'
-    - repl: 'DefaultSession=ubuntu-xorg.desktop'
-    - append_if_not_found: True
-
-# ============================================================
-# VMWARE TOOLS CONFIGURATION
-# ============================================================
-
-# VMware tools display config
-remnux-display-vmware-tools-display-config:
-  file.append:
-    - name: /etc/vmware-tools/tools.conf
-    - text: |
-
-        [resolutionKMS]
-        enable = true
-
-        [display]
-        autofit = true
-
-# ============================================================
-# DISPLAY SCALING TOOL
-# ============================================================
-
-# User command for adjusting display scaling
+# User command for adjusting display scaling (1x/2x/3x/auto/detect)
 remnux-display-set-scaling:
   file.managed:
     - name: /usr/local/bin/set-scaling
@@ -111,42 +22,45 @@ remnux-display-set-scaling:
     - mode: 755
 
 # ============================================================
-# GNOME/DCONF SETTINGS (applies to GNOME sessions)
+# SCALING HINT (all versions)
 # ============================================================
 
-# CRITICAL: Create dconf profile (without this, system settings are ignored!)
-remnux-display-dconf-profile:
-  file.managed:
-    - name: /etc/dconf/profile/user
-    - contents: |
-        user-db:user
-        system-db:local
-    - makedirs: True
+# Show scaling hint for first 3 terminal sessions
+remnux-display-scaling-hint:
+  file.append:
+    - name: /etc/bash.bashrc
+    - text: |
 
-# Create dconf database directory
-remnux-display-dconf-db-dir:
-  file.directory:
-    - name: /etc/dconf/db/local.d
-    - makedirs: True
+        # REMnux scaling hint - show first 3 terminal sessions
+        _remnux_scaling_hint() {
+            local counter_file="$HOME/.config/remnux/.scaling-hint-count"
+            local max_shows=3
+            [[ $- != *i* ]] && return
+            mkdir -p "$(dirname "$counter_file")" 2>/dev/null
+            local count=0
+            [[ -f "$counter_file" ]] && count=$(<"$counter_file")
+            if (( count < max_shows )); then
+                echo -e "\n\033[1;36mTEXT TOO SMALL?\033[0m Run \033[1mset-scaling auto\033[0m or \033[1mset-scaling 2x\033[0m to adjust.\n"
+                echo $(( count + 1 )) > "$counter_file"
+            fi
+        }
+        _remnux_scaling_hint
+        unset -f _remnux_scaling_hint
 
-# Set display scaling to 1x by default (user can run set-scaling 2x for 4K)
-remnux-display-dconf-display-settings:
-  file.managed:
-    - name: /etc/dconf/db/local.d/00-remnux-display
-    - contents: |
-        [org/gnome/desktop/interface]
-        scaling-factor=uint32 1
-        text-scaling-factor=1.0
-        toolkit-accessibility=false
-    - require:
-      - file: remnux-display-dconf-db-dir
+# ============================================================
+# OPTIONAL ENVIRONMENT VARIABLES (Noble only)
+# ============================================================
 
-# Update dconf database
-remnux-display-dconf-update:
-  cmd.run:
-    - name: dconf update
-    - onchanges:
-      - file: remnux-display-dconf-display-settings
-      - file: remnux-display-dconf-profile
+{% if grains['oscodename'] == "noble" %}
+
+# Preventative fixes for edge cases on Ubuntu 24.04
+remnux-display-environment:
+  file.append:
+    - name: /etc/environment
+    - text: |
+
+        # Optional VMware/GNOME enhancements for REMnux
+        MUTTER_DEBUG_FORCE_KMS_MODE=simple
+        NO_AT_BRIDGE=1
 
 {% endif %}
