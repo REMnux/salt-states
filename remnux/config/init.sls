@@ -1,5 +1,6 @@
 include:
   - remnux.config.user
+  - remnux.config.display
   - remnux.config.inetsim
   - remnux.config.wget
   - remnux.config.curl
@@ -25,6 +26,7 @@ remnux-config:
   test.nop:
     - require:
       - sls: remnux.config.user
+      - sls: remnux.config.display
       - sls: remnux.config.inetsim
       - sls: remnux.config.wget
       - sls: remnux.config.curl
