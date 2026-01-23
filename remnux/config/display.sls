@@ -12,8 +12,12 @@
 #
 # Once X11 is forced, the built-in vmware-user.desktop autostart
 # handles dynamic resize, clipboard, and drag-drop automatically.
+#
+# NOTE: These fixes only apply to Noble. Focal works as-is.
 
-{% set set_scaling_hash = "3c7fae3fab4f443d1762d3e962c3325112b19ca135517ee5aeaf626f6fe7cfa7" %}
+{% if grains['oscodename'] == "noble" %}
+
+{% set set_scaling_hash = "eab121028871fa4a8ae9ddb663fa73eddb65533db05374084aba5064e4143101" %}
 
 # ============================================================
 # ENVIRONMENT VARIABLES (affects both X11 and Wayland sessions)
@@ -144,3 +148,5 @@ remnux-display-dconf-update:
     - onchanges:
       - file: remnux-display-dconf-display-settings
       - file: remnux-display-dconf-profile
+
+{% endif %}
