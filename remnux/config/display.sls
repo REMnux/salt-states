@@ -7,7 +7,7 @@
 # NOTE: Wayland works out of the box with kernel 6.8.0-90+ and open-vm-tools 12.5.0+.
 # These are optional nice-to-haves, not required fixes.
 
-{% set set_scaling_hash = "a8b726f7a501389e3052832b03e8c28603336d731e30237d12692dbb67cb319e" %}
+{% set set_scaling_hash = "7102b1fd85e3025d5f1d9a21748d1fbacc439a25dc575975cae7bda1cec658fb" %}
 
 # ============================================================
 # DISPLAY SCALING TOOL (all versions)
@@ -25,17 +25,19 @@ remnux-display-set-scaling:
 # SCALING HINT (all versions)
 # ============================================================
 
-# Show scaling hint for first 3 terminal sessions
+# Show scaling hint for first 3 terminal sessions (or until user runs set-scaling)
 remnux-display-scaling-hint:
   file.append:
     - name: /etc/bash.bashrc
     - text: |
 
-        # REMnux scaling hint - show first 3 terminal sessions
+        # REMnux scaling hint - show first 3 terminal sessions (or until set-scaling is run)
         _remnux_scaling_hint() {
+            local dismiss_file="$HOME/.config/remnux/.scaling-hint-dismissed"
             local counter_file="$HOME/.config/remnux/.scaling-hint-count"
             local max_shows=3
             [[ $- != *i* ]] && return
+            [[ -f "$dismiss_file" ]] && return
             mkdir -p "$(dirname "$counter_file")" 2>/dev/null
             local count=0
             [[ -f "$counter_file" ]] && count=$(<"$counter_file")
