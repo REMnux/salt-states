@@ -24,4 +24,10 @@ remnux-config-grub-kvm-update:
     - onchanges:
       - file: remnux-config-grub-kvm-nomodeset
 
+{% else %}
+
+# Non-KVM hypervisor: no GRUB changes needed
+remnux-config-grub-kvm-nop:
+  test.nop
+
 {% endif %}
