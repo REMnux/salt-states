@@ -11,7 +11,7 @@
 {% set legacy_version = "1.5.1" %}
 
 {% set remnux_hash = "94673eb529ec6a363f332fb68c8e94bcd2ec2137746ccfce5acc45f65016f91b" %}
-{% set remnux_diag_hash = "b7cef6bbd19c16ca61a989f74d831fa9fd47800c856c9cece943a2be38b008fc" %}
+{% set remnux_diag_hash = "65b8c2b2495c6c85d1eca6eb519266bfd7d000f5b79e7a736ff1f1122423410f" %}
 
 include:
   - remnux.packages.cast
