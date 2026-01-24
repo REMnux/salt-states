@@ -7,12 +7,28 @@ function title() {
   PS1=${ORIG}${TITLE}
 }
 
-# Renew DCHP release using a single command
+# Renew DHCP lease using a single command
+# Compatible with Focal (dhclient) and Noble (NetworkManager/nmcli)
 function renew-dhcp {
-  echo Old IP: `myip`
-  sudo dhclient -r
-  sudo dhclient
-  echo New IP: `myip`
+  echo "Old IP: $(myip)"
+  if command -v dhclient &>/dev/null; then
+    # Focal and older: use dhclient
+    sudo dhclient -r
+    sudo dhclient
+  elif command -v nmcli &>/dev/null; then
+    # Noble: use NetworkManager
+    local conn=$(nmcli -t -f NAME,DEVICE con show --active | grep -v '^lo:' | head -1 | cut -d: -f1)
+    if [ -n "$conn" ]; then
+      sudo nmcli con down "$conn" && sudo nmcli con up "$conn"
+    else
+      echo "No active network connection found"
+      return 1
+    fi
+  else
+    echo "Neither dhclient nor nmcli found"
+    return 1
+  fi
+  echo "New IP: $(myip)"
 }
 
 # Clean up and convert encodings when examining shellcode
