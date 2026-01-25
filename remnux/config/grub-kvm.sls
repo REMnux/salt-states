@@ -5,11 +5,11 @@
 # License: MIT License
 #
 # NOTE: nomodeset breaks VirtualBox auto-resize (tested 2025-01-24).
-# Only apply on KVM/QEMU/Proxmox.
+# Only apply on KVM/QEMU/Proxmox VMs, not Docker containers.
 
 {% set hypervisor = grains.get('virtual', 'physical') %}
 
-{% if hypervisor in ['kvm', 'QEMU', 'qemu'] %}
+{% if hypervisor in ['kvm', 'QEMU', 'qemu'] and grains.get('virtual_subtype', '') != 'Docker' %}
 
 remnux-config-grub-kvm-nomodeset:
   file.replace:
