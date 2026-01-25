@@ -26,6 +26,9 @@ Usage:
     # Test against a fork before modifying the main repo
     python update-docs.py --repo "myuser/docs" remnux/tools/capa.sls
 
+    # Generate tools-index.json for MCP server (output to stdout)
+    python update-docs.py --json-index > tools-index.json
+
 Environment Variables:
     GITHUB_ACCESS_TOKEN: GitHub personal access token with repo write access.
                          If not set, the script will use SSH git access instead.
@@ -90,6 +93,11 @@ class ToolInfo:
     license: str
     notes: str = ""
     state_file_path: str = ""
+    commands: list[str] = None  # CLI command names (from Command: field or derived)
+
+    def __post_init__(self):
+        if self.commands is None:
+            self.commands = []
 
     def to_markdown(self) -> str:
         """Generate markdown entry for this tool."""
@@ -331,7 +339,16 @@ def parse_front_matter(file_path: str) -> ToolInfo:
     # and should not appear in the documentation
     category_str = front_matter.get("category", "")
     categories = [c.strip() for c in category_str.split(",") if c.strip()]
-    
+
+    # Parse commands (can be comma-separated for toolkits)
+    # If no Command: field, derive from state file name
+    command_str = front_matter.get("command", "")
+    if command_str:
+        commands = [c.strip() for c in command_str.split(",") if c.strip()]
+    else:
+        # Derive from state file name (e.g., capa.sls -> capa)
+        commands = [Path(file_path).stem]
+
     # Get relative path from salt-states root
     file_path_obj = Path(file_path)
     # Try to find the relative path from remnux/
@@ -351,6 +368,7 @@ def parse_front_matter(file_path: str) -> ToolInfo:
         license=front_matter["license"],
         notes=front_matter.get("notes", ""),
         state_file_path=rel_path,
+        commands=commands,
     )
 
 
@@ -667,6 +685,59 @@ def apply_changes_git(changes: list[FileChange], git: GitSSH) -> bool:
     return True
 
 
+def scan_all_tools(salt_states_path: str) -> list[ToolInfo]:
+    """Scan all .sls files and return list of tools with valid frontmatter."""
+    tools = []
+    remnux_path = Path(salt_states_path) / "remnux"
+
+    if not remnux_path.exists():
+        print(f"Error: remnux directory not found at {remnux_path}", file=sys.stderr)
+        return tools
+
+    for sls_file in remnux_path.rglob("*.sls"):
+        # Skip init.sls files (usually just includes)
+        if sls_file.name == "init.sls":
+            continue
+
+        try:
+            tool = parse_front_matter(str(sls_file))
+            # Only include tools with categories (skip internal dependencies)
+            if tool.categories:
+                tools.append(tool)
+        except ValueError:
+            # Missing required frontmatter - skip
+            continue
+
+    return tools
+
+
+def generate_json_index(tools: list[ToolInfo]) -> dict:
+    """Generate tools-index.json structure from list of tools."""
+    from datetime import datetime
+
+    entries = []
+    for tool in tools:
+        # Generate one entry per command (toolkits have multiple commands)
+        for command in tool.commands:
+            entry = {
+                "command": command,
+                "name": tool.name,
+                "category": tool.categories[0] if tool.categories else "",
+                "description": tool.description,
+                "website": tool.website,
+            }
+            entries.append(entry)
+
+    # Sort by command name
+    entries.sort(key=lambda e: e["command"].lower())
+
+    return {
+        "version": "1.0.0",
+        "updated": datetime.now().strftime("%Y-%m-%d"),
+        "tools": entries,
+    }
+
+
 def show_diff(changes: list[FileChange]):
     """Show a unified diff of the changes."""
     import difflib
@@ -765,9 +836,40 @@ Environment:
         action="store_true",
         help="Enable verbose output",
     )
-    
+
+    parser.add_argument(
+        "--json-index",
+        action="store_true",
+        help="Output tools-index.json to stdout (for MCP server bundled fallback)",
+    )
+
+    parser.add_argument(
+        "--salt-states-path",
+        default=None,
+        help="Path to salt-states directory (default: parent of this script's directory)",
+    )
+
     args = parser.parse_args()
-    
+
+    # Handle --json-index mode
+    if args.json_index:
+        # Determine salt-states path
+        if args.salt_states_path:
+            salt_states_path = args.salt_states_path
+        else:
+            # Default: parent of .ci directory (where this script lives)
+            salt_states_path = str(Path(__file__).parent.parent)
+
+        tools = scan_all_tools(salt_states_path)
+        if not tools:
+            print("Error: No tools found", file=sys.stderr)
+            sys.exit(1)
+
+        index = generate_json_index(tools)
+        print(json.dumps(index, indent=2))
+        print(f"\n# Generated {len(index['tools'])} tool entries from {len(tools)} state files", file=sys.stderr)
+        sys.exit(0)
+
     # Validate arguments
     if not args.target:
         parser.error("Target is required (state file path or tool name with --delete)")
