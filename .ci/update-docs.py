@@ -55,6 +55,17 @@ Options:
 
     --verbose, -v   Enable verbose output with additional details.
 
+    --json-index    Output tools-index.json to stdout for MCP server use.
+                    Scans all .sls files and extracts tool metadata.
+
+    --salt-states-path  Path to salt-states directory (default: script's parent dir).
+
+Frontmatter Fields:
+    Required: Name, Website, Description, Author, License
+    Optional: Category (comma-separated for multiple), Notes
+    Optional: Command (comma-separated CLI command names for toolkits)
+              If Command is not specified, derived from Name field.
+
 Author: Generated for REMnux project
 License: Same as REMnux project
 """
@@ -341,13 +352,18 @@ def parse_front_matter(file_path: str) -> ToolInfo:
     categories = [c.strip() for c in category_str.split(",") if c.strip()]
 
     # Parse commands (can be comma-separated for toolkits)
-    # If no Command: field, derive from state file name
+    # Priority: 1) Command: field, 2) Name field (normalized), 3) state file name
     command_str = front_matter.get("command", "")
     if command_str:
         commands = [c.strip() for c in command_str.split(",") if c.strip()]
     else:
-        # Derive from state file name (e.g., capa.sls -> capa)
-        commands = [Path(file_path).stem]
+        # Derive from Name field (more accurate than filename)
+        # Normalize: lowercase, keep alphanumeric and hyphens
+        name = front_matter["name"]
+        normalized = re.sub(r'[^a-zA-Z0-9\-]', '', name.lower().replace(' ', '-'))
+        # Remove leading/trailing hyphens and collapse multiple hyphens
+        normalized = re.sub(r'-+', '-', normalized).strip('-')
+        commands = [normalized] if normalized else [Path(file_path).stem]
 
     # Get relative path from salt-states root
     file_path_obj = Path(file_path)
@@ -685,9 +701,11 @@ def apply_changes_git(changes: list[FileChange], git: GitSSH) -> bool:
     return True
 
 
-def scan_all_tools(salt_states_path: str) -> list[ToolInfo]:
+def scan_all_tools(salt_states_path: str, verbose: bool = False) -> list[ToolInfo]:
     """Scan all .sls files and return list of tools with valid frontmatter."""
     tools = []
+    skipped_no_category = []
+    skipped_parse_error = []
     remnux_path = Path(salt_states_path) / "remnux"
 
     if not remnux_path.exists():
@@ -704,9 +722,22 @@ def scan_all_tools(salt_states_path: str) -> list[ToolInfo]:
             # Only include tools with categories (skip internal dependencies)
             if tool.categories:
                 tools.append(tool)
-        except ValueError:
+            else:
+                skipped_no_category.append(sls_file.name)
+        except ValueError as e:
             # Missing required frontmatter - skip
+            skipped_parse_error.append((sls_file.name, str(e)))
             continue
+
+    if verbose:
+        if skipped_no_category:
+            print(f"# Skipped {len(skipped_no_category)} tools without category (internal dependencies)", file=sys.stderr)
+        if skipped_parse_error:
+            print(f"# Skipped {len(skipped_parse_error)} files with missing frontmatter:", file=sys.stderr)
+            for name, err in skipped_parse_error[:5]:
+                print(f"#   {name}: {err}", file=sys.stderr)
+            if len(skipped_parse_error) > 5:
+                print(f"#   ... and {len(skipped_parse_error) - 5} more", file=sys.stderr)
 
     return tools
 
@@ -860,7 +891,7 @@ Environment:
             # Default: parent of .ci directory (where this script lives)
             salt_states_path = str(Path(__file__).parent.parent)
 
-        tools = scan_all_tools(salt_states_path)
+        tools = scan_all_tools(salt_states_path, verbose=args.verbose)
         if not tools:
             print("Error: No tools found", file=sys.stderr)
             sys.exit(1)
