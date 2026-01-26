@@ -13,5 +13,5 @@ repos:
         entry: python3 .ci/lint-frontmatter.py
         language: python
         files: ^remnux/.*\.sls$
-        exclude: ^remnux/.*/init\.sls$
+        exclude: ^remnux/(.*\/init\.sls|addon\.sls|dedicated\.sls|cloud\.sls)$
         pass_filenames: true

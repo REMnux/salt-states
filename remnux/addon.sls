@@ -3,6 +3,7 @@
 # the environment that the user likely wants to keep intact.
 
 include:
+  - remnux.network
   - remnux.repos
   - remnux.python3-packages
   - remnux.packages
@@ -21,6 +22,7 @@ remnux-addon-version-file:
     - user: root
     - group: root
     - require:
+      - sls: remnux.network
       - sls: remnux.repos
       - sls: remnux.python3-packages
       - sls: remnux.packages
