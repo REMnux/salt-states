@@ -12,4 +12,11 @@ remnux-theme-ssh-sshd-disable-service:
     - require:
       - sls: remnux.packages.openssh
 
+remnux-theme-ssh-sshd-disable-socket:
+  service.dead:
+    - name: ssh.socket
+    - enable: False
+    - require:
+      - sls: remnux.packages.openssh
+
 {% endif %}
