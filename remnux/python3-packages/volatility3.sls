@@ -36,6 +36,7 @@ remnux-python3-package-volatility3-extras:
     - pkgs:
       - yara-python
       - pycryptodome
+      - pyarrow
     - bin_env: /opt/volatility3/bin/python3
     - require:
       - pip: remnux-python3-package-volatility3
