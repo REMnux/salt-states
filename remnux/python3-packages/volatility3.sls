@@ -31,6 +31,15 @@ remnux-python3-package-volatility3:
     - require:
       - virtualenv: remnux-python3-package-volatility3-venv
 
+remnux-python3-package-volatility3-extras:
+  pip.installed:
+    - pkgs:
+      - yara-python
+      - pycryptodome
+    - bin_env: /opt/volatility3/bin/python3
+    - require:
+      - pip: remnux-python3-package-volatility3
+
 {% for file in files %}
 remnux-python3-package-volatility3-symlink-{{ file }}:
   file.symlink:
