@@ -10,7 +10,6 @@ include:
   - remnux.repos.microsoft
   - remnux.repos.microsoft-vscode
   - remnux.repos.nodejs
-  - remnux.repos.gift
 
 remnux-repos:
   test.nop:
@@ -26,4 +25,3 @@ remnux-repos:
       - sls: remnux.repos.microsoft
       - sls: remnux.repos.microsoft-vscode
       - sls: remnux.repos.nodejs
-      - sls: remnux.repos.gift

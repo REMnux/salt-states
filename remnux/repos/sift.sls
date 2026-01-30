@@ -15,6 +15,14 @@ sift-stable:
 
 {%- endif %}
 
+sift-deb822-stable-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/sift-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.sources
+
+sift-deb822-dev-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/sift-ubuntu-dev-{{ grains['lsb_distrib_codename'] }}.sources
+
 sift-repo-key:
   file.managed:
     - name: /usr/share/keyrings/SIFT-GPG-KEY.asc
@@ -30,3 +38,10 @@ sift-repo:
     - clean_file: True
     - require:
       - file: sift-repo-key
+      - file: sift-deb822-stable-absent
+      - file: sift-deb822-dev-absent
+{%- if version == "stable" %}
+      - pkgrepo: sift-dev
+{%- else %}
+      - pkgrepo: sift-stable
+{%- endif %}

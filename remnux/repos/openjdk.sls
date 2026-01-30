@@ -2,6 +2,14 @@
 include:
   - remnux.packages.software-properties-common
 
+openjdk-ppa-absent:
+  pkgrepo.absent:
+    - ppa: openjdk-r/ppa
+
+openjdk-deb822-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/openjdk-r-ubuntu-ppa-{{ grains['lsb_distrib_codename'] }}.sources
+
 openjdk-repo-key:
   file.managed:
     - name: /usr/share/keyrings/OPENJDK-PGP-KEY.asc
@@ -13,8 +21,10 @@ openjdk-repo:
   pkgrepo.managed:
     - name: deb [arch={{ osarch }} signed-by=/usr/share/keyrings/OPENJDK-PGP-KEY.asc] https://ppa.launchpadcontent.net/openjdk-r/ppa/ubuntu {{ grains['lsb_distrib_codename'] }} main
     - file: /etc/apt/sources.list.d/openjdk-r-ubuntu-ppa-{{ grains['lsb_distrib_codename'] }}.list
-    - refresh: true
+    - refresh: True
     - clean_file: True
     - require:
       - sls: remnux.packages.software-properties-common
       - file: openjdk-repo-key
+      - pkgrepo: openjdk-ppa-absent
+      - file: openjdk-deb822-absent
