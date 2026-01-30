@@ -7,11 +7,11 @@
 # Notes: cast
 
 {% from "remnux/osarch.sls" import osarch with context %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.4" %}
 {% if osarch == "amd64" %}
-  {% set hash = "8d73856e4eef8a66d305861c6c81c763e5a3eea121a0f492ddf7caa11084a280" %}
+  {% set hash = "d8322b1fb05a352794cded7de934af682eaea2c5e1e42ca2ff5eb0f503136219" %}
 {% elif osarch == "arm64" %}
-  {% set hash = "c3212e562ce3d5120b24b9fa3d2e3b3a8e1869a96d2351cd1b7344c037b8ba9f" %}
+  {% set hash = "68d17c7242835984bcdc3be48b8cbc3a6f03839abbcede0d29b99ec61511e8fb" %}
 {% endif %}
 
 remnux-packages-cast-source:
