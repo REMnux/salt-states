@@ -9,6 +9,12 @@
 include:
   - remnux.repos.remnux
   
+remnux-packages-pev-remove-readpe:
+  pkg.removed:
+    - name: readpe
+    - require_in:
+      - pkg: remnux-packages-pev
+
 remnux-packages-pev:
   pkg.installed:
     - name: pev
