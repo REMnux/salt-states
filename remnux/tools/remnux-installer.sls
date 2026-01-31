@@ -10,7 +10,7 @@
 {% set legacy_hash = "c46c732f5ab8f33ce957db8b6f0827554bf100b8a26b4765410b252429a26380" %}
 {% set legacy_version = "1.5.1" %}
 
-{% set remnux_hash = "94673eb529ec6a363f332fb68c8e94bcd2ec2137746ccfce5acc45f65016f91b" %}
+{% set remnux_hash = "deeea89280b6b905dfbc5f938956a14683cd838444c77616097d3355c0dc99b6" %}
 {% set remnux_diag_hash = "b8f54918a28212768c2c062598ec722803a8a3e48f85c7b8db869d0774aeb63b" %}
 
 include:
