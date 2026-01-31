@@ -29,6 +29,12 @@ Usage:
     # Generate tools-index.json for MCP server (output to stdout)
     python update-docs.py --json-index > tools-index.json
 
+    # Push tools-index.json to the MCP server repo
+    python update-docs.py --sync-mcp
+
+    # Push to a fork for testing
+    python update-docs.py --sync-mcp --mcp-repo lzeltser/remnux-mcp-server
+
 Environment Variables:
     GITHUB_ACCESS_TOKEN: GitHub personal access token with repo write access.
                          If not set, the script will use SSH git access instead.
@@ -57,6 +63,12 @@ Options:
 
     --json-index    Output tools-index.json to stdout for MCP server use.
                     Scans all .sls files and extracts tool metadata.
+
+    --sync-mcp      Push tools-index.json to the MCP server repo via GitHub API.
+                    Requires GITHUB_ACCESS_TOKEN.
+
+    --mcp-repo      Override the MCP server repository
+                    (default: REMnux/remnux-mcp-server).
 
     --salt-states-path  Path to salt-states directory (default: script's parent dir).
 
@@ -89,6 +101,9 @@ from urllib.error import HTTPError
 # Default configuration
 DEFAULT_DOCS_REPO = "REMnux/docs"
 DEFAULT_DOCS_BRANCH = "master"
+DEFAULT_MCP_REPO = "REMnux/remnux-mcp-server"
+DEFAULT_MCP_BRANCH = "main"
+MCP_INDEX_PATH = "data/tools-index.json"
 SALT_STATES_REPO = "REMnux/salt-states"
 GITHUB_API_BASE = "https://api.gitbook.com"
 
@@ -880,6 +895,18 @@ Environment:
         help="Path to salt-states directory (default: parent of this script's directory)",
     )
 
+    parser.add_argument(
+        "--sync-mcp",
+        action="store_true",
+        help="Push tools-index.json to the MCP server repo via GitHub API",
+    )
+
+    parser.add_argument(
+        "--mcp-repo",
+        default=None,
+        help=f"Override the MCP server repository (default: {DEFAULT_MCP_REPO})",
+    )
+
     args = parser.parse_args()
 
     # Handle --json-index mode
@@ -899,6 +926,54 @@ Environment:
         index = generate_json_index(tools)
         print(json.dumps(index, indent=2))
         print(f"\n# Generated {len(index['tools'])} tool entries from {len(tools)} state files", file=sys.stderr)
+        sys.exit(0)
+
+    # Handle --sync-mcp mode
+    if args.sync_mcp:
+        github_token = os.environ.get("GITHUB_ACCESS_TOKEN")
+        if not github_token:
+            print("Error: GITHUB_ACCESS_TOKEN is required for --sync-mcp", file=sys.stderr)
+            sys.exit(1)
+
+        # Determine salt-states path
+        if args.salt_states_path:
+            salt_states_path = args.salt_states_path
+        else:
+            salt_states_path = str(Path(__file__).parent.parent)
+
+        # Generate the index
+        tools = scan_all_tools(salt_states_path, verbose=args.verbose)
+        if not tools:
+            print("Error: No tools found", file=sys.stderr)
+            sys.exit(1)
+
+        index = generate_json_index(tools)
+        new_content = json.dumps(index, indent=2) + "\n"
+
+        # Push to MCP repo
+        mcp_repo = args.mcp_repo or DEFAULT_MCP_REPO
+        mcp_api = GitHubAPI(github_token, mcp_repo, DEFAULT_MCP_BRANCH)
+
+        existing_content, sha = mcp_api.get_file_content(MCP_INDEX_PATH)
+
+        # Compare tools arrays only — the "updated" timestamp changes every run
+        if existing_content is not None:
+            try:
+                existing_index = json.loads(existing_content)
+                if existing_index.get("tools") == index["tools"]:
+                    print(f"No changes needed in {mcp_repo}/{MCP_INDEX_PATH}")
+                    sys.exit(0)
+            except (json.JSONDecodeError, KeyError):
+                pass  # Existing file is malformed; overwrite it
+
+        commit_msg = "chore: update tools-index.json from salt-states"
+
+        if sha:
+            mcp_api.update_file(MCP_INDEX_PATH, new_content, commit_msg, sha)
+        else:
+            mcp_api.create_file(MCP_INDEX_PATH, new_content, commit_msg)
+
+        print(f"Updated {MCP_INDEX_PATH} in {mcp_repo} ({len(index['tools'])} tool entries)")
         sys.exit(0)
 
     # Validate arguments
