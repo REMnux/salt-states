@@ -1,7 +1,7 @@
 # Name: OpenCode
 # Website: https://opencode.ai
 # Description: Open-source AI coding agent for the terminal.
-# Category: Artificial Intelligence
+# Category: Use Artificial Intelligence
 # Author: Anomaly: https://github.com/anomalyco
 # License: Apache License 2.0: https://github.com/anomalyco/opencode/blob/main/LICENSE
 # Notes: opencode
