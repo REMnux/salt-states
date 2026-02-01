@@ -19,6 +19,7 @@
                 ('emldump.py','cae10ad495864d196edc464148990be84e84480860045ff8ea0172e0f8ea8a86'),
                 ('file-magic.py','bae00a6c34e08095b586798b7d27783e938707ce05621b4d9a5b6da7b7eb742e'),
                 ('format-bytes.py','7b36fc6b9fdc3f4533afae6b7b443a3fa0cd20919e1123621cfdc43571e1d739'),
+                ('hex-to-bin.py','4e06d5d80c60f88b0289072124d8c6e0c1cf541dbcc58c41f1edd87f2fa8a3f5'),
                 ('msoffcrypto-crack.py','f0a78b7263704d8740a7d4738a8b3d5cfc6037de619953b444a0019551826367'),
                 ('myjson-filter.py','c09e7ed57017ad765586bafa72c2b91eb2199a92d28755ba81ef4345eefbaaa9'),
                 ('myjson-transform.py','e790bc09b37cd9b452920cd1452d98eb3890a0f39b86fb36337471fa11ae27d9'),
@@ -41,6 +42,7 @@
                 ('translate.py','dabc4b19b1d176d5963d91d845aec9d04823ed2a2808bfd526388382177bf50e'),
                 ('xmldump.py','713f575d02639b6359e1999de6d18f99c1fac369831c5eaf3f2000feab342a11'),
                 ('xor-kpa.py','db51d2a64a0ee5673cb933f8a2fb5796e401fb7d46427da2c6d9c9749301af22'),
+                ('xorsearch.py','bbfe319941456b9becea637a4dae01ec572b68fe2aeea22f29f4ccee7417fc6e'),
                 ('zipdump.py','8035ba624a449d55386b697e1daf9bd32729af1f08dd2d16f2e278bef6dbfdd6'),
 ] %}
 
@@ -119,6 +121,53 @@ remnux-scripts-didier-stevens-formatting-{{ file }}:
     - backup: false
     - require:
       - file: remnux-scripts-didier-stevens-shebang-{{ file }}
+
+{% endfor %}
+
+{% set beta_commit = '439d2168ea1967f3c0836616d390405cadd07690' %}
+{% set beta_files = [('isodump.py','8043f0e3ebc4a46cc0f9280153127d8889550c0d9d7d69f2d593e6e160852d9f'),
+                     ('onedump.py','67ddd82068c08ba1e873f96956f43f1d2c64cf7b67156e657e5822a849e08144'),
+] %}
+
+{% for file, hash in beta_files %}
+remnux-scripts-didier-stevens-beta-{{ file }}:
+  file.managed:
+    - name: /opt/didier-stevens/bin/{{ file }}
+    - source: https://raw.githubusercontent.com/DidierStevens/Beta/{{ beta_commit }}/{{ file }}
+    - source_hash: sha256={{ hash }}
+    - mode: 755
+    - makedirs: True
+    - require:
+      - virtualenv: remnux-scripts-didier-stevens-venv
+
+remnux-scripts-didier-stevens-beta-symlink-{{ file }}:
+  file.symlink:
+    - name: /usr/local/bin/{{ file }}
+    - target: /opt/didier-stevens/bin/{{ file }}
+    - force: True
+    - makedirs: False
+    - require:
+      - file: remnux-scripts-didier-stevens-beta-{{ file }}
+
+remnux-scripts-didier-stevens-beta-shebang-{{ file }}:
+  file.replace:
+    - name: /opt/didier-stevens/bin/{{ file }}
+    - pattern: '#!/usr/bin/env python\n'
+    - repl: '#!/opt/didier-stevens/bin/python3\n'
+    - prepend_if_not_found: True
+    - backup: False
+    - count: 1
+    - require:
+      - file: remnux-scripts-didier-stevens-beta-symlink-{{ file }}
+
+remnux-scripts-didier-stevens-beta-formatting-{{ file }}:
+  file.replace:
+    - name: /opt/didier-stevens/bin/{{ file }}
+    - pattern: '\r'
+    - repl: ''
+    - backup: false
+    - require:
+      - file: remnux-scripts-didier-stevens-beta-shebang-{{ file }}
 
 {% endfor %}
 
