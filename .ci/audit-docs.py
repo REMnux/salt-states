@@ -499,6 +499,7 @@ def audit_docs(
         "Perform Memory Forensics": [],
         "Explore Network Interactions": ["Monitoring", "Connecting", "Services"],
         "Investigate System Interactions": [],
+        "Artificial Intelligence": [],
         "Analyze Documents": ["General", "PDF", "Microsoft Office", "Email Messages"],
         "Gather and Analyze Data": [],
         "View or Edit Files": [],
