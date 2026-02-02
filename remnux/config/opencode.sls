@@ -1,6 +1,6 @@
 # Name: opencode
 # Website: https://opencode.ai
-# Description: Configure opencode with REMnux MCP server.
+# Description: Configure opencode with REMnux MCP servers.
 # Category: Use Artificial Intelligence
 # Author: Lenny Zeltser
 # License: MIT License (https://github.com/anthropics/opencode/blob/main/LICENSE)
@@ -37,6 +37,10 @@ remnux-config-opencode-settings:
             type: local
             command:
               - remnux-mcp-server
+            enabled: true
+          remnux-docs:
+            type: remote
+            url: https://docs.remnux.org/~gitbook/mcp
             enabled: true
     - formatter: json
     - merge_if_exists: True
