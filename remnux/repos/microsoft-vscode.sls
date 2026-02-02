@@ -6,12 +6,25 @@ remnux-microsoft-vscode-key:
     - skip_verify: True
     - makedirs: True
 
-microsoft-vscode:
-  pkgrepo.managed:
-    - humanname: Microsoft Visual Studio Code
-    - name: deb [arch={{ osarch }} signed-by=/usr/share/keyrings/MICROSOFT.asc] https://packages.microsoft.com/repos/vscode stable main
-    - file: /etc/apt/sources.list.d/vscode.list
-    - refresh: True
-    - clean_file: True
+remnux-microsoft-vscode-list-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/microsoft-vscode.list
+
+remnux-microsoft-vscode-sources-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/microsoft-vscode.sources
+
+remnux-microsoft-vscode-repo:
+  file.managed:
+    - name: /etc/apt/sources.list.d/vscode.sources
+    - contents: |
+        Types: deb
+        URIs: https://packages.microsoft.com/repos/code
+        Suites: stable
+        Components: main
+        Signed-By: /usr/share/keyrings/MICROSOFT.asc
+        Architectures: {{ osarch }}
     - require:
       - file: remnux-microsoft-vscode-key
+      - file: remnux-microsoft-vscode-list-absent
+      - file: remnux-microsoft-vscode-sources-absent

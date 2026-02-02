@@ -1,6 +1,6 @@
 include:
+  - remnux.repos.ubuntu-universe
   - remnux.repos.docker
-  - remnux.repos.inetsim
   - remnux.repos.openjdk
   - remnux.repos.gift
   - remnux.repos.sift
@@ -10,12 +10,14 @@ include:
   - remnux.repos.microsoft
   - remnux.repos.microsoft-vscode
   - remnux.repos.nodejs
+  - remnux.repos.winehq
+  - remnux.repos.refresh
 
 remnux-repos:
   test.nop:
     - require:
+      - sls: remnux.repos.ubuntu-universe
       - sls: remnux.repos.docker
-      - sls: remnux.repos.inetsim
       - sls: remnux.repos.openjdk
       - sls: remnux.repos.gift
       - sls: remnux.repos.sift
@@ -25,3 +27,5 @@ remnux-repos:
       - sls: remnux.repos.microsoft
       - sls: remnux.repos.microsoft-vscode
       - sls: remnux.repos.nodejs
+      - sls: remnux.repos.winehq
+      - sls: remnux.repos.refresh

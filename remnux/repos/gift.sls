@@ -1,37 +1,37 @@
 {% from "remnux/osarch.sls" import osarch with context %}
-gift-ppa-stable-absent:
-  pkgrepo.absent:
-    - ppa: gift/stable
+{% set version = "stable" %}
 
-gift-ppa-dev-absent:
+include:
+  - remnux.packages.software-properties-common
+
+{%- if version == "stable" %}
+remnux-gift-dev:
   pkgrepo.absent:
     - ppa: gift/dev
-
-gift-deb822-absent:
-  file.absent:
-    - name: /etc/apt/sources.list.d/gift-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.sources
-
-gift-deb822-dev-absent:
-  file.absent:
-    - name: /etc/apt/sources.list.d/gift-ubuntu-dev-{{ grains['lsb_distrib_codename'] }}.sources
-
-remnux-gift-key:
-  file.managed:
-    - name: /usr/share/keyrings/GIFT-GPG-KEY.asc
-    - source: salt://remnux/repos/files/GIFT-GPG-KEY.asc
-    - skip_verify: True
-    - makedirs: True
+    - require_in:
+      - pkgrepo: gift-repo
+{%- else %}
+remnux-gift-stable:
+  pkgrepo.absent:
+    - ppa: gift/stable
+    - require_in:
+      - pkgrepo: gift-repo
+{%- endif %}
 
 gift-repo:
   pkgrepo.managed:
-    - name: deb [arch={{ osarch }} signed-by=/usr/share/keyrings/GIFT-GPG-KEY.asc] https://ppa.launchpadcontent.net/gift/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
-    - dist: {{ grains['lsb_distrib_codename'] }}
-    - file: /etc/apt/sources.list.d/gift-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.list
-    - refresh: True
-    - clean_file: True
+    - name: gift
+    - ppa: gift/{{ version }}
+    - keyid: 3ED1EAECE81894B171D7DA5B5E80511B10C598B8
+    - keyserver: hkp://p80.pool.sks-keyservers.net:80
+    - refresh: true
     - require:
-      - file: remnux-gift-key
-      - pkgrepo: gift-ppa-stable-absent
-      - pkgrepo: gift-ppa-dev-absent
-      - file: gift-deb822-absent
-      - file: gift-deb822-dev-absent
+      - sls: remnux.packages.software-properties-common
+
+remnux-gift-repo-preferences:
+  file.managed:
+    - name: /etc/apt/preferences.d/gift
+    - source: salt://remnux/repos/files/gift.preferences
+    - template: jinja
+    - context:
+        version: {{ version }}

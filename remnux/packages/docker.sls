@@ -18,6 +18,6 @@ docker-docker-ce:
   pkg.installed:
     - name: docker-ce
     - require:
+      - file: remnux-docker-repo
       - pkg: docker-docker-engine
-      - sls: remnux.repos.docker
       - sls: remnux.tools.docker-compose

@@ -1,7 +1,4 @@
 {% from "remnux/osarch.sls" import osarch with context %}
-include:
-  - remnux.packages.software-properties-common
-
 wireshark-dev-repo-key:
   file.managed:
     - name: /usr/share/keyrings/WIRESHARK-DEV-PGP-KEY.asc
@@ -9,12 +6,31 @@ wireshark-dev-repo-key:
     - skip_verify: True
     - makedirs: True
 
-wireshark-dev:
-  pkgrepo.managed:
-    - name: deb [arch={{ osarch }} signed-by=/usr/share/keyrings/WIRESHARK-DEV-PGP-KEY.asc] https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu {{ grains['lsb_distrib_codename'] }} main
-    - file: /etc/apt/sources.list.d/wireshark-dev-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.list
+wireshark-repo-cleanup:
+  pkgrepo.absent:
+    - ppa: wireshark-dev/stable
     - refresh: true
-    - clean_file: True
+
+remnux-wireshark-list-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/wireshark-dev-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.list
+
+remnux-wireshark-sources-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/wireshark-dev-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.sources
+
+wireshark-dev:
+  file.managed:
+    - name: /etc/apt/sources.list.d/wireshark-dev-ubuntu-stable-{{ grains['lsb_distrib_codename'] }}.sources
+    - contents: |
+        Types: deb
+        URIs: https://ppa.launchpadcontent.net/wireshark-dev/stable/ubuntu
+        Suites: {{ grains['lsb_distrib_codename'] }}
+        Components: main
+        Signed-By: /usr/share/keyrings/WIRESHARK-DEV-PGP-KEY.asc
+        Architectures: {{ osarch }}
     - require:
-      - sls: remnux.packages.software-properties-common
       - file: wireshark-dev-repo-key
+      - pkgrepo: wireshark-repo-cleanup
+      - file: remnux-wireshark-list-absent
+      - file: remnux-wireshark-sources-absent

@@ -6,13 +6,31 @@ pgadmin4-repo-key:
     - skip_verify: True
     - replace: True
     - makedirs: True
-    
-pgadmin4-repo:
-  pkgrepo.managed:
-    - name: deb [arch={{ osarch }} signed-by=/usr/share/keyrings/packages-pgadmin-org.pgp] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/{{ grains['lsb_distrib_codename'] }} pgadmin4 main
-    - file: /etc/apt/sources.list.d/pgadmin4-{{ grains['lsb_distrib_codename'] }}.list
-    - refresh: True
-    - clean_file: True
+
+remnux-pgadmin4-list-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/pgadmin4-{{ grains['lsb_distrib_codename'] }}.list
+
+remnux-pgadmin4-sources-absent:
+  file.absent:
+    - name: /etc/apt/sources.list.d/pgadmin4-{{ grains['lsb_distrib_codename'] }}.sources
+
+remnux-pgadmin4-repo-cleanup:
+  pkgrepo.absent:
+    - name: deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/{{ grains['lsb_distrib_codename'] }} pgadmin4 main
+
+remnux-pgadmin4-repo:
+  file.managed:
+    - name: /etc/apt/sources.list.d/pgadmin4-{{ grains['lsb_distrib_codename'] }}.sources
+    - contents: |
+        Types: deb
+        URIs: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/{{ grains['lsb_distrib_codename'] }}
+        Suites: pgadmin4
+        Components: main
+        Signed-By: /usr/share/keyrings/packages-pgadmin-org.pgp
+        Architectures: {{ osarch }}
     - require:
       - file: pgadmin4-repo-key
-
+      - file: remnux-pgadmin4-list-absent
+      - file: remnux-pgadmin4-sources-absent
+      - pkgrepo: remnux-pgadmin4-repo-cleanup
