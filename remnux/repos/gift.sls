@@ -18,6 +18,18 @@ remnux-gift-stable:
       - pkgrepo: gift-repo
 {%- endif %}
 
+remnux-remove-gift-list:
+  file.absent:
+    - name: /etc/apt/sources.list.d/gift-ubuntu-{{ version }}-{{ grains['lsb_distrib_codename'] }}.list
+    - require_in:
+      - pkgrepo: gift-repo
+
+remnux-remove-gift-key:
+  file.absent:
+    - name: /usr/share/keyrings/GIFT-GPG-KEY.asc
+    - require_in:
+      - pkgrepo: gift-repo
+
 gift-repo:
   pkgrepo.managed:
     - name: gift

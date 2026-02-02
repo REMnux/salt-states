@@ -18,11 +18,23 @@ remnux-sift-stable:
       - pkgrepo: sift-repo
 {%- endif %}
 
+remnux-remove-sift-list:
+  file.absent:
+    - name: /etc/apt/sources.list.d/sift-{{ version }}-{{ grains['lsb_distrib_codename'] }}.list
+    - require_in:
+      - pkgrepo: sift-repo
+
+remnux-remove-sift-key:
+  file.absent:
+    - name: /usr/share/keyrings/SIFT-GPG-KEY.asc
+    - require_in:
+      - pkgrepo: sift-repo
+
 sift-repo:
   pkgrepo.managed:
     - ppa: sift/{{ version }}
     - keyid: 3E04D0A9A043FAFD66F5E774B2A668DD0744BEC3
     - keyserver: hkp://p80.pool.sks-keyservers.net:80
     - refresh: true
-    - include:
+    - require:
       - sls: remnux.packages.software-properties-common
