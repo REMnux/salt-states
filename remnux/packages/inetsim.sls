@@ -6,13 +6,9 @@
 # License: GNU General Public License (GPL) v3
 # Notes: inetsim
 
-include:
-  - remnux.repos.inetsim
-
-remnux-packages-inetsim-repo:
+remnux-packages-inetsim:
   pkg.installed:
     - name: inetsim
     - version: latest
     - upgrade: True
     - refresh: True
-    - pkgrepo: inetsim
