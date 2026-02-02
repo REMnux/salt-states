@@ -1,9 +1,3 @@
-# Name: opencode
-# Website: https://opencode.ai
-# Description: Configure opencode with REMnux MCP servers.
-# Author: Lenny Zeltser
-# License: MIT License (https://github.com/anthropics/opencode/blob/main/LICENSE)
-
 {% set user = salt['pillar.get']('remnux_user', 'remnux') %}
 
 {% if user == "root" %}
