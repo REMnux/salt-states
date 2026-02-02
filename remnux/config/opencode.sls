@@ -1,7 +1,6 @@
 # Name: opencode
 # Website: https://opencode.ai
 # Description: Configure opencode with REMnux MCP servers.
-# Category: Use Artificial Intelligence
 # Author: Lenny Zeltser
 # License: MIT License (https://github.com/anthropics/opencode/blob/main/LICENSE)
 
