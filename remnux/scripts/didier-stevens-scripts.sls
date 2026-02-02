@@ -125,8 +125,7 @@ remnux-scripts-didier-stevens-formatting-{{ file }}:
 {% endfor %}
 
 {% set beta_commit = '439d2168ea1967f3c0836616d390405cadd07690' %}
-{% set beta_files = [('isodump.py','8043f0e3ebc4a46cc0f9280153127d8889550c0d9d7d69f2d593e6e160852d9f'),
-                     ('onedump.py','67ddd82068c08ba1e873f96956f43f1d2c64cf7b67156e657e5822a849e08144'),
+{% set beta_files = [('onedump.py','67ddd82068c08ba1e873f96956f43f1d2c64cf7b67156e657e5822a849e08144'),
 ] %}
 
 {% for file, hash in beta_files %}
