@@ -12,5 +12,6 @@ include:
 remnux-node-packages-remnux-mcp-server:
   npm.installed:
     - name: "@remnux/mcp-server"
+    - force_reinstall: true
     - require:
       - sls: remnux.packages.nodejs
