@@ -32,8 +32,8 @@ Usage:
     # Push tools-index.json to the MCP server repo
     python update-docs.py --sync-mcp
 
-    # Push to a fork for testing
-    python update-docs.py --sync-mcp --mcp-repo lzeltser/remnux-mcp-server
+    # Preview MCP sync without pushing
+    python update-docs.py --sync-mcp --dry-run --show-diff
 
 Environment Variables:
     GITHUB_ACCESS_TOKEN: GitHub personal access token with repo write access.
@@ -65,10 +65,7 @@ Options:
                     Scans all .sls files and extracts tool metadata.
 
     --sync-mcp      Push tools-index.json to the MCP server repo via GitHub API.
-                    Requires GITHUB_ACCESS_TOKEN.
-
-    --mcp-repo      Override the MCP server repository
-                    (default: REMnux/remnux-mcp-server).
+                    Supports --dry-run and --show-diff. Requires GITHUB_ACCESS_TOKEN.
 
     --salt-states-path  Path to salt-states directory (default: script's parent dir).
 
@@ -901,12 +898,6 @@ Environment:
         help="Push tools-index.json to the MCP server repo via GitHub API",
     )
 
-    parser.add_argument(
-        "--mcp-repo",
-        default=None,
-        help=f"Override the MCP server repository (default: {DEFAULT_MCP_REPO})",
-    )
-
     args = parser.parse_args()
 
     # Handle --json-index mode
@@ -930,10 +921,7 @@ Environment:
 
     # Handle --sync-mcp mode
     if args.sync_mcp:
-        github_token = os.environ.get("GITHUB_ACCESS_TOKEN")
-        if not github_token:
-            print("Error: GITHUB_ACCESS_TOKEN is required for --sync-mcp", file=sys.stderr)
-            sys.exit(1)
+        import difflib
 
         # Determine salt-states path
         if args.salt_states_path:
@@ -950,31 +938,71 @@ Environment:
         index = generate_json_index(tools)
         new_content = json.dumps(index, indent=2) + "\n"
 
-        # Push to MCP repo
-        mcp_repo = args.mcp_repo or DEFAULT_MCP_REPO
-        mcp_api = GitHubAPI(github_token, mcp_repo, DEFAULT_MCP_BRANCH)
-
-        existing_content, sha = mcp_api.get_file_content(MCP_INDEX_PATH)
-
-        # Compare tools arrays only — the "updated" timestamp changes every run
-        if existing_content is not None:
-            try:
-                existing_index = json.loads(existing_content)
-                if existing_index.get("tools") == index["tools"]:
-                    print(f"No changes needed in {mcp_repo}/{MCP_INDEX_PATH}")
-                    sys.exit(0)
-            except (json.JSONDecodeError, KeyError):
-                pass  # Existing file is malformed; overwrite it
-
+        mcp_repo = DEFAULT_MCP_REPO
         commit_msg = "chore: update tools-index.json from salt-states"
 
-        if sha:
-            mcp_api.update_file(MCP_INDEX_PATH, new_content, commit_msg, sha)
-        else:
-            mcp_api.create_file(MCP_INDEX_PATH, new_content, commit_msg)
+        # Fetch existing content from the MCP repo
+        existing_content = None
+        sha = None
+        git = None  # SSH backend handle, if used
 
-        print(f"Updated {MCP_INDEX_PATH} in {mcp_repo} ({len(index['tools'])} tool entries)")
-        sys.exit(0)
+        github_token = os.environ.get("GITHUB_ACCESS_TOKEN")
+        if github_token:
+            mcp_api = GitHubAPI(github_token, mcp_repo, DEFAULT_MCP_BRANCH)
+            existing_content, sha = mcp_api.get_file_content(MCP_INDEX_PATH)
+        else:
+            print("No GITHUB_ACCESS_TOKEN found, using SSH fallback...")
+            git = GitSSH(mcp_repo, DEFAULT_MCP_BRANCH)
+            git.clone()
+            existing_content, _ = git.get_file_content(MCP_INDEX_PATH)
+
+        try:
+            # Compare tools arrays only — the "updated" timestamp changes every run
+            changed = True
+            if existing_content is not None:
+                try:
+                    existing_index = json.loads(existing_content)
+                    if existing_index.get("tools") == index["tools"]:
+                        changed = False
+                except (json.JSONDecodeError, KeyError):
+                    pass  # Existing file is malformed; overwrite it
+
+            if not changed:
+                print(f"No changes needed in {mcp_repo}/{MCP_INDEX_PATH}")
+                sys.exit(0)
+
+            # Show diff if requested
+            if args.show_diff and existing_content is not None:
+                old_lines = existing_content.splitlines(keepends=True)
+                new_lines = new_content.splitlines(keepends=True)
+                diff = difflib.unified_diff(
+                    old_lines, new_lines,
+                    fromfile=f"a/{MCP_INDEX_PATH}",
+                    tofile=f"b/{MCP_INDEX_PATH}",
+                )
+                sys.stdout.writelines(diff)
+
+            # Dry-run: print summary and exit
+            if args.dry_run:
+                tool_count = len(index["tools"])
+                print(f"[dry-run] Would update {MCP_INDEX_PATH} in {mcp_repo} ({tool_count} tool entries)")
+                sys.exit(0)
+
+            # Push the update
+            if github_token:
+                if sha:
+                    mcp_api.update_file(MCP_INDEX_PATH, new_content, commit_msg, sha)
+                else:
+                    mcp_api.create_file(MCP_INDEX_PATH, new_content, commit_msg)
+            else:
+                git.write_file(MCP_INDEX_PATH, new_content)
+                git.commit_and_push(commit_msg)
+
+            print(f"Updated {MCP_INDEX_PATH} in {mcp_repo} ({len(index['tools'])} tool entries)")
+            sys.exit(0)
+        finally:
+            if git:
+                git.cleanup()
 
     # Validate arguments
     if not args.target:
