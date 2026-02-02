@@ -128,10 +128,7 @@ def lint_file(file_path: Path) -> list[str]:
     errors.extend(parse_errors)
 
     if not front_matter:
-        # No frontmatter found - this might be an init.sls or internal file
-        # Only warn if it's not an init.sls
-        if file_path.name != "init.sls":
-            errors.append("No frontmatter found (expected # Name: ... at start of file)")
+        # No frontmatter found - skip validation (config states, init.sls, etc.)
         return errors
 
     # Check required fields
