@@ -1,10 +1,10 @@
 # Name: REMnux Installer
-# Website: https://github.com/REMnux/distro
-# Description: Install and upgrade the REMnux distro using Cast.
+# Website: https://github.com/REMnux/distro/blob/master/files/remnux-installer.sh
+# Description: Install and update the REMnux distro.
 # Category: General Utilities
 # Author: Lenny Zeltser
-# License: MIT License: https://github.com/REMnux/distro/blob/master/LICENSE
-# Notes: remnux
+# License: Public Domain
+# Notes: This is a wrapper around the Cast installer that the script uses behind the scenes. To run the tool on REMnux, type `remnux`
 
 {%- set legacy_source = "https://github.com/REMnux/remnux-cli/releases/download/v" -%}
 {% set legacy_hash = "c46c732f5ab8f33ce957db8b6f0827554bf100b8a26b4765410b252429a26380" %}
