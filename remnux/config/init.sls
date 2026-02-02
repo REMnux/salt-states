@@ -22,6 +22,7 @@ include:
   - remnux.config.android-project-creator
   - remnux.config.volatility3
   - remnux.config.vscode
+  - remnux.config.opencode
 
 remnux-config:
   test.nop:
@@ -49,3 +50,4 @@ remnux-config:
       - sls: remnux.config.android-project-creator
       - sls: remnux.config.volatility3
       - sls: remnux.config.vscode
+      - sls: remnux.config.opencode
