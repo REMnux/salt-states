@@ -7,7 +7,7 @@
 # Notes: cyberchef
 
 {% set version = "10.20.0" -%}
-{% set hash = "3030457c151fb4a0c3c3330ef40166b0e92eeb78931cf2a622e096f77c1a704b" -%}
+{% set hash = "5c41ce4e095726da9e376f3c3cabd70611d05d53f30a09b2028e15fd7f46e8db" -%}
 
 include:
   - remnux.packages.firefox
