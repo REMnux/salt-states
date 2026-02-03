@@ -1,5 +1,4 @@
 include:
-  - remnux.python3-packages.xxxswf
   - remnux.node-packages.box-js
   - remnux.packages.clamav-daemon
   - remnux.packages.flare-floss
@@ -9,7 +8,6 @@ include:
   - remnux.python3-packages.thug
   - remnux.packages.pev
   - remnux.rubygems.pedump
-  - remnux.packages.swftools
   - remnux.packages.upx-ucl
   - remnux.python3-packages.xortool
   - remnux.tools.remnux-installer
@@ -57,16 +55,6 @@ remnux-config-bash-completion-rtfdump:
     - mode: 644
     - require:
       - sls: remnux.scripts.didier-stevens-scripts
-
-remnux-config-bash-completion-xxxswf:
-  file.managed:
-    - name: /etc/bash_completion.d/xxxswf
-    - source: salt://remnux/config/bash-completion/xxxswf
-    - replace: False
-    - makedirs: True
-    - mode: 644
-    - require:
-      - sls: remnux.python3-packages.xxxswf
 
 remnux-config-bash-completion-base64dump:
   file.managed:
@@ -197,16 +185,6 @@ remnux-config-bash-completion-pedump:
     - mode: 644
     - require:
       - sls: remnux.rubygems.pedump
-
-remnux-config-bash-completion-swfdump:
-  file.managed:
-    - name: /etc/bash_completion.d/swfdump
-    - source: salt://remnux/config/bash-completion/swfdump
-    - replace: False
-    - makedirs: True
-    - mode: 644
-    - require:
-      - sls: remnux.packages.swftools
 
 remnux-config-bash-completion-upx:
   file.managed:

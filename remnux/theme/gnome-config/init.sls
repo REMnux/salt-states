@@ -12,7 +12,6 @@ include:
   - remnux.theme.core.gnome-terminal
   - remnux.theme.core.gnome-tweaks
   - remnux.tools.cutter
-  - remnux.tools.binnavi
   - remnux.tools.cyberchef
   - remnux.tools.networkminer
   - remnux.theme.gnome-config.remove-app-icons
@@ -142,24 +141,6 @@ remnux-gnome-config-cutter-icon:
     - makedirs: True
     - require:
       - sls: remnux.tools.cutter
-
-remnux-gnome-config-binnavi-icon-file:
-  file.managed:
-    - replace: False
-    - name: /usr/share/icons/binnavi.png
-    - source: salt://remnux/theme/gnome-config/binnavi.png
-    - makedirs: True
-    - require:
-      - sls: remnux.tools.binnavi
-
-remnux-gnome-config-binnavi-icon:
-  file.managed:
-    - replace: False
-    - name: /usr/share/applications/binnavi.desktop
-    - source: salt://remnux/theme/gnome-config/binnavi.desktop
-    - makedirs: True
-    - watch:
-      - file: remnux-gnome-config-binnavi-icon-file
 
 remnux-gnome-config-cyberchef-icon-file:
   file.managed:

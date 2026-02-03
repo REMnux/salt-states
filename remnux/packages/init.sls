@@ -82,7 +82,6 @@ include:
   - remnux.packages.ssdeep
   - remnux.packages.strace
   - remnux.packages.subversion
-  - remnux.packages.swftools
   - remnux.packages.tcpdump
   - remnux.packages.tcpflow
   - remnux.packages.tcpick
@@ -245,7 +244,6 @@ remnux-packages:
       - sls: remnux.packages.ssdeep
       - sls: remnux.packages.strace
       - sls: remnux.packages.subversion
-      - sls: remnux.packages.swftools
       - sls: remnux.packages.tcpdump
       - sls: remnux.packages.tcpflow
       - sls: remnux.packages.tcpick
