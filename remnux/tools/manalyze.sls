@@ -1,3 +1,18 @@
+# Name: Manalyze
+# Website: https://github.com/JusticeRage/Manalyze
+# Description: Perform static analysis of suspicious PE files.
+# Category: Examine Static Properties: PE Files
+# Author: Ivan Kwiatkowski: https://x.com/JusticeRage
+# License: GNU General Public License (GPL) v3: https://github.com/JusticeRage/Manalyze/blob/master/LICENSE.txt
+# Notes: On Noble, installed via apt package (remnux.packages.manalyze). On Focal, installed from pre-built binaries below.
+
+{% if grains['oscodename'] == 'noble' %}
+
+manalyze installed via package on Noble:
+  test.nop
+
+{% else %}
+
 include:
   - remnux.packages.libboost-regex-dev
   - remnux.packages.libboost-system-dev
@@ -34,3 +49,5 @@ remnux-tools-manalyze-wrapper:
     - contents:
       - '#!/bin/bash'
       - LD_LIBRARY_PATH=/usr/local/manalyze:$LD_LIBRARY_PATH /usr/local/manalyze/manalyze ${*}
+
+{% endif %}

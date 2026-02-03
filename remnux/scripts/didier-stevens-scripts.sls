@@ -23,6 +23,18 @@
 # Tools: 1768.py|Analyze Cobalt Strike beacons.|https://blog.didierstevens.com/2021/05/22/update-1768-py-version-0-0-6/|Examine Static Properties: Deobfuscation
 # Tools: cs-decrypt-metadata.py|Decrypt Cobalt Strike metadata.|https://blog.didierstevens.com/2021/11/12/update-cs-decrypt-metadata-py-version-0-0-2/|Examine Static Properties: Deobfuscation
 # Tools: pecheck.py|Analyze static properties of PE files.|https://blog.didierstevens.com/2020/03/15/pecheck-py-version-0-7-10/|Examine Static Properties: PE Files
+# Tools: xorsearch.py|Search for XOR, ROL, ROT, and SHIFT encoded strings with YARA and regex support.|https://blog.didierstevens.com/2020/08/23/new-tool-xorsearch-py/|Examine Static Properties: Deobfuscation
+# Tools: re-search.py|Search files using regular expressions from a built-in library or custom patterns.|https://blog.didierstevens.com/2023/04/03/update-re-search-py-version-0-0-22/|Examine Static Properties: Deobfuscation
+# Tools: strings.py|Extract ASCII and Unicode strings from binary files with length sorting and filtering.|https://blog.didierstevens.com/2020/12/19/update-strings-py-version-0-0-6/|Examine Static Properties: General
+# Tools: file-magic.py|Identify file types using the Python magic module.|https://blog.didierstevens.com/2018/07/11/new-tool-file-magic-py/|Examine Static Properties: General
+# Tools: hex-to-bin.py|Convert hexadecimal text dumps to binary data.|https://blog.didierstevens.com/2020/04/19/update-hex-to-bin-py-version-0-0-5/|Examine Static Properties: Deobfuscation
+# Tools: numbers-to-string.py|Translate number sequences into ASCII characters.|https://blog.didierstevens.com/2020/12/12/update-numbers-to-string-py-version-0-0-11/|Examine Static Properties: Deobfuscation
+# Tools: disitool.py|Extract, delete, copy, and inject digital signatures in PE files.|https://blog.didierstevens.com/programs/disitool/|Examine Static Properties: PE Files
+# Tools: dnsresolver.py|DNS resolver tool for dynamic analysis with wildcard and tracking support.|https://blog.didierstevens.com/2021/07/15/new-tool-dnsresolver-py/|Explore Network Interactions: Services
+# Tools: cs-analyze-processdump.py|Analyze Cobalt Strike beacon process dumps to detect sleep mask encoding.|https://blog.didierstevens.com/2021/11/25/new-tool-cs-analyze-processdump-py/|Examine Static Properties: Deobfuscation
+# Tools: cs-extract-key.py|Extract AES and HMAC keys from Cobalt Strike beacon process memory.|https://blog.didierstevens.com/2021/11/03/new-tool-cs-extract-key-py/|Examine Static Properties: Deobfuscation
+# Tools: cs-parse-traffic.py|Decrypt and parse Cobalt Strike beacon network traffic.|https://blog.didierstevens.com/2021/11/29/new-tool-cs-parse-traffic-py/|Explore Network Interactions: Monitoring
+# Tools: onedump.py|Extract and analyze embedded files from OneNote documents.|https://blog.didierstevens.com/2023/01/22/new-tool-onedump-py/|Analyze Documents: Microsoft Office
 # Notes:
 
 {% set files = [('1768.py','38aed900f5fe0c9272e66451266ab6888401b95c50920eff268bbbba4db4b040'),
