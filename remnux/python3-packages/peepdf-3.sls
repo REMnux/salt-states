@@ -4,7 +4,7 @@
 # Category: Analyze Documents: PDF
 # Author: Jose Miguel Esparza and Corey Forman
 # License: GNU General Public License (GPL) v3: https://github.com/digitalsleuth/peepdf-3/blob/main/COPYING
-# Notes:
+# Notes: To run the tool, use the command "peepdf".
 
 {% from 'remnux/python3-packages/stpyv8.sls' import install_stpyv8 %}
 
