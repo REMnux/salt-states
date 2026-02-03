@@ -2,7 +2,7 @@
 # Website: https://github.com/SpamScope/mail-parser
 # Description: Parse raw SMTP and .MSG email messages and generate a parsed object from them.
 # Category: Analyze Documents: Email Messages
-# Author: Fedele Mantuano: https://twitter.com/fedelemantuano
+# Author: Fedele Mantuano: https://x.com/fedelemantuano
 # License: Apache License 2.0: https://github.com/SpamScope/mail-parser/blob/develop/LICENSE.txt
 # Notes: Run the tool using command `mailparser`
 

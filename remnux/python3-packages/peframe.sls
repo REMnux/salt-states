@@ -2,7 +2,7 @@
 # Website: https://github.com/digitalsleuth/peframe
 # Description: Statically analyze PE and Microsoft Office files.
 # Category: Examine Static Properties: PE Files
-# Author: Gianni Amato: https://twitter.com/guelfoweb
+# Author: Gianni Amato: https://x.com/guelfoweb
 # License: Free, unknown license
 # Notes: peframe
 

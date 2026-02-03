@@ -2,7 +2,7 @@
 # Website: https://github.com/horsicq/Detect-It-Easy
 # Description: Determine types of files and examine file properties.
 # Category: Examine Static Properties: General
-# Author: hors: https://twitter.com/horsicq
+# Author: hors: https://x.com/horsicq
 # License: MIT License: https://github.com/horsicq/Detect-It-Easy/blob/master/LICENSE
 # Notes: GUI tool: `die`, command-line tool: `diec`.
 

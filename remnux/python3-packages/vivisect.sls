@@ -2,7 +2,7 @@
 # Website: https://github.com/vivisect/vivisect
 # Description: Statically examine and emulate binary files.
 # Category: Statically Analyze Code: General
-# Author: invisigoth: invisigoth@kenshoto.com, installable vivisect module by Willi Ballenthin: https://twitter.com/williballenthin
+# Author: invisigoth: invisigoth@kenshoto.com, installable vivisect module by Willi Ballenthin: https://x.com/williballenthin
 # License: Apache License 2.0: https://github.com/vivisect/vivisect/blob/master/LICENSE.txt
 # Notes: vivbin, vdbbin
 

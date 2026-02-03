@@ -2,7 +2,7 @@
 # Website: https://github.com/securisec/chepy
 # Description: Decode and otherwise analyze data using this command-line tool and Python library.
 # Category: Examine Static Properties: Deobfuscation
-# Author: securisec: https://twitter.com/securisec
+# Author: securisec: https://x.com/securisec
 # License: GNU General Public License (GPL) v3: https://github.com/securisec/chepy/blob/master/LICENSE
 # Notes: chepy
 

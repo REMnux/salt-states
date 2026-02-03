@@ -2,7 +2,7 @@
 # Website: https://github.com/Squiblydoo/debloat
 # Description: Remove junk contents from bloated Windows executables.
 # Category: Examine Static Properties: PE Files
-# Author: Squiblydoo: https://twitter.com/SquiblydooBlog
+# Author: Squiblydoo: https://x.com/SquiblydooBlog
 # License: BSD 3-Clause License: https://github.com/Squiblydoo/debloat/blob/main/LICENSE
 # Notes: Run the command-line version as `debloat` or the GUI version as `debloat-gui`
 

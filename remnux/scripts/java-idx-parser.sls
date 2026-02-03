@@ -2,7 +2,7 @@
 # Website: https://github.com/digitalsleuth/Java_IDX_Parser
 # Description: Analyze Java IDX files.
 # Category: Statically Analyze Code: Java
-# Author: Brian Baskin: https://twitter.com/bbaskin, Updated for Python 3 by Corey Forman
+# Author: Brian Baskin: https://x.com/bbaskin, Updated for Python 3 by Corey Forman
 # License: Apache License 2.0: https://github.com/digitalsleuth/Java_IDX_Parser/blob/master/LICENSE
 # Notes: idx_parser.py
 

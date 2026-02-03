@@ -2,7 +2,7 @@
 # Website: https://github.com/bontchev/pcodedmp
 # Description: Disassemble VBA p-code.
 # Category: Analyze Documents: Microsoft Office
-# Author: Vesselin Bontchev: https://twitter.com/bontchev
+# Author: Vesselin Bontchev: https://x.com/bontchev
 # License: GNU General Public License (GPL) v3: https://github.com/bontchev/pcodedmp/blob/master/LICENSE
 # Notes:
 

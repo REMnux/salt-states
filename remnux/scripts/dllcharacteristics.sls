@@ -2,7 +2,7 @@
 # Website: https://github.com/accidentalrebel/dllcharacteristics.py
 # Description: Read and set DLL characteristics of a PE file.
 # Category: Examine Static Properties: PE Files
-# Author: Karlo Licudine: https://twitter.com/accidentalrebel
+# Author: Karlo Licudine: https://x.com/accidentalrebel
 # License: GNU General Public License (GPL) v3.0: https://github.com/accidentalrebel/dllcharacteristics.py/blob/master/LICENSE
 # Notes: 
 

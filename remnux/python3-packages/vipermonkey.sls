@@ -2,7 +2,7 @@
 # Website: https://www.decalage.info/en/vba_emulation
 # Description: A VBA parser and emulation engine to analyze malicious macros.
 # Category: Analyze Documents: Microsoft Office
-# Author: Philippe Lagadec: https://twitter.com/decalage2
+# Author: Philippe Lagadec: https://x.com/decalage2
 # License: Free, custom license: https://github.com/decalage2/ViperMonkey#license
 # Notes: Only available on older version of REMnux based on Ubuntu 20.04 (Focal). vmonkey
 {% if grains['oscodename'] == 'noble'%}

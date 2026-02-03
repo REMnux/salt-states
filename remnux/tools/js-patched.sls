@@ -2,7 +2,7 @@
 # Website: https://blog.didierstevens.com/2018/04/19/update-patched-spidermonkey/
 # Description: Execute and deobfuscate JavaScript using a patched version of Mozilla's standalone JavaScript engine.
 # Category: Dynamically Reverse-Engineer Code: Scripts
-# Author: SpiderMonkey by Mozilla Foundation, patched by Didier Stevens: https://twitter.com/DidierStevens
+# Author: SpiderMonkey by Mozilla Foundation, patched by Didier Stevens: https://x.com/DidierStevens
 # License: Mozilla Public License 2.0: https://github.com/mozilla/treeherder/blob/master/LICENSE.txt
 # Notes: js-ascii, js-file
 

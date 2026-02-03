@@ -2,7 +2,7 @@
 # Website: https://github.com/kevthehermit/RATDecoders
 # Description: Python3 Decoders for Remote Access Trojans.
 # Category: Examine Static Properties: Deobfuscation
-# Author: Kevin Breen: https://twitter.com/KevTheHermit
+# Author: Kevin Breen: https://x.com/KevTheHermit
 # License: MIT License: https://github.com/kevthehermit/RATDecoders/blob/master/LICENSE
 # Notes: Only available on older version of REMnux based on Ubuntu 20.04 (Focal). malconf
 
