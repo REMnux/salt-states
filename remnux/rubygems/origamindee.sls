@@ -9,7 +9,21 @@
 include:
   - remnux.packages.ruby
 
+# Remove deprecated gems that conflict with origamindee
+remnux-rubygems-origami-removed:
+  gem.removed:
+    - name: origami
+    - require:
+      - pkg: ruby
+
+remnux-rubygems-therubyracer-removed:
+  gem.removed:
+    - name: therubyracer
+    - require:
+      - pkg: ruby
+
 origamindee:
   gem.installed:
     - require:
       - pkg: ruby
+      - gem: remnux-rubygems-origami-removed
