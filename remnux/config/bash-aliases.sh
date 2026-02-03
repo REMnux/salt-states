@@ -96,7 +96,9 @@ function pecheck {
 }
 
 # A wrapper around the command to stop and start SSH server for old timers
+# The daemon-reload prevents warnings after package updates change unit files
 function sshd {
+  sudo systemctl daemon-reload 2>/dev/null
   sudo systemctl ${*} ssh
 }
 
