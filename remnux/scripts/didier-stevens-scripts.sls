@@ -4,7 +4,26 @@
 # Category: Examine Static Properties: Deobfuscation, Analyze Documents: General
 # Author: Didier Stevens: https://x.com/DidierStevens
 # License: Public Domain
-# Notes: 
+# Tools: oledump.py|Analyze OLE2 Structured Storage files.|https://blog.didierstevens.com/programs/oledump-py/|Analyze Documents: Microsoft Office
+# Tools: pdfid.py|Identify suspicious elements of the PDF file.|https://blog.didierstevens.com/programs/pdf-tools/|Analyze Documents: PDF
+# Tools: pdf-parser.py|Examine elements of the PDF file.|https://blog.didierstevens.com/programs/pdf-tools/|Analyze Documents: PDF
+# Tools: rtfdump.py|Analyze a suspicious RTF file.|https://blog.didierstevens.com/2018/12/10/update-rtfdump-py-version-0-0-9/|Analyze Documents: Microsoft Office
+# Tools: emldump.py|Parse and analyze EML files.|https://blog.didierstevens.com/2020/11/29/update-emldump-py-version-0-0-11/|Analyze Documents: Email Messages
+# Tools: base64dump.py|Locate and decode strings encoded in Base64 and other common encodings.|https://blog.didierstevens.com/2020/07/03/update-base64dump-py-version-0-0-12/|Examine Static Properties: Deobfuscation, Analyze Documents: General
+# Tools: decode-vbe.py|Decode encoded VBS scripts (VBE).|https://blog.didierstevens.com/2016/03/29/decoding-vbe/|Statically Analyze Code: Scripts
+# Tools: zipdump.py|Analyze zip-compressed files.|https://blog.didierstevens.com/2020/07/27/update-zipdump-py-version-0-0-20/|Analyze Documents: Microsoft Office
+# Tools: xmldump.py|Extract contents of XML files, in particular OOXML-formatted Microsoft Office documents.|https://blog.didierstevens.com/2017/12/18/new-tool-xmldump-py/|Analyze Documents: Microsoft Office
+# Tools: msoffcrypto-crack.py|Recover the password of an encrypted Microsoft Office document.|https://blog.didierstevens.com/2018/12/31/new-tool-msoffcrypto-crack-py/|Analyze Documents: Microsoft Office
+# Tools: pdftool.py|Analyze PDF files to identify incremental updates to the document.|https://blog.didierstevens.com/2021/01/31/new-tool-pdftool-py/|Analyze Documents: PDF
+# Tools: xor-kpa.py|Implement a XOR known plaintext attack.|https://blog.didierstevens.com/2017/06/06/update-xor-kpa-py-version-0-0-5/|Examine Static Properties: Deobfuscation
+# Tools: cut-bytes.py|Cut out a part of a data stream.|https://blog.didierstevens.com/2015/10/14/cut-bytes-py/|Examine Static Properties: Deobfuscation
+# Tools: format-bytes.py|Decompose structured binary data with format strings.|https://blog.didierstevens.com/2020/02/17/update-format-bytes-py-version-0-0-13/|Examine Static Properties: Deobfuscation
+# Tools: translate.py|Translate bytes according to a Python expression.|https://blog.didierstevens.com/programs/translate/|Examine Static Properties: Deobfuscation
+# Tools: sets.py|Perform set operations on lines or bytes in text files.|https://blog.didierstevens.com/2017/03/05/new-tool-sets-py/|Examine Static Properties: Deobfuscation
+# Tools: 1768.py|Analyze Cobalt Strike beacons.|https://blog.didierstevens.com/2021/05/22/update-1768-py-version-0-0-6/|Examine Static Properties: Deobfuscation
+# Tools: cs-decrypt-metadata.py|Decrypt Cobalt Strike metadata.|https://blog.didierstevens.com/2021/11/12/update-cs-decrypt-metadata-py-version-0-0-2/|Examine Static Properties: Deobfuscation
+# Tools: pecheck.py|Analyze static properties of PE files.|https://blog.didierstevens.com/2020/03/15/pecheck-py-version-0-7-10/|Examine Static Properties: PE Files
+# Notes:
 
 {% set files = [('1768.py','38aed900f5fe0c9272e66451266ab6888401b95c50920eff268bbbba4db4b040'),
                 ('base64dump.py','946fcd48a44f50817c9a623d3de60a4e589cf3418052267eb1287e5ee5e5ff9c'),

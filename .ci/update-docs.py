@@ -331,24 +331,32 @@ class GitSSH:
             shutil.rmtree(self.temp_dir)
 
 
-def parse_front_matter(file_path: str) -> ToolInfo:
-    """Parse the front matter from a salt state file."""
+def parse_front_matter(file_path: str) -> tuple["ToolInfo", list[str]]:
+    """Parse the front matter from a salt state file.
+
+    Returns (ToolInfo, tools_lines) where tools_lines is a list of raw
+    '# Tools:' values for sub-tool expansion (e.g., consolidated scripts).
+    """
     with open(file_path, "r") as f:
         content = f.read()
-    
+
     # Extract comment lines at the beginning
     lines = content.split("\n")
     front_matter = {}
-    
+    tools_lines = []
+
     for line in lines:
         if not line.startswith("#"):
             break
-        
+
         # Parse "# Key: Value" format
         match = re.match(r"^#\s*(\w+):\s*(.*)$", line)
         if match:
             key = match.group(1).lower()
             value = match.group(2).strip()
+            if key == "tools":
+                tools_lines.append(value)
+                continue
             front_matter[key] = value
     
     # Validate required fields (category can be empty for internal dependencies)
@@ -397,7 +405,7 @@ def parse_front_matter(file_path: str) -> ToolInfo:
         notes=front_matter.get("notes", ""),
         state_file_path=rel_path,
         commands=commands,
-    )
+    ), tools_lines
 
 
 def category_to_file_path(category: str, backend) -> Optional[str]:
@@ -713,6 +721,30 @@ def apply_changes_git(changes: list[FileChange], git: GitSSH) -> bool:
     return True
 
 
+def _expand_sub_tools(parent: ToolInfo, sub_tool_lines: list[str]) -> list[ToolInfo]:
+    """Expand '# Tools:' lines into individual ToolInfo entries.
+
+    Each line has the format: name|description|website|categories
+    Sub-tools inherit author, license, and state_file_path from the parent.
+    """
+    sub_tools = []
+    for line in sub_tool_lines:
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) >= 4:
+            categories = [c.strip() for c in parts[3].split(",") if c.strip()]
+            sub_tools.append(ToolInfo(
+                name=parts[0],
+                description=parts[1],
+                website=parts[2],
+                categories=categories,
+                author=parent.author,
+                license=parent.license,
+                state_file_path=parent.state_file_path,
+                commands=[parts[0].replace('.py', '')],
+            ))
+    return sub_tools
+
+
 def scan_all_tools(salt_states_path: str, verbose: bool = False) -> list[ToolInfo]:
     """Scan all .sls files and return list of tools with valid frontmatter."""
     tools = []
@@ -730,10 +762,12 @@ def scan_all_tools(salt_states_path: str, verbose: bool = False) -> list[ToolInf
             continue
 
         try:
-            tool = parse_front_matter(str(sls_file))
+            tool, sub_tool_lines = parse_front_matter(str(sls_file))
             # Only include tools with categories (skip internal dependencies)
             if tool.categories:
                 tools.append(tool)
+                # Expand sub-tools from # Tools: lines
+                tools.extend(_expand_sub_tools(tool, sub_tool_lines))
             else:
                 skipped_no_category.append(sls_file.name)
         except ValueError as e:
@@ -1011,6 +1045,7 @@ Environment:
     # Determine if target is a tool name or file path
     tool = None
     tool_name = None
+    sub_tool_lines = []
     
     if args.delete and not args.target.endswith(".sls"):
         # Target is a tool name for deletion
@@ -1026,7 +1061,7 @@ Environment:
             sys.exit(1)
         
         try:
-            tool = parse_front_matter(args.target)
+            tool, sub_tool_lines = parse_front_matter(args.target)
         except ValueError as e:
             print(f"Error parsing state file: {e}", file=sys.stderr)
             sys.exit(1)
@@ -1071,9 +1106,12 @@ Environment:
     else:
         backend = GitHubAPI(github_token, repo, args.branch)
     
-    # Prepare changes
+    # Prepare changes (parent tool + any sub-tools from # Tools: lines)
     try:
         changes = prepare_changes(tool, tool_name, backend, delete=args.delete)
+        if tool and not args.delete:
+            for sub_tool in _expand_sub_tools(tool, sub_tool_lines):
+                changes.extend(prepare_changes(sub_tool, None, backend, delete=False))
     except Exception as e:
         print(f"Error preparing changes: {e}", file=sys.stderr)
         if use_ssh:
