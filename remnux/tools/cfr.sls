@@ -19,9 +19,9 @@ remnux-tools-cfr-directory:
 
 remnux-tools-cfr-source:
   file.managed:
-    - name: /usr/local/cfr/cfr-0.149.jar
-    - source: https://github.com/leibnitz27/cfr/releases/download/0.149/cfr-0.149.jar
-    - source_hash: db683b5b3bc2c20fd2fabcc9d749d5b8bcbba736f334e5ac2092173242967aca
+    - name: /usr/local/cfr/cfr-0.152.jar
+    - source: https://github.com/leibnitz27/cfr/releases/download/0.152/cfr-0.152.jar
+    - source_hash: f686e8f3ded377d7bc87d216a90e9e9512df4156e75b06c655a16648ae8765b2
     - mode: 755
     - watch:
       - file: remnux-tools-cfr-directory
@@ -36,5 +36,5 @@ remnux-tools-cfr-wrapper:
       - file: remnux-tools-cfr-source
     - contents:
       - '#!/bin/bash'
-      - java -jar /usr/local/cfr/cfr-0.149.jar ${*}
+      - java -jar /usr/local/cfr/cfr-0.152.jar ${*}
 

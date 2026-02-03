@@ -1,5 +1,5 @@
-{% set version = "2.37.3" %}
-{% set hash = "522181c447d831fb23134201d9cdc5cf365f913408124c678089ea62d6a2334c" %}
+{% set version = "5.0.2" %}
+{% set hash = "2d880f723d3da7c779c54fdaea91a842fca8af55d1397f1ed8d7cbab3dd7af67" %}
 
 docker-compose-source:
   file.managed:
