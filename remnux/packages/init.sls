@@ -121,6 +121,7 @@ include:
   - remnux.packages.python3-pyqt5
   - remnux.packages.vscode
   - remnux.packages.bearparser
+  - remnux.packages.manalyze
   - remnux.packages.signsrch
   - remnux.packages.pycdc
   - remnux.packages.libusb-1
@@ -283,6 +284,7 @@ remnux-packages:
       - sls: remnux.packages.python3-pyqt5
       - sls: remnux.packages.vscode
       - sls: remnux.packages.bearparser
+      - sls: remnux.packages.manalyze
       - sls: remnux.packages.signsrch
       - sls: remnux.packages.pycdc
       - sls: remnux.packages.libusb-1

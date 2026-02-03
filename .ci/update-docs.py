@@ -617,6 +617,7 @@ def prepare_changes(
     tool_name: Optional[str],
     backend,
     delete: bool = False,
+    content_overrides: dict[str, tuple[str, str | None]] | None = None,
 ) -> list[FileChange]:
     """Prepare the list of file changes needed."""
     changes = []
@@ -625,14 +626,19 @@ def prepare_changes(
         # Delete mode - search all docs for the tool name (case-insensitive)
         name_to_delete = tool_name if tool_name else tool.name
         found_locations = find_tool_in_docs(name_to_delete, backend)
-        
+
         if not found_locations:
             print(f"Warning: Tool '{name_to_delete}' not found in any documentation files (case-insensitive search)", file=sys.stderr)
             return []
-        
+
         for file_path, content, sha, actual_name in found_locations:
+            # Use cached content if available (for chained sub-tool operations)
+            if content_overrides and file_path in content_overrides:
+                content, sha = content_overrides[file_path]
             new_content, action, _ = delete_tool_from_content(content, name_to_delete)
             if action == "deleted":
+                if content_overrides is not None and new_content != content:
+                    content_overrides[file_path] = (new_content, sha)
                 changes.append(FileChange(
                     file_path=file_path,
                     action="delete_entry",
@@ -641,7 +647,7 @@ def prepare_changes(
                     sha=sha,
                     tool_name=actual_name,  # Use the actual name from the doc
                 ))
-        
+
         return changes
     
     # Update/add mode - need a full ToolInfo
@@ -650,21 +656,27 @@ def prepare_changes(
     
     for category in tool.categories:
         file_path = category_to_file_path(category, backend)
-        
+
         if file_path is None:
             print(f"Warning: Category '{category}' does not exist in the documentation. Skipping.", file=sys.stderr)
             print(f"  (You may need to create the category page manually first)", file=sys.stderr)
             continue
-        
-        content, sha = backend.get_file_content(file_path)
-        
+
+        # Use cached content if available (for chained sub-tool operations)
+        if content_overrides and file_path in content_overrides:
+            content, sha = content_overrides[file_path]
+        else:
+            content, sha = backend.get_file_content(file_path)
+
         if content is None:
             print(f"Warning: Could not read file '{file_path}'. Skipping.", file=sys.stderr)
             continue
-        
+
         new_content, action = update_tool_in_content(content, tool, delete=False)
-        
+
         if new_content != content:
+            if content_overrides is not None:
+                content_overrides[file_path] = (new_content, sha)
             changes.append(FileChange(
                 file_path=file_path,
                 action="update" if action == "updated" else "add",
@@ -673,7 +685,7 @@ def prepare_changes(
                 sha=sha,
                 tool_name=tool.name,
             ))
-    
+
     return changes
 
 
@@ -1108,10 +1120,26 @@ Environment:
     
     # Prepare changes (parent tool + any sub-tools from # Tools: lines)
     try:
-        changes = prepare_changes(tool, tool_name, backend, delete=args.delete)
-        if tool and not args.delete:
-            for sub_tool in _expand_sub_tools(tool, sub_tool_lines):
-                changes.extend(prepare_changes(sub_tool, None, backend, delete=False))
+        content_overrides = {}
+        sub_tools = _expand_sub_tools(tool, sub_tool_lines) if tool and not args.delete else []
+
+        if sub_tools:
+            # Sub-tools replace the parent — don't add meta "Didier Stevens Scripts" entry
+            # First delete the parent if it exists in docs
+            changes = prepare_changes(tool, tool_name, backend, delete=True,
+                                      content_overrides=content_overrides)
+            for sub_tool in sub_tools:
+                changes.extend(prepare_changes(sub_tool, None, backend, delete=False,
+                                               content_overrides=content_overrides))
+        else:
+            changes = prepare_changes(tool, tool_name, backend, delete=args.delete,
+                                      content_overrides=content_overrides)
+
+        # Keep only last change per file (has all accumulated edits)
+        seen = {}
+        for c in changes:
+            seen[c.file_path] = c
+        changes = list(seen.values())
     except Exception as e:
         print(f"Error preparing changes: {e}", file=sys.stderr)
         if use_ssh:

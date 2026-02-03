@@ -1,18 +1,9 @@
-# Name: Manalyze
-# Website: https://github.com/JusticeRage/Manalyze
-# Description: Perform static analysis of suspicious PE files.
-# Category: Examine Static Properties: PE Files
-# Author: Ivan Kwiatkowski: https://x.com/JusticeRage
-# License: GNU General Public License (GPL) v3: https://github.com/JusticeRage/Manalyze/blob/master/LICENSE.txt
-# Notes: Run "manalyze" to invoke the tool. To update the tool's Yara rules to include ClamAV, run "sudo /usr/local/manalyze/yara_rules/update_clamav_signatures.py". To query VirusTotal, add your API key to /usr/local/manalyze/manalyze.conf.
-
 include:
   - remnux.packages.libboost-regex-dev
   - remnux.packages.libboost-system-dev
   - remnux.packages.libboost-filesystem-dev
   - remnux.packages.libboost-program-options-dev
 
-{%- if grains['oscodename'] == "focal" %}
 remnux-tools-manalyze-source:
   file.managed:
     - name: /usr/local/src/remnux/files/manalyze-0.9.tgz
@@ -43,8 +34,3 @@ remnux-tools-manalyze-wrapper:
     - contents:
       - '#!/bin/bash'
       - LD_LIBRARY_PATH=/usr/local/manalyze:$LD_LIBRARY_PATH /usr/local/manalyze/manalyze ${*}
-
-{% else %}
-Manalyze is currently not available for Noble:
-  test.nop
-{% endif %}
