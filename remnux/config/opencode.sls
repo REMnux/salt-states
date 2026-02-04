@@ -10,6 +10,7 @@ include:
   - remnux.config.user
   - remnux.node-packages.opencode
   - remnux.node-packages.remnux-mcp-server
+  - remnux.tools.ghidrassist-mcp
 
 remnux-config-opencode-dir:
   file.directory:
@@ -35,6 +36,10 @@ remnux-config-opencode-settings:
             type: remote
             url: https://docs.remnux.org/~gitbook/mcp
             enabled: true
+          ghidra:
+            type: remote
+            url: http://localhost:8080/mcp
+            enabled: true
     - formatter: json
     - merge_if_exists: True
     - user: {{ user }}
@@ -43,3 +48,4 @@ remnux-config-opencode-settings:
     - require:
       - file: remnux-config-opencode-dir
       - sls: remnux.node-packages.remnux-mcp-server
+      - sls: remnux.tools.ghidrassist-mcp
