@@ -1,6 +1,6 @@
 # Name: Yara Rules
 # Website: https://github.com/Yara-Rules/rules
-# Description: Statically scan a file to identify common malicious capabilities.
+# Description: Scan a file with YARA rules to identify capabilities and behaviors (packer detection, anti-debug, networking).
 # Category: Examine Static Properties: General
 # Author: A group of IT security researchers: https://x.com/yararules
 # License: GNU General Public License (GPL) v2: https://github.com/Yara-Rules/rules/blob/master/LICENSE
