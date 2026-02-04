@@ -155,6 +155,17 @@ remnux-scripts-didier-stevens-formatting-{{ file }}:
 
 {% endfor %}
 
+# Fix Python 3.12+ SyntaxWarning for invalid escape sequence in regex
+# Upstream issue: b'...' with \. should be rb'...'
+remnux-scripts-didier-stevens-cs-decrypt-metadata-regex-fix:
+  file.replace:
+    - name: /opt/didier-stevens/bin/cs-decrypt-metadata.py
+    - pattern: "re.match\\(b'\\[0-9\\]"
+    - repl: "re.match(rb'[0-9]"
+    - backup: false
+    - require:
+      - file: remnux-scripts-didier-stevens-formatting-cs-decrypt-metadata.py
+
 {% set beta_commit = '439d2168ea1967f3c0836616d390405cadd07690' %}
 {% set beta_files = [('onedump.py','67ddd82068c08ba1e873f96956f43f1d2c64cf7b67156e657e5822a849e08144'),
 ] %}
