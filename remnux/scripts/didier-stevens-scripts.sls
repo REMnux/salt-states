@@ -42,11 +42,11 @@
                 ('cs-analyze-processdump.py','997fe227ba27473acce80f88e5a8c6dbf3da546e9550b6ec319f05978bff0611'),
                 ('cs-decrypt-metadata.py','c1db49356acb525c8aade75c15014f83cfae47f6d7a158f02d84402294aa0a35'),
                 ('cs-extract-key.py','2dad421728ec892b6479edd561cad414bc73f41893d9152c68083dc92c32d94d'),
-                ('cs-parse-traffic.py','76f5d59e4435498f0f5309af97ec6ce645611da21b4b12be50c32f1120e45b7f'),
+                ('cs-parse-traffic.py','ada645b042a0ee70a634c7057402964e2aa7af4f459ce957ec891ac4c4d351fd'),
                 ('cut-bytes.py','b5f0ed0af51059da5f7df44d452653a27662a6fc9d4ea5956ccec21dfcb56849'),
                 ('decode-vbe.py','1c2287db4df125814ae6f547af0c943deb2b9a282cbec5f55723b8e13285c85e'),
                 ('disitool.py','e3dc083ce8ee2d3a16b16a33460a5052586505876263272ebfddbffb6e2a661a'),
-                ('dnsresolver.py','5b98ad4bdc459a228f8e98d9502e066bfaf7f10537905918995cbb55c5c9f87c'),
+                ('dnsresolver.py','238d81434c00f7a30aea593572ec8a6b3ae5cd5e20e344ecf301818d1a10a343'),
                 ('emldump.py','cae10ad495864d196edc464148990be84e84480860045ff8ea0172e0f8ea8a86'),
                 ('file-magic.py','bae00a6c34e08095b586798b7d27783e938707ce05621b4d9a5b6da7b7eb742e'),
                 ('format-bytes.py','7b36fc6b9fdc3f4533afae6b7b443a3fa0cd20919e1123621cfdc43571e1d739'),
@@ -55,11 +55,11 @@
                 ('myjson-filter.py','c09e7ed57017ad765586bafa72c2b91eb2199a92d28755ba81ef4345eefbaaa9'),
                 ('myjson-transform.py','e790bc09b37cd9b452920cd1452d98eb3890a0f39b86fb36337471fa11ae27d9'),
                 ('numbers-to-string.py','332822ca13b283da92f399ac407ab0a99ab18df32e5996cee9386be54ba8a225'),
-                ('oledump.py','463b437a844204988e273aa3ddac34ec9a52c24cf1e40e490dbdbc2485e43ffa'),
+                ('oledump.py','d4130e50df58a2e6b4d44f513374b479a591aaa5014abc63aa2391f5f303dd99'),
                 ('pdfid.py','e958a01f1c2596470f27d3c308061b85d7059ff476a58d74f1957a71b4f1248f'),
-                ('pdf-parser.py','5cb6f1828d2aee18c309bcbae955d48dc6c65354ed2fa340ea6cc3b4ff18dbf1'),
+                ('pdf-parser.py','628256f0c016347a6b838729499397106a89b327965b7d7f77e47c1be0bc603f'),
                 ('pdftool.py','8e0fcd2f1eee00eb02a45448d8557f1531e885891a7c93f3272ee8acd47c6fca'),
-                ('pecheck.py','375482fd2ac5079a5a47a81857daa2c203d9778359edaabf1b4cc927daa5dc7a'),
+                ('pecheck.py','cdc595b3f0fb7f483006ab2ff4d614b671e8826f60b3eecab3d1cf2aeb100008'),
                 ('plugin_embeddedfile.py','af5bf0c5fb44612d9e8f75af24791f7403b5b3847ed8eb58448fb3a58aef6cd7'),
                 ('plugin_nameobfuscation.py','3097f900eaca41669f551fd43c99be1e17666db1aac1ec8f0e04d1796795d61e'),
                 ('plugin_triage.py','c6e6145f6cf9b28594d85d11d1681cd9c7db9a8d85938ba78f4905396ca9f85c'),
@@ -74,15 +74,15 @@
                 ('xmldump.py','713f575d02639b6359e1999de6d18f99c1fac369831c5eaf3f2000feab342a11'),
                 ('xor-kpa.py','db51d2a64a0ee5673cb933f8a2fb5796e401fb7d46427da2c6d9c9749301af22'),
                 ('xorsearch.py','bbfe319941456b9becea637a4dae01ec572b68fe2aeea22f29f4ccee7417fc6e'),
-                ('zipdump.py','8035ba624a449d55386b697e1daf9bd32729af1f08dd2d16f2e278bef6dbfdd6'),
+                ('zipdump.py','2b0fee76b04577d055449ad13d42b057022a1f3be913581eab375be5f19f28c4'),
 ] %}
 
-{% set supplementals = [('1768.json','b28db56e03efeac3120769d260a03e3209b1d8feacedb50f66627f26507d4b03'),
+{% set supplementals = [('1768.json','8824cec6f4ee2ec2f578558bdd014ae1ce8bc02752eb128b509d5740b0f4d553'),
                         ('file-magic.def','79d6edaba6103e9340dd3028bc85ae4e92fbb33f5efce84f8b77e6fcb7bcfaf5'),
                         ('format-bytes.library','8888bb8a5a9be453545e916d655befe2780c3450076c19b48fcb7e07468cd091'),
                         ('pdfid.ini','ded2e1b4191c8e1914ee53481e32cedc238ad4e16b209ed1cc734896cd8b94cd'),
 ]%}
-{% set commit = '8466281c04993e460bc4124dae744ef8734462d2' %}
+{% set commit = 'dc978443977d831ca2051a88b411ff5716c770a5' %}
 
 include:
   - remnux.packages.python3-virtualenv

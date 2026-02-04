@@ -92,7 +92,7 @@ function freshclam {
 }
 
 function pecheck {
-  pecheck.py -d /var/lib/gems/2.5.0/gems/pedump-0.5.4/data/userdb.txt ${*}
+  pecheck.py -d /usr/share/pev/userdb.txt ${*}
 }
 
 # A wrapper around the command to stop and start SSH server for old timers
