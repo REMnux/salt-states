@@ -2,9 +2,9 @@
 # Website: https://yarahq.github.io/
 # Description: Scan files with curated YARA rules from 45+ sources for malware family identification.
 # Category: Examine Static Properties: General
-# Author: Florian Roth and the YARA HQ community
+# Author: Florian Roth: https://x.com/cyb3rops
 # License: Various (see individual rules); Elastic rules excluded
-# Notes: Run `yara-forge FILE` to identify malware families. Complements `yara-rules` which detects capabilities/behaviors.
+# Notes: Run `yara-forge FILE` to identify malware families.
 
 include:
   - remnux.packages.yara
