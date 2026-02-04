@@ -6,10 +6,6 @@
 # License: Public Domain
 # Notes: This is a wrapper around the Cast installer that the script uses behind the scenes. To run the tool on REMnux, type `remnux`
 
-{%- set legacy_source = "https://github.com/REMnux/remnux-cli/releases/download/v" -%}
-{% set legacy_hash = "c46c732f5ab8f33ce957db8b6f0827554bf100b8a26b4765410b252429a26380" %}
-{% set legacy_version = "1.5.1" %}
-
 {% set remnux_hash = "deeea89280b6b905dfbc5f938956a14683cd838444c77616097d3355c0dc99b6" %}
 {% set remnux_diag_hash = "b8f54918a28212768c2c062598ec722803a8a3e48f85c7b8db869d0774aeb63b" %}
 
@@ -26,13 +22,10 @@ remnux-tool-remnux-installer:
     - require:
       - sls: remnux.packages.cast
 
-# Legacy Node.js installer - available as remnux-cli-legacy
-remnux-tool-remnux-cli-legacy:
-  file.managed:
+# Remove legacy CLI if present on system
+remnux-tool-remnux-cli-legacy-removed:
+  file.absent:
     - name: /usr/local/bin/remnux-cli-legacy
-    - source: {{ legacy_source }}{{ legacy_version }}/remnux-cli-linux
-    - source_hash: sha256={{ legacy_hash }}
-    - mode: 755
 
 # Diagnostic tool
 remnux-tool-remnux-diag:
