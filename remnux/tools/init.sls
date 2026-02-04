@@ -14,6 +14,7 @@ include:
   - remnux.tools.polarproxy
   - remnux.tools.ssview
   - remnux.tools.yara-rules
+  - remnux.tools.yara-forge
   - remnux.tools.jadx
   - remnux.tools.detect-it-easy
   - remnux.tools.capa
@@ -38,6 +39,7 @@ remnux-tools:
       - sls: remnux.tools.polarproxy
       - sls: remnux.tools.ssview
       - sls: remnux.tools.yara-rules
+      - sls: remnux.tools.yara-forge
       - sls: remnux.tools.jadx
       - sls: remnux.tools.detect-it-easy
       - sls: remnux.tools.capa
