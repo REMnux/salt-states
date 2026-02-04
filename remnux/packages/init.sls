@@ -98,6 +98,7 @@ include:
   - remnux.packages.xmlstarlet
   - remnux.packages.evince
   - remnux.packages.yara
+  - remnux.packages.zbar-tools
   - remnux.packages.zlib1g-dev
   - remnux.packages.sudo
   - remnux.packages.i386-architecture
@@ -260,6 +261,7 @@ remnux-packages:
       - sls: remnux.packages.xmlstarlet
       - sls: remnux.packages.evince
       - sls: remnux.packages.yara
+      - sls: remnux.packages.zbar-tools
       - sls: remnux.packages.zlib1g-dev
       - sls: remnux.packages.sudo
       - sls: remnux.packages.i386-architecture
