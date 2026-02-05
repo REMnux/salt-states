@@ -172,10 +172,10 @@ The audit identifies:
 
 ## Issuing a Salt-States Release
 
-For the REMnux installer to apply state file changes, a new salt-states release must be issued. Releases are signed with both Cosign and PGP keys. The `release.sh` script automates the entire process:
+For the REMnux installer to apply state file changes, a new salt-states release must be issued. Releases are signed with Cosign. The `release.sh` script automates the entire process:
 
 ```bash
-export COSIGN_PASSWORD="..." PGP_PASSWORD="..." GITHUB_TOKEN="..."
+export COSIGN_PASSWORD="..." GITHUB_TOKEN="..."
 .ci/release.sh
 ```
 
@@ -184,7 +184,6 @@ The script:
 2. Computes the next version tag (`vYYYY.W.R` format)
 3. Creates and pushes the git tag
 4. Runs Cast release with Cosign signatures
-5. Uploads GPG-signed artifacts for remnux-cli compatibility
 
 Version format: `vYYYY.W.R` where `YYYY` is the year, `W` is the week number, and `R` is the release number for that week (starting from `1`).
 
@@ -194,7 +193,6 @@ Scripts and configuration in the `.ci/` directory:
 
 | File | Purpose |
 |------|---------|
-| `manifest.yml` | [Cast](https://github.com/ekristen/cast) distro config: defines modes, supported OSes, messages |
 | `release.sh` | Full release automation: tag, sign, and upload |
 | `update-docs.py` | Sync state file frontmatter to documentation |
 | `audit-docs.py` | Compare state files against documentation |

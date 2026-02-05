@@ -3,24 +3,23 @@
 # Cast Release Script for REMnux
 #
 # Usage:
-#   export COSIGN_PASSWORD="..." PGP_PASSWORD="..." GITHUB_TOKEN="..."
+#   export COSIGN_PASSWORD="..." GITHUB_TOKEN="..."
 #   export CLOUDFLARE_API_TOKEN="..." CLOUDFLARE_ACCOUNT_ID="..."
 #   .ci/release.sh
 #
 # Requirements:
 #   - cast v1.0.0+
 #   - cosign v2.x or v3.x (script auto-detects; Cast v1.0.0 may need updating for v3.x)
-#   - gpg, git, jq, curl, shasum, python3, npx
+#   - git, jq, curl, shasum, python3, npx
 #
 # This script:
 #   1. Checks that required binaries are installed
 #   2. Validates that required environment variables are set
-#   3. Checks that signing key files exist
-#   4. Tests that the signing passwords are correct
+#   3. Checks that cosign.key exists
+#   4. Validates the Cosign password
 #   5. Computes the next version tag (vYYYY.W.R format)
-#   6. Creates and pushes the git tag
-#   7. Runs cast release (for Cast users)
-#   8. Uploads legacy GPG-signed files (for remnux-cli users)
+#   6. Updates VERSION file, creates and pushes the git tag
+#   7. Runs cast release
 #
 
 set -e
@@ -40,29 +39,10 @@ echo_error() { echo -e "${RED}ERROR: $1${NC}" >&2; }
 echo_success() { echo -e "${GREEN}$1${NC}"; }
 echo_info() { echo -e "${YELLOW}$1${NC}"; }
 
-# Upload a file to a GitHub release, with error checking
-upload_asset() {
-    local file_path="$1"
-    local asset_name="$2"
-    local response
-    
-    response=$(curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
-        -H "Content-Type: application/octet-stream" \
-        "https://uploads.github.com/repos/REMnux/salt-states/releases/${RELEASE_ID}/assets?name=${asset_name}" \
-        --data-binary "@${file_path}")
-    
-    if echo "$response" | jq -e '.id' > /dev/null 2>&1; then
-        return 0
-    else
-        echo_error "Failed to upload ${asset_name}: $(echo "$response" | jq -r '.message // "Unknown error"')"
-        return 1
-    fi
-}
-
 # Step 1: Check required binaries
 echo_info "==> Checking required binaries..."
 
-for cmd in cast cosign gpg git jq curl shasum python3 npx; do
+for cmd in cast cosign git jq curl shasum python3 npx; do
     if ! command -v "$cmd" &> /dev/null; then
         echo_error "$cmd is not installed or not in PATH"
         exit 1
@@ -92,15 +72,7 @@ echo_info "==> Checking environment variables..."
 if [ -z "${COSIGN_PASSWORD+x}" ]; then
     echo_error "COSIGN_PASSWORD environment variable is not set"
     echo "Usage:"
-    echo "  export COSIGN_PASSWORD=\"...\" PGP_PASSWORD=\"...\" GITHUB_TOKEN=\"...\""
-    echo "  .ci/release.sh"
-    exit 1
-fi
-
-if [ -z "${PGP_PASSWORD+x}" ]; then
-    echo_error "PGP_PASSWORD environment variable is not set"
-    echo "Usage:"
-    echo "  export COSIGN_PASSWORD=\"...\" PGP_PASSWORD=\"...\" GITHUB_TOKEN=\"...\""
+    echo "  export COSIGN_PASSWORD=\"...\" GITHUB_TOKEN=\"...\""
     echo "  .ci/release.sh"
     exit 1
 fi
@@ -110,7 +82,7 @@ if [ -z "${GITHUB_TOKEN+x}" ] || [ -z "$GITHUB_TOKEN" ]; then
     echo "Create a token at: https://github.com/settings/tokens"
     echo "Required scope: repo (or public_repo)"
     echo "Usage:"
-    echo "  export COSIGN_PASSWORD=\"...\" PGP_PASSWORD=\"...\" GITHUB_TOKEN=\"...\""
+    echo "  export COSIGN_PASSWORD=\"...\" GITHUB_TOKEN=\"...\""
     echo "  .ci/release.sh"
     exit 1
 fi
@@ -122,11 +94,6 @@ echo_info "==> Checking required files..."
 
 if [ ! -f "cosign.key" ]; then
     echo_error "cosign.key not found in repository root"
-    exit 1
-fi
-
-if [ ! -f "pgp.key" ]; then
-    echo_error "pgp.key not found in repository root"
     exit 1
 fi
 
@@ -155,29 +122,7 @@ fi
 
 echo_success "Cosign password validated"
 
-# Step 5: Validate PGP password
-echo_info "==> Validating PGP password..."
-
-# Get the key ID from pgp.key
-PGP_KEY_ID=$(gpg --show-keys --keyid-format long pgp.key 2>/dev/null | grep -E "^sec" | awk '{print $2}' | cut -d'/' -f2)
-
-if [ -z "$PGP_KEY_ID" ]; then
-    echo_error "Could not determine PGP key ID from pgp.key"
-    exit 1
-fi
-
-# Import the key if not already in keyring
-gpg --import pgp.key 2>/dev/null || true
-
-# Test signing with the PGP key
-if ! echo "test" | gpg --batch --yes --passphrase "$PGP_PASSWORD" --pinentry-mode loopback -u "$PGP_KEY_ID" --detach-sign - > /dev/null 2>&1; then
-    echo_error "PGP password is incorrect or pgp.key is invalid"
-    exit 1
-fi
-
-echo_success "PGP password validated"
-
-# Step 6: Compute the next version tag
+# Step 5: Compute the next version tag
 echo_info "==> Computing next version tag..."
 
 YEAR=$(date +%Y)
@@ -196,7 +141,7 @@ TAG="v${YEAR}.${WEEK}.${RELEASE_NUM}"
 
 echo_success "Next version tag: $TAG"
 
-# Step 7: Update VERSION file and create tag
+# Step 6: Update VERSION file and create tag
 VERSION_FILE="remnux/VERSION"
 if [ -f "$VERSION_FILE" ] && [ "$(cat "$VERSION_FILE")" != "$TAG" ]; then
     echo_info "==> Updating VERSION file..."
@@ -214,72 +159,12 @@ git push origin --tags
 
 echo_success "Tag $TAG pushed to origin"
 
-# Step 8: Run cast release
+# Step 7: Run cast release
 echo_info "==> Running cast release..."
 CHECKPOINT_DISABLE=1 cast release --rm-dist
-
-echo_success "Cast release completed"
-
-# Step 9: Upload legacy GPG-signed files for remnux-cli compatibility
-echo_info "==> Uploading legacy GPG-signed files for remnux-cli..."
-
-# Get the release ID
-RELEASE_ID=$(curl -s -H "Authorization: token ${GITHUB_TOKEN}" \
-    "https://api.github.com/repos/REMnux/salt-states/releases/tags/${TAG}" | jq -r '.id')
-
-if [ "$RELEASE_ID" == "null" ] || [ -z "$RELEASE_ID" ]; then
-    echo_error "Could not find release ID for tag $TAG"
-    exit 1
-fi
-
-# Create temp directory for artifacts
-TEMP_DIR=$(mktemp -d)
-trap 'rm -rf "$TEMP_DIR"; rm -f "/tmp/remnux-salt-states-${TAG}.tar.gz"' EXIT
-
-# Download the tarball from GitHub (to /tmp to match legacy format)
-echo_info "    Downloading tarball..."
-curl -sL -o "/tmp/remnux-salt-states-${TAG}.tar.gz" \
-    "https://github.com/REMnux/salt-states/archive/${TAG}.tar.gz"
-
-# Generate SHA256 checksum (with /tmp path to match remnux-cli expectations)
-echo_info "    Generating SHA256 checksum..."
-shasum -a 256 "/tmp/remnux-salt-states-${TAG}.tar.gz" > "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256"
-
-# GPG sign the checksum (clearsign)
-echo_info "    GPG signing checksum..."
-gpg --batch --yes --passphrase "$PGP_PASSWORD" --pinentry-mode loopback \
-    --armor --clearsign --digest-algo SHA256 -u "$PGP_KEY_ID" \
-    "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256"
-
-# GPG sign the tarball (detached signature)
-echo_info "    GPG signing tarball..."
-gpg --batch --yes --passphrase "$PGP_PASSWORD" --pinentry-mode loopback \
-    --armor --detach-sign -u "$PGP_KEY_ID" \
-    "/tmp/remnux-salt-states-${TAG}.tar.gz"
-
-# Move the tarball signature to temp dir
-mv "/tmp/remnux-salt-states-${TAG}.tar.gz.asc" "${TEMP_DIR}/"
-
-# Upload the SHA256 checksum
-echo_info "    Uploading SHA256 checksum..."
-upload_asset "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256" "remnux-salt-states-${TAG}.tar.gz.sha256"
-
-# Upload the signed checksum (.asc)
-echo_info "    Uploading signed checksum..."
-upload_asset "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.sha256.asc" "remnux-salt-states-${TAG}.tar.gz.sha256.asc"
-
-# Upload the tarball signature (.asc)
-echo_info "    Uploading tarball signature..."
-upload_asset "${TEMP_DIR}/remnux-salt-states-${TAG}.tar.gz.asc" "remnux-salt-states-${TAG}.tar.gz.asc"
-
-echo_success "Legacy GPG files uploaded"
 
 echo ""
 echo_success "============================================"
 echo_success "Release $TAG completed successfully!"
 echo_success "============================================"
-echo ""
-echo "Release includes:"
-echo "  - Cast/Cosign signed artifacts (for Cast users)"
-echo "  - GPG signed artifacts (for remnux-cli users)"
 

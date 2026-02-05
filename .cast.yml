@@ -37,11 +37,11 @@ manifest:
     downloading packages, in which case retrying your operation
     a bit later might lead to a better result.
 
-    Additionally, if you are operating behind a proxy, you may
-    need to configure your environment to allow access through
-    the proxy.
+    You can get a sense for the nature of the problems by running:
 
-    To determine the nature of the issue, review the log files at:
+    remnux results
+
+    You can also review the installation log files at:
 
       /var/cache/cast/installer/logs/saltstack.log
       /var/cache/cast/installer/logs/results.yaml
@@ -51,8 +51,3 @@ manifest:
     root cause.
 
     For assistance go to https://github.com/REMnux/salt-states/issues
-
-# Enable legacy PGP signing for backwards compatibility with remnux-cli
-legacy:
-  enabled: true
-
