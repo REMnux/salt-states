@@ -6,7 +6,7 @@ include:
 
 remnux-config-volatility3-permissions:
   file.directory:
-    - name: /usr/local/lib/python3.8/dist-packages/volatility3/framework/symbols
+    - name: /usr/local/lib/python3.12/dist-packages/volatility3/framework/symbols
     - makedirs: True
     - user: {{ user }}
     - group: {{ user }}

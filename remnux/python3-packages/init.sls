@@ -17,7 +17,6 @@ include:
   - remnux.python3-packages.volatility3
   - remnux.python3-packages.fakemail
   - remnux.python3-packages.dc3-mwcp
-  - remnux.python3-packages.ratdecoders
   - remnux.python3-packages.time-decode
   - remnux.python3-packages.pcodedmp
   - remnux.python3-packages.droidlysis
@@ -46,7 +45,6 @@ include:
   - remnux.python3-packages.magika
   - remnux.python3-packages.thefuzz
   - remnux.python3-packages.fakenet-ng
-  - remnux.python3-packages.vipermonkey
   - remnux.python3-packages.balbuzard
   - remnux.python3-packages.brxor
 
@@ -71,7 +69,6 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.volatility3
       - sls: remnux.python3-packages.fakemail
       - sls: remnux.python3-packages.dc3-mwcp
-      - sls: remnux.python3-packages.ratdecoders
       - sls: remnux.python3-packages.time-decode
       - sls: remnux.python3-packages.pcodedmp
       - sls: remnux.python3-packages.droidlysis
@@ -100,6 +97,5 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.magika
       - sls: remnux.python3-packages.thefuzz
       - sls: remnux.python3-packages.fakenet-ng
-      - sls: remnux.python3-packages.vipermonkey
       - sls: remnux.python3-packages.balbuzard
       - sls: remnux.python3-packages.brxor

@@ -6,12 +6,6 @@
 # License: GNU Lesser General Public License (LGPL) v2.1 or later: https://wiki.winehq.org/Licensing
 # Notes: wine
 
-{% if grains['oscodename'] == 'noble' %}
-  {% set libncurses = 'libncurses6' %}
-{% else %}
-  {% set libncurses = 'libncurses5' %}
-{% endif %} 
-
 include:
   - remnux.repos.winehq
 
@@ -22,8 +16,8 @@ remnux-packages-wine-i386-architecture:
 
 remnux-packages-wine-i386-deps:
   cmd.run:
-    - name: apt-get install -y libc6:i386 libstdc++6:i386 {{ libncurses }}:i386 zlib1g:i386 --install-recommends
-    - unless: dpkg -l | grep -q "ii  {{ libncurses }}:i386" && dpkg -l | grep -q "ii  zlib1g:i386"
+    - name: apt-get install -y libc6:i386 libstdc++6:i386 libncurses6:i386 zlib1g:i386 --install-recommends
+    - unless: dpkg -l | grep -q "ii  libncurses6:i386" && dpkg -l | grep -q "ii  zlib1g:i386"
     - require:
       - cmd: remnux-packages-wine-i386-architecture
 

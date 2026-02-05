@@ -4,14 +4,7 @@
 # Category: Dynamically Reverse-Engineer Code: Shellcode
 # Author: David Zimmer
 # License: Free, unknown license
-# Notes: scdbg (GUI), scdbgc (console). Due to a compatibility issue, this tool is not available on an Ubuntu 20.04 SIFT Workstation system to which REMnux was added.
-
-{%- if salt['file.file_exists' ]('/etc/sift-version') and grains['oscodename'] == "focal" %}
-
-remnux-packages-scdbg:
-  test.nop
-
-{%- else %}
+# Notes: scdbg (GUI), scdbgc (console).
 
 include:
   - remnux.repos.remnux
@@ -23,5 +16,3 @@ remnux-packages-scdbg:
     - upgrade: True
     - name: scdbg
     - pkgrepo: remnux
-
-{%- endif %}

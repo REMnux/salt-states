@@ -6,22 +6,14 @@
 # License: Mozilla Public License 2.0: https://github.com/mozilla/treeherder/blob/master/LICENSE.txt
 # Notes: js
 
-{% if grains['oscodename'] == "focal" %}
-{% set pkg = 'libmozjs-52-dev' %}
-{% set ver = '52' %}
-{% elif grains['oscodename'] == "noble" %}
-{% set pkg = 'libmozjs-115-dev' %}
-{% set ver = '115' %}
-{% endif %}
-
-{{ pkg }}:
+libmozjs-115-dev:
   pkg.installed
 
 remnux-packages-spidermonkey-config:
   alternatives.install:
     - name: js
     - link: /usr/bin/js
-    - path: /usr/bin/js{{ ver }}
+    - path: /usr/bin/js115
     - priority: 300
     - watch:
-      - pkg: {{ pkg }}
+      - pkg: libmozjs-115-dev

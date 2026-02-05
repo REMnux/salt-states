@@ -15,10 +15,6 @@ include:
   - remnux.packages.git
   - remnux.packages.python3-dev
   - remnux.packages.build-essential
-  {% if grains['oscodename'] != 'noble' %}
-  - remnux.python3-packages.pip
-  - remnux.packages.libemu
-  {% endif %}
 
 remnux-python3-packages-peepdf-3-venv:
   virtualenv.managed:
@@ -29,25 +25,15 @@ remnux-python3-packages-peepdf-3-venv:
       - setuptools>=70.0.0
       - wheel>=0.38.4
       - importlib-metadata>=8.0.0
-      {% if grains['oscodename'] != 'noble' %}
-      - pylibemu
-      {% endif %}
     - require:
       - sls: remnux.packages.python3-virtualenv
-      {% if grains['oscodename'] != 'noble' %}
-      - sls: remnux.packages.libemu
-      {% endif %}
       - sls: remnux.packages.libjpeg8-dev
       - sls: remnux.packages.zlib1g-dev
       - sls: remnux.packages.git
       - sls: remnux.packages.python3-dev
       - sls: remnux.packages.build-essential
 
-{% if grains['oscodename'] == 'focal' %}
-  {{ install_stpyv8('11.7.439.19', 'bf6821faf6669e07057478edf22c0e02351e7922494dbff377f216920235d8b7', '/opt/peepdf-3/bin/python3', '3.8') }}
-{% else %}
-  {{ install_stpyv8('12.0.267.14', '95f6cd00bed9bdf980f6cf1beabfb5b8d6c66b094732ff3dd6241cf184a0c719', '/opt/peepdf-3/bin/python3', '3.12') }}
-{% endif %}
+{{ install_stpyv8('12.0.267.14', '95f6cd00bed9bdf980f6cf1beabfb5b8d6c66b094732ff3dd6241cf184a0c719', '/opt/peepdf-3/bin/python3', '3.12') }}
 
 remnux-python3-packages-peepdf-3:
   pip.installed:

@@ -8,14 +8,6 @@
 
 {% from 'remnux/python3-packages/stpyv8.sls' import install_stpyv8 %}
 
-{% if grains['oscodename'] == "focal" %}
-  {% set py3_version="python3.9" %}
-  {% set py3_dep="python39" %} 
-{% else %}
-  {% set py3_version="python3" %}
-  {% set py3_dep="python3" %} 
-{% endif %}
-
 include:
   - remnux.packages.git
   - remnux.packages.libemu
@@ -29,15 +21,15 @@ include:
   - remnux.packages.tesseract-ocr
   - remnux.packages.libssl-dev
   - remnux.packages.python3-virtualenv
-  - remnux.packages.{{ py3_dep }}
-  - remnux.packages.{{ py3_dep }}-dev
+  - remnux.packages.python3
+  - remnux.packages.python3-dev
   - remnux.packages.build-essential
 
 remnux-python3-packages-thug-virtualenv:
   virtualenv.managed:
     - name: /opt/thug
     - venv_bin: /usr/bin/virtualenv
-    - python: /usr/bin/{{ py3_version }}
+    - python: /usr/bin/python3
     - pip_pkgs:
       - pip>=24.1.2
       - setuptools>=70.0.0
@@ -47,15 +39,11 @@ remnux-python3-packages-thug-virtualenv:
       - pytesseract
       - pycparser
     - require:
-      - sls: remnux.packages.{{ py3_dep }}
+      - sls: remnux.packages.python3
       - sls: remnux.packages.python3-virtualenv
-      - sls: remnux.packages.{{ py3_dep }}-dev
+      - sls: remnux.packages.python3-dev
 
-{% if grains['oscodename'] == 'focal' %}
-{{ install_stpyv8('11.7.439.19', 'b595998a67a9b70b9d97dc22fd0e36674f60629790f250458681413912692b8a', '/opt/thug/bin/python3', '3.9') }}
-{% else %}
 {{ install_stpyv8('12.0.267.14', '95f6cd00bed9bdf980f6cf1beabfb5b8d6c66b094732ff3dd6241cf184a0c719', '/opt/thug/bin/python3', '3.12') }}
-{% endif %}
 
 remnux-python3-packages-thug-git:
   git.latest:

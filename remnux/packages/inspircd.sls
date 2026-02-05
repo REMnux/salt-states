@@ -4,17 +4,11 @@
 # Category: Explore Network Interactions: Services
 # Author: InspIRCd Development Team
 # License: GNU General Public License (GPL) v2: https://docs.inspircd.org/license/
-# Notes: 
+# Notes:
 
-{%- if grains['oscodename'] == "focal" %}
-  {% set os_rel = '20.04.1' %}
-  {% set version = '3.17.1' %}
-  {% set hash = '02ff2aae8bc5f970b3f5e1de6676bf288baa9db0ffe7a2af5d5a0d6f065c6a57' %}
-{% elif grains['oscodename'] == "noble" %}
-  {% set os_rel = '24.04.2' %}
-  {% set version = '4.7.0' %}
-  {% set hash = '357dedd08a446f83f5327ac04694de65982ed2a2a457c4b9611e4e26109795e7' %}
-{% endif %}
+{% set os_rel = '24.04.2' %}
+{% set version = '4.7.0' %}
+{% set hash = '357dedd08a446f83f5327ac04694de65982ed2a2a457c4b9611e4e26109795e7' %}
 
 include:
   - remnux.packages.libpq5

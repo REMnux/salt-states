@@ -4,13 +4,9 @@
 # Category: Explore Network Interactions: Connecting
 # Author: Ryan Benson: https://x.com/_RyanBenson
 # License: Apache License 2.0: https://github.com/obsidianforensics/unfurl/blob/master/LICENSE
-# Notes: For the command-line version of the tool, run `unfurl_cli.py`. For the local browser-based version, run `unfurl_app.py`.
+# Notes: For the command-line version of the tool, run `unfurl`. For the local browser-based version, run `unfurl_app`.
 
-{% if grains['oscodename'] == 'noble' %}
-  {% set tools = ['unfurl','unfurl_app'] %}
-{% elif grains['oscodename'] == 'focal' %}
-  {% set tools = ['unfurl_cli.py', 'unfurl_app.py'] %}
-{% endif %}
+{% set tools = ['unfurl','unfurl_app'] %}
 
 include:
   - remnux.packages.python3-virtualenv

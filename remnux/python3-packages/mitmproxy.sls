@@ -7,38 +7,7 @@
 # Notes: mitmproxy, mitmdump, mitmweb
 
 {% set tools = ['mitmproxy','mitmdump','mitmweb','mitmproxy-linux-redirector'] %}
-{% if grains['oscodename'] == 'focal' %}
-  {% set version = '12.1.1' %}
-  {% set hash = 'cdbc5a92c87c63bb8fe13552b46d2d0afaa762193ddabe4c96df8f59690ffd76' %}
 
-remnux-mitmproxy-source:
-  file.managed.:
-    - name: /usr/local/src/remnux/files/mitmproxy-{{ version }}-linux-x86_64.tar.gz
-    - source: https://downloads.mitmproxy.org/{{ version }}/mitmproxy-{{ version }}-linux-x86_64.tar.gz
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
-
-remnux-mitmproxy-archive:
-  archive.extracted:
-    - name: /usr/local/bin/
-    - source: /usr/local/src/remnux/files/mitmproxy-{{ version }}-linux-x86_64.tar.gz
-    - enforce_toplevel: False
-    - force: True
-    - watch:
-      - file: remnux-mitmproxy-source
-
-remnux-mitmproxy-file-permissions:
-  file.managed:
-    - replace: False
-    - names:
-      - /usr/local/bin/mitmproxy
-      - /usr/local/bin/mitmdump
-      - /usr/local/bin/mitmweb
-    - mode: 755
-    - watch:
-      - archive: remnux-mitmproxy-archive
-
-{% else %}
 include:
   - remnux.packages.python3-virtualenv
 
@@ -72,4 +41,3 @@ remnux-python3-packages-mitmproxy-symlink-{{ tool }}:
     - require:
       - pip: remnux-python3-packages-mitmproxy
 {% endfor %}
-{% endif %}

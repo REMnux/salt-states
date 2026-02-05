@@ -8,18 +8,10 @@
 
 {% set tools = ['acquire','target-query','target-shell','target-fs','target-reg','target-dump','target-dd','target-mount','rdump','rgeoip'] %}
 
-{% if grains['oscodename'] == "focal" %}
-  {% set py3_version="python3.9" %}
-  {% set py3_dependency="python39" %} 
-{% else %}
-  {% set py3_version="python3" %}
-  {% set py3_dependency="python3" %} 
-{% endif %}
-
 include:
   - remnux.packages.python3-virtualenv
-  - remnux.packages.{{ py3_dependency }}
-  - remnux.packages.{{ py3_dependency }}-dev
+  - remnux.packages.python3
+  - remnux.packages.python3-dev
   - remnux.packages.libfuse2
   - remnux.packages.liblzo2-dev
 
@@ -27,7 +19,7 @@ remnux-python3-packages-dissect-virtualenv:
   virtualenv.managed:
     - name: /opt/dissect
     - system_site_packages: True
-    - python: /usr/bin/{{ py3_version }}
+    - python: /usr/bin/python3
     - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
       - pip>=24.1.3
@@ -37,8 +29,8 @@ remnux-python3-packages-dissect-virtualenv:
       - importlib-metadata>=8.0.0
       - six
     - require:
-      - sls: remnux.packages.{{ py3_dependency }}
-      - sls: remnux.packages.{{ py3_dependency }}-dev
+      - sls: remnux.packages.python3
+      - sls: remnux.packages.python3-dev
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.liblzo2-dev
 

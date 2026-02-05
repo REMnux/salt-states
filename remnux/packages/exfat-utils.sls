@@ -8,8 +8,4 @@
 
 remnux-packages-exfat-utils:
   pkg.installed:
-  {% if grains['oscodename'] == "focal" %}
-    - name: exfat-utils
-  {% elif grains['oscodename'] == "noble" %}
     - name: exfatprogs
-  {% endif %}

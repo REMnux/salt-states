@@ -5,11 +5,7 @@
 # Author: cryptax
 # License: MIT License: https://github.com/cryptax/droidlysis/blob/master/LICENSE
 # Notes: droidlysis
-{%- if grains['oscodename'] == "focal" %}
-  {%- set python3_version="python3.8" %}
-{%- elif grains['oscodename'] == "noble" %}
-  {%- set python3_version="python3.12" %}
-{% endif %}
+{%- set python3_version="python3.12" %}
 {% set apktool_ver = '2.11.1' %}
 
 include:
