@@ -1,6 +1,6 @@
 {% set kernel = grains['kernelrelease'] %}
 
-{% if "-WSL" or "-linuxkit" in kernel %}
+{% if "-WSL" in kernel or "-linuxkit" in kernel %}
 
 linux-headers-generic:
   pkg.installed

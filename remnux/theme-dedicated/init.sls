@@ -1,6 +1,10 @@
 include:
   - remnux.packages.openssh
 
+# Marker state so requisite lookups succeed even when other states are skipped
+remnux-theme-dedicated:
+  test.nop
+
 # Runlevel isn't in a Docker container, so check whether it exists before
 # trying to control  services
 {%- if salt['file.file_exists']('/sbin/runlevel') %}
