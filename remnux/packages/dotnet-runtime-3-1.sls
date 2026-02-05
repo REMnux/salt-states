@@ -1,10 +1,5 @@
-# Name: .NET Runtime 3.1
-# Website: https://dotnet.microsoft.com/
-# Description: .NET runtime for running .NET applications that require version 3.1.
-# Category: General Utilities
-# Author: Microsoft
-# License: MIT License: https://github.com/dotnet/runtime/blob/main/LICENSE.TXT
-# Notes: Invoke using `dotnet3`. Downloaded manually because .NET 3.1 is not in Ubuntu Noble repos.
+# https://builds.dotnet.microsoft.com/dotnet/Runtime/3.1.32/dotnet-runtime-3.1.32-linux-x64.tar.gz
+# dotnet 3 not in Ubuntu Noble repos, manual download required
 
 remnux-packages-dotnet-runtime-3-1-download:
   file.managed:

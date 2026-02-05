@@ -41,6 +41,9 @@ VALID_CATEGORIES = {
 # Required fields for documentation
 REQUIRED_FIELDS = ["name", "website", "description", "author", "license"]
 
+# All recognized frontmatter fields (required + optional)
+KNOWN_FIELDS = REQUIRED_FIELDS + ["category", "notes"]
+
 
 def parse_frontmatter(file_path: Path) -> tuple[dict, list[str]]:
     """
@@ -127,8 +130,11 @@ def lint_file(file_path: Path) -> list[str]:
     front_matter, parse_errors = parse_frontmatter(file_path)
     errors.extend(parse_errors)
 
-    if not front_matter:
-        # No frontmatter found - skip validation (config states, init.sls, etc.)
+    # Only validate if at least one recognized frontmatter field is present
+    # This allows files with no frontmatter (internal dependencies, config states)
+    # and ignores false positives like "# https://..." being parsed as key: value
+    has_known_fields = any(field in front_matter for field in KNOWN_FIELDS)
+    if not has_known_fields:
         return errors
 
     # Check required fields
