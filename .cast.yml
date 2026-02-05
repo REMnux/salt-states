@@ -20,8 +20,6 @@ manifest:
       state: remnux.cloud
   supported_os:
     - id: ubuntu
-      release: "20.04"
-    - id: ubuntu
       release: "24.04"
   saltstack:
     pillars:
