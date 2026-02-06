@@ -156,6 +156,7 @@ include:
   - remnux.packages.rar
   - remnux.packages.sharutils
   - remnux.packages.burpsuite-community
+  - remnux.packages.mono-utils
   - remnux.packages.msitools
   - remnux.packages.python3-ssdeep
 
@@ -319,5 +320,6 @@ remnux-packages:
       - sls: remnux.packages.rar
       - sls: remnux.packages.sharutils
       - sls: remnux.packages.burpsuite-community
+      - sls: remnux.packages.mono-utils
       - sls: remnux.packages.msitools
       - sls: remnux.packages.python3-ssdeep
