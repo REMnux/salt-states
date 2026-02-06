@@ -2,6 +2,7 @@ include:
   - remnux.python3-packages.distro-info
   - remnux.python3-packages.python-debian
   - remnux.python3-packages.androguard
+  - remnux.python3-packages.autoit-ripper
   - remnux.python3-packages.ioc-parser
   - remnux.python3-packages.ipwhois
   - remnux.python3-packages.jsbeautifier
@@ -54,6 +55,7 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.distro-info
       - sls: remnux.python3-packages.python-debian
       - sls: remnux.python3-packages.androguard
+      - sls: remnux.python3-packages.autoit-ripper
       - sls: remnux.python3-packages.ioc-parser
       - sls: remnux.python3-packages.ipwhois
       - sls: remnux.python3-packages.jsbeautifier
