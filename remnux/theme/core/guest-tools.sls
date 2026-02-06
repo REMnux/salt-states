@@ -21,12 +21,21 @@ spice-vdagent:
 
 # Only enable service if not in container (Docker detection)
 {% if grains.get('virtual_subtype', '') != 'Docker' %}
+# Check if virtio serial port exists (required for qemu-guest-agent communication)
+{% set virtio_device = '/dev/virtio-ports/org.qemu.guest_agent.0' %}
+{% if salt['file.file_exists'](virtio_device) %}
 remnux-qemu-guest-agent-service:
   service.running:
     - name: qemu-guest-agent
     - enable: True
     - require:
       - pkg: qemu-guest-agent
+{% else %}
+# Virtio serial device missing - hypervisor not configured for guest agent
+remnux-qemu-guest-agent-notice:
+  test.show_notification:
+    - text: "qemu-guest-agent installed but service not started (virtio serial device missing). To enable: Proxmox - enable 'QEMU Guest Agent' in VM Options; libvirt - add virtio-serial device with guest agent channel. Restart VM and re-run install."
+{% endif %}
 {% endif %}
 
 {% elif hypervisor in ['VirtualBox', 'virtualbox'] %}
