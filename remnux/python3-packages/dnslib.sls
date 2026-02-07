@@ -3,7 +3,7 @@
 # Description: Python library to encode/decode DNS wire-format packets.
 # Category: Gather and Analyze Data
 # Author: Paul Chakravarti
-# License: BSD 2-Clause "Simplified" License (https://github.com/paulc/dnslib/blob/master/LICENSE)
+# License: BSD 2-Clause "Simplified" License: https://github.com/paulc/dnslib/blob/master/LICENSE
 # Notes: Library - /opt/dnslib/bin/python3 - import dnslib
 
 include:

@@ -3,7 +3,7 @@
 # Description: Identify dfferent types of hashes.
 # Category: Examine Static Properties: General
 # Author: Brandon / Bee: https://x.com/bee_sec_san
-# License: GNU General Public License (GPL) v3.0: (https://github.com/HashPals/Name-That-Hash/blob/main/LICENSE)
+# License: GNU General Public License (GPL) v3.0: https://github.com/HashPals/Name-That-Hash/blob/main/LICENSE
 # Notes: nth
 
 include:

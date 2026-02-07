@@ -3,7 +3,7 @@
 # Description: Extract AutoIt scripts embedded in PE binaries.
 # Category: Statically Analyze Code: Scripts
 # Author: Michał Praszmo: https://x.com/nazywam
-# License: MIT (https://github.com/nazywam/AutoIt-Ripper/blob/master/LICENSE)
+# License: MIT License: https://github.com/nazywam/AutoIt-Ripper/blob/master/LICENSE
 # Notes: autoit-ripper
 
 include:

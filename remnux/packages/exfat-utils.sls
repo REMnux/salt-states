@@ -3,7 +3,7 @@
 # Description: Free exFAT File System Implementation.
 # Category:
 # Author: Relan
-# License: GNU General Public License v2 (https://github.com/relan/exfat/blob/master/COPYING)
+# License: GNU General Public License v2: https://github.com/relan/exfat/blob/master/COPYING
 # Notes:
 
 remnux-packages-exfat-utils:

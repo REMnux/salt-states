@@ -3,7 +3,7 @@
 # Description: Fuzzy String Matching in Python.
 # Category: Examine Static Properties: General
 # Author: SeatGeek
-# License: MIT License (https://github.com/seatgeek/thefuzz/blob/master/LICENSE.txt)
+# License: MIT License: https://github.com/seatgeek/thefuzz/blob/master/LICENSE.txt
 # Notes: Updated implementation of fuzzywuzzy
 
 include:

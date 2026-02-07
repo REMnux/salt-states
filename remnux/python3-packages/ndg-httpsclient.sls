@@ -3,7 +3,7 @@
 # Description: HTTPS client implementation for httplib and urllib2 based on PyOpenSSL.
 # Category: 
 # Author: Centre for Environmental Data Analysis Developers
-# License: Copyright Science & Technology Facilities Council (https://github.com/cedadev/ndg_httpsclient/blob/master/ndg/httpsclient/LICENSE)
+# License: Copyright Science & Technology Facilities Council: https://github.com/cedadev/ndg_httpsclient/blob/master/ndg/httpsclient/LICENSE
 # Notes: 
 
 include:
