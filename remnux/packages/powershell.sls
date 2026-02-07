@@ -1,4 +1,4 @@
-# Name: PowerShell  Core
+# Name: PowerShell Core
 # Website: https://github.com/powershell/powershell
 # Description: Run PowerShell scripts and commands.
 # Category: Dynamically Reverse-Engineer Code: Scripts, General Utilities

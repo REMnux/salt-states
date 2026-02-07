@@ -3,7 +3,7 @@
 # Description: Execute and deobfuscate JavaScript using a patched version of Mozilla's standalone JavaScript engine.
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: SpiderMonkey by Mozilla Foundation, patched by Didier Stevens: https://x.com/DidierStevens
-# License: Mozilla Public License 2.0: https://github.com/mozilla/treeherder/blob/master/LICENSE.txt
+# License: Mozilla Public License 2.0: https://www.mozilla.org/en-US/MPL/2.0/
 # Notes: js-ascii, js-file
 
 include:

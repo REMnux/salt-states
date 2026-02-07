@@ -1,9 +1,9 @@
 # Name: capa
-# Website: https://github.com/fireeye/capa
+# Website: https://github.com/mandiant/capa
 # Description: Detect suspicious capabilities in PE files.
 # Category: Statically Analyze Code: PE Files
-# Author: FireEye Inc, Willi Ballenthin: https://x.com/williballenthin, Moritz Raabe: https://x.com/m_r_tz
-# License: Apache License 2.0: https://github.com/fireeye/capa/blob/master/LICENSE.txt
+# Author: Mandiant, Willi Ballenthin: https://x.com/williballenthin, Moritz Raabe: https://x.com/m_r_tz
+# License: Apache License 2.0: https://github.com/mandiant/capa/blob/master/LICENSE.txt
 # Notes: 
 
 remnux-tools-capa-source:

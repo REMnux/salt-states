@@ -1,9 +1,9 @@
 # Name: FakeNet-NG
-# Website: https://github.com/fireeye/flare-fakenet-ng
+# Website: https://github.com/mandiant/flare-fakenet-ng
 # Description: Emulate common network services and interact with malware.
 # Category: Explore Network Interactions: Services
-# Author: FireEye Inc, Peter Kacherginsky, Michael Bailey: https://github.com/fireeye/flare-fakenet-ng/blob/master/AUTHORS
-# License: Apache License 2.0: https://github.com/fireeye/flare-fakenet-ng/blob/master/LICENSE.txt
+# Author: Mandiant, Peter Kacherginsky, Michael Bailey: https://github.com/mandiant/flare-fakenet-ng/blob/master/AUTHORS
+# License: Apache License 2.0: https://github.com/mandiant/flare-fakenet-ng/blob/master/LICENSE.txt
 # Notes: Run the tool using `sudo fakenet`. First, edit `/opt/fakenet-ng/lib/python3.x/site-packages/fakenet/configs/default.ini`, changing the `LinuxRestrictInterface` parameter to your Ethernet network interface name, such as `ens33`.
 
 {% set files = ['fakenet','ftpbench'] %}

@@ -1,9 +1,9 @@
 # Name: Speakeasy
-# Website: https://github.com/fireeye/speakeasy
+# Website: https://github.com/mandiant/speakeasy
 # Description: Emulate code execution, including shellcode, Windows drivers, and Windows PE files.
 # Category: Statically Analyze Code: PE Files, Dynamically Reverse-Engineer Code: Shellcode
-# Author: FireEye Inc, Andrew Davis
-# License: MIT License: https://github.com/fireeye/speakeasy/blob/master/LICENSE.txt
+# Author: Mandiant, Andrew Davis
+# License: MIT License: https://github.com/mandiant/speakeasy/blob/master/LICENSE.txt
 # Notes: To run the tool, use `speakeasy`, `emu_exe.py`, and `emu_dll.py` commands.
 
 {% set tools = ["emu_exe.py", "emu_dll.py", "speakeasy"] %}

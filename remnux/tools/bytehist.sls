@@ -1,6 +1,6 @@
 # Name: Bytehist
 # Website: https://www.cert.at/downloads/software/bytehist_en.html
-# Description: Generate byte-usage-histograms for all types of files with a focus PE files.
+# Description: Generate byte-usage-histograms for all types of files with a focus on PE files.
 # Category: Statically Analyze Code: Unpacking
 # Author: Christian Wojner: https://x.com/Didelphodon
 # License: ISC License: https://en.wikipedia.org/wiki/ISC_license

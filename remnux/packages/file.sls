@@ -3,7 +3,7 @@
 # Description: Identify file type using "magic" numbers.
 # Category: Examine Static Properties: General
 # Author: Ian F. Darwin, Christos Zoulas
-# License: BSD 2-Clause "Alike" License: https://github.com/file/file/blob/master/COPYING
+# License: BSD 2-Clause Simplified License: https://github.com/file/file/blob/master/COPYING
 # Notes: 
 
 file:
