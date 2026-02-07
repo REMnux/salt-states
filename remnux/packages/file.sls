@@ -1,5 +1,5 @@
 # Name: file
-# Website: http://astron.com/pub/file/README
+# Website: https://github.com/file/file
 # Description: Identify file type using "magic" numbers.
 # Category: Examine Static Properties: General
 # Author: Ian F. Darwin, Christos Zoulas

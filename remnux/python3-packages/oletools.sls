@@ -1,5 +1,5 @@
 # Name: oletools
-# Website: http://www.decalage.info/python/oletools
+# Website: https://www.decalage.info/python/oletools
 # Description: Microsoft Office OLE2 compound documents.
 # Category: Analyze Documents: Microsoft Office
 # Author: Philippe Lagadec: https://x.com/decalage2

@@ -1,5 +1,5 @@
 # Name: tcpflow
-# Website: http://downloads.digitalcorpora.org/downloads/tcpflow/
+# Website: https://downloads.digitalcorpora.org/downloads/tcpflow/
 # Description: Analyze the flow of network traffic.
 # Category: Explore Network Interactions: Monitoring
 # Author: Simson L. Garfinkel
