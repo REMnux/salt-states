@@ -1,7 +1,7 @@
 # Name: GoReSym
 # Website: https://github.com/mandiant/GoReSym
 # Description: Extract metadata and symbols from Go binaries, including stripped ones.
-# Category: Examine Static Properties: General
+# Category: Examine Static Properties: Go
 # Author: Mandiant: https://github.com/mandiant
 # License: MIT License: https://github.com/mandiant/GoReSym/blob/master/LICENSE
 # Notes: GoReSym

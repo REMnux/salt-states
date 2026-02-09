@@ -493,7 +493,7 @@ def audit_docs(
     
     # Audit 5: Category consistency check
     valid_categories = {
-        "Examine Static Properties": ["General", "PE Files", "ELF Files", ".NET", "Deobfuscation"],
+        "Examine Static Properties": ["General", "PE Files", "ELF Files", ".NET", "Go", "Deobfuscation"],
         "Statically Analyze Code": ["General", "Unpacking", "PE Files", "Python", "Scripts", "Java", ".NET", "Flash", "Android"],
         "Dynamically Reverse-Engineer Code": ["General", "Shellcode", "Scripts", "ELF Files"],
         "Perform Memory Forensics": [],

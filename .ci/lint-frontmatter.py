@@ -25,7 +25,7 @@ from urllib.parse import urlparse
 
 # Valid categories structure (from audit-docs.py)
 VALID_CATEGORIES = {
-    "Examine Static Properties": ["General", "PE Files", "ELF Files", ".NET", "Deobfuscation"],
+    "Examine Static Properties": ["General", "PE Files", "ELF Files", ".NET", "Go", "Deobfuscation"],
     "Statically Analyze Code": ["General", "Unpacking", "PE Files", "Python", "Scripts", "Java", ".NET", "Flash", "Android"],
     "Dynamically Reverse-Engineer Code": ["General", "Shellcode", "Scripts", "ELF Files"],
     "Perform Memory Forensics": [],
