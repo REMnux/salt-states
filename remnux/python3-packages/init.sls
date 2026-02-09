@@ -50,6 +50,7 @@ include:
   - remnux.python3-packages.brxor
   - remnux.python3-packages.yara-x
   - remnux.python3-packages.lief
+  - remnux.python3-packages.apkid
 
 remnux-python3-packages:
   test.nop:
@@ -105,3 +106,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.brxor
       - sls: remnux.python3-packages.yara-x
       - sls: remnux.python3-packages.lief
+      - sls: remnux.python3-packages.apkid
