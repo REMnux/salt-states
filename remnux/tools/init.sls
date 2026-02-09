@@ -21,6 +21,7 @@ include:
   - remnux.tools.docker-compose
   - remnux.tools.ghidrassist-mcp
   - remnux.tools.goresym
+  - remnux.tools.yara-x
 
 remnux-tools:
   test.nop:
@@ -47,3 +48,4 @@ remnux-tools:
       - sls: remnux.tools.docker-compose
       - sls: remnux.tools.ghidrassist-mcp
       - sls: remnux.tools.goresym
+      - sls: remnux.tools.yara-x
