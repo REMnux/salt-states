@@ -1,6 +1,6 @@
 # Name: LIEF
 # Website: https://lief.re
-# Description: Parse and analyze PE, ELF, MachO, DEX, OAT, VDEX, and ART executable formats.
+# Description: Parse and analyze PE, ELF, MachO, DEX, OAT, VDEX, ART, and DWARF executable formats.
 # Category: Examine Static Properties: General
 # Author: Romain Thomas: https://github.com/romainthomas
 # License: Apache License 2.0: https://github.com/lief-project/LIEF/blob/main/LICENSE
