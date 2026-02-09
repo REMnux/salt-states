@@ -1,11 +1,3 @@
-# Name: yara-x
-# Website: https://github.com/VirusTotal/yara-x
-# Description: Python bindings for YARA-X, the next generation of YARA written in Rust.
-# Category: Gather and Analyze Data
-# Author: Victor M. Alvarez, VirusTotal: https://github.com/VirusTotal
-# License: BSD-3-Clause License: https://github.com/VirusTotal/yara-x/blob/main/LICENSE
-# Notes: To use, run `/opt/yara-x/bin/python3` then `import yara_x`. Coexists with classic yara-python.
-
 include:
   - remnux.packages.python3-virtualenv
 
