@@ -24,6 +24,7 @@ include:
   - remnux.packages.python3
   - remnux.packages.python3-dev
   - remnux.packages.build-essential
+  - remnux.packages.libmagic-dev
 
 remnux-python3-packages-thug-virtualenv:
   virtualenv.managed:
@@ -32,18 +33,32 @@ remnux-python3-packages-thug-virtualenv:
     - python: /usr/bin/python3
     - pip_pkgs:
       - pip>=24.1.2
-      - setuptools>=70.0.0
+      - setuptools>=70.0.0,<82
       - wheel>=0.38.4
       - importlib-metadata>=8.0.0
       - yara-python
       - pytesseract
       - pycparser
+      - six
+      - cffi
     - require:
       - sls: remnux.packages.python3
       - sls: remnux.packages.python3-virtualenv
       - sls: remnux.packages.python3-dev
+      - sls: remnux.packages.libffi-dev
 
 {{ install_stpyv8('12.0.267.14', '95f6cd00bed9bdf980f6cf1beabfb5b8d6c66b094732ff3dd6241cf184a0c719', '/opt/thug/bin/python3', '3.12') }}
+
+remnux-python3-packages-thug-ssdeep:
+  pip.installed:
+    - name: ssdeep==3.4
+    - bin_env: /opt/thug/bin/python3
+    - extra_args:
+      - --no-build-isolation
+    - require:
+      - virtualenv: remnux-python3-packages-thug-virtualenv
+      - sls: remnux.packages.libfuzzy-dev
+      - sls: remnux.packages.build-essential
 
 remnux-python3-packages-thug-git:
   git.latest:
@@ -63,7 +78,9 @@ remnux-python3-packages-thug-packages:
     - upgrade: True
     - require:
       - virtualenv: remnux-python3-packages-thug-virtualenv
+      - pip: remnux-python3-packages-thug-ssdeep
       - sls: remnux.packages.libssl-dev
+      - sls: remnux.packages.libmagic-dev
     - watch:
       - git: remnux-python3-packages-thug-git
 
