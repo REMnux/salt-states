@@ -1,7 +1,7 @@
 # Name: radare2
 # Website: https://www.radare.org/n/radare2.html
 # Description: Examine binary files, including disassembling and debugging. Includes r2ai and decai plugins for LLM-powered analysis (API key or local Ollama required).
-# Category: Dynamically Reverse-Engineer Code: General
+# Category: Dynamically Reverse-Engineer Code: General, Use Artificial Intelligence
 # Author: https://github.com/radareorg/radare2/blob/master/AUTHORS.md
 # License: GNU Lesser General Public License (LGPL) v3: https://github.com/radareorg/radare2/blob/master/COPYING
 # Notes: r2, rasm2, rabin2, rahash2, rafind2, r2ai, decai
