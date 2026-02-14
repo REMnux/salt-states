@@ -6,7 +6,7 @@
 # License: MIT License: https://github.com/pan-unit42/dotnetfile/blob/main/LICENSE
 # Notes: You can use the command-line tool `dotnetfile_dump.py`. Alternatively, to use this library, create a Python program that imports it and loads the .NET file, as described in https://github.com/pan-unit42/dotnetfile/blob/main/readme.md.
 
-{% set hash = 'aff85a4e399c2b6c6fff5eb8d5957aa9960843c5d1c34d2d82e9195cda6b90b3' %}
+{% set hash = 'cc41d0343bf2f8d464e9bc576bc5ed9491c9c76509937b0aba6e74dc2c0e5afa' %}
 
 include:
   - remnux.packages.python3-virtualenv
