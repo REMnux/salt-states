@@ -6,8 +6,8 @@
 # License: Proprietary (Lite edition free): https://malcat.fr/index.html
 # Notes: The Lite version of the tool may not be used in a professional environment per its license.
 
-{% set file = 'malcat_ubuntu2413_lite.zip' %}
-{% set hash = 'f0defadde3e5a2c7e2d4d4be0aef37e8e559199b1820fc0b549adad20aaa0384' %}
+{% set file = 'malcat_ubuntu24_lite.zip' %}
+{% set hash = 'd349bca923b78bc96d4021bf4874de08dadbe7440fcdcb1e0de17b5c28332a17' %}
 
 include:
   - remnux.packages.libgtk-3-0
