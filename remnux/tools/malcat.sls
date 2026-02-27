@@ -2,7 +2,7 @@
 # Website: https://malcat.fr
 # Description: Analyze binary files using a hex editor, disassembler, and file dissector.
 # Category: Examine Static Properties: General
-# Author: https://malcat.fr, https://x.com/malcat4ever
+# Author: Malcat EI: https://x.com/malcat4ever
 # License: Proprietary (Lite edition free): https://malcat.fr/index.html
 # Notes: The Lite version of the tool may not be used in a professional environment per its license.
 
