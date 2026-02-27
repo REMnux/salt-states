@@ -31,3 +31,6 @@ Thumbs.db
 
 # Cast release artifacts
 dist/
+
+# Claude Code plans
+Plans/
