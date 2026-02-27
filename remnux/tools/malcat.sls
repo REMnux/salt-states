@@ -34,9 +34,11 @@ remnux-tools-malcat-archive:
   archive.extracted:
     - name: /opt/malcat
     - source: /usr/local/src/remnux/files/{{ file }}
+    - source_hash: sha256={{ hash }}
     - enforce_toplevel: False
     - force: True
-    - watch:
+    - overwrite: True
+    - require:
       - file: remnux-tools-malcat-source
 
 remnux-tools-malcat-venv:
