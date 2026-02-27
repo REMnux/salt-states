@@ -16,6 +16,7 @@ include:
   - remnux.tools.yara-rules
   - remnux.tools.yara-forge
   - remnux.tools.jadx
+  - remnux.tools.malcat
   - remnux.tools.detect-it-easy
   - remnux.tools.capa
   - remnux.tools.docker-compose
@@ -44,6 +45,7 @@ remnux-tools:
       - sls: remnux.tools.yara-rules
       - sls: remnux.tools.yara-forge
       - sls: remnux.tools.jadx
+      - sls: remnux.tools.malcat
       - sls: remnux.tools.detect-it-easy
       - sls: remnux.tools.capa
       - sls: remnux.tools.docker-compose

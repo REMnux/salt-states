@@ -25,6 +25,7 @@ include:
   - remnux.packages.snapd
   - remnux.packages.snap
   - remnux.packages.libgraphviz-dev
+  - remnux.packages.libgtk-3-0
   - remnux.packages.graphviz
   - remnux.packages.ibus
   - remnux.packages.imagemagick
@@ -189,6 +190,7 @@ remnux-packages:
       - sls: remnux.packages.gdb
       - sls: remnux.packages.git
       - sls: remnux.packages.libgraphviz-dev
+      - sls: remnux.packages.libgtk-3-0
       - sls: remnux.packages.graphviz
       - sls: remnux.packages.ibus
       - sls: remnux.packages.imagemagick
