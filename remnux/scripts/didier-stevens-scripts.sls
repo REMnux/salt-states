@@ -65,7 +65,7 @@
                 ('plugin_triage.py','c6e6145f6cf9b28594d85d11d1681cd9c7db9a8d85938ba78f4905396ca9f85c'),
                 ('re-search.py','292be9721ac7ccd1aff1f66d595b8057f47b4af1bdb33b4ceae9f5aa485b8d63'),
                 ('reextra.py','b275098b6b67b12bad459732f52e5fb69cbc2348526a073fbaeca8587260d2b2'),
-                ('rtfdump.py','5512f4ea5661ac8b0037aca7297ea94583f1899f22e29631e5715adce6640c75'),
+                ('rtfdump.py','3c57fa8192bc0d3179ae750b8d79240173ec6c68fcb50df7a29762e03cac875d'),
                 ('sets.py','eb514fe393e92f8a4ff75b9738408d49868741ac7ef212eda83a75e3482e5148'),
                 ('sortcanon.py','1c3093546e7ec5f8424a9f03ca6999b2c67d7430c6f264885d4ad47b38786bdd'),
                 ('strings.py','dedccaf0130aa8f0195bc10d25a31cab1924998b6f6f427cbb78781a65eeb482'),
@@ -82,7 +82,7 @@
                         ('format-bytes.library','8888bb8a5a9be453545e916d655befe2780c3450076c19b48fcb7e07468cd091'),
                         ('pdfid.ini','ded2e1b4191c8e1914ee53481e32cedc238ad4e16b209ed1cc734896cd8b94cd'),
 ]%}
-{% set commit = 'dc978443977d831ca2051a88b411ff5716c770a5' %}
+{% set commit = 'ec4bcb729967c3dfdae1fc77d49c08b356d88da5' %}
 
 include:
   - remnux.packages.python3-virtualenv
