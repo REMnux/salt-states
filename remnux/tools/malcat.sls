@@ -11,8 +11,13 @@
 
 include:
   - remnux.packages.libgtk-3-0
+  - remnux.packages.libsm6
   - remnux.packages.openssl
   - remnux.packages.python3-virtualenv
+
+remnux-tools-malcat-cleanup:
+  file.absent:
+    - name: /usr/local/src/remnux/files/malcat_ubuntu2413_lite.zip
 
 remnux-tools-malcat-source:
   file.managed:
@@ -22,6 +27,7 @@ remnux-tools-malcat-source:
     - makedirs: True
     - require:
       - sls: remnux.packages.libgtk-3-0
+      - sls: remnux.packages.libsm6
       - sls: remnux.packages.openssl
 
 remnux-tools-malcat-archive:
