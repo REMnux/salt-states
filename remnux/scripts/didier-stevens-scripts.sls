@@ -38,7 +38,7 @@
 # Notes:
 
 {% set files = [('1768.py','38aed900f5fe0c9272e66451266ab6888401b95c50920eff268bbbba4db4b040'),
-                ('base64dump.py','946fcd48a44f50817c9a623d3de60a4e589cf3418052267eb1287e5ee5e5ff9c'),
+                ('base64dump.py','da2018ec518031111ed725e58119870d7b640885b5e935d1f004d5e12d7e6ec7'),
                 ('cs-analyze-processdump.py','997fe227ba27473acce80f88e5a8c6dbf3da546e9550b6ec319f05978bff0611'),
                 ('cs-decrypt-metadata.py','c1db49356acb525c8aade75c15014f83cfae47f6d7a158f02d84402294aa0a35'),
                 ('cs-extract-key.py','2dad421728ec892b6479edd561cad414bc73f41893d9152c68083dc92c32d94d'),
@@ -47,7 +47,7 @@
                 ('decode-vbe.py','1c2287db4df125814ae6f547af0c943deb2b9a282cbec5f55723b8e13285c85e'),
                 ('disitool.py','e3dc083ce8ee2d3a16b16a33460a5052586505876263272ebfddbffb6e2a661a'),
                 ('dnsresolver.py','238d81434c00f7a30aea593572ec8a6b3ae5cd5e20e344ecf301818d1a10a343'),
-                ('emldump.py','cae10ad495864d196edc464148990be84e84480860045ff8ea0172e0f8ea8a86'),
+                ('emldump.py','02b218d7e8f2ab2000970d0c443dbac7e6449651abc8fc84db4640ecdac41baf'),
                 ('file-magic.py','bae00a6c34e08095b586798b7d27783e938707ce05621b4d9a5b6da7b7eb742e'),
                 ('format-bytes.py','7b36fc6b9fdc3f4533afae6b7b443a3fa0cd20919e1123621cfdc43571e1d739'),
                 ('hex-to-bin.py','4e06d5d80c60f88b0289072124d8c6e0c1cf541dbcc58c41f1edd87f2fa8a3f5'),
@@ -55,11 +55,11 @@
                 ('myjson-filter.py','c09e7ed57017ad765586bafa72c2b91eb2199a92d28755ba81ef4345eefbaaa9'),
                 ('myjson-transform.py','e790bc09b37cd9b452920cd1452d98eb3890a0f39b86fb36337471fa11ae27d9'),
                 ('numbers-to-string.py','332822ca13b283da92f399ac407ab0a99ab18df32e5996cee9386be54ba8a225'),
-                ('oledump.py','d4130e50df58a2e6b4d44f513374b479a591aaa5014abc63aa2391f5f303dd99'),
+                ('oledump.py','3f8cb4f1e6e2a96113f31020e62f75909a87c57a00cac1ea78a482d248122f55'),
                 ('pdfid.py','e958a01f1c2596470f27d3c308061b85d7059ff476a58d74f1957a71b4f1248f'),
-                ('pdf-parser.py','628256f0c016347a6b838729499397106a89b327965b7d7f77e47c1be0bc603f'),
+                ('pdf-parser.py','a9fa2faa25e88ab0293543d14aa168ff21fc9fd25a0a8ad657b0dad3171214ac'),
                 ('pdftool.py','8e0fcd2f1eee00eb02a45448d8557f1531e885891a7c93f3272ee8acd47c6fca'),
-                ('pecheck.py','cdc595b3f0fb7f483006ab2ff4d614b671e8826f60b3eecab3d1cf2aeb100008'),
+                ('pecheck.py','c65cf107e42d2f7470a6b589ec0890f8009f1b252c640dbd366a0530bcffc097'),
                 ('plugin_embeddedfile.py','af5bf0c5fb44612d9e8f75af24791f7403b5b3847ed8eb58448fb3a58aef6cd7'),
                 ('plugin_nameobfuscation.py','3097f900eaca41669f551fd43c99be1e17666db1aac1ec8f0e04d1796795d61e'),
                 ('plugin_triage.py','c6e6145f6cf9b28594d85d11d1681cd9c7db9a8d85938ba78f4905396ca9f85c'),
@@ -74,7 +74,7 @@
                 ('xmldump.py','713f575d02639b6359e1999de6d18f99c1fac369831c5eaf3f2000feab342a11'),
                 ('xor-kpa.py','db51d2a64a0ee5673cb933f8a2fb5796e401fb7d46427da2c6d9c9749301af22'),
                 ('xorsearch.py','bbfe319941456b9becea637a4dae01ec572b68fe2aeea22f29f4ccee7417fc6e'),
-                ('zipdump.py','2b0fee76b04577d055449ad13d42b057022a1f3be913581eab375be5f19f28c4'),
+                ('zipdump.py','8b73c1529e6a1facbf239b19354dc49894f7305656c1a83763e5420e220c31f0'),
 ] %}
 
 {% set supplementals = [('1768.json','8824cec6f4ee2ec2f578558bdd014ae1ce8bc02752eb128b509d5740b0f4d553'),
@@ -82,7 +82,7 @@
                         ('format-bytes.library','8888bb8a5a9be453545e916d655befe2780c3450076c19b48fcb7e07468cd091'),
                         ('pdfid.ini','ded2e1b4191c8e1914ee53481e32cedc238ad4e16b209ed1cc734896cd8b94cd'),
 ]%}
-{% set commit = 'ec4bcb729967c3dfdae1fc77d49c08b356d88da5' %}
+{% set commit = 'd0487ab5b5f320fa9e2794a36f920e34156df304' %}
 
 include:
   - remnux.packages.python3-virtualenv
