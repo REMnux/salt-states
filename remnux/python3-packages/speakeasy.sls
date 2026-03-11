@@ -18,7 +18,7 @@ remnux-python3-packages-speakeasy-virtualenv:
     - venv_bin: /usr/bin/virtualenv
     - pip_pkgs:
       - pip>=24.1.3
-      - setuptools>=70.0.0
+      - setuptools>=70.0.0,<81
       - wheel>=0.38.4
       - importlib_metadata>=8.0.0
     - require:
@@ -37,7 +37,7 @@ remnux-python3-packages-speakeasy-emuexe:
   file.managed:
     - name: /opt/speakeasy/bin/emu_exe.py
     - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_exe.py
-    - source_hash: sha256=a02d5729e321426b1f5b1b199a82bc3b379af3e6839d017b8d06b0e85ee590da
+    - source_hash: sha256=6fe4a45dd55f977ca45b17b06e74725e5601558bcf305d1e55dca1331bfddc1e
     - makedirs: false
     - mode: 755
     - require:
@@ -54,7 +54,7 @@ remnux-python3-packages-speakeasy-emudll:
   file.managed:
     - name: /opt/speakeasy/bin/emu_dll.py
     - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_dll.py
-    - source_hash: sha256=49c8bc0e85585985e01ea2f94111e6312455f22a286fc3fe6218badf10531f1f
+    - source_hash: sha256=fd220ee9f484d071418f060f65119e4b16ec37c0ce9a014e991546d92d5a1d96
     - makedirs: false
     - mode: 755
     - require:
