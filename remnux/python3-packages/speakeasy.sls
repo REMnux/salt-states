@@ -54,7 +54,7 @@ remnux-python3-packages-speakeasy-emudll:
   file.managed:
     - name: /opt/speakeasy/bin/emu_dll.py
     - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_dll.py
-    - source_hash: sha256=fd220ee9f484d071418f060f65119e4b16ec37c0ce9a014e991546d92d5a1d96
+    - source_hash: sha256=898160b3b01c46b66600d44f5c32d068a8050b2c55a5a18a40ef2c4f3263465c
     - makedirs: false
     - mode: 755
     - require:
