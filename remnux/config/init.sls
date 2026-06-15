@@ -1,5 +1,6 @@
 include:
   - remnux.config.user
+  - remnux.config.grub-nomodeset-cleanup
   - remnux.config.display
   - remnux.config.inetsim
   - remnux.config.wget
@@ -27,6 +28,7 @@ remnux-config:
   test.nop:
     - require:
       - sls: remnux.config.user
+      - sls: remnux.config.grub-nomodeset-cleanup
       - sls: remnux.config.display
       - sls: remnux.config.inetsim
       - sls: remnux.config.wget
