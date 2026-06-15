@@ -24,7 +24,6 @@ include:
   - remnux.tools.goresym
   - remnux.tools.redress
   - remnux.tools.yara-x
-  - remnux.tools.js_unshroud
 
 remnux-tools:
   test.nop:
@@ -54,4 +53,3 @@ remnux-tools:
       - sls: remnux.tools.goresym
       - sls: remnux.tools.redress
       - sls: remnux.tools.yara-x
-      - sls: remnux.tools.js_unshroud

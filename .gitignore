@@ -34,3 +34,7 @@ dist/
 
 # Claude Code plans
 Plans/
+
+# Local draft tool states (work-in-progress, not part of the release)
+remnux/tools/js_unshroud.sls
+remnux/packages/playwright.sls
