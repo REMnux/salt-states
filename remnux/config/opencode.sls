@@ -1,4 +1,3 @@
-{% from "remnux/osarch.sls" import osarch with context %}
 {% set user = salt['pillar.get']('remnux_user', 'remnux') %}
 
 {% if user == "root" %}
@@ -12,9 +11,6 @@ include:
   - remnux.node-packages.opencode
   - remnux.node-packages.remnux-mcp-server
   - remnux.tools.ghidrassist-mcp
-{% if osarch == "amd64" %}
-  - remnux.packages.r2mcp
-{% endif %}
 
 remnux-config-opencode-dir:
   file.directory:
@@ -44,13 +40,6 @@ remnux-config-opencode-settings:
             type: remote
             url: http://localhost:8080/mcp
             enabled: true
-{% if osarch == "amd64" %}
-          radare2:
-            type: local
-            command:
-              - r2mcp
-            enabled: true
-{% endif %}
     - formatter: json
     - merge_if_exists: True
     - user: {{ user }}
@@ -60,6 +49,3 @@ remnux-config-opencode-settings:
       - file: remnux-config-opencode-dir
       - sls: remnux.node-packages.remnux-mcp-server
       - sls: remnux.tools.ghidrassist-mcp
-{% if osarch == "amd64" %}
-      - sls: remnux.packages.r2mcp
-{% endif %}
