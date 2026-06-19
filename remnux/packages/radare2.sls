@@ -1,6 +1,6 @@
 # Name: radare2
 # Website: https://www.radare.org/n/radare2.html
-# Description: Examine binary files, including disassembling and debugging. Includes r2ai and decai plugins for LLM-powered analysis (API key or local Ollama required), plus the r2ghidra plugin for Ghidra decompilation via the pdg command (amd64 only).
+# Description: Examine binary files, including disassembling and debugging. Includes r2ai and decai plugins for LLM-powered analysis (API key or local Ollama required), plus the r2ghidra plugin for Ghidra decompilation via the pdg command.
 # Category: Dynamically Reverse-Engineer Code: General, Use Artificial Intelligence, Statically Analyze Code: General
 # Author: https://github.com/radareorg/radare2/blob/master/AUTHORS.md
 # License: GNU Lesser General Public License (LGPL) v3: https://github.com/radareorg/radare2/blob/master/COPYING
