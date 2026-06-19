@@ -757,6 +757,32 @@ def _expand_sub_tools(parent: ToolInfo, sub_tool_lines: list[str]) -> list[ToolI
     return sub_tools
 
 
+def _gitignored_sls(salt_states_path: str, sls_files: list) -> set:
+    """Return the subset of sls_files that git ignores (e.g., local drafts).
+
+    Keeps gitignored .sls drafts (work-in-progress tools not meant for release)
+    out of the generated documentation and tools-index.json. Returns an empty
+    set if git is unavailable or the tree is not a repository, so behavior is
+    unchanged in non-git contexts such as release tarballs.
+    """
+    if not sls_files:
+        return set()
+    try:
+        result = subprocess.run(
+            ["git", "-C", salt_states_path, "check-ignore", "--stdin", "-z"],
+            input=b"\x00".join(str(f).encode() for f in sls_files),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        # check-ignore exit codes: 0 = some ignored, 1 = none, >1 = error
+        if result.returncode > 1:
+            return set()
+        return {Path(p) for p in result.stdout.decode().split("\x00") if p}
+    except (OSError, subprocess.SubprocessError):
+        return set()
+
+
 def scan_all_tools(salt_states_path: str, verbose: bool = False) -> list[ToolInfo]:
     """Scan all .sls files and return list of tools with valid frontmatter."""
     tools = []
@@ -768,9 +794,14 @@ def scan_all_tools(salt_states_path: str, verbose: bool = False) -> list[ToolInf
         print(f"Error: remnux directory not found at {remnux_path}", file=sys.stderr)
         return tools
 
-    for sls_file in remnux_path.rglob("*.sls"):
-        # Skip init.sls files (usually just includes)
-        if sls_file.name == "init.sls":
+    sls_files = [f for f in remnux_path.rglob("*.sls") if f.name != "init.sls"]
+    ignored = _gitignored_sls(salt_states_path, sls_files)
+    skipped_ignored = []
+
+    for sls_file in sls_files:
+        # Skip gitignored .sls drafts (local work-in-progress, not for release)
+        if sls_file in ignored:
+            skipped_ignored.append(sls_file.name)
             continue
 
         try:
@@ -788,6 +819,8 @@ def scan_all_tools(salt_states_path: str, verbose: bool = False) -> list[ToolInf
             continue
 
     if verbose:
+        if skipped_ignored:
+            print(f"# Skipped {len(skipped_ignored)} gitignored draft(s): {', '.join(sorted(skipped_ignored))}", file=sys.stderr)
         if skipped_no_category:
             print(f"# Skipped {len(skipped_no_category)} tools without category (internal dependencies)", file=sys.stderr)
         if skipped_parse_error:
