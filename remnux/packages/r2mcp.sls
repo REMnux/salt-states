@@ -1,6 +1,6 @@
 # Name: r2mcp
 # Website: https://github.com/radareorg/radare2-mcp
-# Description: Model Context Protocol server that lets AI agents drive radare2 to open binaries, analyze code, decompile functions, and find vulnerabilities. Pre-configured for OpenCode as the radare2 MCP server (amd64 only).
+# Description: Model Context Protocol server that lets AI agents drive radare2 to open binaries, analyze code, decompile functions, and find vulnerabilities. Pre-configured for OpenCode as the radare2 MCP server.
 # Category: Use Artificial Intelligence
 # Author: pancake: https://github.com/radareorg/radare2-mcp
 # License: MIT: https://github.com/radareorg/radare2-mcp/blob/main/LICENSE
