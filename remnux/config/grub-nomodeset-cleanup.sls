@@ -22,6 +22,14 @@
 {% set has_grub = salt['file.file_exists']('/etc/default/grub') %}
 {% set already_done = salt['file.file_exists'](sentinel) %}
 
+# Anchor: always declare at least one state so init.sls's
+# `require: - sls: remnux.config.grub-nomodeset-cleanup` always resolves. Without
+# this, on an already-cleaned system (sentinel present) or a container (no
+# /etc/default/grub) the block below renders to zero states and the requisite
+# fails with "The following requisites were not found".
+remnux-config-grub-nomodeset-cleanup:
+  test.nop: []
+
 {% if has_grub and not already_done %}
 
 # Strip the 'nomodeset' token (and a single leading space if present) wherever it
