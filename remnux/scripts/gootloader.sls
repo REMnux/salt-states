@@ -1,4 +1,5 @@
 # Name: GootLoaderAutoJsDecode.py
+# Command: gootloader-decode
 # Website: https://github.com/mandiant/gootloader
 # Description: Statically deobfuscate GootLoader (GOOTLOADER) malicious JScript to recover the payload and extract C2 domains.
 # Category: Statically Analyze Code: Scripts
