@@ -12,6 +12,7 @@ include:
   - remnux.scripts.shcode2exe
   - remnux.scripts.dllcharacteristics
   - remnux.scripts.didier-stevens-scripts
+  - remnux.scripts.gootloader
 
 remnux-scripts:
   test.nop:
@@ -29,3 +30,4 @@ remnux-scripts:
       - sls: remnux.scripts.shcode2exe
       - sls: remnux.scripts.dllcharacteristics
       - sls: remnux.scripts.didier-stevens-scripts
+      - sls: remnux.scripts.gootloader
