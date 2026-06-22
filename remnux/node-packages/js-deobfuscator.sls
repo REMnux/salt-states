@@ -1,4 +1,5 @@
 # Name: JavaScript Deobfuscator
+# Command: js-deobfuscator
 # Website: https://github.com/ben-sb/javascript-deobfuscator
 # Description: Deobfuscate JavaScript by removing common obfuscation techniques such as string arrays and proxy functions.
 # Category: Dynamically Reverse-Engineer Code: Scripts
