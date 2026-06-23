@@ -7,8 +7,8 @@
 # License: MIT License: https://github.com/JameZUK/ProcmonMCP/blob/procmon_parser/LICENSE
 # Notes: Pre-configured for OpenCode as the "procmon" MCP server. On Windows, export the Procmon capture to XML (the native .PML format is not supported), copy the XML to REMnux, then ask the assistant to load it. Large captures with millions of events can take several minutes to load.
 
-{% set commit = 'f01a7297cb81084634f20ea3c6de6a3892c52a69' %}
-{% set hash = 'cc245ada8d0a70061289127f665cc3ca6b563a00b3927661fc878b30c7913501' %}
+{% set commit = '78c151baa1c522999b3a37033200651ba8c3b353' %}
+{% set hash = '4a4652d2f9eea80f93485b110b9164c0ac3c580517fe262cb17ce673ef73c690' %}
 {% set srcdir = '/opt/ProcmonMCP-' + commit %}
 
 include:
