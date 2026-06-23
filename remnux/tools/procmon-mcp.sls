@@ -3,12 +3,12 @@
 # Website: https://github.com/JameZUK/ProcmonMCP
 # Description: MCP server that lets AI assistants analyze Process Monitor (Procmon) XML captures.
 # Category: Use Artificial Intelligence, Investigate System Interactions
-# Author: James (JameZUK): https://github.com/JameZUK
-# License: MIT
+# Author: James (JameZUK): https://x.com/JameZUK
+# License: MIT License: https://github.com/JameZUK/ProcmonMCP/blob/procmon_parser/LICENSE
 # Notes: Pre-configured for OpenCode as the "procmon" MCP server. On Windows, export the Procmon capture to XML (the native .PML format is not supported), copy the XML to REMnux, then ask the assistant to load it. Large captures with millions of events can take several minutes to load.
 
-{% set commit = '68be9668c31b17d8db3bc4314ddd11bf57345702' %}
-{% set hash = '350a310b4f21395ccb27c1f602e77eb75f543c8b19d0589e7364788787ec3dbf' %}
+{% set commit = 'f01a7297cb81084634f20ea3c6de6a3892c52a69' %}
+{% set hash = 'cc245ada8d0a70061289127f665cc3ca6b563a00b3927661fc878b30c7913501' %}
 {% set srcdir = '/opt/ProcmonMCP-' + commit %}
 
 include:
@@ -29,15 +29,6 @@ remnux-tools-procmon-mcp-archive:
     - keep_source: True
     - require:
       - file: remnux-tools-procmon-mcp-source
-
-remnux-tools-procmon-mcp-patch:
-  file.replace:
-    - name: {{ srcdir }}/procmon_mcp/server.py
-    - pattern: '\bdescription\s*='
-    - repl: 'instructions='
-    - backup: False
-    - require:
-      - archive: remnux-tools-procmon-mcp-archive
 
 remnux-tools-procmon-mcp-venv:
   virtualenv.managed:
@@ -68,4 +59,3 @@ remnux-tools-procmon-mcp-wrapper:
         cd {{ srcdir }} && exec /opt/procmon-mcp-deps/bin/python3 -m procmon_mcp "$@"
     - require:
       - pip: remnux-tools-procmon-mcp-deps
-      - file: remnux-tools-procmon-mcp-patch
