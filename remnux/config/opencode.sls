@@ -11,6 +11,7 @@ include:
   - remnux.node-packages.opencode
   - remnux.node-packages.remnux-mcp-server
   - remnux.tools.ghidrassist-mcp
+  - remnux.tools.procmon-mcp
 
 remnux-config-opencode-dir:
   file.directory:
@@ -40,6 +41,11 @@ remnux-config-opencode-settings:
             type: remote
             url: http://localhost:8080/mcp
             enabled: true
+          procmon:
+            type: local
+            command:
+              - procmon-mcp
+            enabled: true
     - formatter: json
     - merge_if_exists: True
     - user: {{ user }}
@@ -49,3 +55,4 @@ remnux-config-opencode-settings:
       - file: remnux-config-opencode-dir
       - sls: remnux.node-packages.remnux-mcp-server
       - sls: remnux.tools.ghidrassist-mcp
+      - sls: remnux.tools.procmon-mcp

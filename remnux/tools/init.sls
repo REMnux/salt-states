@@ -24,6 +24,7 @@ include:
   - remnux.tools.goresym
   - remnux.tools.redress
   - remnux.tools.yara-x
+  - remnux.tools.procmon-mcp
 
 remnux-tools:
   test.nop:
@@ -53,3 +54,4 @@ remnux-tools:
       - sls: remnux.tools.goresym
       - sls: remnux.tools.redress
       - sls: remnux.tools.yara-x
+      - sls: remnux.tools.procmon-mcp
