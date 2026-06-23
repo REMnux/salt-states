@@ -50,6 +50,14 @@ remnux-tools-procmon-mcp-deps:
       - virtualenv: remnux-tools-procmon-mcp-venv
       - archive: remnux-tools-procmon-mcp-archive
 
+remnux-tools-procmon-mcp-extras:
+  pip.installed:
+    - pkgs:
+      - psutil
+    - bin_env: /opt/procmon-mcp-deps/bin/python3
+    - require:
+      - pip: remnux-tools-procmon-mcp-deps
+
 remnux-tools-procmon-mcp-wrapper:
   file.managed:
     - name: /usr/local/bin/procmon-mcp
@@ -59,3 +67,4 @@ remnux-tools-procmon-mcp-wrapper:
         cd {{ srcdir }} && exec /opt/procmon-mcp-deps/bin/python3 -m procmon_mcp "$@"
     - require:
       - pip: remnux-tools-procmon-mcp-deps
+      - pip: remnux-tools-procmon-mcp-extras
