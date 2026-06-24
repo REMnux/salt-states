@@ -13,6 +13,13 @@ include:
   - remnux.tools.ghidrassist-mcp
   - remnux.tools.procmon-mcp
 
+# OpenCode needs a clipboard helper to read/write the system clipboard on Linux.
+# REMnux defaults to GNOME-on-Wayland, so wl-clipboard (wl-copy/wl-paste) is the
+# backend opencode auto-detects; without it, "Copied to clipboard" silently no-ops.
+remnux-config-opencode-clipboard:
+  pkg.installed:
+    - name: wl-clipboard
+
 remnux-config-opencode-dir:
   file.directory:
     - name: {{ home }}/.config/opencode

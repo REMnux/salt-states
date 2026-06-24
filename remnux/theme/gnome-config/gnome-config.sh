@@ -23,3 +23,8 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "no
 
 # Define favorites
 gsettings set org.gnome.shell favorite-apps "['gnome-terminal.desktop','firefox.desktop','nautilus.desktop']"
+
+# Bind Ctrl+V to paste in GNOME Terminal (default is Ctrl+Shift+V) so pasting into
+# terminal apps like OpenCode uses a single, familiar shortcut. This replaces the
+# Ctrl+Shift+V binding (GNOME Terminal allows only one accelerator per action).
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ paste '<Control>v'
