@@ -12,13 +12,7 @@ include:
   - remnux.node-packages.remnux-mcp-server
   - remnux.tools.ghidrassist-mcp
   - remnux.tools.procmon-mcp
-
-# OpenCode needs a clipboard helper to read/write the system clipboard on Linux.
-# REMnux defaults to GNOME-on-Wayland, so wl-clipboard (wl-copy/wl-paste) is the
-# backend opencode auto-detects; without it, "Copied to clipboard" silently no-ops.
-remnux-config-opencode-clipboard:
-  pkg.installed:
-    - name: wl-clipboard
+  - remnux.tools.x64dbg-automate-mcp
 
 remnux-config-opencode-dir:
   file.directory:
@@ -53,6 +47,11 @@ remnux-config-opencode-settings:
             command:
               - procmon-mcp
             enabled: true
+          x64dbg:
+            type: local
+            command:
+              - x64dbg-automate-mcp
+            enabled: false
     - formatter: json
     - merge_if_exists: True
     - user: {{ user }}
@@ -63,3 +62,29 @@ remnux-config-opencode-settings:
       - sls: remnux.node-packages.remnux-mcp-server
       - sls: remnux.tools.ghidrassist-mcp
       - sls: remnux.tools.procmon-mcp
+      - sls: remnux.tools.x64dbg-automate-mcp
+
+# OpenCode custom commands for the x64dbg skills. The command files ship inside the
+# x64dbg-skills-opencode repo (laid down at /opt/x64dbg-skills-opencode by the
+# x64dbg-automate-mcp state) and are copied into the user's OpenCode commands dir.
+# The copy runs only when the source archive changes, so it refreshes on version bumps.
+remnux-config-opencode-x64dbg-commands-dir:
+  file.directory:
+    - name: {{ home }}/.config/opencode/commands
+    - makedirs: True
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 755
+    - require:
+      - file: remnux-config-opencode-dir
+
+remnux-config-opencode-x64dbg-commands:
+  cmd.run:
+    - name: |
+        for f in /opt/x64dbg-skills-opencode/commands/x64dbg-*.md; do
+          install -o {{ user }} -g {{ user }} -m 644 "$f" {{ home }}/.config/opencode/commands/
+        done
+    - onchanges:
+      - archive: remnux-tools-x64dbg-automate-mcp-archive
+    - require:
+      - file: remnux-config-opencode-x64dbg-commands-dir

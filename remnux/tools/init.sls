@@ -25,6 +25,7 @@ include:
   - remnux.tools.redress
   - remnux.tools.yara-x
   - remnux.tools.procmon-mcp
+  - remnux.tools.x64dbg-automate-mcp
 
 remnux-tools:
   test.nop:
@@ -55,3 +56,4 @@ remnux-tools:
       - sls: remnux.tools.redress
       - sls: remnux.tools.yara-x
       - sls: remnux.tools.procmon-mcp
+      - sls: remnux.tools.x64dbg-automate-mcp
