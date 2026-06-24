@@ -3,9 +3,9 @@
 # Website: https://github.com/REMnux/x64dbg-skills-opencode
 # Description: Drive x64dbg on a remote Windows VM from OpenCode on REMnux, with eight AI commands for tracing, unpacking, state snapshots, decompiling, YARA scanning, and vulnerability hunting.
 # Category: Use Artificial Intelligence, Dynamically Reverse-Engineer Code: General
-# Author: Darius Houle: https://github.com/dariushoule
+# Author: Darius Houle: https://x.com/dariushoule
 # License: MIT License: https://github.com/REMnux/x64dbg-skills-opencode/blob/main/LICENSE
-# Notes: Ships disabled by default in OpenCode. It only works once x64dbg runs with the x64dbg-automate plugin in Remote mode on a separate Windows VM and you connect to it from OpenCode. The eight commands are /x64dbg-tracealyzer, /x64dbg-find-oep, /x64dbg-shellcode-analyzer, /x64dbg-state-snapshot, /x64dbg-state-diff, /x64dbg-decompile, /x64dbg-yara-sigs, and /x64dbg-vuln-hunter. Forked from dariushoule/x64dbg-skills (a Claude Code plugin) and adapted for OpenCode on REMnux.
+# Notes: Ships disabled by default in OpenCode. It only works once x64dbg runs with the x64dbg-automate plugin in Remote mode on a separate Windows VM and you connect to it from OpenCode. The skills add OpenCode commands that begin with /x64dbg. Forked from dariushoule/x64dbg-skills (a Claude Code plugin) and adapted for OpenCode on REMnux.
 
 {% set commit = '7c21f5fcfe774c26c9b0a7dab1bb5a0e761f51f0' %}
 {% set hash = '5027c4fc1cf30b114d65ceb8bad6bc29efa6f6e32fa84a7cbd178394a3457726' %}
