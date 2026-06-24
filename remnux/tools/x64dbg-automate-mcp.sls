@@ -47,7 +47,7 @@ remnux-tools-x64dbg-automate-mcp-deps:
   pip.installed:
     - pkgs:
       - x64dbg_automate[mcp]
-      - angr
+      - angr[unicorn]
       - yara-python
       - lief
     - bin_env: {{ venv }}/bin/python3
