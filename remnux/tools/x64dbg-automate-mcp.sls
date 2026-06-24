@@ -7,8 +7,8 @@
 # License: MIT License: https://github.com/REMnux/x64dbg-skills-opencode/blob/main/LICENSE
 # Notes: Ships disabled by default in OpenCode. It only works once x64dbg runs with the x64dbg-automate plugin in Remote mode on a separate Windows VM and you connect to it from OpenCode. The skills add OpenCode commands that begin with /x64dbg. Forked from dariushoule/x64dbg-skills (a Claude Code plugin) and adapted for OpenCode on REMnux.
 
-{% set commit = '7c21f5fcfe774c26c9b0a7dab1bb5a0e761f51f0' %}
-{% set hash = '5027c4fc1cf30b114d65ceb8bad6bc29efa6f6e32fa84a7cbd178394a3457726' %}
+{% set commit = '83e3762ed1ea2ed46ee667f95be90050c7c52163' %}
+{% set hash = '2673a59fd4436f895196ae6c567025d549e3e753e1f83c77923bf25cb4d25d77' %}
 {% set src = '/opt/x64dbg-skills-opencode' %}
 {% set venv = '/opt/x64dbg-automate-mcp-deps' %}
 
