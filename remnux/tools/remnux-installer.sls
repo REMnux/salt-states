@@ -9,9 +9,6 @@
 {% set remnux_hash = "15581da24c906126aba2c1e21001311d7a93d9d017c95597c662372248964661" %}
 {% set remnux_diag_hash = "6ed36f5ad61bd2515b66d81962c31e93e1a62321fc52085d37d0427a61f93b3a" %}
 
-include:
-  - remnux.packages.cast
-
 # Cast-based installer - primary command
 remnux-tool-remnux-installer:
   file.managed:
@@ -19,8 +16,6 @@ remnux-tool-remnux-installer:
     - source: https://github.com/REMnux/distro/raw/refs/heads/master/files/remnux-installer.sh
     - source_hash: sha256={{ remnux_hash }}
     - mode: 755
-    - require:
-      - sls: remnux.packages.cast
 
 # Remove legacy CLI if present on system
 remnux-tool-remnux-cli-legacy-removed:
