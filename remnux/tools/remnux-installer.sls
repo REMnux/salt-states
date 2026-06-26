@@ -6,7 +6,7 @@
 # License: Public Domain
 # Notes: This is a wrapper around the Cast installer that the script uses behind the scenes. To run the tool on REMnux, type `remnux`
 
-{% set remnux_hash = "15581da24c906126aba2c1e21001311d7a93d9d017c95597c662372248964661" %}
+{% set remnux_hash = "c1e2dbc7191c4c3382deea2c5ecc40d729c271b7d6b8897caa5cbeb7e3e7d203" %}
 {% set remnux_diag_hash = "6ed36f5ad61bd2515b66d81962c31e93e1a62321fc52085d37d0427a61f93b3a" %}
 
 # Cast-based installer - primary command
