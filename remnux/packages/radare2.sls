@@ -7,14 +7,14 @@
 # Notes: r2, rasm2, rabin2, rahash2, rafind2, r2ai, decai, pdg
 
 {% from "remnux/osarch.sls" import osarch with context %}
-{% set version = '6.1.6' %}
+{% set version = '6.1.8' %}
 {% if osarch == "amd64" %}
-  {% set hash = '5c8798a1b9d974c4730031abac3e9c7ee033270fca9c6d87a6a5eb7b36bc0f75' %}
-  {% set dev_hash = '66202c62f0f601be812f738efdee482b8a7809924ba84e5c2bdd28b9ca77134c' %}
-  {% set r2ghidra_hash = '4a30f0c378ce84dbcee8d998ee39d7bb455d6fe0a243022b8164855ccb3f7d79' %}
+  {% set hash = '91e64c672e65521758c0deb0f70d98ac90f0a78eb654d8bd0d894dd5735130e3' %}
+  {% set dev_hash = '02aa819c187e835d0935a8c7d2586227f3defc01875915badc2df637418e70c1' %}
+  {% set r2ghidra_hash = '81f2fd13b9bb60c34f5f03c963c8c03df68229f560dac0eec9720afdef325624' %}
 {% elif osarch == "arm64" %}
-  {% set hash = '57f8428a9f40488b821238aea5295b754a928aba8f343c2026454f92131ce2da' %}
-  {% set dev_hash = 'ef28bfbd1c8e229b91cd0a48bda37bcee72b58edd8a85cf8e6135b1124b7d072' %}
+  {% set hash = 'fc6717579be2ad2aaa5364aff8b134e9dd8fc0c1414a58c96659f413a2a2b750' %}
+  {% set dev_hash = '8d120cd228284b998b64a18b9e35ab017f4a60824127036ac3860990aa36053c' %}
 {% endif %}
 {% set user = salt['pillar.get']('remnux_user', 'remnux') %}
 {% if user == "root" %}
