@@ -5,7 +5,7 @@ remnux-scripts-mynic-source:
   file.managed:
     - name: /usr/local/bin/mynic
     - source: https://raw.githubusercontent.com/REMnux/distro/master/files/mynic
-    - source_hash: sha256=7a6df684806e65a35d62c72542ccdf41e6c75b7456716e34f7d6b3771b580d36
+    - source_hash: sha256=266a86fd0b75307e4cb36ec8936a9c87653498787d10438571f63efc37b2b5c2
     - makedirs: false
     - mode: 755
     - require:
