@@ -13,5 +13,6 @@ include:
 remnux-node-packages-js-deobfuscator:
   npm.installed:
     - name: js-deobfuscator
+    - force_reinstall: true
     - require:
       - sls: remnux.packages.nodejs

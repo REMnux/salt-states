@@ -54,6 +54,7 @@ remnux-tools-procmon-mcp-extras:
   pip.installed:
     - pkgs:
       - psutil
+      - lxml
     - bin_env: /opt/procmon-mcp-deps/bin/python3
     - require:
       - pip: remnux-tools-procmon-mcp-deps

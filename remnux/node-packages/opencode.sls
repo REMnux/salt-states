@@ -12,5 +12,6 @@ include:
 remnux-node-packages-opencode:
   npm.installed:
     - name: opencode-ai
+    - force_reinstall: true
     - require:
       - sls: remnux.packages.nodejs
