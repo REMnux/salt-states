@@ -42,7 +42,7 @@ function inetsim {
 }
 
 function fakedns {
-  sudo /usr/local/bin/fakedns ${*}
+  sudo /usr/local/bin/fakedns.py ${*}
 }
 
 function apt {

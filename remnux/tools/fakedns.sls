@@ -8,7 +8,8 @@
 
 include:
   - remnux.packages.python3-virtualenv
-  - remnux.packages.python3-netifaces
+  - remnux.packages.build-essential
+  - remnux.packages.python3-dev
 
 remnux-tools-fakedns-venv:
   virtualenv.managed:
@@ -22,6 +23,16 @@ remnux-tools-fakedns-venv:
     - require:
       - sls: remnux.packages.python3-virtualenv
 
+remnux-tools-fakedns-deps:
+  pip.installed:
+    - pkgs:
+      - netifaces
+    - bin_env: /opt/fakedns/bin/python3
+    - require:
+      - virtualenv: remnux-tools-fakedns-venv
+      - sls: remnux.packages.build-essential
+      - sls: remnux.packages.python3-dev
+
 remnux-tools-fakedns:
   file.managed:
     - name: /opt/fakedns/bin/fakedns.py
@@ -31,7 +42,7 @@ remnux-tools-fakedns:
     - makedirs: True
     - require:
         - virtualenv: remnux-tools-fakedns-venv
-        - sls: remnux.packages.python3-netifaces
+        - pip: remnux-tools-fakedns-deps
 
 remnux-tools-fakedns-symlink:
   file.symlink:
