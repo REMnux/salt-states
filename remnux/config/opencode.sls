@@ -71,6 +71,31 @@ remnux-config-opencode-settings:
       - sls: remnux.tools.procmon-mcp
       - sls: remnux.tools.x64dbg-automate-mcp
 
+# Ship the finish-reason plugin to every user so OpenCode surfaces abnormal LLM
+# stop reasons (content-filter, length, error, ...) and session errors on a
+# 60-second TUI toast plus a log entry under service=finish-reason-plugin in
+# ~/.local/share/opencode/log/. Normal "stop"/"tool-calls" turns stay silent.
+# The plugin's only import is `import type`, erased at load, so it needs no deps.
+remnux-config-opencode-plugins-dir:
+  file.directory:
+    - name: {{ home }}/.config/opencode/plugins
+    - makedirs: True
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 755
+    - require:
+      - file: remnux-config-opencode-dir
+
+remnux-config-opencode-finish-reason-plugin:
+  file.managed:
+    - name: {{ home }}/.config/opencode/plugins/finish-reason.ts
+    - source: salt://remnux/config/opencode-finish-reason.ts
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 644
+    - require:
+      - file: remnux-config-opencode-plugins-dir
+
 # OpenCode custom commands for the x64dbg skills. The command files ship inside the
 # x64dbg-skills-opencode repo (laid down at /opt/x64dbg-skills-opencode by the
 # x64dbg-automate-mcp state) and are copied into the user's OpenCode commands dir.
