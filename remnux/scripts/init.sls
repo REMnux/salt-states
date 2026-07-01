@@ -8,6 +8,7 @@ include:
   - remnux.scripts.accept-all-ips
   - remnux.scripts.myip
   - remnux.scripts.mynic
+  - remnux.scripts.monitor-network
   - remnux.scripts.anomy
   - remnux.scripts.shcode2exe
   - remnux.scripts.dllcharacteristics
@@ -26,6 +27,7 @@ remnux-scripts:
       - sls: remnux.scripts.accept-all-ips
       - sls: remnux.scripts.myip
       - sls: remnux.scripts.mynic
+      - sls: remnux.scripts.monitor-network
       - sls: remnux.scripts.anomy
       - sls: remnux.scripts.shcode2exe
       - sls: remnux.scripts.dllcharacteristics
