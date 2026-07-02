@@ -6,4 +6,7 @@ remnux-packages-nodejs:
     - name: nodejs
     - version: latest
     - upgrade: True
+    - refresh: True
     - pkgrepo: nodejs
+    - require:
+      - sls: remnux.repos.nodejs
