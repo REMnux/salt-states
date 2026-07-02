@@ -53,6 +53,7 @@ include:
   - remnux.python3-packages.apkid
   - remnux.python3-packages.pyinstxtractor-ng
   - remnux.python3-packages.uncompyle6
+  - remnux.python3-packages.lyrebird
 
 remnux-python3-packages:
   test.nop:
@@ -111,3 +112,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.apkid
       - sls: remnux.python3-packages.pyinstxtractor-ng
       - sls: remnux.python3-packages.uncompyle6
+      - sls: remnux.python3-packages.lyrebird
