@@ -38,12 +38,12 @@
 # Notes:
 
 {% set files = [('1768.py','38aed900f5fe0c9272e66451266ab6888401b95c50920eff268bbbba4db4b040'),
-                ('base64dump.py','da2018ec518031111ed725e58119870d7b640885b5e935d1f004d5e12d7e6ec7'),
+                ('base64dump.py','57a6efe8315e17274c9299cc567a2dc6263bc6d580d4cd63ace19d6cf870f34f'),
                 ('cs-analyze-processdump.py','997fe227ba27473acce80f88e5a8c6dbf3da546e9550b6ec319f05978bff0611'),
                 ('cs-decrypt-metadata.py','c1db49356acb525c8aade75c15014f83cfae47f6d7a158f02d84402294aa0a35'),
                 ('cs-extract-key.py','2dad421728ec892b6479edd561cad414bc73f41893d9152c68083dc92c32d94d'),
                 ('cs-parse-traffic.py','ada645b042a0ee70a634c7057402964e2aa7af4f459ce957ec891ac4c4d351fd'),
-                ('cut-bytes.py','b5f0ed0af51059da5f7df44d452653a27662a6fc9d4ea5956ccec21dfcb56849'),
+                ('cut-bytes.py','264591fcfa1604b1fe8ef5ff5503e1241d27595ce2ea9b81cbdb8f359a428b63'),
                 ('decode-vbe.py','1c2287db4df125814ae6f547af0c943deb2b9a282cbec5f55723b8e13285c85e'),
                 ('disitool.py','e3dc083ce8ee2d3a16b16a33460a5052586505876263272ebfddbffb6e2a661a'),
                 ('dnsresolver.py','238d81434c00f7a30aea593572ec8a6b3ae5cd5e20e344ecf301818d1a10a343'),
@@ -55,7 +55,7 @@
                 ('myjson-filter.py','c09e7ed57017ad765586bafa72c2b91eb2199a92d28755ba81ef4345eefbaaa9'),
                 ('myjson-transform.py','e790bc09b37cd9b452920cd1452d98eb3890a0f39b86fb36337471fa11ae27d9'),
                 ('numbers-to-string.py','332822ca13b283da92f399ac407ab0a99ab18df32e5996cee9386be54ba8a225'),
-                ('oledump.py','3f8cb4f1e6e2a96113f31020e62f75909a87c57a00cac1ea78a482d248122f55'),
+                ('oledump.py','9a18a2b5ab877be8d86d218b8933933ce2be9dfd3cdcb1d971da5e27765b73eb'),
                 ('pdfid.py','e958a01f1c2596470f27d3c308061b85d7059ff476a58d74f1957a71b4f1248f'),
                 ('pdf-parser.py','a9fa2faa25e88ab0293543d14aa168ff21fc9fd25a0a8ad657b0dad3171214ac'),
                 ('pdftool.py','8e0fcd2f1eee00eb02a45448d8557f1531e885891a7c93f3272ee8acd47c6fca'),
@@ -82,7 +82,7 @@
                         ('format-bytes.library','8888bb8a5a9be453545e916d655befe2780c3450076c19b48fcb7e07468cd091'),
                         ('pdfid.ini','ded2e1b4191c8e1914ee53481e32cedc238ad4e16b209ed1cc734896cd8b94cd'),
 ]%}
-{% set commit = 'd0487ab5b5f320fa9e2794a36f920e34156df304' %}
+{% set commit = '509683b305a669b5a950b48ba65e7d9a5ee194b0' %}
 
 include:
   - remnux.packages.python3-virtualenv
