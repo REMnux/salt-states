@@ -5,7 +5,7 @@
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Evan H. Dygert: https://www.linkedin.com/in/evandygert/
 # License: MIT License: https://github.com/edygert/js_unshroud/blob/master/LICENSE.txt
-# Notes: js_unshroud. Capture with `js_unshroud run --url <url> --out events.jsonl`; run it without arguments to see usage. Needs a display (use `xvfb-run` if headless).
+# Notes: js_unshroud. Capture with `js_unshroud run --url <url> --out events.jsonl`; run it without arguments to see usage. Needs a display; on headless systems the wrapper starts a virtual one automatically (xvfb).
 
 {% set version = '0.2.0' %}
 {% set file = 'js_unshroud-linux-x64.tar.gz' %}
@@ -34,6 +34,10 @@ remnux-tools-js_unshroud-archive:
     - watch:
       - file: remnux-tools-js_unshroud-source
 
+remnux-tools-js_unshroud-xvfb:
+  pkg.installed:
+    - name: xvfb
+
 remnux-tools-js_unshroud-wrapper:
   file.managed:
     - name: /usr/local/bin/js_unshroud
@@ -41,6 +45,12 @@ remnux-tools-js_unshroud-wrapper:
     - contents: |
         #!/bin/bash
         export PLAYWRIGHT_BROWSERS_PATH=/opt/ms-playwright
+        # The run subcommand launches a headed Playwright browser, which fails
+        # without a display; start a virtual one when none is present.
+        if [ "$1" = "run" ] && [ -z "$DISPLAY" ] && command -v xvfb-run >/dev/null 2>&1; then
+          exec xvfb-run -a /opt/js_unshroud/js_unshroud-linux-x64 "$@"
+        fi
         exec /opt/js_unshroud/js_unshroud-linux-x64 "$@"
     - require:
       - archive: remnux-tools-js_unshroud-archive
+      - pkg: remnux-tools-js_unshroud-xvfb
