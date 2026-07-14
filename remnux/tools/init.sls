@@ -26,6 +26,7 @@ include:
   - remnux.tools.yara-x
   - remnux.tools.procmon-mcp
   - remnux.tools.x64dbg-automate-mcp
+  - remnux.tools.js_unshroud
 
 remnux-tools:
   test.nop:
@@ -57,3 +58,4 @@ remnux-tools:
       - sls: remnux.tools.yara-x
       - sls: remnux.tools.procmon-mcp
       - sls: remnux.tools.x64dbg-automate-mcp
+      - sls: remnux.tools.js_unshroud
