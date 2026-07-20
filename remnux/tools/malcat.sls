@@ -7,7 +7,7 @@
 # Notes: The Lite version of the tool may not be used in a professional environment per its license.
 
 {% set file = 'malcat_ubuntu24_lite.zip' %}
-{% set hash = 'fc321f31829d1c1c5e6a93d2e338e93c06f0c6fb41e0ed86f0289b1ddc3ad443' %}
+{% set hash = 'f2d92e020152ed7ec07115395724166287a9c5272bbeaf0c9bf236a8b94cf210' %}
 
 include:
   - remnux.packages.libgtk-3-0
