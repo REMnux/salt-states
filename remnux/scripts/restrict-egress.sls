@@ -1,6 +1,6 @@
 # Name: restrict-egress
 # Website: https://github.com/REMnux/distro/blob/master/files/restrict-egress
-# Description: Restrict the host's outbound network access to an allowlist of domains and CIDRs, using an nftables default-deny egress policy that survives reboots and re-resolves load-balanced endpoints.
+# Description: Restrict the host's outbound network access to an allowlist of domains and CIDRs, using an nftables default-deny egress policy that survives reboots and re-resolves load-balanced endpoints. Requires systemd, so it runs on a host or VM only and is not functional inside containers.
 # Category: General Utilities
 # Author: Lenny Zeltser: https://x.com/lennyzeltser
 # License: MIT
