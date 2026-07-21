@@ -45,6 +45,10 @@ function fakedns {
   sudo /usr/local/bin/fakedns.py ${*}
 }
 
+function restrict-egress {
+  sudo /usr/local/bin/restrict-egress ${*}
+}
+
 function apt {
   sudo /usr/bin/apt ${*}
 }
