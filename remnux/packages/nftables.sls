@@ -1,0 +1,2 @@
+nftables:
+  pkg.installed
