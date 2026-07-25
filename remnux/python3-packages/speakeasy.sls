@@ -7,6 +7,8 @@
 # Notes: To run the tool, use `speakeasy`, `emu_exe.py`, and `emu_dll.py` commands.
 
 {% set tools = ["emu_exe.py", "emu_dll.py", "speakeasy"] %}
+{% set exe_hash = 'a0aa36592a8b4ab2b1d354eda7d730fbf46d59f92bdc6189d5c2dc3aa4186b9b' %}
+{% set dll_hash = '4a1e88d1ec736996fda3b7a8c734637f2b8a7d3163fdc3cc9c485fda4ae55105' %}
 
 include:
   - remnux.packages.python3-virtualenv
@@ -37,7 +39,7 @@ remnux-python3-packages-speakeasy-emuexe:
   file.managed:
     - name: /opt/speakeasy/bin/emu_exe.py
     - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_exe.py
-    - source_hash: sha256=6fe4a45dd55f977ca45b17b06e74725e5601558bcf305d1e55dca1331bfddc1e
+    - source_hash: sha256={{ exe_hash }}
     - makedirs: false
     - mode: 755
     - require:
@@ -54,7 +56,7 @@ remnux-python3-packages-speakeasy-emudll:
   file.managed:
     - name: /opt/speakeasy/bin/emu_dll.py
     - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_dll.py
-    - source_hash: sha256=898160b3b01c46b66600d44f5c32d068a8050b2c55a5a18a40ef2c4f3263465c
+    - source_hash: sha256={{ dll_hash }}
     - makedirs: false
     - mode: 755
     - require:
