@@ -161,6 +161,7 @@ include:
   - remnux.packages.msitools
   - remnux.packages.python3-ssdeep
   - remnux.packages.sshpass
+  - remnux.packages.mutool
 
 remnux-packages:
   test.nop:
@@ -327,3 +328,4 @@ remnux-packages:
       - sls: remnux.packages.msitools
       - sls: remnux.packages.python3-ssdeep
       - sls: remnux.packages.sshpass
+      - sls: remnux.packages.mutool
