@@ -15,6 +15,7 @@ include:
   - remnux.scripts.dllcharacteristics
   - remnux.scripts.didier-stevens-scripts
   - remnux.scripts.gootloader
+  - remnux.scripts.r2decomp
 
 remnux-scripts:
   test.nop:
@@ -35,3 +36,4 @@ remnux-scripts:
       - sls: remnux.scripts.dllcharacteristics
       - sls: remnux.scripts.didier-stevens-scripts
       - sls: remnux.scripts.gootloader
+      - sls: remnux.scripts.r2decomp
