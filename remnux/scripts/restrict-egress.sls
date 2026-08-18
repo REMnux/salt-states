@@ -15,7 +15,7 @@ remnux-scripts-restrict-egress-source:
   file.managed:
     - name: /usr/local/bin/restrict-egress
     - source: https://github.com/REMnux/distro/raw/master/files/restrict-egress
-    - source_hash: sha256=7d55b9762e7b6f8b9f383ba5c613c52f0b1c8a1127b1fa5ba1d1e74ec6bbd41b
+    - source_hash: sha256=482341b6ee14e38d061dcf8278c8c5d764715513032348e16fa8dc994a23a261
     - makedirs: false
     - mode: 755
     - require:
