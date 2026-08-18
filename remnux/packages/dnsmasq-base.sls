@@ -1,0 +1,2 @@
+dnsmasq-base:
+  pkg.installed
