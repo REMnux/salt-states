@@ -1,0 +1,25 @@
+--- a/usr/share/perl5/INetSim/DNS.pm
++++ b/usr/share/perl5/INetSim/DNS.pm
+@@ -42,6 +42,10 @@
+         exit 1;
+     }
+ 
++    # Net::DNS 1.40+ creates the listening sockets lazily inside the service
++    # loop, so prime them here while still running as root (port 53 is privileged).
++    $server->loop_once(0);
++
+     # drop root privileges
+     my $runasuser = INetSim::Config::getConfigParameter("Default_RunAsUser");
+     my $runasgroup = INetSim::Config::getConfigParameter("Default_RunAsGroup");
+@@ -66,7 +70,10 @@
+ 
+     $0 = 'inetsim_' . INetSim::Config::getConfigParameter("DNS_ServiceName");
+     INetSim::Log::MainLog("started (PID $CPID)", INetSim::Config::getConfigParameter("DNS_ServiceName"));
+-    $server->main_loop;
++    # Net::DNS 1.40+ main_loop() calls start_server(), which croaks when called
++    # from a forked child and self-terminates after 600s. loop_once() has neither
++    # behaviour, so wrap it to restore the original blocking-loop semantics.
++    while (1) { $server->loop_once(10); }
+     INetSim::Log::MainLog("stopped (PID $CPID)", INetSim::Config::getConfigParameter("DNS_ServiceName"));
+     exit 0;
+ }
