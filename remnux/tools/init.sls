@@ -28,6 +28,7 @@ include:
   - remnux.tools.x64dbg-automate-mcp
   - remnux.tools.js_unshroud
   - remnux.tools.mermaid-view
+  - remnux.tools.x64dbg-docs
 
 remnux-tools:
   test.nop:
@@ -61,3 +62,4 @@ remnux-tools:
       - sls: remnux.tools.x64dbg-automate-mcp
       - sls: remnux.tools.js_unshroud
       - sls: remnux.tools.mermaid-view
+      - sls: remnux.tools.x64dbg-docs
