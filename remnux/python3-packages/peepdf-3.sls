@@ -6,6 +6,15 @@
 # License: GNU General Public License (GPL) v3: https://github.com/digitalsleuth/peepdf-3/blob/main/COPYING
 # Notes: To run the tool, use the command "peepdf".
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-python3-packages-peepdf-3-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: peepdf-3 is not available for this architecture."
+
+{% else %}
+
 {% from 'remnux/python3-packages/stpyv8.sls' import install_stpyv8 %}
 
 include:
@@ -51,3 +60,5 @@ remnux-python3-packages-peepdf-3-symlink:
     - makedirs: False
     - require:
       - pip: remnux-python3-packages-peepdf-3
+
+{% endif %}

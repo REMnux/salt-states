@@ -6,6 +6,15 @@
 # License: GNU General Public License (GPL) v2: https://github.com/buffer/thug/blob/master/LICENSE.txt
 # Notes: thug -F
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-python3-packages-thug-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: thug is not available for this architecture."
+
+{% else %}
+
 {% from 'remnux/python3-packages/stpyv8.sls' import install_stpyv8 %}
 
 include:
@@ -109,3 +118,5 @@ remnux-python3-packages-thug-symlink:
     - force: True
     - require:
       - pip: remnux-python3-packages-thug-packages
+
+{% endif %}

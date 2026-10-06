@@ -6,6 +6,15 @@
 # License: ISC License: https://en.wikipedia.org/wiki/ISC_license
 # Notes: bytehist
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-tools-bytehist-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: Bytehist is not available for this architecture."
+
+{% else %}
+
 remnux-tools-bytehist-source:
   file.managed:
     - name: /usr/local/src/remnux/files/bytehist_1_0_102_linux.zip
@@ -28,3 +37,5 @@ remnux-tools-bytehist-binary:
     - mode: 755
     - watch:
       - archive: remnux-tools-bytehist-archive
+
+{% endif %}

@@ -6,6 +6,37 @@
 # License: BSD-3-Clause License: https://github.com/VirusTotal/yara-x/blob/main/LICENSE
 # Notes: yr scan, yr compile. Coexists with classic YARA; uses `yr` command.
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+{# arm64 extracts to its own directory, so an x86 yr left by an earlier install is never reused #}
+{% set file = 'yara-x-v1.13.0-aarch64-unknown-linux-gnu' %}
+
+remnux-tools-yara-x-source:
+  file.managed:
+    - name: /usr/local/src/remnux/files/{{ file }}.gz
+    - source: https://github.com/VirusTotal/yara-x/releases/download/v1.13.0/{{ file }}.gz
+    - source_hash: a50e9b593c5a6039c227f665b8ade1ea1c4bee3be5789add3e33f033cbf427ae
+    - makedirs: True
+
+remnux-tools-yara-x-archive:
+  archive.extracted:
+    - name: /usr/local/src/remnux/{{ file }}
+    - source: /usr/local/src/remnux/files/{{ file }}.gz
+    - archive_format: tar
+    - enforce_toplevel: False
+    - require:
+      - file: remnux-tools-yara-x-source
+
+remnux-tools-yara-x-binary:
+  file.managed:
+    - name: /usr/local/bin/yr
+    - source: /usr/local/src/remnux/{{ file }}/yr
+    - mode: 755
+    - require:
+      - archive: remnux-tools-yara-x-archive
+
+{% else %}
+
 remnux-tools-yara-x-source:
   file.managed:
     - name: /usr/local/src/remnux/files/yara-x-v1.13.0-x86_64-unknown-linux-gnu.gz
@@ -29,3 +60,5 @@ remnux-tools-yara-x-binary:
     - mode: 755
     - require:
       - archive: remnux-tools-yara-x-archive
+
+{% endif %}

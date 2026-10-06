@@ -6,6 +6,15 @@
 # License: GNU Lesser General Public License (LGPL) v2.1 or later: https://wiki.winehq.org/Licensing
 # Notes: wine
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-packages-wine-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: Wine is not available for this architecture."
+
+{% else %}
+
 include:
   - remnux.repos.winehq
 
@@ -27,3 +36,5 @@ remnux-packages-wine:
     - require:
       - cmd: remnux-packages-wine-i386-deps
       - sls: remnux.repos.winehq
+
+{% endif %}

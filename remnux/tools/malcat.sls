@@ -6,6 +6,15 @@
 # License: Proprietary (Lite edition free): https://malcat.fr/index.html
 # Notes: The Lite version of the tool may not be used in a professional environment per its license.
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-tools-malcat-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: Malcat Lite is not available for this architecture."
+
+{% else %}
+
 {% set file = 'malcat_ubuntu24_lite.zip' %}
 {% set hash = 'f2d92e020152ed7ec07115395724166287a9c5272bbeaf0c9bf236a8b94cf210' %}
 
@@ -70,3 +79,5 @@ remnux-tools-malcat-wrapper:
       - '#!/bin/bash'
       - 'export PYTHONPATH=/opt/malcat-deps/lib/python3.12/site-packages'
       - 'exec /opt/malcat/bin/malcat "$@"'
+
+{% endif %}

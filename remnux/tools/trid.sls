@@ -6,6 +6,15 @@
 # License: Free, unknown license
 # Notes: trid, tridupdate
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-tools-trid-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: TrID is not available for this architecture."
+
+{% else %}
+
 remnux-tools-trid-source:
   file.managed:
     - name: /usr/local/src/remnux/files/trid_linux_64.zip
@@ -101,3 +110,5 @@ remnux-tools-tridupdate-run:
     - name: /usr/bin/python3 /usr/local/bin/tridupdate
     - watch:
       - file: /usr/local/bin/tridupdate
+
+{% endif %}

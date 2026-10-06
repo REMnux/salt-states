@@ -6,6 +6,7 @@
 # License: GNU General Public License (GPL) v2: https://docs.inspircd.org/license/
 # Notes:
 
+{% from "remnux/osarch.sls" import osarch with context %}
 {% set os_rel = '24.04.2' %}
 {% set version = '4.7.0' %}
 {% set hash = '357dedd08a446f83f5327ac04694de65982ed2a2a457c4b9611e4e26109795e7' %}
@@ -16,6 +17,21 @@ include:
   - remnux.packages.libtre5
   - remnux.packages.gnutls-bin
   - remnux.packages.libmysqlclient21
+
+{% if osarch == "arm64" %}
+{# InspIRCd publishes amd64 packages only, so arm64 installs Ubuntu's inspircd package #}
+
+remnux-packages-inspircd-install:
+  pkg.installed:
+    - name: inspircd
+    - require:
+      - sls: remnux.packages.libpq5
+      - sls: remnux.packages.libre2
+      - sls: remnux.packages.libtre5
+      - sls: remnux.packages.gnutls-bin
+      - sls: remnux.packages.libmysqlclient21
+
+{% else %}
 
 remnux-packages-inspircd-source:
   file.managed:
@@ -35,6 +51,8 @@ remnux-packages-inspircd-install:
       - sls: remnux.packages.libmysqlclient21
     - watch:
       - file: remnux-packages-inspircd-source
+
+{% endif %}
 
 # Runlevel isn't in a Docker container, so check whether it exists before
 # trying to control services

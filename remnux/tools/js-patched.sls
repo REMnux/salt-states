@@ -6,6 +6,15 @@
 # License: Mozilla Public License 2.0: https://www.mozilla.org/en-US/MPL/2.0/
 # Notes: js-ascii, js-file
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-tools-js-patched-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: SpiderMonkey (Patched) is not available for this architecture."
+
+{% else %}
+
 include:
   - remnux.packages.i386-architecture
 
@@ -47,3 +56,5 @@ remnux-tools-js-patched-binary2:
     - mode: 755
     - watch:
       - archive: remnux-tools-js-patched-archive
+
+{% endif %}

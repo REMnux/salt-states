@@ -6,6 +6,15 @@
 # License: Free, unknown license
 # Notes: scdbg (GUI), scdbgc (console).
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-packages-scdbg-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: scdbg is not available for this architecture."
+
+{% else %}
+
 include:
   - remnux.repos.remnux
   - remnux.packages.wine
@@ -16,3 +25,5 @@ remnux-packages-scdbg:
     - upgrade: True
     - name: scdbg
     - pkgrepo: remnux
+
+{% endif %}

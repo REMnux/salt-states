@@ -6,7 +6,14 @@
 # License: Apache License 2.0: https://github.com/vivisect/vivisect/blob/master/LICENSE.txt
 # Notes: vivbin, vdbbin
 
+{% from "remnux/osarch.sls" import osarch with context %}
 {% set files = ['vivbin','vdbbin'] %}
+{# PyQt5's Qt wheels are not published for arm64, so arm64 installs vivisect without its GUI #}
+{% if osarch == "arm64" %}
+  {% set package = 'vivisect' %}
+{% else %}
+  {% set package = 'vivisect[gui]' %}
+{% endif %}
 
 include:
   - remnux.packages.python3-virtualenv
@@ -25,7 +32,7 @@ remnux-python3-package-vivisect-venv:
 
 remnux-python3-package-vivisect:
   pip.installed:
-    - name: vivisect[gui]
+    - name: {{ package }}
     - bin_env: /opt/vivisect/bin/python3
     - upgrade: True
     - require:

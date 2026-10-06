@@ -1,3 +1,12 @@
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-packages-i386-architecture-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: 32-bit x86 (i386) packages are not available for this architecture."
+
+{% else %}
+
 i386-arch:
   cmd.run:
     - name: dpkg --add-architecture i386 && apt-get update
@@ -26,3 +35,5 @@ zlib1g:i386:
     - name: zlib1g:i386
     - require:
       - cmd: i386-arch
+
+{% endif %}

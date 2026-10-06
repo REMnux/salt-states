@@ -6,6 +6,15 @@
 # License: Free, unknown license
 # Notes: Use full path name to specify the input file; look for the output file in /usr/local/shellcode2exe-bat
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-tools-shellcode2exe-bat-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: shellcode2exe.bat is not available for this architecture."
+
+{% else %}
+
 include:
   - remnux.packages.git
   - remnux.packages.wine
@@ -38,3 +47,5 @@ remnux-tools-shellcode2exe-bat-permissions:
     - dir_mode: 777
     - watch:
       - file: remnux-tools-shellcode2exe-bat-wrapper
+
+{% endif %}

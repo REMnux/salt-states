@@ -6,6 +6,15 @@
 # License: Free to use for private, educational and non-commercial purposes.
 # Notes: ssview
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-tools-ssview-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: SSView is not available for this architecture."
+
+{% else %}
+
 include:
   - remnux.packages.wine
 
@@ -35,3 +44,5 @@ remnux-tools-ssview-wrapper:
     - contents:
       - '#!/bin/bash'
       - wine /usr/local/ssview/SSView.exe ${*}
+
+{% endif %}

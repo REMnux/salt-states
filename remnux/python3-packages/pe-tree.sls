@@ -6,6 +6,15 @@
 # License: Apache License 2.0: https://github.com/blackberry/pe_tree/blob/master/LICENSE
 # Notes: pe-tree
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-python3-packages-pe-tree-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: PE Tree is not available for this architecture."
+
+{% else %}
+
 include:
   - remnux.packages.python3-virtualenv
   - remnux.packages.libglu1-mesa-dev
@@ -44,3 +53,5 @@ remnux-python3-packages-pe-tree-symlink:
     - makedirs: False
     - require:
       - pip: remnux-python3-packages-pe-tree
+
+{% endif %}
