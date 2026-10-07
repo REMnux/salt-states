@@ -11,4 +11,6 @@ include:
 
 msoffice-crypt:
   pkg.installed:
+    - version: latest
+    - upgrade: True
     - pkgrepo: remnux

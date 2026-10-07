@@ -6,6 +6,29 @@
 # License: MIT License: https://github.com/mandiant/GoReSym/blob/master/LICENSE
 # Notes: GoReSym
 
+{% from "remnux/osarch.sls" import osarch with context %}
+
+{% if osarch == "arm64" %}
+include:
+  - remnux.repos.remnux
+
+remnux-tools-goresym-install:
+  pkg.installed:
+    - name: goresym
+    - version: latest
+    - upgrade: True
+    - require:
+      - pkgrepo: remnux-repo
+
+remnux-tools-goresym-binary:
+  file.symlink:
+    - name: /usr/local/bin/GoReSym
+    - target: /usr/bin/GoReSym
+    - force: True
+    - require:
+      - pkg: remnux-tools-goresym-install
+
+{% else %}
 remnux-tools-goresym-source:
   file.managed:
     - name: /usr/local/src/remnux/files/GoReSym-linux.zip
@@ -28,3 +51,5 @@ remnux-tools-goresym-binary:
     - mode: 755
     - require:
       - archive: remnux-tools-goresym-archive
+
+{% endif %}

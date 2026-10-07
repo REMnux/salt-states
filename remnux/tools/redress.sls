@@ -6,6 +6,31 @@
 # License: GNU Affero General Public License v3.0: https://github.com/goretk/redress/blob/develop/LICENSE
 # Notes: redress
 
+{% from "remnux/osarch.sls" import osarch with context %}
+
+{% if osarch == "arm64" %}
+include:
+  - remnux.repos.remnux
+  - remnux.packages.radare2
+
+remnux-tools-redress-install:
+  pkg.installed:
+    - name: redress
+    - version: latest
+    - upgrade: True
+    - require:
+      - pkgrepo: remnux-repo
+      - sls: remnux.packages.radare2
+
+remnux-tools-redress-binary:
+  file.symlink:
+    - name: /usr/local/bin/redress
+    - target: /usr/bin/redress
+    - force: True
+    - require:
+      - pkg: remnux-tools-redress-install
+
+{% else %}
 include:
   - remnux.packages.radare2
 
@@ -34,3 +59,5 @@ remnux-tools-redress-binary:
     - mode: 755
     - require:
       - archive: remnux-tools-redress-archive
+
+{% endif %}

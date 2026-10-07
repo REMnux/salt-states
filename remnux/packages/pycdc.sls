@@ -10,4 +10,7 @@ include:
   - remnux.repos.remnux
 
 pycdc:
-  pkg.installed
+  pkg.installed:
+    - version: latest
+    - upgrade: True
+    - pkgrepo: remnux
