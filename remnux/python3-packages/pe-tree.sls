@@ -8,10 +8,63 @@
 
 {% from "remnux/osarch.sls" import osarch with context %}
 {% if osarch == "arm64" %}
+{# PyQt5 publishes no arm64 wheel, so arm64 uses Ubuntu's python3-pyqt5 through a venv that
+   sees system packages, and installs pe_tree's other dependencies explicitly. #}
 
-remnux-python3-packages-pe-tree-arm64-skip:
-  test.show_notification:
-    - text: "Skipped on arm64: PE Tree is not available for this architecture."
+include:
+  - remnux.packages.python3-virtualenv
+  - remnux.packages.python3-pyqt5
+  - remnux.packages.libglu1-mesa-dev
+  - remnux.packages.libglib2
+
+remnux-python3-packages-pe-tree-venv:
+  virtualenv.managed:
+    - name: /opt/pe-tree
+    - venv_bin: /usr/bin/virtualenv
+    - system_site_packages: True
+    - pip_pkgs:
+      - pip>=24.1.3
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+    - require:
+      - sls: remnux.packages.python3-virtualenv
+      - sls: remnux.packages.python3-pyqt5
+
+remnux-python3-packages-pe-tree-deps:
+  pip.installed:
+    - pkgs:
+      - pefile
+      - requests
+      - cryptography
+      - configparser
+      - asn1crypto
+      - scandir
+      - filetype
+      - minidump
+      - capstone
+    - bin_env: /opt/pe-tree/bin/python3
+    - require:
+      - virtualenv: remnux-python3-packages-pe-tree-venv
+
+remnux-python3-packages-pe-tree:
+  pip.installed:
+    - name: pe_tree
+    - bin_env: /opt/pe-tree/bin/python3
+    - no_deps: True
+    - upgrade: True
+    - require:
+      - pip: remnux-python3-packages-pe-tree-deps
+      - sls: remnux.packages.libglu1-mesa-dev
+      - sls: remnux.packages.libglib2
+
+remnux-python3-packages-pe-tree-symlink:
+  file.symlink:
+    - name: /usr/local/bin/pe-tree
+    - target: /opt/pe-tree/bin/pe-tree
+    - force: True
+    - makedirs: False
+    - require:
+      - pip: remnux-python3-packages-pe-tree
 
 {% else %}
 

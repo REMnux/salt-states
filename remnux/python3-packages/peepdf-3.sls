@@ -8,10 +8,66 @@
 
 {% from "remnux/osarch.sls" import osarch with context %}
 {% if osarch == "arm64" %}
+{# STPyV8 has no arm64 build, so arm64 installs peepdf-3 without it. peepdf-3 imports STPyV8
+   only when present: everything works except JavaScript emulation, which reports that
+   STPyV8 is not installed. #}
 
-remnux-python3-packages-peepdf-3-arm64-skip:
-  test.show_notification:
-    - text: "Skipped on arm64: peepdf-3 is not available for this architecture."
+include:
+  - remnux.packages.python3-virtualenv
+  - remnux.packages.libjpeg8-dev
+  - remnux.packages.zlib1g-dev
+  - remnux.packages.python3-dev
+  - remnux.packages.build-essential
+
+remnux-python3-packages-peepdf-3-venv:
+  virtualenv.managed:
+    - name: /opt/peepdf-3
+    - venv_bin: /usr/bin/virtualenv
+    - pip_pkgs:
+      - pip<=25.2
+      - setuptools>=70.0.0
+      - wheel>=0.38.4
+    - require:
+      - sls: remnux.packages.python3-virtualenv
+      - sls: remnux.packages.libjpeg8-dev
+      - sls: remnux.packages.zlib1g-dev
+      - sls: remnux.packages.python3-dev
+      - sls: remnux.packages.build-essential
+
+remnux-python3-packages-peepdf-3-deps:
+  pip.installed:
+    - pkgs:
+      - requests
+      - pypdf
+      - jsbeautifier
+      - colorama
+      - Pillow
+      - pythonaes
+      - lxml
+      - prettytable>=3.12.0
+      - asn1crypto
+      - cryptography
+    - bin_env: /opt/peepdf-3/bin/python3
+    - require:
+      - virtualenv: remnux-python3-packages-peepdf-3-venv
+
+remnux-python3-packages-peepdf-3:
+  pip.installed:
+    - name: peepdf-3
+    - bin_env: /opt/peepdf-3/bin/python3
+    - no_deps: True
+    - upgrade: True
+    - require:
+      - pip: remnux-python3-packages-peepdf-3-deps
+
+remnux-python3-packages-peepdf-3-symlink:
+  file.symlink:
+    - name: /usr/local/bin/peepdf
+    - target: /opt/peepdf-3/bin/peepdf
+    - force: True
+    - makedirs: False
+    - require:
+      - pip: remnux-python3-packages-peepdf-3
 
 {% else %}
 
