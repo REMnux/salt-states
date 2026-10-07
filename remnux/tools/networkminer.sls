@@ -11,9 +11,9 @@ include:
 
 remnux-networkminer-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/networkminer-3.1.zip
-    - source: https://download.netresec.com/networkminer/NetworkMiner_3-1.zip
-    - source_hash: sha256=782e3d4d0b917a5aadf59966ab7d21ab30dbd593eff14e426f2b580a2e3f89e1
+    - name: /usr/local/src/remnux/files/networkminer-3.2.zip
+    - source: https://download.netresec.com/networkminer/NetworkMiner_3-2.zip
+    - source_hash: sha256=daceec649fb4fe59b11e4a9e4ecd5f51c1dd37824280dfbeac67bec27b6b6d60
     - makedirs: True
     - replace: False
     - require:
@@ -22,13 +22,13 @@ remnux-networkminer-source:
 remnux-networkminer-archive:
   archive.extracted:
     - name: /usr/local/
-    - source: /usr/local/src/remnux/files/networkminer-3.1.zip
+    - source: /usr/local/src/remnux/files/networkminer-3.2.zip
     - enforce_toplevel: True
     - force: true
     - watch:
       - file: remnux-networkminer-source
 
-/usr/local/NetworkMiner_3-1/NetworkMiner.exe:
+/usr/local/NetworkMiner_3-2/NetworkMiner.exe:
   file.managed:
     - mode: 755
     - replace: False
@@ -41,10 +41,10 @@ remnux-networkminer-wrapper:
     - mode: 755
     - replace: True
     - watch:
-        - file: /usr/local/NetworkMiner_3-1/NetworkMiner.exe
+        - file: /usr/local/NetworkMiner_3-2/NetworkMiner.exe
     - contents:
       - '#!/bin/bash'
-      - mono /usr/local/NetworkMiner_3-1/NetworkMiner.exe "$@"
+      - mono /usr/local/NetworkMiner_3-2/NetworkMiner.exe "$@"
 
 remnux-networkminer-cleanup:
   file.absent:
@@ -57,5 +57,6 @@ remnux-networkminer-cleanup:
       - /usr/local/NetworkMiner_2-8-1
       - /usr/local/NetworkMiner_2-9
       - /usr/local/NetworkMiner_3-0
+      - /usr/local/NetworkMiner_3-1
     - require:
       - file: remnux-networkminer-wrapper
