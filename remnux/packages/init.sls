@@ -135,7 +135,6 @@ include:
   - remnux.packages.procyon-decompiler
   - remnux.packages.portex
   - remnux.packages.msoffice-crypt
-  - remnux.packages.flare-floss
   - remnux.packages.sqlite
   - remnux.packages.binee
   - remnux.packages.xorsearch
@@ -302,7 +301,6 @@ remnux-packages:
       - sls: remnux.packages.procyon-decompiler
       - sls: remnux.packages.portex
       - sls: remnux.packages.msoffice-crypt
-      - sls: remnux.packages.flare-floss
       - sls: remnux.packages.sqlite
       - sls: remnux.packages.binee
       - sls: remnux.packages.xorsearch

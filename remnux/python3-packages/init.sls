@@ -46,6 +46,7 @@ include:
   - remnux.python3-packages.magika
   - remnux.python3-packages.thefuzz
   - remnux.python3-packages.fakenet-ng
+  - remnux.python3-packages.flare-floss
   - remnux.python3-packages.balbuzard
   - remnux.python3-packages.brxor
   - remnux.python3-packages.yara-x
@@ -105,6 +106,7 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.magika
       - sls: remnux.python3-packages.thefuzz
       - sls: remnux.python3-packages.fakenet-ng
+      - sls: remnux.python3-packages.flare-floss
       - sls: remnux.python3-packages.balbuzard
       - sls: remnux.python3-packages.brxor
       - sls: remnux.python3-packages.yara-x

@@ -1,7 +1,7 @@
 include:
   - remnux.node-packages.box-js
   - remnux.packages.clamav-daemon
-  - remnux.packages.flare-floss
+  - remnux.python3-packages.flare-floss
   - remnux.packages.spidermonkey
   - remnux.python3-packages.oletools
   - remnux.python3-packages.peframe
@@ -94,7 +94,7 @@ remnux-config-bash-completion-floss:
     - makedirs: True
     - mode: 644
     - require:
-      - sls: remnux.packages.flare-floss
+      - sls: remnux.python3-packages.flare-floss
 
 remnux-config-bash-completion-js:
   file.managed:
