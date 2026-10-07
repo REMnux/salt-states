@@ -55,6 +55,7 @@ include:
   - remnux.python3-packages.pyinstxtractor-ng
   - remnux.python3-packages.uncompyle6
   - remnux.python3-packages.etl-parser
+  - remnux.python3-packages.aidebug
 
 remnux-python3-packages:
   test.nop:
@@ -115,3 +116,4 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.pyinstxtractor-ng
       - sls: remnux.python3-packages.uncompyle6
       - sls: remnux.python3-packages.etl-parser
+      - sls: remnux.python3-packages.aidebug
