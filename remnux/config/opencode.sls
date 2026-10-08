@@ -1,3 +1,4 @@
+{% from "remnux/osarch.sls" import osarch with context %}
 {% set user = salt['pillar.get']('remnux_user', 'remnux') %}
 
 {% if user == "root" %}
@@ -13,6 +14,9 @@ include:
   - remnux.tools.ghidrassist-mcp
   - remnux.tools.procmon-mcp
   - remnux.tools.x64dbg-automate-mcp
+{% if osarch == "amd64" %}
+  - remnux.packages.r2mcp
+{% endif %}
 
 # OpenCode needs a clipboard helper to read/write the system clipboard on Linux.
 # REMnux defaults to GNOME-on-Wayland, so wl-clipboard (wl-copy/wl-paste) is the
@@ -59,6 +63,13 @@ remnux-config-opencode-settings:
             command:
               - x64dbg-automate-mcp
             enabled: false
+{% if osarch == "amd64" %}
+          radare2:
+            type: local
+            command:
+              - r2mcp
+            enabled: true
+{% endif %}
     - formatter: json
     - merge_if_exists: True
     - user: {{ user }}
@@ -70,6 +81,9 @@ remnux-config-opencode-settings:
       - sls: remnux.tools.ghidrassist-mcp
       - sls: remnux.tools.procmon-mcp
       - sls: remnux.tools.x64dbg-automate-mcp
+{% if osarch == "amd64" %}
+      - sls: remnux.packages.r2mcp
+{% endif %}
 
 # OpenCode custom commands for the x64dbg skills. The command files ship inside the
 # x64dbg-skills-opencode repo (laid down at /opt/x64dbg-skills-opencode by the

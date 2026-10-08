@@ -35,5 +35,3 @@ dist/
 # Claude Code plans
 Plans/
 
-# Local draft tool states (work-in-progress, not part of the release)
-remnux/packages/r2mcp.sls

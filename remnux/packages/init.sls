@@ -74,6 +74,7 @@ include:
   - remnux.packages.python3-setuptools
   - remnux.packages.python3-wheel
   - remnux.packages.qpdf
+  - remnux.packages.r2mcp
   - remnux.packages.radare2
   - remnux.packages.rhino
   - remnux.packages.rsakeyfind
@@ -240,6 +241,7 @@ remnux-packages:
       - sls: remnux.packages.python3-setuptools
       - sls: remnux.packages.python3-wheel
       - sls: remnux.packages.qpdf
+      - sls: remnux.packages.r2mcp
       - sls: remnux.packages.radare2
       - sls: remnux.packages.rhino
       - sls: remnux.packages.rsakeyfind
