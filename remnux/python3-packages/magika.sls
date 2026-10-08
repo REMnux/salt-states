@@ -6,6 +6,7 @@
 # License: Apache License 2.0: https://github.com/google/magika/blob/main/LICENSE
 # Notes:
 
+{% from "remnux/osarch.sls" import osarch with context %}
 include:
   - remnux.packages.python3-virtualenv
 
@@ -32,7 +33,13 @@ remnux-python3-packages-magika-install:
 remnux-python3-packages-magika-symlink:
   file.symlink:
     - name: /usr/local/bin/magika
+{% if osarch == "arm64" %}
+{# Magika's Rust command-line tool ships in PyPI wheels for x86-64 Linux, not arm64. On arm64
+   the package's "magika" command only prints a warning, and its Python client does the work. #}
+    - target: /opt/magika/bin/magika-python-client
+{% else %}
     - target: /opt/magika/bin/magika
+{% endif %}
     - makedirs: False
     - require:
       - pip: remnux-python3-packages-magika-install
