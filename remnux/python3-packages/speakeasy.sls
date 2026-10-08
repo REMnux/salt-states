@@ -7,8 +7,11 @@
 # Notes: To run the tool, use `speakeasy`, `emu_exe.py`, and `emu_dll.py` commands.
 
 {% set tools = ["emu_exe.py", "emu_dll.py", "speakeasy"] %}
-{% set exe_hash = 'a0aa36592a8b4ab2b1d354eda7d730fbf46d59f92bdc6189d5c2dc3aa4186b9b' %}
-{% set dll_hash = '4a1e88d1ec736996fda3b7a8c734637f2b8a7d3163fdc3cc9c485fda4ae55105' %}
+{# The example scripts must match the library version. When changing version, set commit to that release tag's commit and update both hashes. #}
+{% set version = '1.5.11' %}
+{% set commit = '7600418322ff4a90c6ad5293c6100061456e0f7b' %}
+{% set exe_hash = 'a02d5729e321426b1f5b1b199a82bc3b379af3e6839d017b8d06b0e85ee590da' %}
+{% set dll_hash = '49c8bc0e85585985e01ea2f94111e6312455f22a286fc3fe6218badf10531f1f' %}
 
 include:
   - remnux.packages.python3-virtualenv
@@ -29,16 +32,15 @@ remnux-python3-packages-speakeasy-virtualenv:
 
 remnux-python3-packages-speakeasy:
   pip.installed:
-    - name: speakeasy-emulator
+    - name: speakeasy-emulator=={{ version }}
     - bin_env: /opt/speakeasy/bin/python3
-    - upgrade: True
     - require:
       - virtualenv: remnux-python3-packages-speakeasy-virtualenv
 
 remnux-python3-packages-speakeasy-emuexe:
   file.managed:
     - name: /opt/speakeasy/bin/emu_exe.py
-    - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_exe.py
+    - source: https://github.com/mandiant/speakeasy/raw/{{ commit }}/examples/emu_exe.py
     - source_hash: sha256={{ exe_hash }}
     - makedirs: false
     - mode: 755
@@ -55,7 +57,7 @@ remnux-python3-packages-speakeasy-emuexe-shebang:
 remnux-python3-packages-speakeasy-emudll:
   file.managed:
     - name: /opt/speakeasy/bin/emu_dll.py
-    - source: https://github.com/mandiant/speakeasy/raw/master/examples/emu_dll.py
+    - source: https://github.com/mandiant/speakeasy/raw/{{ commit }}/examples/emu_dll.py
     - source_hash: sha256={{ dll_hash }}
     - makedirs: false
     - mode: 755
