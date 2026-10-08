@@ -17,9 +17,10 @@
 #   2. Validates that required environment variables are set
 #   3. Checks that cosign.key exists
 #   4. Validates the Cosign password
-#   5. Computes the next version tag (vYYYY.W.R format)
-#   6. Updates VERSION file, creates and pushes the git tag
-#   7. Runs cast release
+#   5. Checks that master matches origin/master
+#   6. Computes the next version tag (vYYYY.W.R format)
+#   7. Updates VERSION file, creates and pushes the git tag
+#   8. Runs cast release
 #
 
 set -e
@@ -122,7 +123,33 @@ fi
 
 echo_success "Cosign password validated"
 
-# Step 5: Compute the next version tag
+# Step 5: Check that master matches origin/master. In step 7, the script commits
+# VERSION on top of the local master and tags whatever HEAD is. With a stale or
+# diverged checkout, either the push fails or the script tags a commit that
+# origin doesn't have.
+echo_info "==> Checking that master matches origin/master..."
+
+git fetch --quiet --tags origin
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" != "master" ]; then
+    echo_error "Check out master before releasing (current branch: $BRANCH)"
+    exit 1
+fi
+
+if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
+    AHEAD=$(git rev-list --count origin/master..HEAD)
+    BEHIND=$(git rev-list --count HEAD..origin/master)
+    echo_error "master is $AHEAD commit(s) ahead of origin/master and $BEHIND commit(s) behind it"
+    echo "Make master match origin/master, then rerun this script:"
+    echo "  If master is only behind: git pull --ff-only"
+    echo "  If master is ahead: push the commits you want to release, or drop them with: git reset --keep origin/master"
+    exit 1
+fi
+
+echo_success "master matches origin/master"
+
+# Step 6: Compute the next version tag
 echo_info "==> Computing next version tag..."
 
 YEAR=$(date +%Y)
@@ -141,7 +168,7 @@ TAG="v${YEAR}.${WEEK}.${RELEASE_NUM}"
 
 echo_success "Next version tag: $TAG"
 
-# Step 6: Update VERSION file and create tag
+# Step 7: Update VERSION file and create tag
 VERSION_FILE="remnux/VERSION"
 if [ -f "$VERSION_FILE" ] && [ "$(cat "$VERSION_FILE")" != "$TAG" ]; then
     echo_info "==> Updating VERSION file..."
@@ -159,7 +186,7 @@ git push origin --tags
 
 echo_success "Tag $TAG pushed to origin"
 
-# Step 7: Run cast release
+# Step 8: Run cast release
 echo_info "==> Running cast release..."
 CHECKPOINT_DISABLE=1 cast release --rm-dist
 
