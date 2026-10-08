@@ -6,6 +6,10 @@
 # Usage:
 #   run.sh states "<state> [state ...]" [scenarios] [base-ref] [allow-changes] [verify]
 #   run.sh full
+#   run.sh installer [cloud|dedicated|addon] [version]
+#     installer      runs the real remnux-installer.sh and `remnux install` in a plain ubuntu:24.04
+#                    container, as users do. It installs a published release (default: the latest),
+#                    and checks remnux-installer.sh against the hash pinned in the tested tree.
 #     scenarios      fresh,upgrade (default). upgrade applies the state from base-ref first.
 #     base-ref       git ref holding the previous version (default: the latest v* tag)
 #     allow-changes  comma-separated state IDs allowed to change on the second run
@@ -81,6 +85,28 @@ docker build -q --platform "linux/$arch" -t "$image" "$here" > /dev/null || { ec
 echo "Salt in the test image: $(docker run --rm --platform "linux/$arch" "$image" salt-call --version)"
 echo "Tested code: $(git -C "$target" rev-parse HEAD 2>/dev/null || echo unknown)"
 
+if [ "$mode" = installer ]; then
+  imode=${2:-cloud}; version=${3:-}
+  case "$imode" in cloud|dedicated|addon) ;; *) echo "installer mode must be cloud, dedicated, or addon" >&2; exit 2 ;; esac
+  [ -z "$version" ] || [[ "$version" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "version must look like v2026.41.5" >&2; exit 2; }
+  isha=$(sed -n 's/.*set remnux_hash = "\([0-9a-f]\{64\}\)".*/\1/p' "$target/remnux/tools/remnux-installer.sls" | head -1)
+  [ -n "$isha" ] || { echo "no remnux_hash in remnux/tools/remnux-installer.sls" >&2; exit 2; }
+  echo "## remnux install --mode=$imode ${version:-(latest release)} on $arch" > "$summary"
+  raw=$scratch/installer; mkdir -p "$raw"
+  secs=$(budget 19800)
+  [ "$secs" -ge 300 ] || { echo "VERDICT: FAIL not run: the time budget ran out" >> "$summary"; cat "$summary"; exit 1; }
+  run_container "$secs" -v "$raw:/out" -v "$here/run_remnux_install.sh:/run_remnux_install.sh:ro" \
+    ubuntu:24.04 bash /run_remnux_install.sh "$imode" "$isha" "$version" > "$out/installer.docker.txt" 2>&1; rc=$?
+  collect "$raw" "$out/installer" "$out/installer-collect-skipped.txt"; crc=$?
+  res=$out/installer/install.result
+  { echo '```'; clean 2>/dev/null < "$res" || echo "no result file (container rc=$rc)"
+    [ "$rc" -eq 124 ] && echo "VERDICT: FAIL the install ran out of time"
+    [ "$crc" -eq 0 ] || echo "VERDICT: FAIL collecting the results failed"
+    echo '```'; } >> "$summary"
+  cat "$summary"
+  [ "$rc" -eq 0 ] && [ "$crc" -eq 0 ] && [ "$(grep '^VERDICT: ' "$res" | tail -1 | cut -d' ' -f2)" = PASS ]; exit $?
+fi
+
 if [ "$mode" = full ]; then
   echo "## Full install of remnux.addon on $arch" > "$summary"
   raw=$scratch/full; mkdir -p "$raw"
@@ -98,7 +124,7 @@ if [ "$mode" = full ]; then
   [ "$rc" -eq 0 ] && [ "$crc" -eq 0 ] && [ "$(grep '^VERDICT: ' "$res" | tail -1 | cut -d' ' -f2)" = PASS ]; exit $?
 fi
 
-[ "$mode" = states ] || { echo "usage: run.sh states \"<state ...>\" [...] | run.sh full" >&2; exit 2; }
+[ "$mode" = states ] || { echo "usage: run.sh states \"<state ...>\" [...] | run.sh full | run.sh installer [mode] [version]" >&2; exit 2; }
 states=${2:-}; scenarios=${3:-fresh,upgrade}; base=${4:-}; allow=${5-remnux-repo}; verify=${6:-true}
 [ -n "$states" ] || { echo "no states given" >&2; exit 2; }
 

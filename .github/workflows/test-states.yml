@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "states: test the named states. full: apply the whole remnux.addon bundle."
+        description: "states: test the named states. full: apply the whole remnux.addon bundle. installer: run remnux install as users do."
         type: choice
-        options: [states, full]
+        options: [states, full, installer]
         default: states
       states:
         description: "Space-separated state names, e.g. remnux.tools.networkminer (states mode)"
@@ -41,6 +41,15 @@ on:
         description: "Command run in the container after each state"
         type: string
         default: "true"
+      install_mode:
+        description: "remnux install mode (installer mode)"
+        type: choice
+        options: [cloud, dedicated, addon]
+        default: cloud
+      version:
+        description: "Release to install, e.g. v2026.41.5 (installer mode; default: the latest)"
+        type: string
+        default: ""
       request_id:
         description: "Identifier that lets the caller find this run"
         type: string
@@ -69,6 +78,8 @@ jobs:
           STATES: ${{ inputs.states }}
           SCENARIOS: ${{ inputs.scenarios }}
           ARCHES: ${{ inputs.arches }}
+          INSTALL_MODE: ${{ inputs.install_mode }}
+          VERSION: ${{ inputs.version }}
           REF: ${{ inputs.ref }}
           BASE: ${{ inputs.base }}
           ALLOW: ${{ inputs.allow_changes }}
@@ -77,7 +88,9 @@ jobs:
         run: |
           fail() { echo "::error::$1"; exit 1; }
           ref_ok() { [[ "$1" =~ ^[A-Za-z0-9._/-]{1,100}$ ]] && [[ "$1" != *..* ]] && [[ "$1" != -* ]]; }
-          case "$MODE" in states|full) ;; *) fail "mode must be states or full" ;; esac
+          case "$MODE" in states|full|installer) ;; *) fail "mode must be states, full, or installer" ;; esac
+          case "$INSTALL_MODE" in cloud|dedicated|addon) ;; *) fail "install_mode must be cloud, dedicated, or addon" ;; esac
+          [ -z "$VERSION" ] || [[ "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail "version must look like v2026.41.5"
           case "$ARCHES" in both|amd64|arm64) ;; *) fail "arches must be both, amd64, or arm64" ;; esac
           if [ "$MODE" = states ]; then
             name='remnux(\.[a-z0-9_][a-z0-9_-]*)+'
@@ -144,7 +157,7 @@ jobs:
           persist-credentials: false
 
       - name: Free disk space for the full install
-        if: inputs.mode == 'full'
+        if: inputs.mode != 'states'
         run: |
           df -h /
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache /usr/local/share/boost
@@ -159,6 +172,8 @@ jobs:
           BASE: ${{ needs.plan.outputs.base }}
           ALLOW: ${{ inputs.allow_changes }}
           VERIFY: ${{ inputs.verify }}
+          INSTALL_MODE: ${{ inputs.install_mode }}
+          VERSION: ${{ inputs.version }}
           ARCH: ${{ matrix.arch }}
           TARGET: ${{ github.workspace }}/target
           OUT: ${{ runner.temp }}/state-test-out
@@ -168,6 +183,8 @@ jobs:
           rc=0
           if [ "$MODE" = full ]; then
             bash harness/.ci/state-test/run.sh full || rc=$?
+          elif [ "$MODE" = installer ]; then
+            bash harness/.ci/state-test/run.sh installer "$INSTALL_MODE" "$VERSION" || rc=$?
           else
             bash harness/.ci/state-test/run.sh states "$STATES" "$SCENARIOS" "$BASE" "$ALLOW" "$VERIFY" || rc=$?
           fi
