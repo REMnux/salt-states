@@ -4,6 +4,8 @@
 # Category: Analyze Documents: Microsoft Office
 # Author: Michal Mutl
 # License: Free to use for private, educational and non-commercial purposes.
+# Architecture: amd64
+# Arm64: Use oledir or olebrowse from oletools instead.
 # Notes: ssview
 
 {% from "remnux/osarch.sls" import osarch with context %}

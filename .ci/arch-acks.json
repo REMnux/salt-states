@@ -1,0 +1,76 @@
+{
+  "remnux.packages.7zip": {
+    "reason": "The REMnux PPA builds 7zz for amd64 only, so arm64 adds 7-Zip's own arm64 build of 7zz. Same commands.",
+    "missing_on_amd64": ["remnux-packages-7zz-archive", "remnux-packages-7zz-source"],
+    "missing_on_arm64": []
+  },
+  "remnux.packages.aeskeyfind": {
+    "reason": "Ubuntu builds aeskeyfind for amd64 only, so arm64 installs the REMnux PPA's rebuild, which adds the PPA repository states.",
+    "missing_on_amd64": ["remnux-remove-remnux-key", "remnux-remove-remnux-list", "remnux-repo", "software-properties-common"],
+    "missing_on_arm64": []
+  },
+  "remnux.packages.inspircd": {
+    "reason": "InspIRCd publishes amd64 packages only, so arm64 installs Ubuntu's older inspircd package instead of the upstream .deb.",
+    "missing_on_amd64": [],
+    "missing_on_arm64": ["remnux-packages-inspircd-source"]
+  },
+  "remnux.packages.powershell": {
+    "reason": "Microsoft's apt repository has no arm64 PowerShell, so arm64 installs the release tarball. Same pwsh command.",
+    "missing_on_amd64": ["remnux-packages-powershell-archive", "remnux-packages-powershell-binary", "remnux-packages-powershell-deps", "remnux-packages-powershell-source", "remnux-packages-powershell-symlink"],
+    "missing_on_arm64": ["powershell", "remnux-microsoft-key", "remnux-microsoft-list-absent", "remnux-microsoft-repo", "remnux-microsoft-repo-cleanup", "remnux-microsoft-sources-absent"]
+  },
+  "remnux.packages.radare2": {
+    "reason": "r2ghidra publishes amd64 packages only. The Arm64 note says pdg is unavailable.",
+    "missing_on_amd64": [],
+    "missing_on_arm64": ["remnux-r2ghidra", "remnux-r2ghidra-source"]
+  },
+  "remnux.python3-packages.pe-tree": {
+    "reason": "PyQt5 has no arm64 wheel, so arm64 installs Ubuntu's python3-pyqt5 and pe_tree's other dependencies explicitly.",
+    "missing_on_amd64": ["python3-pyqt5", "remnux-python3-packages-pe-tree-deps"],
+    "missing_on_arm64": []
+  },
+  "remnux.python3-packages.peepdf-3": {
+    "reason": "STPyV8 has no arm64 build, so arm64 installs peepdf-3 without it. The Arm64 note says JavaScript emulation is unavailable.",
+    "missing_on_amd64": ["remnux-python3-packages-peepdf-3-deps"],
+    "missing_on_arm64": ["git", "remnux-python3-packages-stpyv8-/opt/peepdf-3/bin/python3", "remnux-python3-packages-stpyv8-source-/opt/peepdf-3/bin/python3", "stpyv8-requirements-/opt/peepdf-3/bin/python3"]
+  },
+  "remnux.python3-packages.peframe": {
+    "reason": "The PyPI readline package can't build on arm64, so arm64 installs peframe-ds's other dependencies first, then peframe-ds without dependencies. Python's own readline module covers Linux.",
+    "missing_on_amd64": ["remnux-python3-packages-peframe-deps"],
+    "missing_on_arm64": []
+  },
+  "remnux.python3-packages.qiling": {
+    "reason": "keystone-engine has no arm64 wheel, so arm64 adds cmake and a compiler and builds keystone-engine without build isolation.",
+    "missing_on_amd64": ["remnux-python3-packages-qiling-build-deps", "remnux-python3-packages-qiling-keystone"],
+    "missing_on_arm64": []
+  },
+  "remnux.python3-packages.stpyv8": {
+    "reason": "Macro library that peepdf-3 and thug call. STPyV8 publishes x86_64 wheels only.",
+    "asserted": ["amd64"]
+  },
+  "remnux.scripts.r2decomp": {
+    "reason": "Inherited from radare2: r2ghidra is amd64-only. The Arm64 note says decompilation is unavailable.",
+    "missing_on_amd64": [],
+    "missing_on_arm64": ["remnux-r2ghidra", "remnux-r2ghidra-source"]
+  },
+  "remnux.tools.cutter": {
+    "reason": "Cutter publishes no Linux arm64 AppImage, so arm64 installs the REMnux PPA package instead of the AppImage.",
+    "missing_on_amd64": ["remnux-remove-remnux-key", "remnux-remove-remnux-list", "remnux-repo", "remnux-tools-cutter-binary", "remnux-tools-cutter-install", "software-properties-common"],
+    "missing_on_arm64": ["remnux-tools-cutter-source"]
+  },
+  "remnux.tools.goresym": {
+    "reason": "GoReSym publishes x86-64 Linux builds only, so arm64 installs the REMnux PPA package instead of the release zip.",
+    "missing_on_amd64": ["remnux-remove-remnux-key", "remnux-remove-remnux-list", "remnux-repo", "remnux-tools-goresym-install", "software-properties-common"],
+    "missing_on_arm64": ["remnux-tools-goresym-archive", "remnux-tools-goresym-source"]
+  },
+  "remnux.tools.polarproxy": {
+    "reason": "arm64 extracts PolarProxy's arm64 build to its own directory, so the state IDs differ. Same command.",
+    "missing_on_amd64": ["remnux-polarproxy-binary"],
+    "missing_on_arm64": ["/usr/local/polarproxy/PolarProxy"]
+  },
+  "remnux.tools.redress": {
+    "reason": "redress publishes amd64 builds only, so arm64 installs the REMnux PPA package. The r2ghidra difference is inherited from radare2.",
+    "missing_on_amd64": ["remnux-remove-remnux-key", "remnux-remove-remnux-list", "remnux-repo", "remnux-tools-redress-install", "software-properties-common"],
+    "missing_on_arm64": ["remnux-r2ghidra", "remnux-r2ghidra-source", "remnux-tools-redress-archive", "remnux-tools-redress-source"]
+  }
+}

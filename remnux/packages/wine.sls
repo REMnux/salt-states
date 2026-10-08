@@ -4,6 +4,8 @@
 # Category: Dynamically Reverse-Engineer Code: General, General Utilities
 # Author: https://wiki.winehq.org/Acknowledgements
 # License: GNU Lesser General Public License (LGPL) v2.1 or later: https://wiki.winehq.org/Licensing
+# Architecture: amd64
+# Arm64: No alternative identified. Hangover, which combines Wine with FEX or Box64, is an experimental option outside REMnux.
 # Notes: wine
 
 {% from "remnux/osarch.sls" import osarch with context %}

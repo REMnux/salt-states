@@ -4,6 +4,8 @@
 # Category: Dynamically Reverse-Engineer Code: Shellcode
 # Author: Ori Damari: https://x.com/0xrepnz
 # License: Free, unknown license
+# Architecture: amd64
+# Arm64: Use speakeasy or qiling instead.
 # Notes: Use full path name to specify the input file; look for the output file in /usr/local/shellcode2exe-bat
 
 {% from "remnux/osarch.sls" import osarch with context %}

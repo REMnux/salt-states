@@ -4,6 +4,8 @@
 # Category: Examine Static Properties: General
 # Author: Malcat EI: https://x.com/malcat4ever
 # License: Proprietary (Lite edition free): https://malcat.fr/index.html
+# Architecture: amd64
+# Arm64: Use Ghidra or radare2 instead.
 # Notes: The Lite version of the tool may not be used in a professional environment per its license.
 
 {% from "remnux/osarch.sls" import osarch with context %}

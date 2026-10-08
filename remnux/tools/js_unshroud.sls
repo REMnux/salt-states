@@ -5,6 +5,8 @@
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Evan H. Dygert: https://www.linkedin.com/in/evandygert/
 # License: MIT License: https://github.com/edygert/js_unshroud/blob/master/LICENSE.txt
+# Architecture: amd64
+# Arm64: No alternative identified.
 # Notes: js_unshroud. Capture with `js_unshroud run --url <url> --out events.jsonl`; run it without arguments to see usage. Needs a display; on headless systems the wrapper starts a virtual one automatically (xvfb).
 
 {% from "remnux/osarch.sls" import osarch with context %}

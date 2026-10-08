@@ -4,6 +4,7 @@
 # Category: Analyze Documents: PDF
 # Author: Jose Miguel Esparza and Corey Forman
 # License: GNU General Public License (GPL) v3: https://github.com/digitalsleuth/peepdf-3/blob/main/COPYING
+# Arm64: JavaScript emulation is unavailable.
 # Notes: To run the tool, use the command "peepdf".
 
 {% from "remnux/osarch.sls" import osarch with context %}

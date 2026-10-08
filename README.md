@@ -49,6 +49,8 @@ For examples of state files installing Ubuntu packages, pip packages, and config
 # Category: Category Name
 # Author: Author Name or URL
 # License: License type: https://license-url
+# Architecture: amd64
+# Arm64: Use another-tool instead.
 # Notes: Usage notes, commands, or additional info
 ```
 
@@ -60,7 +62,36 @@ For examples of state files installing Ubuntu packages, pip packages, and config
 | `Category` | Required* | Documentation category (*omit for internal dependencies) |
 | `Author` | Yes | Creator name or URL |
 | `License` | Yes | License name and URL |
+| `Architecture` | No | `amd64` or `arm64` when REMnux installs the tool on only one architecture. Omit it when the tool works on both |
+| `Arm64`, `Amd64` | Sometimes | One sentence for users of that architecture. See [Architecture Fields](#architecture-fields) |
 | `Notes` | No | Command names, usage tips, compatibility notes |
+| `Command` | No | Comma-separated command names, when they differ from `Name` |
+| `Tools` | No | Repeatable `name\|description\|website\|categories` line that documents each script of a collection as its own entry |
+
+Frontmatter keys are single words. In documented tools (those with a `Category`), `.ci/lint-frontmatter.py` rejects unknown, misspelled, and repeated keys.
+
+### Architecture Fields
+
+REMnux installs on amd64 (Intel and AMD) and arm64 (ARM) systems. Most tools work on both, so omit these fields for them. Add the fields when a tool's state installs something different on one architecture:
+
+| Situation | Frontmatter | Shown on docs.remnux.org |
+|-----------|-------------|--------------------------|
+| Works on both | (nothing) | **Available on**: Intel/AMD (amd64) and ARM (arm64) |
+| Works on both, but some features are missing on arm64 | `# Arm64: JavaScript emulation is unavailable.` | **Available on**: Intel/AMD (amd64) and ARM (arm64)<br>**Limitations on arm64**: JavaScript emulation is unavailable. |
+| amd64 only | `# Architecture: amd64`<br>`# Arm64: Use file or Detect It Easy instead.` | **Available on**: Intel/AMD (amd64) only<br>**Alternative on arm64**: Use file or Detect It Easy instead. |
+| arm64 only | `# Architecture: arm64`<br>`# Amd64: No alternative identified.` | **Available on**: ARM (arm64) only<br>**Alternative on amd64**: No alternative identified. |
+
+When `Architecture` leaves out an architecture, the matching note is required. Name an alternative, or write `No alternative identified.`
+
+To skip an architecture, a state must display a notification during installation. Its text starts with `Skipped on <arch>:`, for example:
+
+```yaml
+remnux-tools-example-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: Example is not available for this architecture."
+```
+
+`.ci/audit-arch.py` checks the `Architecture` field against what each documented state installs on each architecture (see [Auditing Architecture Metadata](#auditing-architecture-metadata)).
 
 ### Category Field
 
@@ -146,6 +177,9 @@ python3 .ci/update-docs.py path/to/tool.sls
 
 # Delete a tool's documentation
 python3 .ci/update-docs.py --delete "Tool Name"
+
+# Regenerate the entries for every documented tool (review the diff first)
+python3 .ci/update-docs.py --all --dry-run --show-diff
 ```
 
 **Environment**: Set `GITHUB_ACCESS_TOKEN` for GitHub API, or ensure SSH access to `git@github.com:REMnux/docs.git`.
@@ -161,14 +195,34 @@ python3 .ci/audit-docs.py
 # Show only issues
 python3 .ci/audit-docs.py --issues-only
 
-# Exit with error code if issues found (for CI)
-python3 .ci/audit-docs.py --check
+# Check a single state file
+python3 .ci/audit-docs.py --check remnux/tools/capa.sls
 ```
 
-The audit identifies:
-- **Errors**: Tools in state files missing from docs
+The script exits with an error code when it finds errors. The audit identifies:
+- **Errors**: Tools in state files missing from docs, architecture lines that differ from the state file
 - **Warnings**: Tools in docs missing from state files, description/URL mismatches
 - **Info**: Tools without categories (expected for dependencies)
+
+### Auditing Architecture Metadata
+
+`.ci/audit-arch.py` renders each documented state as amd64 and as arm64 in the `remnux/saltstack-tester` container without applying it. It then compares the result with the state's `Architecture` field. The [Audit architectures](.github/workflows/audit-arch.yml) workflow runs it on pushes and pull requests that change states.
+
+```bash
+# Audit every documented state (about 7 minutes)
+python3 .ci/audit-arch.py
+
+# Audit specific states
+python3 .ci/audit-arch.py remnux.tools.trid remnux.packages.radare2
+```
+
+It reports an error when:
+- The `Architecture` field disagrees with the render
+- A state installs nothing on one architecture without a `Skipped on <arch>:` notification
+- The two renders install different states, and `.ci/arch-acks.json` lacks an entry that lists exactly those differences with a reason
+- A stub renders nothing on either architecture and lacks a `.ci/arch-acks.json` entry. Stubs include docs-only states and Jinja macro libraries. The entry names the state that provides the tool (`provider`) or asserts its architectures (`asserted`)
+
+A render shows which states run, not whether the tool works. A package built without a feature, or a binary that fails at run time, passes the audit. Record those gaps in the `Arm64` or `Amd64` note.
 
 ## Issuing a Salt-States Release
 
@@ -194,8 +248,12 @@ Scripts and configuration in the `.ci/` directory:
 | File | Purpose |
 |------|---------|
 | `release.sh` | Full release automation: tag, sign, and upload |
+| `frontmatter.py` | Shared frontmatter parser used by the scripts below |
+| `lint-frontmatter.py` | Validate frontmatter (pre-commit hook) |
 | `update-docs.py` | Sync state file frontmatter to documentation |
 | `audit-docs.py` | Compare state files against documentation |
+| `audit-arch.py` | Compare `Architecture` fields against amd64 and arm64 renders |
+| `arch-acks.json` | Reviewed per-architecture differences for `audit-arch.py` |
 | `dev-state.sh` | Launch a minimal container for interactive state testing |
 
 ---

@@ -4,6 +4,8 @@
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: Area1 Security
 # License: Apache License 2.0: https://github.com/cloudflare/stpyv8/blob/master/LICENSE.txt
+# Architecture: amd64
+# Arm64: No alternative identified.
 # Notes:
 
 {% macro install_stpyv8(version, hash, pyenv, py_ver) %}

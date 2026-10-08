@@ -4,6 +4,8 @@
 # Category: Dynamically Reverse-Engineer Code: Shellcode
 # Author: David Zimmer
 # License: Free, unknown license
+# Architecture: amd64
+# Arm64: Use speakeasy or qiling instead.
 # Notes: scdbg (GUI), scdbgc (console).
 
 {% from "remnux/osarch.sls" import osarch with context %}

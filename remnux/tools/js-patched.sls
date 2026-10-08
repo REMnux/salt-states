@@ -4,6 +4,8 @@
 # Category: Dynamically Reverse-Engineer Code: Scripts
 # Author: SpiderMonkey by Mozilla Foundation, patched by Didier Stevens: https://x.com/DidierStevens
 # License: Mozilla Public License 2.0: https://www.mozilla.org/en-US/MPL/2.0/
+# Architecture: amd64
+# Arm64: Use js115 instead.
 # Notes: js-ascii, js-file
 
 {% from "remnux/osarch.sls" import osarch with context %}

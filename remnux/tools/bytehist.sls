@@ -4,6 +4,8 @@
 # Category: Statically Analyze Code: Unpacking
 # Author: Christian Wojner: https://x.com/Didelphodon
 # License: ISC License: https://en.wikipedia.org/wiki/ISC_license
+# Architecture: amd64
+# Arm64: No alternative identified.
 # Notes: bytehist
 
 {% from "remnux/osarch.sls" import osarch with context %}
