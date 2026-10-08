@@ -20,9 +20,9 @@
     "missing_on_arm64": ["powershell", "remnux-microsoft-key", "remnux-microsoft-list-absent", "remnux-microsoft-repo", "remnux-microsoft-repo-cleanup", "remnux-microsoft-sources-absent"]
   },
   "remnux.packages.radare2": {
-    "reason": "r2ghidra publishes amd64 packages only. The Arm64 note says pdg is unavailable.",
-    "missing_on_amd64": [],
-    "missing_on_arm64": ["remnux-r2ghidra", "remnux-r2ghidra-source"]
+    "reason": "r2ghidra publishes an amd64 .deb but only a zip bundle for arm64, so arm64 extracts the bundle and links the plugin into radare2's plugin directory. Same pdg command.",
+    "missing_on_amd64": ["remnux-r2ghidra-archive", "remnux-r2ghidra-plugin", "remnux-r2ghidra-r2fidb", "remnux-r2ghidra-sleigh", "remnux-r2ghidra-sleighc"],
+    "missing_on_arm64": ["remnux-r2ghidra"]
   },
   "remnux.python3-packages.pe-tree": {
     "reason": "PyQt5 has no arm64 wheel, so arm64 installs Ubuntu's python3-pyqt5 and pe_tree's other dependencies explicitly.",
@@ -49,9 +49,9 @@
     "asserted": ["amd64"]
   },
   "remnux.scripts.r2decomp": {
-    "reason": "Inherited from radare2: r2ghidra is amd64-only. The Arm64 note says decompilation is unavailable.",
-    "missing_on_amd64": [],
-    "missing_on_arm64": ["remnux-r2ghidra", "remnux-r2ghidra-source"]
+    "reason": "Inherited from radare2: arm64 installs r2ghidra from upstream's zip bundle instead of the .deb.",
+    "missing_on_amd64": ["remnux-r2ghidra-archive", "remnux-r2ghidra-plugin", "remnux-r2ghidra-r2fidb", "remnux-r2ghidra-sleigh", "remnux-r2ghidra-sleighc"],
+    "missing_on_arm64": ["remnux-r2ghidra"]
   },
   "remnux.tools.cutter": {
     "reason": "Cutter publishes no Linux arm64 AppImage, so arm64 installs the REMnux PPA package instead of the AppImage.",
@@ -69,8 +69,8 @@
     "missing_on_arm64": ["/usr/local/polarproxy/PolarProxy"]
   },
   "remnux.tools.redress": {
-    "reason": "redress publishes amd64 builds only, so arm64 installs the REMnux PPA package. The r2ghidra difference is inherited from radare2.",
-    "missing_on_amd64": ["remnux-remove-remnux-key", "remnux-remove-remnux-list", "remnux-repo", "remnux-tools-redress-install", "software-properties-common"],
-    "missing_on_arm64": ["remnux-r2ghidra", "remnux-r2ghidra-source", "remnux-tools-redress-archive", "remnux-tools-redress-source"]
+    "reason": "redress publishes amd64 builds only, so arm64 installs the REMnux PPA package. The r2ghidra differences are inherited from radare2.",
+    "missing_on_amd64": ["remnux-r2ghidra-archive", "remnux-r2ghidra-plugin", "remnux-r2ghidra-r2fidb", "remnux-r2ghidra-sleigh", "remnux-r2ghidra-sleighc", "remnux-remove-remnux-key", "remnux-remove-remnux-list", "remnux-repo", "remnux-tools-redress-install", "software-properties-common"],
+    "missing_on_arm64": ["remnux-r2ghidra", "remnux-tools-redress-archive", "remnux-tools-redress-source"]
   }
 }

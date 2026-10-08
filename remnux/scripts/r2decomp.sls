@@ -4,7 +4,6 @@
 # Category: Statically Analyze Code: General
 # Author: Lenny Zeltser: https://x.com/lennyzeltser
 # License: MIT: https://github.com/lennyzeltser/r2decomp/blob/master/LICENSE
-# Arm64: Decompilation is unavailable, because radare2's r2ghidra decompiler (pdg) isn't installed on arm64.
 # Notes: Pairs with capa. Run "r2decomp doctor" to confirm radare2 and the r2ghidra pdg decompiler are present.
 
 # Upstream publishes no tags or releases, so the source is pinned to a commit
