@@ -1,0 +1,189 @@
+# Test salt states on GitHub's amd64 and arm64 runners. Runs only when a maintainer starts it
+# (workflow_dispatch); pull requests and pushes never trigger it. The work happens in
+# .ci/state-test/run.sh, which also runs on any Docker host.
+name: Test states
+run-name: "${{ inputs.mode }} ${{ inputs.states }} @ ${{ inputs.ref }} [${{ inputs.request_id }}]"
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "states: test the named states. full: apply the whole remnux.addon bundle."
+        type: choice
+        options: [states, full]
+        default: states
+      states:
+        description: "Space-separated state names, e.g. remnux.tools.networkminer (states mode)"
+        type: string
+        default: ""
+      scenarios:
+        description: "fresh, upgrade, or fresh,upgrade (states mode)"
+        type: string
+        default: "fresh,upgrade"
+      arches:
+        description: "Architectures to test"
+        type: choice
+        options: [both, amd64, arm64]
+        default: both
+      ref:
+        description: "Branch, tag, or refs/pull/N/head to test"
+        type: string
+        default: master
+      base:
+        description: "Ref to upgrade from (default: the latest release)"
+        type: string
+        default: ""
+      allow_changes:
+        description: "State IDs allowed to change on the second run, comma-separated"
+        type: string
+        default: "remnux-repo"
+      verify:
+        description: "Command run in the container after each state"
+        type: string
+        default: "true"
+      request_id:
+        description: "Identifier that lets the caller find this run"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-states-${{ inputs.request_id || github.run_id }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      base: ${{ steps.plan.outputs.base }}
+      target_sha: ${{ steps.plan.outputs.target_sha }}
+    steps:
+      - name: Validate inputs and choose runners
+        id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MODE: ${{ inputs.mode }}
+          STATES: ${{ inputs.states }}
+          SCENARIOS: ${{ inputs.scenarios }}
+          ARCHES: ${{ inputs.arches }}
+          REF: ${{ inputs.ref }}
+          BASE: ${{ inputs.base }}
+          ALLOW: ${{ inputs.allow_changes }}
+          REQUEST_ID: ${{ inputs.request_id }}
+          REPO: ${{ github.repository }}
+        run: |
+          fail() { echo "::error::$1"; exit 1; }
+          ref_ok() { [[ "$1" =~ ^[A-Za-z0-9._/-]{1,100}$ ]] && [[ "$1" != *..* ]] && [[ "$1" != -* ]]; }
+          case "$MODE" in states|full) ;; *) fail "mode must be states or full" ;; esac
+          case "$ARCHES" in both|amd64|arm64) ;; *) fail "arches must be both, amd64, or arm64" ;; esac
+          if [ "$MODE" = states ]; then
+            name='remnux(\.[a-z0-9_][a-z0-9_-]*)+'
+            [[ "$STATES" =~ ^$name(\ $name)*$ ]] || fail "states must be space-separated names like remnux.tools.networkminer"
+            [[ "$SCENARIOS" =~ ^(fresh|upgrade)(,(fresh|upgrade))?$ ]] || fail "scenarios must be fresh, upgrade, or fresh,upgrade"
+          fi
+          ref_ok "$REF" || fail "invalid ref"
+          [ -z "$BASE" ] || ref_ok "$BASE" || fail "invalid base"
+          [[ "$ALLOW" =~ ^[A-Za-z0-9_.,-]*$ ]] || fail "invalid allow_changes"
+          [[ "$REQUEST_ID" =~ ^[a-z0-9-]{0,40}$ ]] || fail "invalid request_id"
+          if [ -z "$BASE" ]; then BASE=$(gh api "repos/$REPO/releases/latest" --jq .tag_name); fi
+          ref_ok "$BASE" || fail "could not determine the latest release"
+          # Pin the code under test and the upgrade base to commits, so both architectures test
+          # the same thing.
+          # Exact refs only: a bare name may be a branch or a tag, never both. A pull request must be
+          # tested at the exact commit that was reviewed, because its head can move after review.
+          resolve() {
+            if [[ "$1" =~ ^[0-9a-f]{40}$ ]]; then echo "$1"; return; fi
+            if [[ "$1" == *pull/* ]]; then echo "pull requests must be tested by commit SHA" >&2; return; fi
+            local cands refs head tag
+            if [[ "$1" == refs/* ]]; then cands=("$1"); else cands=("refs/heads/$1" "refs/tags/$1"); fi
+            refs=$(git ls-remote "https://github.com/$REPO" "${cands[@]}" "refs/tags/${1#refs/tags/}^{}")
+            head=$(awk -v r="refs/heads/${1#refs/heads/}" '$2 == r {print $1}' <<< "$refs")
+            tag=$(awk -v r="refs/tags/${1#refs/tags/}^{}" '$2 == r {print $1}' <<< "$refs")
+            [ -n "$tag" ] || tag=$(awk -v r="refs/tags/${1#refs/tags/}" '$2 == r {print $1}' <<< "$refs")
+            if [[ "$1" == refs/heads/* ]]; then tag=""; elif [[ "$1" == refs/tags/* ]]; then head=""; fi
+            if [ -n "$head" ] && [ -n "$tag" ]; then echo "$1 is both a branch and a tag" >&2; return; fi
+            echo "${head:-$tag}"
+          }
+          SHA=$(resolve "$REF"); [[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || fail "ref $REF not found in $REPO"
+          BASE_SHA=$(resolve "$BASE"); [[ "$BASE_SHA" =~ ^[0-9a-f]{40}$ ]] || fail "base $BASE not found in $REPO"
+          echo "Testing $REF at $SHA, upgrading from $BASE at $BASE_SHA"
+          BASE=$BASE_SHA
+          case "$ARCHES" in
+            amd64) m='[{"arch":"amd64","runner":"ubuntu-24.04"}]' ;;
+            arm64) m='[{"arch":"arm64","runner":"ubuntu-24.04-arm"}]' ;;
+            *)     m='[{"arch":"amd64","runner":"ubuntu-24.04"},{"arch":"arm64","runner":"ubuntu-24.04-arm"}]' ;;
+          esac
+          { echo "matrix={\"include\":$m}"; echo "base=$BASE"; echo "target_sha=$SHA"; } >> "$GITHUB_OUTPUT"
+
+  test:
+    needs: plan
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 345
+    steps:
+      # The test harness always comes from the workflow's own commit, so the code under test
+      # (which may be a pull request) can't change how it is tested.
+      - name: Check out the test harness
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          path: harness
+          persist-credentials: false
+
+      - name: Check out the code under test
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.plan.outputs.target_sha }}
+          path: target
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Free disk space for the full install
+        if: inputs.mode == 'full'
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache /usr/local/share/boost
+          docker image prune -af > /dev/null
+          df -h /
+
+      - name: Run tests
+        env:
+          MODE: ${{ inputs.mode }}
+          STATES: ${{ inputs.states }}
+          SCENARIOS: ${{ inputs.scenarios }}
+          BASE: ${{ needs.plan.outputs.base }}
+          ALLOW: ${{ inputs.allow_changes }}
+          VERIFY: ${{ inputs.verify }}
+          ARCH: ${{ matrix.arch }}
+          TARGET: ${{ github.workspace }}/target
+          OUT: ${{ runner.temp }}/state-test-out
+        run: |
+          git -C target fetch --quiet origin '+refs/heads/*:refs/remotes/origin/*' '+refs/tags/*:refs/tags/*'
+          git -C target cat-file -e "$BASE^{commit}" 2>/dev/null || git -C target fetch --quiet origin "$BASE"
+          rc=0
+          if [ "$MODE" = full ]; then
+            bash harness/.ci/state-test/run.sh full || rc=$?
+          else
+            bash harness/.ci/state-test/run.sh states "$STATES" "$SCENARIOS" "$BASE" "$ALLOW" "$VERIFY" || rc=$?
+          fi
+          df -h /
+          exit $rc
+
+      - name: Add results to the job summary
+        if: always()
+        env:
+          OUT: ${{ runner.temp }}/state-test-out
+        run: cat "$OUT/summary.md" >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: state-test-${{ matrix.arch }}
+          path: ${{ runner.temp }}/state-test-out
+          retention-days: 14
+          if-no-files-found: warn
