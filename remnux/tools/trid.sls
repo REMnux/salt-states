@@ -4,6 +4,8 @@
 # Category: Examine Static Properties: General, Statically Analyze Code: Unpacking
 # Author: Marco Pontello
 # License: Free, unknown license
+# Architecture: amd64
+# Arm64: Use `file` or Detect It Easy instead.
 # Notes: trid, tridupdate
 
 {% from "remnux/osarch.sls" import osarch with context %}

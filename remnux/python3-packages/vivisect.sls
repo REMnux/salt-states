@@ -4,6 +4,7 @@
 # Category: Statically Analyze Code: General
 # Author: invisigoth: invisigoth@kenshoto.com, installable vivisect module by Willi Ballenthin: https://x.com/williballenthin
 # License: Apache License 2.0: https://github.com/vivisect/vivisect/blob/master/LICENSE.txt
+# Arm64: The graphical interface is unavailable.
 # Notes: vivbin, vdbbin
 
 {% from "remnux/osarch.sls" import osarch with context %}

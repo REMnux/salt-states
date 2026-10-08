@@ -4,6 +4,8 @@
 # Category: Explore Network Interactions: Connecting
 # Author: Angelo Dell'Aera
 # License: GNU General Public License (GPL) v2: https://github.com/buffer/thug/blob/master/LICENSE.txt
+# Architecture: amd64
+# Arm64: Run thug on an amd64 system, for example in the remnux/thug container.
 # Notes: thug -F
 
 {% from "remnux/osarch.sls" import osarch with context %}

@@ -41,6 +41,18 @@ from typing import Optional
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
+from frontmatter import (
+    ARCHES,
+    arch_markdown_lines,
+    arch_notes,
+    parse_architectures,
+    parse_header,
+    split_tools_line,
+)
+
+# Docs lines generated from the Architecture, Amd64, and Arm64 fields
+ARCH_DOC_LINE = re.compile(r"^\*\*((?:Available on)|(?:(?:Limitations|Alternative) on \w+))\*\*:\s*(.*?)\\?$")
+
 
 # Default configuration
 DEFAULT_DOCS_REPO = "REMnux/docs"
@@ -59,6 +71,9 @@ class ToolInfo:
     license: str
     notes: str = ""
     state_file_path: str = ""
+    architectures: tuple = ARCHES
+    arch_notes: dict = field(default_factory=dict)
+    sub_tools: list = field(default_factory=list)  # ToolInfo entries from # Tools: lines
 
 
 @dataclass
@@ -73,6 +88,7 @@ class DocToolInfo:
     state_file_ref: str
     file_path: str
     category: str
+    arch_lines: dict = field(default_factory=dict)  # "Available on" etc. -> text
 
 
 @dataclass
@@ -176,18 +192,9 @@ def parse_front_matter(file_path: str) -> Optional[ToolInfo]:
     except Exception:
         return None
     
-    lines = content.split("\n")
-    front_matter = {}
-    
-    for line in lines:
-        if not line.startswith("#"):
-            break
-        match = re.match(r"^#\s*(\w+):\s*(.*)$", line)
-        if match:
-            key = match.group(1).lower()
-            value = match.group(2).strip()
-            front_matter[key] = value
-    
+    header = parse_header(content)
+    front_matter = header.fields
+
     # Check for required fields
     required = ["name", "website", "description", "author", "license"]
     if not all(f in front_matter for f in required):
@@ -205,7 +212,28 @@ def parse_front_matter(file_path: str) -> Optional[ToolInfo]:
         rel_path = "/".join(parts[remnux_idx:])
     except ValueError:
         rel_path = file_path_obj.name
-    
+
+    # Invalid values are lint-frontmatter.py's to report; here they fall back to both
+    architectures, _ = parse_architectures(front_matter)
+    notes_by_arch = arch_notes(front_matter)
+
+    # Sub-tools from # Tools: lines replace the parent in the docs (see update-docs.py)
+    sub_tools = []
+    for line in header.tools_lines:
+        parts = split_tools_line(line)
+        if parts:
+            sub_tools.append(ToolInfo(
+                name=parts["name"],
+                website=parts["website"],
+                description=parts["description"],
+                categories=parts["categories"],
+                author=front_matter["author"],
+                license=front_matter["license"],
+                state_file_path=rel_path,
+                architectures=architectures,
+                arch_notes=dict(notes_by_arch),
+            ))
+
     return ToolInfo(
         name=front_matter["name"],
         website=front_matter["website"],
@@ -215,6 +243,9 @@ def parse_front_matter(file_path: str) -> Optional[ToolInfo]:
         license=front_matter["license"],
         notes=front_matter.get("notes", ""),
         state_file_path=rel_path,
+        architectures=architectures,
+        arch_notes=notes_by_arch,
+        sub_tools=sub_tools,
     )
 
 
@@ -256,12 +287,16 @@ def parse_doc_file(content: str, file_path: str) -> list[DocToolInfo]:
             license_info = ""
             notes = ""
             state_file_ref = ""
-            
+            arch_lines = {}
+
             i += 1
             while i < len(lines) and not lines[i].startswith("## "):
                 entry_line = lines[i]
-                
-                if entry_line.strip() and not entry_line.startswith("**") and not entry_line.startswith("#"):
+                arch_match = ARCH_DOC_LINE.match(entry_line)
+
+                if arch_match:
+                    arch_lines[arch_match.group(1)] = arch_match.group(2).strip()
+                elif entry_line.strip() and not entry_line.startswith("**") and not entry_line.startswith("#"):
                     if not description:
                         description = entry_line.strip()
                 elif entry_line.startswith("**Website**:"):
@@ -290,6 +325,7 @@ def parse_doc_file(content: str, file_path: str) -> list[DocToolInfo]:
                 state_file_ref=state_file_ref,
                 file_path=file_path,
                 category=category,
+                arch_lines=arch_lines,
             ))
         else:
             i += 1
@@ -350,7 +386,11 @@ def audit_docs(
     for sf in state_files:
         tool = parse_front_matter(sf)
         if tool:
-            state_tools[tool.name] = tool
+            if tool.sub_tools and tool.categories:
+                for sub_tool in tool.sub_tools:
+                    state_tools[sub_tool.name] = sub_tool
+            else:
+                state_tools[tool.name] = tool
     
     print(f"Found {len(state_tools)} tools in state files", file=sys.stderr)
     
@@ -490,7 +530,28 @@ def audit_docs(
                         "doc_value": doc_tool.website,
                     },
                 ))
-    
+
+            # Check architecture lines (Available on, Limitations on, Alternative on)
+            expected = {}
+            for line in arch_markdown_lines(tool.architectures, tool.arch_notes):
+                match = ARCH_DOC_LINE.match(line)
+                expected[match.group(1)] = match.group(2).strip()
+            expected_norm = {k: normalize_for_comparison(v) for k, v in expected.items()}
+            doc_norm = {k: normalize_for_comparison(v) for k, v in doc_tool.arch_lines.items()}
+            if expected_norm != doc_norm:
+                issues.append(AuditIssue(
+                    severity="error",
+                    category="architecture_mismatch",
+                    tool_name=name,
+                    message="Architecture lines differ from the state file (run update-docs.py)",
+                    details={
+                        "state_file": tool.state_file_path,
+                        "doc_file": doc_tool.file_path,
+                        "state_value": expected,
+                        "doc_value": doc_tool.arch_lines,
+                    },
+                ))
+
     # Audit 5: Category consistency check
     valid_categories = {
         "Examine Static Properties": ["General", "PE Files", "ELF Files", ".NET", "Go", "Deobfuscation"],

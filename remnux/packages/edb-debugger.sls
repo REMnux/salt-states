@@ -4,6 +4,8 @@
 # Category: Dynamically Reverse-Engineer Code: ELF Files
 # Author: Evan Teran: https://github.com/eteran
 # License: GNU General Public License (GPL) v2: https://github.com/eteran/edb-debugger/blob/master/COPYING
+# Architecture: amd64
+# Arm64: Use gdb or radare2 instead.
 # Notes: 
 
 {% from "remnux/osarch.sls" import osarch with context %}

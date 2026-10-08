@@ -1,0 +1,40 @@
+# Check each documented tool's Architecture frontmatter against what its state installs on
+# amd64 and arm64 (.ci/audit-arch.py). It renders states in the saltstack-tester container
+# without applying them, so it runs on a standard amd64 runner in about 7 minutes.
+name: Audit architectures
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "remnux/**"
+      - ".ci/audit-arch.py"
+      - ".ci/arch-acks.json"
+      - ".ci/frontmatter.py"
+  pull_request:
+    paths:
+      - "remnux/**"
+      - ".ci/audit-arch.py"
+      - ".ci/arch-acks.json"
+      - ".ci/frontmatter.py"
+  workflow_dispatch:
+
+# Rendering a state runs its Jinja, so the job gets no write access and no stored credentials
+permissions:
+  contents: read
+
+concurrency:
+  group: audit-arch-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Audit architecture metadata
+        run: python3 .ci/audit-arch.py

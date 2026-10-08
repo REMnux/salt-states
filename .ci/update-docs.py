@@ -35,6 +35,9 @@ Usage:
     # Preview MCP sync without pushing
     python update-docs.py --sync-mcp --dry-run --show-diff
 
+    # Regenerate the entries for every documented tool (one change per docs file)
+    python update-docs.py --all --dry-run --show-diff
+
 Environment Variables:
     GITHUB_ACCESS_TOKEN: GitHub personal access token with repo write access.
                          If not set, the script will use SSH git access instead.
@@ -69,11 +72,15 @@ Options:
 
     --salt-states-path  Path to salt-states directory (default: script's parent dir).
 
+    --all           Regenerate the entries for every state file that has a Category.
+
 Frontmatter Fields:
     Required: Name, Website, Description, Author, License
     Optional: Category (comma-separated for multiple), Notes
     Optional: Command (comma-separated CLI command names for toolkits)
               If Command is not specified, derived from Name field.
+    Optional: Architecture (amd64, arm64, or both; omitted means both), plus
+              Amd64 and Arm64 notes. See frontmatter.py.
 
 Author: Generated for REMnux project
 License: Same as REMnux project
@@ -93,6 +100,16 @@ from pathlib import Path
 from typing import Optional
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
+
+from frontmatter import (
+    ARCHES,
+    arch_markdown_lines,
+    arch_notes,
+    parse_architectures,
+    parse_header,
+    split_tools_line,
+    validate_architecture,
+)
 
 
 # Default configuration
@@ -117,10 +134,14 @@ class ToolInfo:
     notes: str = ""
     state_file_path: str = ""
     commands: list[str] = None  # CLI command names (from Command: field or derived)
+    architectures: tuple = ARCHES  # from Architecture: field; omitted means both
+    arch_notes: dict = None  # {"arm64": "..."} from the Amd64: and Arm64: fields
 
     def __post_init__(self):
         if self.commands is None:
             self.commands = []
+        if self.arch_notes is None:
+            self.arch_notes = {}
 
     def to_markdown(self) -> str:
         """Generate markdown entry for this tool."""
@@ -133,7 +154,8 @@ class ToolInfo:
             f"**Author**: {self._format_author()}\\",
             f"**License**: {self._format_license()}\\",
         ]
-        
+        lines.extend(arch_markdown_lines(self.architectures, self.arch_notes))
+
         if self.notes:
             lines.append(f"**Notes**: {self.notes}\\")
         
@@ -331,6 +353,10 @@ class GitSSH:
             shutil.rmtree(self.temp_dir)
 
 
+class InvalidMetadata(ValueError):
+    """Frontmatter that is present but wrong, as opposed to a file without frontmatter."""
+
+
 def parse_front_matter(file_path: str) -> tuple["ToolInfo", list[str]]:
     """Parse the front matter from a salt state file.
 
@@ -340,31 +366,24 @@ def parse_front_matter(file_path: str) -> tuple["ToolInfo", list[str]]:
     with open(file_path, "r") as f:
         content = f.read()
 
-    # Extract comment lines at the beginning
-    lines = content.split("\n")
-    front_matter = {}
-    tools_lines = []
+    header = parse_header(content)
+    front_matter = header.fields
+    tools_lines = header.tools_lines
 
-    for line in lines:
-        if not line.startswith("#"):
-            break
-
-        # Parse "# Key: Value" format
-        match = re.match(r"^#\s*(\w+):\s*(.*)$", line)
-        if match:
-            key = match.group(1).lower()
-            value = match.group(2).strip()
-            if key == "tools":
-                tools_lines.append(value)
-                continue
-            front_matter[key] = value
-    
     # Validate required fields (category can be empty for internal dependencies)
     required_fields = ["name", "website", "description", "author", "license"]
     missing = [f for f in required_fields if f not in front_matter]
     if missing:
         raise ValueError(f"Missing required front matter fields: {', '.join(missing)}")
-    
+
+    # Only documented tools (non-empty Category) must have valid architecture
+    # metadata; an internal dependency's mistake shouldn't block the docs
+    if front_matter.get("category", "").strip(", "):
+        arch_errors = validate_architecture(front_matter)
+        if arch_errors:
+            raise InvalidMetadata(f"{file_path}: {'; '.join(arch_errors)}")
+    architectures, _ = parse_architectures(front_matter)
+
     # Parse categories (can be comma-separated for multiple categories)
     # Filter out empty categories - tools with no category are internal dependencies
     # and should not appear in the documentation
@@ -405,6 +424,8 @@ def parse_front_matter(file_path: str) -> tuple["ToolInfo", list[str]]:
         notes=front_matter.get("notes", ""),
         state_file_path=rel_path,
         commands=commands,
+        architectures=architectures,
+        arch_notes=arch_notes(front_matter),
     ), tools_lines
 
 
@@ -519,11 +540,11 @@ def update_tool_in_content(content: str, tool: ToolInfo, delete: bool = False) -
     tool_markdown = tool.to_markdown()
     
     if start_line >= 0:
-        # Update existing entry
-        # Remove trailing blank lines from the entry
-        while end_line > start_line and lines[end_line - 1].strip() == "":
-            end_line -= 1
-        
+        # Update existing entry, leaving exactly one blank line before the next
+        # entry (keeping the old blank lines added one more on every run)
+        while end_line < len(lines) and lines[end_line].strip() == "":
+            end_line += 1
+
         new_lines = lines[:start_line] + tool_markdown.split("\n") + [""] + lines[end_line:]
         return "\n".join(new_lines), "updated"
     else:
@@ -737,22 +758,24 @@ def _expand_sub_tools(parent: ToolInfo, sub_tool_lines: list[str]) -> list[ToolI
     """Expand '# Tools:' lines into individual ToolInfo entries.
 
     Each line has the format: name|description|website|categories
-    Sub-tools inherit author, license, and state_file_path from the parent.
+    Sub-tools inherit author, license, architecture metadata, and
+    state_file_path from the parent.
     """
     sub_tools = []
     for line in sub_tool_lines:
-        parts = [p.strip() for p in line.split("|")]
-        if len(parts) >= 4:
-            categories = [c.strip() for c in parts[3].split(",") if c.strip()]
+        parts = split_tools_line(line)
+        if parts:
             sub_tools.append(ToolInfo(
-                name=parts[0],
-                description=parts[1],
-                website=parts[2],
-                categories=categories,
+                name=parts["name"],
+                description=parts["description"],
+                website=parts["website"],
+                categories=parts["categories"],
                 author=parent.author,
                 license=parent.license,
                 state_file_path=parent.state_file_path,
-                commands=[parts[0].replace('.py', '')],
+                commands=[parts["name"].replace('.py', '')],
+                architectures=parent.architectures,
+                arch_notes=dict(parent.arch_notes),
             ))
     return sub_tools
 
@@ -813,6 +836,10 @@ def scan_all_tools(salt_states_path: str, verbose: bool = False) -> list[ToolInf
                 tools.extend(_expand_sub_tools(tool, sub_tool_lines))
             else:
                 skipped_no_category.append(sls_file.name)
+        except InvalidMetadata as e:
+            # Wrong metadata must stop the run, not drop the tool from the output
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
         except ValueError as e:
             # Missing required frontmatter - skip
             skipped_parse_error.append((sls_file.name, str(e)))
@@ -833,6 +860,65 @@ def scan_all_tools(salt_states_path: str, verbose: bool = False) -> list[ToolInf
     return tools
 
 
+def collect_documented_tools(salt_states_path: str) -> list[tuple[ToolInfo, list[str]]]:
+    """Return (tool, tools_lines) for every state file with a Category, for --all.
+
+    Includes init.sls files, since a directory-style state can document a tool
+    (remnux/config/objects/init.sls documents objects.js).
+    """
+    remnux_path = Path(salt_states_path) / "remnux"
+    if not remnux_path.is_dir():
+        print(f"Error: remnux directory not found at {remnux_path}", file=sys.stderr)
+        sys.exit(1)
+    sls_files = sorted(remnux_path.rglob("*.sls"))
+    ignored = _gitignored_sls(salt_states_path, sls_files)
+    batch = []
+    for sls_file in sls_files:
+        if sls_file in ignored:
+            continue
+        try:
+            tool, sub_tool_lines = parse_front_matter(str(sls_file))
+        except InvalidMetadata as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
+        except ValueError:
+            continue  # no frontmatter (internal dependency or config state)
+        if tool.categories:
+            batch.append((tool, sub_tool_lines))
+
+    # Two docs entries with the same name would overwrite each other. Sub-tools
+    # from # Tools: lines replace their parent, so check the expanded names.
+    by_name = {}
+    for tool, sub_tool_lines in batch:
+        entries = _expand_sub_tools(tool, sub_tool_lines) or [tool]
+        for entry in entries:
+            by_name.setdefault(entry.name.lower(), []).append(f"{entry.state_file_path} ({entry.name})")
+    duplicates = {name: sources for name, sources in by_name.items() if len(sources) > 1}
+    if duplicates:
+        for name, sources in duplicates.items():
+            print(f"Error: '{name}' names more than one documented entry: {', '.join(sources)}", file=sys.stderr)
+        print("Clear the Category of all but one of them, or rename one.", file=sys.stderr)
+        sys.exit(1)
+    return batch
+
+
+def prepare_tool_changes(tool: ToolInfo, sub_tool_lines: list[str], backend,
+                         content_overrides: dict) -> list[FileChange]:
+    """Prepare the docs changes for one state file, expanding any # Tools: lines."""
+    sub_tools = _expand_sub_tools(tool, sub_tool_lines)
+    if not sub_tools:
+        return prepare_changes(tool, None, backend, delete=False,
+                               content_overrides=content_overrides)
+    # Sub-tools replace the parent — don't add meta "Didier Stevens Scripts" entry
+    # First delete the parent if it exists in docs
+    changes = prepare_changes(tool, None, backend, delete=True,
+                              content_overrides=content_overrides)
+    for sub_tool in sub_tools:
+        changes.extend(prepare_changes(sub_tool, None, backend, delete=False,
+                                       content_overrides=content_overrides))
+    return changes
+
+
 def generate_json_index(tools: list[ToolInfo]) -> dict:
     """Generate tools-index.json structure from list of tools."""
     from datetime import datetime
@@ -847,14 +933,17 @@ def generate_json_index(tools: list[ToolInfo]) -> dict:
                 "category": tool.categories[0] if tool.categories else "",
                 "description": tool.description,
                 "website": tool.website,
+                "architectures": list(tool.architectures),
             }
+            if tool.arch_notes:
+                entry["arch_notes"] = dict(tool.arch_notes)
             entries.append(entry)
 
     # Sort by command name
     entries.sort(key=lambda e: e["command"].lower())
 
     return {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "updated": datetime.now().strftime("%Y-%m-%d"),
         "tools": entries,
     }
@@ -977,6 +1066,12 @@ Environment:
         help="Push tools-index.json to the MCP server repo via GitHub API",
     )
 
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Regenerate the entries for every state file that has a Category",
+    )
+
     args = parser.parse_args()
 
     # Handle --json-index mode
@@ -1084,15 +1179,23 @@ Environment:
                 git.cleanup()
 
     # Validate arguments
-    if not args.target:
+    batch = None
+    if args.all:
+        if args.target or args.delete:
+            parser.error("--all takes no target and can't be combined with --delete")
+        salt_states_path = args.salt_states_path or str(Path(__file__).parent.parent)
+        batch = collect_documented_tools(salt_states_path)
+    elif not args.target:
         parser.error("Target is required (state file path or tool name with --delete)")
-    
+
     # Determine if target is a tool name or file path
     tool = None
     tool_name = None
     sub_tool_lines = []
-    
-    if args.delete and not args.target.endswith(".sls"):
+
+    if batch is not None:
+        pass
+    elif args.delete and not args.target.endswith(".sls"):
         # Target is a tool name for deletion
         tool_name = args.target
     else:
@@ -1127,7 +1230,9 @@ Environment:
         sys.exit(0)
     
     if args.verbose:
-        if tool:
+        if batch is not None:
+            print(f"Tools: {len(batch)} state files with a Category")
+        elif tool:
             print(f"Tool: {tool.name}")
             print(f"Categories: {', '.join(tool.categories) if tool.categories else '(none)'}")
         else:
@@ -1154,25 +1259,25 @@ Environment:
     # Prepare changes (parent tool + any sub-tools from # Tools: lines)
     try:
         content_overrides = {}
-        sub_tools = _expand_sub_tools(tool, sub_tool_lines) if tool and not args.delete else []
-
-        if sub_tools:
-            # Sub-tools replace the parent — don't add meta "Didier Stevens Scripts" entry
-            # First delete the parent if it exists in docs
+        if batch is not None:
+            changes = []
+            for batch_tool, batch_lines in batch:
+                changes.extend(prepare_tool_changes(batch_tool, batch_lines, backend,
+                                                    content_overrides))
+        elif args.delete:
             changes = prepare_changes(tool, tool_name, backend, delete=True,
                                       content_overrides=content_overrides)
-            for sub_tool in sub_tools:
-                changes.extend(prepare_changes(sub_tool, None, backend, delete=False,
-                                               content_overrides=content_overrides))
         else:
-            changes = prepare_changes(tool, tool_name, backend, delete=args.delete,
-                                      content_overrides=content_overrides)
+            changes = prepare_tool_changes(tool, sub_tool_lines, backend, content_overrides)
 
-        # Keep only last change per file (has all accumulated edits)
+        # Keep only last change per file (has all accumulated edits), but diff it
+        # against the file's original content rather than the previous edit
         seen = {}
         for c in changes:
+            if c.file_path in seen:
+                c.old_content = seen[c.file_path].old_content
             seen[c.file_path] = c
-        changes = list(seen.values())
+        changes = [c for c in seen.values() if c.new_content != c.old_content]
     except Exception as e:
         print(f"Error preparing changes: {e}", file=sys.stderr)
         if use_ssh:

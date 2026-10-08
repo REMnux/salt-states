@@ -4,6 +4,7 @@
 # Category: Dynamically Reverse-Engineer Code: General, Use Artificial Intelligence, Statically Analyze Code: General
 # Author: https://github.com/radareorg/radare2/blob/master/AUTHORS.md
 # License: GNU Lesser General Public License (LGPL) v3: https://github.com/radareorg/radare2/blob/master/COPYING
+# Arm64: The r2ghidra decompiler (pdg) is unavailable.
 # Notes: r2, rasm2, rabin2, rahash2, rafind2, r2ai, decai, pdg
 
 {% from "remnux/osarch.sls" import osarch with context %}

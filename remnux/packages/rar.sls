@@ -4,6 +4,8 @@
 # Category: General Utilities
 # Author: Alexander Roshal
 # License: Shareware: "Anyone may use this software during a test period of 40 days. Following this test period of 40 days or less, if you wish to continue to use RAR, you must purchase a license." For details, see https://www.rarlab.com/license.htm.
+# Architecture: amd64
+# Arm64: To extract RAR archives, use unrar or 7zz instead.
 # Notes: rar
 
 {% from "remnux/osarch.sls" import osarch with context %}

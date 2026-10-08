@@ -4,6 +4,7 @@
 # Category: Statically Analyze Code: General
 # Author: National Security Agency
 # License: Apache License 2.0: https://github.com/NationalSecurityAgency/ghidra/blob/master/LICENSE
+# Arm64: Ghidra can't open 7-Zip archives.
 # Notes: Close CodeBrowser before exiting Ghidra to prevent Ghidra from freezing when you reopen the tool (it's a Ghidra bug).
 
 include:

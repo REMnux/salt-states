@@ -7,6 +7,12 @@ Checks:
 2. Category (if present) uses valid values
 3. URLs are well-formed
 4. No trailing whitespace in values
+5. Architecture (if present) lists valid architectures, and each one it leaves
+   out has a note (Amd64: or Arm64:)
+6. In documented tools (non-empty Category): no unknown, malformed, or
+   duplicated keys, so a typo such as "Architechture:" can't vanish silently
+
+Files without frontmatter, such as internal dependencies, are not checked.
 
 Usage:
     python lint-frontmatter.py [file1.sls file2.sls ...]
@@ -21,6 +27,8 @@ import re
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
+
+from frontmatter import KNOWN_FIELDS, REPEATABLE_FIELDS, parse_header, validate_architecture
 
 
 # Valid categories structure (from audit-docs.py)
@@ -41,45 +49,29 @@ VALID_CATEGORIES = {
 # Required fields for documentation
 REQUIRED_FIELDS = ["name", "website", "description", "author", "license"]
 
-# All recognized frontmatter fields (required + optional)
-KNOWN_FIELDS = REQUIRED_FIELDS + ["category", "notes"]
+# Fields whose presence marks a file as having frontmatter. Files without any
+# of these (internal dependencies, config states) are not checked.
+FRONTMATTER_MARKERS = REQUIRED_FIELDS + ["category", "notes"]
 
 
-def parse_frontmatter(file_path: Path) -> tuple[dict, list[str]]:
+def parse_frontmatter(file_path: Path):
     """
     Parse frontmatter from a .sls file.
 
     Returns:
-        (fields_dict, errors_list)
+        (header, errors_list)
     """
-    errors = []
-    front_matter = {}
-
     try:
         content = file_path.read_text()
     except Exception as e:
-        return {}, [f"Could not read file: {e}"]
+        return None, [f"Could not read file: {e}"]
 
-    lines = content.split("\n")
-
-    for line_num, line in enumerate(lines, start=1):
-        # Stop at first non-comment line
-        if not line.startswith("#"):
-            break
-
-        # Parse "# Key: Value" format
-        match = re.match(r"^#\s*(\w+):\s*(.*)$", line)
-        if match:
-            key = match.group(1).lower()
-            value = match.group(2)
-
-            # Check for trailing whitespace
-            if value != value.rstrip():
-                errors.append(f"Line {line_num}: Trailing whitespace in '{match.group(1)}' field")
-
-            front_matter[key] = value.strip()
-
-    return front_matter, errors
+    header = parse_header(content)
+    errors = [
+        f"Line {line_num}: Trailing whitespace in '{key}' field"
+        for line_num, key in header.trailing_whitespace
+    ]
+    return header, errors
 
 
 def validate_url(url: str) -> bool:
@@ -127,13 +119,16 @@ def lint_file(file_path: Path) -> list[str]:
     errors = []
 
     # Parse frontmatter
-    front_matter, parse_errors = parse_frontmatter(file_path)
+    header, parse_errors = parse_frontmatter(file_path)
     errors.extend(parse_errors)
+    if header is None:
+        return errors
+    front_matter = header.fields
 
     # Only validate if at least one recognized frontmatter field is present
     # This allows files with no frontmatter (internal dependencies, config states)
     # and ignores false positives like "# https://..." being parsed as key: value
-    has_known_fields = any(field in front_matter for field in KNOWN_FIELDS)
+    has_known_fields = any(field in front_matter for field in FRONTMATTER_MARKERS)
     if not has_known_fields:
         return errors
 
@@ -141,6 +136,22 @@ def lint_file(file_path: Path) -> list[str]:
     missing = [f for f in REQUIRED_FIELDS if f not in front_matter]
     if missing:
         errors.append(f"Missing required fields: {', '.join(missing)}")
+
+    # Documented tools: reject keys the tooling would ignore or misread.
+    # Undocumented states may keep free-form comment blocks (e.g. "# Behavior:").
+    if front_matter.get("category"):
+        for key, line_nums in header.key_lines.items():
+            if key not in KNOWN_FIELDS:
+                errors.append(f"Line {line_nums[0]}: Unknown frontmatter key '{key}'. Known keys: {', '.join(KNOWN_FIELDS)}")
+            elif len(line_nums) > 1 and key not in REPEATABLE_FIELDS:
+                errors.append(f"Lines {', '.join(map(str, line_nums))}: Key '{key}' appears more than once")
+        for line_num, line in header.malformed:
+            errors.append(f"Line {line_num}: Frontmatter keys must be one word: '{line.strip()}'")
+
+    # Architecture and the per-architecture notes
+    if "architecture" in front_matter or "amd64" in front_matter or "arm64" in front_matter:
+        for err in validate_architecture(front_matter, require_notes=bool(front_matter.get("category"))):
+            errors.append(f"Architecture error: {err}")
 
     # Validate website URL
     if "website" in front_matter:

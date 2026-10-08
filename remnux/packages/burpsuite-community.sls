@@ -4,6 +4,7 @@
 # Category: Explore Network Interactions: Monitoring
 # Author: PortSwigger
 # License: Free, custom license: https://portswigger.net/burp/tc-community
+# Arm64: The built-in browser doesn't run.
 # Notes: burpsuite
 
 include:
