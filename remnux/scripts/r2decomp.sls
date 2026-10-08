@@ -9,11 +9,6 @@
 # Upstream publishes no tags or releases, so the source is pinned to a commit
 # rather than to master: a push upstream would otherwise fail the source_hash
 # check on every clean install until this file caught up.
-#
-# Installed on every architecture even though remnux.packages.radare2 ships the
-# r2ghidra deb on amd64 only. r2pm works on arm64, so "r2pm -ci r2ghidra" is a
-# working fix there, and it is exactly what "r2decomp doctor" prints. That is a
-# better arm64 experience than the tool being absent.
 
 {% set commit = '771df8326aa1ad123eef9f56b81ec5f00663defa' %}
 {% set hash = '7b0416e709077e7b527f382999eeaa4311a0c16bf5f458c5119c3689c751afed' %}
