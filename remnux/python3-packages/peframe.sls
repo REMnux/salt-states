@@ -6,6 +6,7 @@
 # License: Free, unknown license
 # Notes: peframe
 
+{% from "remnux/osarch.sls" import osarch with context %}
 include:
   - remnux.packages.python3-virtualenv
   - remnux.packages.build-essential
@@ -25,9 +26,19 @@ remnux-python3-packages-peframe-venv:
     - require:
       - sls: remnux.packages.python3-virtualenv
 
-remnux-python3-packages-peframe:
+{% if osarch == "arm64" %}
+{# peframe-ds depends on the PyPI readline package, which bundles readline 6.2, whose build
+   cannot detect arm64. Python's own readline module already covers Linux, so arm64 installs
+   peframe-ds's other dependencies, then peframe-ds without dependencies. #}
+remnux-python3-packages-peframe-deps:
   pip.installed:
-    - name: peframe-ds
+    - pkgs:
+      - pefile
+      - requests
+      - python-magic
+      - yara-python
+      - oletools
+      - cryptography
     - bin_env: /opt/peframe/bin/python3
     - upgrade: True
     - require:
@@ -36,6 +47,25 @@ remnux-python3-packages-peframe:
       - sls: remnux.packages.libncurses
       - sls: remnux.packages.libmagic-dev
       - sls: remnux.packages.python3-dev
+
+{% endif %}
+remnux-python3-packages-peframe:
+  pip.installed:
+    - name: peframe-ds
+    - bin_env: /opt/peframe/bin/python3
+    - upgrade: True
+{% if osarch == "arm64" %}
+    - no_deps: True
+{% endif %}
+    - require:
+      - virtualenv: remnux-python3-packages-peframe-venv
+      - sls: remnux.packages.build-essential
+      - sls: remnux.packages.libncurses
+      - sls: remnux.packages.libmagic-dev
+      - sls: remnux.packages.python3-dev
+{% if osarch == "arm64" %}
+      - pip: remnux-python3-packages-peframe-deps
+{% endif %}
 
 remnux-python3-packages-peframe-symlink:
   file.symlink:

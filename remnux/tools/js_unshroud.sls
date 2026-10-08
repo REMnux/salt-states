@@ -7,6 +7,15 @@
 # License: MIT License: https://github.com/edygert/js_unshroud/blob/master/LICENSE.txt
 # Notes: js_unshroud. Capture with `js_unshroud run --url <url> --out events.jsonl`; run it without arguments to see usage. Needs a display; on headless systems the wrapper starts a virtual one automatically (xvfb).
 
+{% from "remnux/osarch.sls" import osarch with context %}
+{% if osarch == "arm64" %}
+
+remnux-tools-js_unshroud-arm64-skip:
+  test.show_notification:
+    - text: "Skipped on arm64: js_unshroud is not yet available for this architecture."
+
+{% else %}
+
 {% set version = '0.2.0' %}
 {% set file = 'js_unshroud-linux-x64.tar.gz' %}
 {% set hash = '1a63cdd7d1f107c3f01992bec41c439e19217f53b1c85c08bdb026de8f49ce60' %}
@@ -54,3 +63,5 @@ remnux-tools-js_unshroud-wrapper:
     - require:
       - archive: remnux-tools-js_unshroud-archive
       - pkg: remnux-tools-js_unshroud-xvfb
+
+{% endif %}
