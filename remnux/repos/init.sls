@@ -9,6 +9,7 @@ include:
   - remnux.repos.wireshark-dev
   - remnux.repos.microsoft
   - remnux.repos.microsoft-vscode
+  - remnux.repos.mozilla
   - remnux.repos.nodejs
   - remnux.repos.winehq
   - remnux.repos.refresh
@@ -26,6 +27,7 @@ remnux-repos:
       - sls: remnux.repos.wireshark-dev
       - sls: remnux.repos.microsoft
       - sls: remnux.repos.microsoft-vscode
+      - sls: remnux.repos.mozilla
       - sls: remnux.repos.nodejs
       - sls: remnux.repos.winehq
       - sls: remnux.repos.refresh

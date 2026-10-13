@@ -32,11 +32,12 @@ remnux-tools-mermaid-view-wrapper:
     - contents: |
         #!/usr/bin/env bash
         # Render a Mermaid diagram to a fully self-contained local HTML page and
-        # open it in the default browser. On Ubuntu/REMnux the browser is a snap
-        # (Firefox), which runs in a private mount namespace and cannot read /tmp
-        # or /usr/local. So the Mermaid renderer is inlined into the page (no
-        # external file reference) and the page is written where the browser snap
-        # can read it. Rendering is offline under a network-blocking CSP with
+        # open it in the default browser. REMnux installs Mozilla's Firefox
+        # package, but a system that still has the Firefox snap runs it in a
+        # private mount namespace that cannot read /tmp or /usr/local. So the
+        # Mermaid renderer is inlined into the page (no external file reference)
+        # and the page is written where either Firefox can read it. Rendering is
+        # offline under a network-blocking CSP with
         # Mermaid securityLevel strict; the diagram source is base64-embedded in
         # the page body, so there is no URL-length limit.
         set -euo pipefail
@@ -71,7 +72,8 @@ remnux-tools-mermaid-view-wrapper:
         fi
 
         # A snap-confined Firefox can read files under its own common dir but not
-        # /tmp or /usr/local; fall back to a non-hidden dir in HOME otherwise.
+        # /tmp or /usr/local, and Mozilla's Firefox can read both locations. Use
+        # the snap dir while it exists, and a non-hidden dir in HOME otherwise.
         if [[ -d "$HOME/snap/firefox/common" ]]; then
             outdir="$HOME/snap/firefox/common/mermaid-view"
         else
