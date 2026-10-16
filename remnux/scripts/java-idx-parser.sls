@@ -21,19 +21,29 @@ remnux-scripts-java-idx-parser-venv:
     - require:
       - sls: remnux.packages.python3-virtualenv
 
+# SIFT installs the Java_IDX_Parser package into this same virtualenv. When
+# SIFT's idx-parser command runs, Python imports bin/idx_parser.py instead of
+# that package. Install the script outside bin/, and remove the copy that
+# earlier versions of this state installed there.
+remnux-scripts-java-idx-parser-old-location:
+  file.absent:
+    - name: /opt/java-idx-parser/bin/idx_parser.py
+
 remnux-scripts-java-idx-parser:
   file.managed:
-    - name: /opt/java-idx-parser/bin/idx_parser.py
+    - name: /opt/java-idx-parser/scripts/idx_parser.py
     - source: https://raw.githubusercontent.com/digitalsleuth/Java_IDX_Parser/refs/heads/master/idx_parser/idx_parser.py
     - source_hash: sha256=0b024996b6009e0574b49be6083dd72d565b97dcf815150e302383139c0e3d26
     - mode: 755
+    - makedirs: True
     - require:
       - virtualenv: remnux-scripts-java-idx-parser-venv
+      - file: remnux-scripts-java-idx-parser-old-location
 
 remnux-scripts-java-idx-parser-symlink:
   file.symlink:
     - name: /usr/local/bin/idx_parser.py
-    - target: /opt/java-idx-parser/bin/idx_parser.py
+    - target: /opt/java-idx-parser/scripts/idx_parser.py
     - force: True
     - makedirs: False
     - require:
@@ -41,7 +51,7 @@ remnux-scripts-java-idx-parser-symlink:
 
 remnux-scripts-java-idx-parser-shebang:
   file.replace:
-    - name: /opt/java-idx-parser/bin/idx_parser.py
+    - name: /opt/java-idx-parser/scripts/idx_parser.py
     - pattern: '#! /usr/bin/env python3\n'
     - repl: '#!/opt/java-idx-parser/bin/python3\n'
     - backup: False
