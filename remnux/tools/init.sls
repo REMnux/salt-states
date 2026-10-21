@@ -29,6 +29,7 @@ include:
   - remnux.tools.js_unshroud
   - remnux.tools.mermaid-view
   - remnux.tools.x64dbg-docs
+  - remnux.tools.cilantro
 
 remnux-tools:
   test.nop:
@@ -63,3 +64,4 @@ remnux-tools:
       - sls: remnux.tools.js_unshroud
       - sls: remnux.tools.mermaid-view
       - sls: remnux.tools.x64dbg-docs
+      - sls: remnux.tools.cilantro
