@@ -2,29 +2,26 @@
 # Website: https://github.com/jgajek/cilantro
 # Description: Deobfuscate and unpack .NET programs protected with .NET Reactor, ConfuserEx, Babel .NET, or Dotfuscator, without running them.
 # Category: Statically Analyze Code: .NET, Statically Analyze Code: Unpacking
-# Author: Jacob Gajek: https://github.com/jgajek
+# Author: Jacob Gajek: https://x.com/jgajek
 # License: MIT License: https://github.com/jgajek/cilantro/blob/main/LICENSE
-# Architecture: amd64
-# Arm64: Use ILSpy to decompile .NET programs, though it doesn't deobfuscate them.
 # Notes: cilantro
 
 {% from "remnux/osarch.sls" import osarch with context %}
+
+{% set version = '1.0.6' %}
 {% if osarch == "arm64" %}
-
-remnux-tools-cilantro-arm64-skip:
-  test.show_notification:
-    - text: "Skipped on arm64: CILantro is not available for this architecture."
-
+{% set arch = 'arm64' %}
+{% set hash = 'b09e4402d805ce45e5e995ab17a6c70f0c2b40467bf20346f7fd4b5c89d400af' %}
 {% else %}
-
-{% set version = '1.0.5' %}
-{% set file = 'cilantro-linux-x64-' ~ version ~ '.tar.gz' %}
-{% set hash = '00f87c1f494112d6dab11b564bcd27264629fbdd6232d66cbe37be067a6ba9a1' %}
+{% set arch = 'x64' %}
+{% set hash = '9fd5dbf80e18305f105f85d55ed90dab4644390110a503ec32a938e482c7ec7f' %}
+{% endif %}
+{% set file = 'cilantro-linux-' ~ arch ~ '-' ~ version ~ '.tar.gz' %}
 
 remnux-tools-cilantro-source:
   file.managed:
     - name: /usr/local/src/remnux/files/{{ file }}
-    - source: https://github.com/jgajek/cilantro/releases/download/v{{ version }}/cilantro-linux-x64.tar.gz
+    - source: https://github.com/jgajek/cilantro/releases/download/v{{ version }}/cilantro-linux-{{ arch }}.tar.gz
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
@@ -47,5 +44,3 @@ remnux-tools-cilantro-binary:
     - force: True
     - require:
       - archive: remnux-tools-cilantro-archive
-
-{% endif %}
